@@ -12,7 +12,7 @@ ZSH_THEME="dstufft"
 
 # Shell
 
-export EDITOR="mvim -v"
+export EDITOR="vim"
 
 alias zshconfig="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
@@ -29,26 +29,29 @@ alias uppa='sh ~/scripts/shell/uppa'
 
 alias cpu='top -o cpu -n 5'
 
-alias vim='mvim -v'
-alias v='mvim -v'
+alias v='vim'
 
 
 # Blog
+alias newo='sh ~/scripts/blog/newocto'
 alias new='sh ~/scripts/blog/new'
+alias pre='sh ~/scripts/blog/pre'
+alias news='sh ~/scripts/blog/news'
+alias edits='sh ~/scripts/blog/edits'
 alias edit='sh ~/scripts/blog/edit'
 alias pre='sh ~/scripts/blog/pre'
-alias newo='sh ~/scripts/blog/newocto'
 alias edito='sh ~/scripts/blog/editocto'
 alias pubo='sh ~/scripts/blog/pubocto'
 alias preo='sh ~/scripts/blog/preocto'
 
+alias gitta='sh ~/scripts/blog/gitta'
 
 # Todo
 
 alias plus='sh ~/scripts/todo/plus.sh'
 alias minus='sh ~/scripts/todo/minus.sh'
 
-PATH=$PATH:"/Users/svartfax/scripts/todo/"
+PATH=$PATH:"/home/svartfax/scripts/todo/"
 alias t='todo.sh -d ~/scripts/todo/todo.cfg'
 alias ts='todo.sh -d ~/scripts/todo/todo.cfg schedule'
 alias tb='todo.sh -d ~/scripts/todo/todo.cfg birdseye'
@@ -57,8 +60,8 @@ alias tx='todo.sh -x -d ~/scripts/todo/todo.cfg'
 alias tv='todo.sh -x -d ~/scripts/todo/todo.cfg view'
 function tm { t schedule $1 mv tomorrow; }
 export TODOTXT_DEFAULT_ACTION=ls
-export TODOTXT_HOME=/Users/svartfax/scripts/todo
-# source /Users/svartfax/scripts/todo/todo_completion
+export TODOTXT_HOME=/home/svartfax/scripts/todo
+# source /home/svartfax/scripts/todo/todo_completion
 # complete -F _todo t
 
 alias p='python ~/scripts/todo/Punch.py'
@@ -98,6 +101,3 @@ unsetopt nomatch
 plugins=(git osx last-working-dir sublime)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/Users/svartfax/.rvm/gems/ruby-1.9.2-p320/bin:/Users/svartfax/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/svartfax/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/svartfax/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/usr/local/git/bin:/usr/local/MacGPG2/bin:/usr/texbin:/opt/local/bin:/Users/svartfax/scripts/todo/

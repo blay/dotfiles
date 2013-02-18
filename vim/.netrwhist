@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='notes/simplenotes'
+let g:netrw_dirhist_2='/Users/svartfax/notes/simplenotes'
+let g:netrw_dirhist_3='/Users/svartfax/.oh-my-zsh'
+let g:netrw_dirhist_4='/Users/svartfax/.vimperator'
+let g:netrw_dirhist_5='/Users/svartfax/.vimperator/info'
+let g:netrw_dirhist_6='/Users/svartfax/.vimperator/info/default'
+let g:netrw_dirhist_7='/home/svartfax/.config/terminator'
+let g:netrw_dirhist_8='/home/svartfax/builds/dwm'
+let g:netrw_dirhist_9='/home/svartfax/.config/terminator'

@@ -1,0 +1,20 @@
+insert date or datetime in command line.
+https://github.com/taku-o/vim-cmdline-insertdatetime
+
+in commandline,
+    <C-X>dt         insert YYYYMMDD formated date string.
+    <C-X>ts         insert YYYYMMDDHHMM formated datetime string.
+
+usage example,
+    1. input file name head .
+        :w work
+
+    2. input <C-X>dt .
+        :w work20110525
+
+    3. input file extension '.txt' .
+        :w work20110525.txt
+
+    4. enter, and save file with date.
+
+
