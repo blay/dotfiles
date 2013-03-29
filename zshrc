@@ -34,14 +34,18 @@ alias v='mvim -v'
 
 
 # Blog
+alias newo='sh ~/scripts/blog/newocto'
 alias new='sh ~/scripts/blog/new'
+alias pre='sh ~/scripts/blog/pre'
+alias news='sh ~/scripts/blog/news'
+alias edits='sh ~/scripts/blog/edits'
 alias edit='sh ~/scripts/blog/edit'
 alias pre='sh ~/scripts/blog/pre'
-alias newo='sh ~/scripts/blog/newocto'
 alias edito='sh ~/scripts/blog/editocto'
 alias pubo='sh ~/scripts/blog/pubocto'
 alias preo='sh ~/scripts/blog/preocto'
 
+alias gitta='sh ~/scripts/blog/gitta'
 
 # Todo
 
@@ -55,6 +59,8 @@ alias tb='todo.sh -d ~/scripts/todo/todo.cfg birdseye'
 alias tu='todo.sh -d ~/scripts/todo/todo.cfg until'
 alias tx='todo.sh -x -d ~/scripts/todo/todo.cfg'
 alias tv='todo.sh -x -d ~/scripts/todo/todo.cfg view'
+alias tt='todo.sh -x -d ~/scripts/todo/todo.cfg view tomorrow'
+alias t1='todo.sh -x -d ~/scripts/todo/todo.cfg view 1weeks'
 function tm { t schedule $1 mv tomorrow; }
 export TODOTXT_DEFAULT_ACTION=ls
 export TODOTXT_HOME=/Users/svartfax/scripts/todo
