@@ -50,7 +50,7 @@ elif echo "$1" | grep -iq ^todo$ ; then
   TODO_CD_TO_="$TODO_DIR"
 elif echo "$1" | grep -iq ^addons$ ; then
   if [ x"$TODO_ACTIONS_DIR" == x ] ; then
-    TODO_CD_TO_="$HOME/.todo.actions.d"
+    TODO_CD_TO_="$HOME/scripts/todo/todo.actions.d"
   else
     TODO_CD_TO_="$TODO_ACTIONS_DIR"
   fi

@@ -34,12 +34,12 @@ VimwikiLinkHandler	vimwiki.txt	/*VimwikiLinkHandler*
 alternative	vimwiki.txt	/*alternative*
 g:vimwiki_CJK_length	vimwiki.txt	/*g:vimwiki_CJK_length*
 g:vimwiki_auto_checkbox	vimwiki.txt	/*g:vimwiki_auto_checkbox*
+g:vimwiki_autowriteall	vimwiki.txt	/*g:vimwiki_autowriteall*
 g:vimwiki_conceallevel	vimwiki.txt	/*g:vimwiki_conceallevel*
 g:vimwiki_debug	vimwiki.txt	/*g:vimwiki_debug*
 g:vimwiki_diary_months	vimwiki.txt	/*g:vimwiki_diary_months*
 g:vimwiki_dir_link	vimwiki.txt	/*g:vimwiki_dir_link*
 g:vimwiki_ext2syntax	vimwiki.txt	/*g:vimwiki_ext2syntax*
-g:vimwiki_fold_lists	vimwiki.txt	/*g:vimwiki_fold_lists*
 g:vimwiki_folding	vimwiki.txt	/*g:vimwiki_folding*
 g:vimwiki_global_ext	vimwiki.txt	/*g:vimwiki_global_ext*
 g:vimwiki_hl_cb_checked	vimwiki.txt	/*g:vimwiki_hl_cb_checked*
@@ -53,7 +53,6 @@ g:vimwiki_menu	vimwiki.txt	/*g:vimwiki_menu*
 g:vimwiki_table_auto_fmt	vimwiki.txt	/*g:vimwiki_table_auto_fmt*
 g:vimwiki_table_mappings	vimwiki.txt	/*g:vimwiki_table_mappings*
 g:vimwiki_url_maxsave	vimwiki.txt	/*g:vimwiki_url_maxsave*
-g:vimwiki_url_mingain	vimwiki.txt	/*g:vimwiki_url_mingain*
 g:vimwiki_use_calendar	vimwiki.txt	/*g:vimwiki_use_calendar*
 g:vimwiki_use_mouse	vimwiki.txt	/*g:vimwiki_use_mouse*
 g:vimwiki_user_htmls	vimwiki.txt	/*g:vimwiki_user_htmls*

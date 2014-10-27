@@ -126,6 +126,7 @@ function date_view() {
         #  Use core _list function, does numbering and colouring for us
         DATE_LIST=$(_list "$TODO_FILE" "t:$date" "$term" | sed 's/\(^t:\|\ *t:\)[0-9-]*\ */ /g')
         if [ -n "${DATE_LIST}" ]; then
+            date=$(gdate -d $date +%d-%B-%Y:%A)
             echo  "---  $date  ---"
             echo  "${DATE_LIST}"
             echo  ""
@@ -160,7 +161,7 @@ function date_check() {
         fi
         ;;
     'past')
-        if [[ "$_date" -le "$today" ]]; then
+        if [[ "$_date" -lt "$today" ]]; then
             return 1
         fi
         ;;
