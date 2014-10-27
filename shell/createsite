@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Settings
+
+VHOST_CONF=/etc/apache2/sites-available/
+ROOT_UID=0
+NOTROOT=87
+WWW_ROOT=/var/www/
+USER=demo
+GROUP=demo
+
+# Check if is root
+if [ "$(whoami)" != "root" ]
+then
+echo “You must be root to run this script.”
+exit $NOTROOT
+fi
+
+if [ -n "$1" ]
+then
+DOMAIN=$1
+else
+echo “You must provide a full domain name for this site, i.e. ‘example.com’ ”
+echo -n “Run this script like ./script example.com .”
+exit
+fi
+
+echo $DOMAIN
+mkdir -p $WWW_ROOT/$DOMAIN/public_html
+echo "Created folder"
+chmod -R 755 /var/www/$DOMAIN
+echo "Performed chmod"
+chown -R $USER:$GROUP /var/www/$DOMAIN
+echo "Performed chown"
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/${DOMAIN}.conf
+echo "Created hosts file"
+CONF="<VirtualHost *:80>\n\n##################\n# $DOMAIN\n##################\n\n ServerAdmin webmaster@$DOMAIN\n ServerName $DOMAIN\n ServerAlias www.$DOMAIN\n DocumentRoot $WWW_ROOT/$DOMAIN/public_html\n\nErrorLog /var/log/apache2/$DOMAIN-error_log\n CustomLog /var/log/apache2/$DOMAIN-access_log common\n \n</VirtualHost>"
+echo $CONF > $VHOST_CONF/${DOMAIN}.conf
+echo "Replaced occurrences in hosts file"
+a2ensite $DOMAIN
+echo "Enabled site"
+service apache2 reload
+echo "Reloaded Apache"
+echo "DONE"

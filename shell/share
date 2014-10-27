@@ -1,0 +1,3 @@
+#!/bin/bash
+smbmount \\\\UNKNOWN\\Share_1 /mnt/disk/
+

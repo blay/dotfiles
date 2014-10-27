@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+import random
+
+def rollDice():
+    return 1 + random.randrange(6), 1 + random.randrange(6), 1 + random.randrange(6), 1 + random.randrange(6), 1 + random.randrange(6)
+
+d1,d2,d3,d4,d5=rollDice()
+print d1,d2,d3,d4,d5
+

@@ -1,0 +1,2 @@
+sudo rsync -v -axS --exclude='/*/.gvfs' mnt/newhome/. /home/.
+

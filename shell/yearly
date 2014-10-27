@@ -1,0 +1,13 @@
+#!/bin/bash
+
+clear
+
+echo  "\n\n# Recent review notes # \n\n"
+
+cd ~/notes/simplenotes
+
+if [[ -n $(find vvv_0012__????-$1*) ]]; then
+    find vvv_0012__????-$1* -print0| while read -d $'\0' file; do echo "\n\n\n## $file ##\n";head -n99 "$file"; done
+  else
+      echo "no recent review notes found"
+  fi

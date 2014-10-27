@@ -1,0 +1,22 @@
+#!/bin/bash
+while read line
+
+do
+
+	file=$(echo $line |cut -d- -f1)
+	size=$((${#file}-1))
+	
+	cut=$(echo $line |cut -c $size-)
+	
+	space=$(((${size}-4)))
+	invert=$((-${space}+20))
+	
+	spaceprint=$(perl -E 'say "-" x '$space'')
+	invertprint=$(perl -E 'say "@" x '$invert'')
+	
+	fixcut=$(echo $cut|sed 's/----/'$invertprint'/g')
+    
+    echo $spaceprint$fixcut |sed 's/@/\ /g'|grep "\-\-"
+
+done
+exit

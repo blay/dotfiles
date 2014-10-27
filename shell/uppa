@@ -1,0 +1,4 @@
+#!/bin/bash
+chmod 775 $1
+scp -r "$1" monki@blay.se:www/files.magnu.se/www/
+echo 'http://files.magnu.se/'$1 | pbcopy

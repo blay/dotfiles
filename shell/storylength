@@ -1,0 +1,2 @@
+#!/bin/bash
+cut -d- -f1|perl -e 'print sort { length($a) <=> length($b) } <>'

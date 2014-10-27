@@ -1,0 +1,2 @@
+#!/bin/bash
+tr -c '[:alpha:]' '[\n*]' |sort -f|gfgrep -viw --file=/Users/svartfax/.shell/stop |uniq -ic | sort -nr |tr '[:upper:]' '[:lower:]'| head  -$1

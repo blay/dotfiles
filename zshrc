@@ -27,12 +27,12 @@ alias zshsource="source ~/.zshrc"
 alias rm="rm -i"
 alias mv="mv -i"
 
-alias irc='sh ~/scripts/shell/irc'
+alias irc='sh ~/.shell/irc'
 alias ta2='ssh -t magnus@129.16.157.66 "screen -rd"'
 alias www='ssh -t monki@blay.se "cd www"'
-alias you='python ~/scripts/shell/youtube-dl -t'
-alias yoump3='python ~/scripts/shell/youtube-dl -t -x --audio-format mp3 --audio-quality 0'
-alias uppa='sh ~/scripts/shell/uppa'
+alias you='python ~/.shell/youtube-dl -t'
+alias yoump3='python ~/.shell/youtube-dl -t -x --audio-format mp3 --audio-quality 0'
+alias uppa='sh ~/.shell/uppa'
 
 alias cpu='top -o cpu -n 5'
 
@@ -41,7 +41,7 @@ alias v='mvim -v'
 
 alias grep="ggrep"
 
-alias solve='sh ~/scripts/shell/solve'
+alias solve='sh ~/.shell/solve'
 
 # Blog
 alias newo='sh ~/scripts/blog/newocto'
@@ -63,48 +63,48 @@ alias tt='~/.rvm/gems/ruby-2.1.2/bin/t'
 # Todo
 
 ## Commands
-alias plus='sh ~/scripts/todo/plus.sh'
-alias minus='sh ~/scripts/todo/minus.sh'
+alias plus='sh ~/.shell/plus.sh'
+alias minus='sh ~/.shell/minus.sh'
 
-PATH=$PATH:"/Users/svartfax/scripts/todo"
-alias t='todo.sh -d ~/scripts/todo/todo.cfg'
-alias ts='todo.sh -d ~/scripts/todo/todo.cfg schedule'
+PATH=$PATH:"/Users/svartfax/.todo"
+alias t='todo.sh -d ~/.todo.cfg'
+alias ts='todo.sh -d ~/.todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon)"
 alias tbm="(t birdseye;echo '\n# Scheduled next 3 weeks #\n----------------------------';tv 3weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
-alias tu='todo.sh -d ~/scripts/todo/todo.cfg until'
-alias tx='todo.sh -x -d ~/scripts/todo/todo.cfg'
-alias tv='todo.sh -x -d ~/scripts/todo/todo.cfg view'
+alias tu='todo.sh -d ~/.todo.cfg until'
+alias tx='todo.sh -x -d ~/.todo.cfg'
+alias tv='todo.sh -x -d ~/.todo.cfg view'
 alias t1='(tv past;tv today)'
-alias t7='todo.sh -x -d ~/scripts/todo/todo.cfg view 1weeks'
+alias t7='todo.sh -x -d ~/.todo.cfg view 1weeks'
 alias te='vim ~/Dropbox/todo/todo.txt'
-alias tc='clear && todo.sh -d ~/scripts/todo/todo.cfg'
+alias tc='clear && todo.sh -d ~/.todo.cfg'
 function tm { t schedule $1 mv tomorrow; }
 
 ## Fix
 
-alias tfix='todo.sh -d ~/scripts/todo/todofix.cfg'
+alias tfix='todo.sh -d ~/.todofix.cfg'
 
 ## Defaults
 
 export TODOTXT_DEFAULT_ACTION=ls
-export TODOTXT_HOME=/Users/svartfax/scripts/todo
-# source /Users/svartfax/scripts/todo/todo_completion
+export TODOTXT_HOME=/Users/svartfax/.todo
+# source /Users/svartfax/.todo/todo_completion
 # complete -F _todo t
 
-alias p='python ~/scripts/todo/Punch.py'
+alias p='python ~/.todo/Punch.py'
 n() {
 	    echo $(date "+%Y%m%dT%H%M%S => ") "$@" | tee -a ~/Dropbox/todo/notes.txt
 	}
 
 # Common cd
- 
+
 alias cdn='cd ~/notes/simplenotes'
-alias cdsh='cd ~/scripts/shell'
+alias cdsh='cd ~/.shell'
 
 # Emacs
 
-alias weekly='sh ~/scripts/shell/weekly'
-alias yearly='sh ~/scripts/shell/yearly'
+alias weekly='sh ~/.shell/weekly'
+alias yearly='sh ~/.shell/yearly'
 # Weird Shit
 
 export GPG_TTY=`tty`
@@ -142,4 +142,4 @@ PATH=$PATH:"/usr/local/sbin"
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$HOME/scripts/shell:$PATH" # Add scripts to path
+export PATH="$HOME/.shell:$PATH" # Add scripts to path

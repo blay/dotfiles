@@ -1,0 +1,53 @@
+#!/bin/bash
+
+time="-mtime -$((7 + ${1-0})) -mtime +$((0 + ${1-0}))"
+
+
+clear
+
+echo  "\n\n# Completed tasks # \n\n"
+
+todo.sh xp $((7 + ${1-0}))
+
+echo  "\n\n# Blog Posts # \n\n"
+
+cd ~/notes/blog/_posts
+
+if [[ -n $(find *.markdown $time) ]]; then
+  ack -i "summary" `find *.markdown $time`
+else
+    echo "no blogposts found"
+fi
+
+echo  "\n\n# Last weeks notes # \n\n"
+
+cd ~/notes/simplenotes
+if [[ -n $(find *.txt $time) ]]; then
+  find *.txt $time
+else
+    echo "no notes found"
+fi
+
+echo  "\n\n# Last weeks papers # \n\n"
+
+cd ~/Documents/library/papers
+if [[ -n $(find *.pdf $time) ]]; then
+  find *.pdf $time
+else
+    echo "no new papers found"
+fi
+
+echo  "\n\n# Recent review notes # \n"
+
+cd ~/notes/simplenotes
+
+
+if [[ -n $(find vvv_0012__??????-* $time) ]]; then
+  find vvv_0012__??????-* $time -print0| while read -d $'\0' file; do echo "\n## $file ##\n";head -n99 "$file"; done
+else
+    echo "no recent review notes found"
+fi
+
+
+echo "\n\n# Week $(gdate "+%V" -d ''$((1 + ${1-0}))' days ago')"
+echo From $(gdate "+%a %b %d" -d ''$((7 + ${1-0}))' days ago') to $(gdate "+%a %b %d" -d ''$((1 + ${1-0}))' days ago')

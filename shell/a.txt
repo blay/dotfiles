@@ -1,0 +1,636 @@
+
+# Highlight (page 9)
+Science and Technology Studies and an Engaged Program 13
+
+# Highlight (page 9)
+3 Political Theory in Science and Technology Studies 63
+
+# Highlight (page 11)
+20 Science, Technology, and Social Movements 473
+
+# Highlight (page 11)
+22 User-Technology Relationships: Some Recent Developments
+
+# Highlight (page 11)
+30 Making Order: Law and Science in Action 761
+
+# Highlight (page 12)
+Bridging STS and Communication Studies: Scholarship on Media and Information Technologies
+
+# Highlight (page 29)
+The two parts, which Steve Fuller (1993) has called the “High Church” and “Low Church” of STS, differ simultaneously in goals, attention, and style, and as a result the division between them is often seen as the largest one in the field.
+
+# Highlight (page 32)
+Trevor Pinch and Wiebe Bijker’s (1987) transfer of concepts from the study of science to the study of technology, under the title “social construction of technology” (SCOT), argued that the success of a technology depends on the strength and size of the groups that take it up and promote it. Even a technology’s definition is a result of its interpretation by “relevant social groups”: artifacts may be interpreted flexibly, because what they do and how well they perform are the results of competing goals or competing senses of what they should do. Thus, SCOT points to contingencies in the histories and meanings of technologies, contingencies on actions and interpreta- tions by different social groups.
+
+# Highlight (page 32)
+The symbolic interactionist approach treats science and technology as work, taking place in particular locales using particular materials (e.g., Fujimura, 1988). Moreover, objects serve as symbols that enable work and, through it, the creation of scientific knowledge and technical results (Star & Griesemer, 1989). Attention to the work of science, technology, and medicine alerts symbolic interactionists to the contributions of people not normally recognized as researchers or innovators (e.g., Moore, 1997).
+
+# Highlight (page 32)
+Actor-network theory (ANT) further broadens that picture by representing the work of technoscience as the attempted creation of larger and stronger networks (Callon, 1986; Latour, 1987; Law, 1987). Actors, or more properly “actants,” attempt to build networks we call machines when their components are made to act together to achieve a consistent effect, or facts when their components are made to act as if they are in agreement.
+
+# Highlight (page 32)
+Scientific facts and technologi- cal artifacts are the result of work by scientists and engineers to translate the interests of a wide group of actors so that they work together or in agreement.
+
+# Highlight (page 33)
+For scientific knowledge and technological artifacts to be successful, they must be made to fit their environments or their environments must be made to fit them. The process of adjusting pieces of technoscience and their environments to each other, or of simultaneously creating both knowledge and institutions, is a process of co- production (Jasanoff, 2004) or co-construction (Taylor, 1995) of the natural, techni- cal, and social orders.
+
+# Highlight (page 33)
+Meanwhile, researchers have examined some of the legal, regulatory, and ethical work of science and technology: How are safety procedures integrated with other laboratory practices (Sims, 2005)? How is informed consent defined (Reardon, 2001)? How are patents constructed out of scientific results (e.g., Packer & Webster, 1996; Owen-Smith 2005)? In these and many other ways, the constructivist project continues to find new tools of analysis and new objects to analyze.
+
+# Highlight (page 33)
+different uses and interpretations of the con- structivist metaphor allow for and give rise to substantial theoretical and method- ological disagreements. Yet the metaphor has enough substance to help distinguish STS from more general history of science and technology, from the rationalist project of philosophy of science, from the phenomenological tradition of philosophy of technology, and from the constraints of institutional sociology of science.
+
+# Highlight (page 34)
+For researchers on Science, Technology, and Society, the project of under- standing the social nature of science has generally been seen as continuous with the project of promoting a socially responsible science (e.g., Ravetz, 1971; Spiegel-Rösing & Price, 1977; Cutliffe, 2000).
+
+# Highlight (page 34)
+How can sound technical decisions be made through genuinely democratic processes (Laird, 1993)? Can innovation be democratically controlled (Sclove, 1995)? How should technologies best be regulated (e.g., Morone & Woodhouse, 1989)? To what extent, and how, can technologies be treated as political entities (Winner, 1986)? What are the dynamics of public tech- nical controversies, and how do sides attempt to control definition of the issues and the relevant participants (Nelkin, 1979)?
+
+# Highlight (page 35)
+In evalua- tions of public participation exercises it is argued that these are more successful to the extent that participants represent the population, are independent, are involved early in the decision-making process, have real influence, are engaged in a transparent process, have access to resources, have defined tasks, and engage in structured decision-making (Rowe et al., 2004).
+
+# Highlight (page 35)
+Looking at an earlier stage in research processes, in the 1970s the Netherlands pio- neered the idea of “science shops,” which provide technical advice to citizens, asso- ciations, and nonprofit organizations (Farkas, 1999). The science shop is typically a small-scale organization that conducts scientific research in response to needs articu- lated by individuals or organizations lacking the resources to conduct research on their own.
+
+# Highlight (page 37)
+Some of the recent chapters in the history of STS involve the extension of the constructivist program to public sites, with a focus on interactions at the interface of science, technology, law, and government.
+
+# Highlight (page 40)
+Sheila Jasanoff, in a comparative study of biotechnology in the United States, Britain, and Germany, shows how there are distinct national cultures of technoscientific politics (Jasanoff, 2005).
+
+# Highlight (page 40)
+The governments of each of these countries have developed strategies to incubate biotech- nological research and industry, even to the extent of being aspects of nation- building. Each has subjected that research and industry to democratic scrutiny and control.
+
+# Highlight (page 40)
+As Jasanoff describes civic epistemologies, they contain these dimensions: styles of knowledge-making in the public sphere; approaches to, and levels of, accountability and trust; practices of demonstration of knowledge; types of objectivity that are valued; foundations of expertise; and assumptions about the visibility and accessibil- ity of expert bodies (2005: 259).
+
+# Highlight (page 40)
+such a historically grounded and locally situated understanding of technoscientific politics demands historically grounded and locally situated normative approaches. No single template will improve democratic accountability in diverse settings and con- texts.
+
+# Highlight (page 40)
+If the engaged program foregrounds civic episte- mologies, its normative work is multiplied.
+
+# Highlight (page 43)
+Bijker, Wiebe E. (2003) “The Need for Public Intellectuals: A Space for STS,” Science, Technology & Human Values 28: 443–50.
+
+# Highlight (page 43)
+Cutliffe, Stephen H. (2000) Ideas, Machines, and Values: An Introduction to Science, Technology, and Society Studies (Lanham, MD: Rowman & Littlefield).
+
+# Highlight (page 43)
+Collins, H. M. & Robert Evans (2002) “The Third Wave of Science Studies: Studies of Expertise and Experience,” Social Studies of Science 32: 235–96.
+
+# Highlight (page 44)
+Jasanoff, Sheila (ed) (2004) States of Knowledge: The Co-Production of Science and Social Order (London: Routledge).
+
+# Highlight (page 44)
+Jasanoff, Sheila (2003) “Breaking the Waves in Science Studies: Comment on H. M. Collins and Robert Evans, ‘The Third Wave of Science Studies’,” Social Studies of Science 33: 389–400.
+
+# Highlight (page 45)
+Jasanoff, Sheila (2005) Designs on Nature: Science and Democracy in Europe and the United States (Prince- ton, NJ: Princeton University Press)
+
+# Highlight (page 47)
+Woodhouse, Edward, David Hess, Steve Breyman, & Brian Martin (2002) “Science Studies and Activism: Possibilities and Problems for Reconstructivist Agendas,” Social Studies of Science 32: 297–319.
+
+# Highlight (page 47)
+Wynne, Brian (2003) “Seasick on the Third Wave? Subverting the Hegemony of Propositionalism: Response to Collins and Evans (2002),” Social Studies of Science 33: 401–18.
+
+# Highlight (page 79)
+Today, the interdis- ciplinary field of Science and Technology Studies (STS) is increasingly explicitly concerned with political questions: the nature of governmentality and accountability in the modern state, democratic decision-making rights and problems of participation versus representation, and the structure of the public sphere and civil society.
+
+# Highlight (page 79)
+The political concerns of STS have pivoted around the formulation and criticism of liberalism. Liberal values of individualism, instrumentalism, meliorism, universal- ism, and conceptions of accountability and legitimacy have been closely related to understandings of scientific rationality, empiricism, and scientific and technologi- cal progress.
+
+# Highlight (page 79)
+I argue that we can read the development of STS in terms of critiques of liberal assumptions, from such diverse perspectives as communitarian and conservative philosophy, Marxism and critical theory, feminism and multiculturalism. In addition, we can see the recent preoccu- pation in STS with questions of public participation and engagement in science as suggesting a turn toward participatory democratic and republican ideals of active citizenship.
+
+# Highlight (page 80)
+STS can play a key role in clarifying questions about which values and goals we want to inscribe in our scientific and technological constitutions. STS as political theory offers a set of intellectual resources and models on the basis of which competing normative political visions of science and technology can be clarified, analyzed, and criticized.
+
+# Highlight (page 80)
+Liberalism in particular has tended to draw legitimacy by claiming a relationship between its political ideals and an idealized polity of science.
+
+# Highlight (page 81)
+Science provided a solu- tion to key problems inherent in liberal democratic political order: how to depoliti- cize routine official or administrative actions, how to present official action as being in the public interest, how to hold public action accountable, how to reconcile indi- vidual freedom with social order. Ezrahi suggests that in solving these problems, the liberal polity drew on the norms of the polity of science: instrumentalism, imperson- ality or depersonalization, ordered free agency, transparency.
+
+# Highlight (page 81)
+In other words, science provided a model for liberal-democratic legal-rational authority. Ezrahi suggests that liberalism modeled political accountability on the “visual culture” of experimental science, which aimed to “attest, record, account, analyze, confirm, disconfirm, explain, or demonstrate by showing and observing examples in a world of public facts” (Ezrahi, 1990: 74).
+
+# Highlight (page 81)
+The liberal embrace of science and technology has often ended in moral disenchantment—the sense that science and technology have become substantive values pushing aside the humanistic value- attachments of liberalism. Ezrahi traces how the machine has moved from being a model of balance and equilibrium to being “an icon of excess” because of its associa- tion with dehumanizing bureaucracy and environmental degradation.
+
+# Note (page 81)
+No wonder there is a connection then between the science and technology of smart cities and regulation and governance.
+
+# Highlight (page 82)
+Both science and democracy, for Dewey, are practical activities, sets of habits rather than abstract principles. Dewey saw these habits as intertwined: democracy depends on the exten- sion and diffusion of scientific method and habit through the polity (Dewey [1916]1966: 81–99).
+
+# Highlight (page 82)
+This provided his answer also to Walter Lippmann’s “realist” argu- ment for the inherent limits on democracy in an age of experts and his elitist vision of technocratic administration by experts. Dewey suggested that the spread of social scientific knowledge through the popular press and education would render expertise compatible with democracy, negating Lippmann’s technocratic visions
+
+# Highlight (page 83)
+Steve Fuller has recently sought to rescue the democratic and critical Popper from the cari- cature one often encounters within STS of Popper as a dogmatic defender of the scientific status quo.
+
+# Highlight (page 85)
+In direct opposition to Popper and Merton’s equa- tion of science with skepticism, Polanyi argued that both science and liberal democ- racy depended on trust and authority.
+
+# Highlight (page 87)
+The most important example of Marxist-influenced STS today is Andrew Feenberg’s critical theory of technology, which develops Marcuse’s analysis of one-dimensional thought and culture into a nuanced critique of technology. Feenberg’s critical theory aims to expose how biases enter into technological design and how liberatory and democratic interests can instead be engineered into the technical code (Feenberg, 1999).
+
+# Highlight (page 88)
+Where post-Kuhnian sociological analyses demonstrate the way in which science and technology incorporate and embed particular interests and values, critical theory aims both to expose dominatory values and to suggest the possibility of inscribing new values in technological design. In contrast to thinkers such as Heidegger and Ellul, then, the problem is not technology per se but rather bias in the dominant technical codes.
+
+# Highlight (page 88)
+Langdon Winner arrived at similar conclusions in his key works, Autonomous Tech- nology (1978) and The Whale and the Reactor (1986). While strongly influenced by Ellul’s notion that technology has become an autonomous system, Winner, like Feen- berg, rejects Ellul’s pessimistic antitechnological stance. Instead, he argues that, just as societies have a political constitution, they also have a technological constitution and the framing of both are matters of human decision—hence the need for the democratization of technological decision-making.
+
+# Highlight (page 88)
+In contrast to the communitarian or the pragmatist, the critical theorist is unwilling to stop with communal norms or established practices but would suggest that it should always be possible to evaluate and deliberate over which norms and practices to pursue.
+
+# Highlight (page 88)
+SSK and feminist epistemology have in common the constructivist critique of liberal notions of universality and neutrality, and a “conservative” emphasis on the local over the universal. The latter can be seen, in particular, in Donna Haraway’s notion of “situ- ated knowledge” (1991) and Helen Longino’s idea of a “local epistemology” (2002: esp. 184–89).
+
+# Highlight (page 92)
+Demands for participation can be seen as following from what Ezrahi calls the “dein- strumentalization of public actions” (Ezrahi, 1990: 286) or, rather, from the increas- ingly widespread perception of instrumental justifications of public action as ideological and inadequate.
+
+# Highlight (page 92)
+In that sense, the STS claim that the technical is political is not only a theoretical claim about epistemology but also a description of the new politics that characterizes the risk society (Beck, 1995; Welsh, 2000: 23–33; Fischer, 2000).
+
+# Highlight (page 92)
+STS today is increasingly concerned with how to theorize and make practicable structures of public participation in scientific and technological decision-making and design (Kleinman, 2000). In theoretical terms, the concern has been how to concep- tualize the role of democratic agency and “participant interests” in technological design (Feenberg, 1999).
+
+# Highlight (page 93)
+Discussions within STS have tended to assume that democratizing expertise simply involves tacking new institutional devices (such as citizen juries) onto existing political and institutional structures. But it should be asked whether the STS critique can remain within these bounds or whether it has more radical implications.
+
+# Highlight (page 95)
+The development of STS scholarship as political theory is particularly important if the notion of participation is to be given sufficient political and analyt- ical substance to preserve its meaning from the diluting and falsely reassuring language of official policy.
+
+# Highlight (page 96)
+Fuller, Steve (2003) Kuhn vs. Popper: The Struggle for the Soul of Science (Cambridge: Icon Books).
+
+# Highlight (page 489)
+Social movements enhance public participation in scientific and technical decision-making, encourage inclusion of popular perspectives even in specialized fields, and contribute to changes in the policy-making process that favor greater participation from nongovernmental organizations and citizens generally.
+
+# Highlight (page 489)
+STS perspectives extend the social movements literature by bringing a sophisticated understanding of how the knowledge-making process works in science and how the politics of expertise and tech- nology design play out in various political arenas.
+
+# Highlight (page 490)
+Resource mobilization theory focuses on strategy, agency, and organizations, and it examines problems such as building mass membership, competition among social movement organizations, and growth trajectories. From this perspective, science and technology are viewed as one of many potential resources that a movement can access.
+
+# Highlight (page 490)
+Frame analysis focuses on questions of meaning, the ways in which movement leaders must define issues to attract adherents, and the processes of frame diffusion (Benford & Snow, 2000). From the frame analysis perspective, science and technology enter into the ways in which issues are defined and made credible to potential supporters.
+
+# Highlight (page 490)
+Polit- ical process/opportunity theory draws attention to the structural conditions that make it possible for social movements to mobilize, and frequently the studies adopt a com- parative perspective (Kitschelt, 1986; McAdam, 1982; Tilly, 1978). From the perspec- tive of political opportunity structures, science and technology can shape the conditions of possibility, including risks and hazards, that create spaces for mobiliza- tion and enhance or diminish the success of a movement
+
+# Highlight (page 490)
+The “contentious politics” framework shifted the focus of attention toward various processes and mechanisms that occur within and across movements and other forms of political contention.
+
+# Highlight (page 491)
+Science is rarely charac- terized by a Kuhnian paradigm (Fuller, 2000); instead, researchers tend to be organized in networks that compete with each other for control of resources such as funding, major academic departments, and professional associations and journals.
+
+# Highlight (page 493)
+Scientists who work with social movements find that their relations can become tense and involve complex negotiated settlements. Some scientists seek to maintain the role of the disinterested researcher who shuns visibility and attempts to produce peer-reviewed knowledge on a controversial issue. However, even scientists who adopt such neutral strategies can rapidly find themselves at the center of unwanted and highly public controversies for which they are ill prepared (Allen, 2003, 2004).
+
+# Highlight (page 499)
+Renewable energy and sustainable agriculture gradually grew from social movements into industries with associated scientific research programs. For example, wind energy in Denmark was once a social movement, but over time it was mainstreamed (Jamison et al., 1990). As the control of design shifted from lay users to professionals oriented toward industrial production on wind farms, the scale of the technology increased (Jørgensen and Karnøe, 1995).
+
+# Highlight (page 499)
+By the 1990s, a new polarization had also emerged between the ecological modernization frame of green business and the environmen- tal justice orientation of grassroots activists (Hård & Jamison, 2005; Mol, 2000; Pellow 2002; Pellow & Park 2002).
+
+# Highlight (page 500)
+civil rights and urban transportation design reformers (Bullard et al., 2004),
+
+# Highlight (page 500)
+There has been some study of the social shaping of military technologies, for example, the machine gun (Ellis, 1975), airplanes (Schatzberg, 1994), missile guidance systems (MacKenzie & Spinardi, 1995), and computing (Edwards, 1996).
+
+# Highlight (page 501)
+Nonviolence provides an alternative agenda for research and development, for example in the design of communication systems and technological systems (such as energy, industry, and agriculture) for survival in the case of attack (Martin, 1997, 2001).
+
+# Highlight (page 501)
+For example, the appropriate technology movement sets criteria for tech- nology that mesh perfectly with technological specifications for nonviolent resistance.
+
+# Highlight (page 501)
+the emerging STS-inspired research on the digital divide documents how computer illiteracy has been overestimated, and in fact many persons with limited income utilize information-technology skills in their work. For them, the role of computer-based sur- veillance is a more salient issue (Eubanks, 2006; Monahan, 2005, 2006).
+
+# Highlight (page 502)
+Alternative media also has a long history, but the 1960s social movements spurred the creation of alternative radio and print media, often oriented to local markets and self- identified as part of a “community media movement” (Downing, 1984; Pierce, 2003).
+
+# Highlight (page 503)
+Is it true that issues of science and technology have become more salient in social movements, and, if so, what are the historical expla- nations?
+
+# Highlight (page 504)
+how can the study of science, technology, and social movements be configured in a way that is of value to activists? Does the goal require a shift in methods, such as moving toward participant-action research?
+
+# Highlight (page 506)
+Edwards, Paul (1996) The Closed World: Computers and the Politics of Discourse in Cold War America (Cambridge, MA: MIT Press).
+
+# Highlight (page 506)
+Eubanks, Virginia (2006) “Technologies of Citizenship: Surveillance and Political Learning in the Welfare System,” in T. Monahan (ed), Surveillance and Security: Technological Politics and Power in Every- day Life (New York: Routledge): 89–107.
+
+# Highlight (page 506)
+Cohill, Michael & Andrea Kavanaugh (eds) (2000) Community Networks: Lessons Learned from Blacksburg, Virginia (Cambridge, MA: Artech House).
+
+# Highlight (page 507)
+Gurstein, Michael (ed) (2000) Community Informatics: Enabling Communities with Information and Com- munications Technologies (Hershey, PA: Idea Publishing Group).
+
+# Highlight (page 508)
+Hård, Mikael & Andrew Jamison (2005) Hubris and Hybrids: A Cultural History of Technology and Science (New York: Routledge)
+
+# Highlight (page 508)
+Hakken, David & Barbara Andrews (1993) Computing Myths, Class Realities: an Ethnography of Technol- ogy and Working People in Sheffield, England (Boulder, CO: Westview).
+
+# Highlight (page 509)
+Kling, Rob & Suzanne Iacono (1988) “The Mobilization of Support for Computerization: The Role of Computerization Movements,” Social Problems 35(3): 226–43.
+
+# Highlight (page 510)
+Monahan, Torin (ed) (2006) Surveillance and Security: Technological Politics in Everyday Life (New York: Routledge).
+
+# Highlight (page 511)
+Morris, Douglas (2004) “Globalization and Media Democracy: The Case of Indymedia,” in D. Schuler & P. Day (eds), Shaping the Network Society (Cambridge, MA: MIT Press): 325–52
+
+# Highlight (page 557)
+The main areas reviewed here include the following: innovation studies, in which the notion of “lead users” has been important; the sociology of technology and in particular the social construction of tech- nology approach, which has drawn attention to the part played by users as relevant social groups and as agents of technological change; feminist studies of technology, where feminist historians of technology and others have focused on neglected house- hold technologies and have developed important new concepts; semiotic approaches, which includes the notion of “configuring users” and of “scripts”; and media and cul- tural studies approaches, where the consumption and “domestication” of technologies have proved to be analytically useful.
+
+# Highlight (page 558)
+their market research to identify lead users. More recently he advocates using lead users as trialists within an iterative process so that technologies and markets are simul- taneously constructed in interaction with each other. The model he develops, as is typical for the field of innovation studies, uses quantitative aggregative data. He com- bines this with the sort of case study methodology often found at business schools. This makes the user studies of von Hippel and his colleagues harder to integrate with the other STS approaches we discuss below, where “thick description” and more ethno- graphically inspired methods are the norm.
+
+# Highlight (page 559)
+Users need not always be inherently innovative, as Hoogma and Schot (2001) caution in their study of the introduction of electric vehicles in two cities in France and Switzerland. Hoogma and Schot call for a sensitive interactive environment for the adaptation of some radical new technologies, such as electric vehicles, so that users’ own preconceptions do not prevent them from taking advantage of the inno- vation.
+
+# Highlight (page 559)
+Case studies of the European Information and Com- munication Technology sector (Williams et al., 2005) informed by the “social shaping of technology” approach (see below) have drawn attention to the importance of “social learning” in the innovation process. Such social learning is carried out by inter- action between suppliers and users through the many diverse links in the innovation process. Much social learning, particularly for mass-produced consumer goods, is carried out through intermediaries (see below), which complicates the picture of flow from users to designers and vice versa. It seems that with the entry of the more soci- ologically inclined work there is an important opportunity for common interests to emerge among economists and sociologists working in innovation studies.
+
+# Highlight (page 560)
+Pinch and Bijker (1984) in defining the SCOT approach conceived of users as one of the “relevant social groups” who played a part in the construction of a technology. Different social groups, including users groups, could construct radically different meanings of a technology, known as a technology’s “interpretative flexibility.”
+
+# Highlight (page 560)
+The SCOT approach specifies a number of different “closure mechanisms,” social processes whereby interpretative flexibility is curtailed. Eventually stabilization of a technology occurs, interpretative flexibility vanishes, and a predominant meaning and use emerges (Bijker & Pinch, 1987; Bijker, 1995a).
+
+# Highlight (page 560)
+The connection between design- ers and users was made more explicit with Bijker’s notion of a technological frame (Bijker, 1995a). This term is rather akin to Kuhn’s notion of a paradigm. Users, design- ers, and intermediaries can be said to share a technological frame associated with a particular technology, for example, electric lighting. The frame provides heuristics as to how users should interact with the technology such that the technology and user become part of a common “form of life.”
+
+# Highlight (page 560)
+SCOT was rightly criticized for its rather cava- lier attitude toward users—it closed down the problem of users too early and did not show how users could actively modify stable technologies (Mackay & Gillespie, 1992).
+
+# Highlight (page 560)
+As with the turn to users in innovation studies, SCOT explores how the boundaries between design and use, between production and consumption, are blurred.
+
+# Highlight (page 561)
+The unit of analysis in SCOT is the social group, which means that less attention is placed on individual users such as the lead users identified within innovation studies.
+
+# Highlight (page 562)
+To capture the diversity of users5 and the power relations encapsulating users and other actors in technological development, feminist sociologists have differentiated between end-users, lay end-users, and implicated actors.
+
+# Highlight (page 562)
+End-users are “those individuals and groups who are affected downstream by products of technological innovation” (Casper & Clarke, 1998). Lay end-users have been introduced to highlight some end- users’ relative exclusion from expert discourse (Saetnan et al., 2000: 16). Implicated actor is a term introduced by Adele Clarke to refer to “those silent or not present but affected by the action” (Clarke, 1998: 267).
+
+# Highlight (page 563)
+Feminists have criticized the sociology of technology, particularly actor-network theory, for the almost exclusive attention it gives to experts and producers and the preference it gives to design and innovation in understanding sociotechnical change.6 This “executive approach” pays less atten- tion to nonstandard positions, including women’s voices (Star, 1991; Clarke & Montini, 1993: 45; Clarke, 1998: 267).
+
+# Highlight (page 564)
+An important new aspect for understanding user-technology relations has been intro- duced by scholars in STS who have extended semiotics—the study of how meanings are built—from signs to things. We focus here on two central concepts: “configuring the user” and “scripts.” We start with configuring the user.
+
+# Highlight (page 564)
+this semiotic approach draws attention to users as represented by designers.
+
+# Highlight (page 565)
+Several authors have broadened this view of configuration to include other actors and to draw attention to the configuration work carried out by journalists (Oudshoorn, 2003), public sector agencies and states (Rose & Blume, 2003), policy makers, patient advocacy groups who act as spokespersons of users (van Kammen, 2000, 2003; Epstein, 2003; Parthasarathy, 2003), and other organizations and people who serve as media- tors between producers and consumers, including consumer organizations (Schot & de la Bruheze, 2003), salespeople (Pinch, 2003), and clinical trials researchers (Fishman, 2004).
+
+# Highlight (page 565)
+Akrich suggests that in the design phase technologists anticipate the inter- ests, skills, motives, and behavior of future users. Subsequently, these representations of users become materialized into the design of the new product. As a result, tech- nologies contain a script (or scenario): they attribute and delegate specific competen- cies, actions, and responsibilities to users and technological artifacts. Technological objects may thus create new, or transform or reinforce existing, “geographies of responsibilities” (Akrich, 1992: 207, 208).
+
+# Highlight (page 567)
+belt of the car is designed to restrain the user, but the user may have an antiprogram of refusing to wear the seat belt. Subscription, and its opposite, de-inscription, are used to describe the reactions of human (and nonhuman) actors to “what is prescribed and proscribed to them” and refer, respectively, to the extent to which they underwrite or reject and renegotiate the prescriptions (Akrich & Latour, 1992: 261)
+
+# Highlight (page 567)
+More recently, this imbalance has been repaired to some extent by the work of scholars who have extended actor-network theory to include the study of subject-networks. These studies aim to understand the “attachment” between people and things, particularly but not exclusively between disabled people and assis- tive technologies, and to explore how technologies work to articulate subjectivities (Callon & Rabeharisoa, 1999; Moser, 2000; Moser & Law, 1998, 2003).10 This scholar- ship conceptualizes subjects in the same way as actor-network theorists previously approached objects. Subject positions such as disability and ability are constituted as effects of actor-networks and hybrid collectives.
+
+# Highlight (page 570)
+The research on user-technology relationships in the different fields we have discussed emphasizes the creative capacity of users to shape technological development in all phases of technological innovation. This view has inspired scholars to argue that the boundaries between design and use are largely artificial (Suchman, 1994, 2001; Silverstone & Haddon, 1996: 44; Lie & Sørensen, 1996: 9, 10; Williams et al., 2005).
+
+# Highlight (page 571)
+Several authors have argued that a focus on use alone is insufficient to capture the complexities of user-technology relations. An adequate understanding of user-related sociotechnical change also requires a detailed analysis of nonuse and resistance. Although resistance to technology is an old topic, recent scholarship challenges common perceptions and theoretical understandings that view it as irrational or heroic.
+
+# Highlight (page 571)
+As Ron Kline suggests, resistance can be considered as a common feature of the processes underlying sociotechnical change. Acts consid- ered as resistance by promoters, mediators, and users are crucial aspects of the cre- ation of new technologies and social relations (Kline, 2003).
+
+# Highlight (page 571)
+Their preliminary taxonomy identifies four different types of nonusers: resisters (people who have never used the technology because they do not want to); rejectors (people who do not use the technology anymore because they find it boring or expensive, or because they have alternatives); the excluded (people who have never used the technology because they cannot get access for a variety of reasons); and the expelled (people who have stopped using the technology involuntarily because of cost or the loss of institutional access).
+
+# Highlight (page 571)
+These studies warn us to avoid the pitfalls of implicitly accepting the rhetoric of techno- logical progress, including a worldview in which adoption of new technologies is the norm.
+
+# Note (page 571)
+Jämför med smart cities som har lyckats placera sig som det naturliga steget för teknologisk utveckling
+
+# Highlight (page 572)
+Although in early STS there was a strong emphasis on studying production (Winner, 1977; Nobel, 1984), modern scholarship has shifted toward studying consumption technologies.
+
+# Highlight (page 572)
+Much has been written in the older vein of scholarship about the de-skilling debate initiated by Braverman (1975)—looking at the inventive skills of workers and how, whether, and by what means they have been har- nessed to capitalist production and who has benefited might provide an interesting way of returning to some of the old debates over the labor process (e.g., Cockburn, 1983).
+
+# Highlight (page 575)
+Coombs, R., K. Green, A. Richards, & V. Walsh (eds) (2001) Technology and the Market: Demand, Users and Innovation (Cheltenham and Northampton, U.K.: Edward Elgar).
+
+# Highlight (page 575)
+Clarke, A. E. (2005) Situational Analysis: Grounded Theory After the Postmodern Turn (Thousand Oaks, CA: Sage).
+
+# Highlight (page 577)
+Kline, R. R. (2003) “Resisting Consumer Technology in Rural America: The Telephone and Electrifica- tion,” in N. Oudshoorn & T. Pinch (eds), How Users Matter: The Co-Construction of Users and Technolo- gies (Cambridge, MA: MIT Press): 51–67.
+
+# Highlight (page 578)
+Oudshoorn, N. & T. Pinch (eds) (2003) “How Users and Non-users Matter” in N. Oudshoorn & T. Pinch (eds), How Users Matter: The Co-Construction of Users and Technologies (Cambridge, MA: MIT Press)
+
+# Highlight (page 579)
+Rohracher, R. (ed) (2005) User Involvement in Innovation Processes: Strategies and Limitations from a Socio- Technical Perspective in A. Bamme, P. Baumgartner, W. Berger, & E. Kotzman (eds) (Wien: Profil Verlag Technik- und Wissenschaftsforschung/Science and Technology Studies 44).
+
+# Highlight (page 581)
+Williams, Robin, James Stewart, & Roger Slack (2005) Social Learning in Technological Innovation: Exper- imenting with Information and Communication Technologies (Cheltenham, U.K., and Northampton, MA: Edward Elgar).
+
+# Highlight (page 581)
+Wyatt, S. (2003) “Non-Users Also Matter: The Construction of Users and Non-Users of the Internet,” in N. Oudshoorn & T. Pinch (eds), How Users Matter: The Co-Construction of Users and Technologies (Cambridge, MA: MIT Press).
+
+# Highlight (page 583)
+This reluctance to take an explicit nor- mative stance has been noted and critiqued by several STS scholars. Most prominently, Bijker (1993) argued that STS began on the path of critical studies, took a break from being proscriptive in order to build a firm base of knowledge, and now needs to get back to the original path. “Seen in this perspective, the science and technology studies of the 1980s are an academic detour to collect ammunition for the struggles with polit- ical, scientific, and technological authorities” (Bijker, 1993: 116).
+
+# Highlight (page 584)
+Using moral concepts and theories, ethics scholarship provides perspectives on the world that are useful in envisioning potential actions, appraising the possible consequences of these actions, and evaluating alternative social arrangements
+
+# Highlight (page 584)
+Scholarship in the field of engineering ethics critically examines the behavior of engineers and engineering insti- tutions; identifies activities, practices, and policies that are morally problematic (or exemplary); and alerts engineers to a wide range of situations in which they might be caught up. Some engineering ethicists go so far as to make recommendations as to what engineers should do individually or collectively when faced with moral dilemmas.
+
+# Highlight (page 584)
+the field of engineering ethics in the United States largely developed during the second half of the twentieth century in response to increasing concern about the dangers of technology.2 A sequence of events starting with use of the atomic bomb in World War II, continuing with the Three Mile Island disaster, the Ford Pinto case, and the explosion at Bhopal, generated a signifi- cant concern in the media and the public about the effects of technology on human well-being.
+
+# Highlight (page 585)
+Scholars in the field typically portrayed the engineer as an ethical actor who had to make complicated decisions within the institutional arrangements of a corporation. The business environment was most commonly illustrated with case studies that focused on the description and analysis of disasters such as the Ford Pinto fuel tank explosions, the crashes (and near crashes) of DC-10 passenger jets, and the Bhopal chemical leak.5 These case studies emphasized that individual engineers had to mediate their technical knowledge with institutional pressures, the demands of their employers, their professional codes of ethics, and the expectation that they protect the public.
+
+# Highlight (page 587)
+As a number of scholars have already found (see Goujon & Dubreuil, 2001; van de Poel & Verbeek, 2006a), the observations, case studies, and theories developed in STS can play an important role in expanding the scope and insights of engineering ethics.
+
+# Highlight (page 588)
+Although STS accounts of the technology-society relationship show that engineers are doing much more than designing devices and although this points to engineers having responsibility for a broader domain, in other ways STS accounts seem to shift responsibility away from engineers.
+
+# Highlight (page 589)
+lawmakers, regulators, consumer groups, judges, and others. These actors may have a direct impact on technology by banning or rejecting certain devices, setting standards for the design of particular tech- nologies, funding specific areas of research, granting patents, and so on.
+
+# Highlight (page 589)
+Engineers are important (perhaps even dominant) players in technological devel- opment, but the scope of their responsibility is limited. Their responsibilities are broader than what is suggested by the picture of isolated engineers following nature, broader than what is suggested by the view of engineers as designers of neutral devices that others can choose (or not) to use. Nevertheless, the other actors involved in technological development also have responsibilities with regard to the same technology.
+
+# Highlight (page 590)
+Focusing on an artifact alone can cause us to bracket and black-box (and push out of sight) all the social practices and social meanings that pragmatically make the artifact a “thing.” Vice versa, focusing on a social practice tends to bracket and black-box aspects of the natural and artifactual world that shape the social arrangement or practice at issue.
+
+# Highlight (page 639)
+The idea of expertise is central to modern life and to contemporary STS. Understand- ing expertise as the product of socialization into a community demonstrates both the utility of expertise and its weakness. Experts may be the best people to decide certain matters of fact, but they are not necessarily the best people to make value judgments about the utilization of that knowledge. Conversely, lay citizens are not experts, but this is also their weakness and their strength. While they are not best placed to answer those questions that belong more properly within esoteric expert communities, pre- cisely because they lack such membership, they are, paradoxically, the best placed to make the crucial judgments about what should be done with such knowledge. Under- standing and contributing to the interplay between these expert and citizen concerns provides one STS (Science and Technology Studies) with a key role in the future devel- opment of the other STS—(Science, Technology and Society).
+
+# Highlight (page 777)
+in effect, a “stronger program” for looking at science and technology in their wider
+
+# Highlight (page 777)
+many of the key institutions of modernity—health care, environmental protection, insurance, edu- cation, security, financial markets, intellectual property, and criminal justice—demand an intense and ongoing collaboration between the institutions of law and those of science and technology (Jasanoff, 1995).
+
+# Note (page 778)
+universalities of science and technology versus localities of law.
+
+# Highlight (page 778)
+So thoroughly are these institutions enmeshed that close investigation of various dimensions of legal practice (e.g., evi- dentiary hearings, advisory committee meetings, patent litigation), and the actors who engage in them, is as likely to shed light on the production of scientific knowledge as studies of laboratory science-in-the-making or of scientific controversies. Put differ- ently, the law is now an inescapable feature of the conditioning environment that produces socially embedded—or so-called Mode 2 (Gibbons et al., 1994)—science.
+
+# Highlight (page 778)
+Accounts of the development of science are incomplete without taking on board the shaping influence of legal imperatives and imaginations, and of necessity the work of legal practitioners and institutions.
+
+# Highlight (page 778)
+Following legal and scientific practitioners as they interact, then, entails asymmetries of method and interpretation, on the part of analysts as well as actors, that pose significant challenges for STS.
+
+# Highlight (page 778)
+To gain analytic purchase on their epistemologies and practices, the very definition of these institutions must, to some extent, be put in play in ways that may surprise and even estrange practitioners.
+
+# Highlight (page 779)
+social sciences, is still advancing through critical encounters with neighboring areas of
+
+# Highlight (page 779)
+The juxtaposition of STS writing with that emanating from legal scholarship and practice is particularly illuminating. In contrast to science, which perennially sheds its history, the law advances by openly reflecting on and continually reincorporating its own past performance; it is, in this respect, pos- sibly the most reflexive of modern social institutions.
+
+# Highlight (page 780)
+For the law not only concerns itself after the fact with remedying the harmful consequences of scientific and technological change. Additionally, and perhaps more significantly, it provides an envelope of social order within which new epistemic constructs and technological objects are constantly fitted out with recognizable meanings and normative implications. No account of the engagements between science and the law can be complete, therefore, without con- sidering the ways in which changes in our knowledge of nature, and in our ability to manipulate nature through technology, challenge and respond to some of the basic categories of legal thought.
+
+# Highlight (page 781)
+tific discoveries are made.” He urged on his legal colleagues a similar “analysis of the
+
+# Highlight (page 781)
+Out of the pages of theoretical texts, natural law thinking continues to guide judi- cial decision making, especially in controversies around the life sciences.
+
+# Highlight (page 781)
+The very idea of science, accord- ing to Evelyn Fox Keller, extended the idea of domination within human societies, through law, outward to encompass the human domination of the universe. Science, in this sense, was law transposed—from social to natural order.
+
+# Highlight (page 782)
+Would science, as the experimentalists associated with Robert Boyle believed, advance by adopting the common law’s procedural device of witness- ing, thereby creating well-defined, practice-based communities of trust? Or did the reliance on human witnesses, as Thomas Hobbes was convinced, substitute fallibility for truth, thus subverting the stability of an order ruled from on high? As we will see, that early controversy, locally resolved in Restoration England in favor of the experi- mentalists, continues to provide a surprisingly pertinent analytic frame for contem- porary debates about fact-making in law and science.
+
+# Note (page 783)
+Risk theory posits technology as active and law as reactive. This is not necessarily the case and they are often co-producing. Perhaps this assumption from risk theory come from its development within a certain socio-economic (neoliberal) context.
+
+# Highlight (page 783)
+Since the 1970s, the dominant conceptual frame for dealing with the harmful or destabilizing effects of technological innovation has been that of risk. Famously articulated by Ulrich Beck (1992), through his identification of the “risk society” as a radically new cultural formation, the trope of risk draws attention to the ungovern- able dimensions of science and technology, and by extension to the law’s role in man- aging the unmanageable through discourses of justice and reason (Jasanoff, 1995, 1990; Wynne, 1982).
+
+# Highlight (page 783)
+But as STS scholarship has importantly shown, the assumption of linearity, almost of determinism, built into the risk paradigm—casting science and technology as proactive and law as reactive—needs to be substantially revised and augmented in favor of more interactive accounts that pay attention to the innovative capacities of both institutions.
+
+# Highlight (page 783)
+As prime custodians of the “is” and the “ought” of human experience, science and the law wield enormous power in society. Each plays a part in deciding how things are in the world, both cognitively and materially; each also helps shape how things and people should behave, by themselves and in combination.
+
+# Highlight (page 783)
+Several narrative traditions have evolved for describing the relationship between law and science in these contested regions, of which five deserve particular attention: law lag, culture clash, crisis, deference, and co-production.
+
+# Highlight (page 784)
+Scientists are seen as the most competent commentators on science, as lawyers are on law. Each institution, moreover, shores up the other’s status. Neither legal nor scientific practitioners seem inclined to probe too deeply each other’s claims concerning the authority of their respective epistemic and normative practices. In this sense, the two are involved in a subtle dynamic of co-production, the major narrative frame that analysts standing outside both domains have invoked to describe their complex, yet mutually sustaining, choreography.
+
+# Highlight (page 784)
+The notion of the law lag can be traced back to the influential early-twentieth-century American sociologist William F. Ogburn (1957, [1922]1950), who argued that inter- connected cultural institutions, such as science and law, develop at uneven paces, so that the slower are necessarily out of step with the quicker.
+
+# Highlight (page 784)
+Ogburn was careful to locate the capacity for innovation in both technology and society, repudiating a simple-minded techno- logical determinism, but he nonetheless viewed science and technology as modernity’s prime movers of social change.
+
+# Highlight (page 784)
+Discursive constraints provide part of the explanation. The law’s rhetoric of justification is primarily backward-looking, relying on enacted rules and established judicial precedents. Judges may interpret the law as written, but they stray into dan- gerous territory if they are seen too openly to be making the law: “A judge disguises new ideas as old in order to enhance their social acceptability” (Goldberg, 1994: 19).
+
+# Highlight (page 785)
+Less deterministic than the law lag narrative, the culture clash frame focuses on the discrepant aims of law and science as the chief sources of conflict between them. In Steven Goldberg’s (1994) telling, the clash originates in science’s commitment to progress, whereas the law’s primary concern is with process.
+
+# Highlight (page 785)
+For Schuck, as for Goldberg, the culture clash model rests on an unproblematized notion of institutional boundaries, without taking on board the practices discussed by STS scholars through which these boundaries are erected and maintained (Hilgartner, 2000; Gieryn, 1999; Jasanoff, 1990) or the purposes served by such boundary-making.
+
+# Highlight (page 788)
+The framework of co-production draws attention to the simultaneous formation of social and natural order in knowledge societies.
+
+# Highlight (page 788)
+As agents of power, law and science also collaborate in sustaining wider understandings of how society works, including ideas of the human self and agency, the market, and the collective good. In a variety of decisions concerning biotechnology, for instance, U.S. courts have favored the party who appears to be the innovator or initiator of change, often also the party with more resources and greater capacity to bring innovations into economic and social circulation.
+
+# Highlight (page 789)
+More sensitive to the social and epistemic foundations of the law, and therefore closer in spirit to ideas of co-production, is the work of critical legal studies (CLS) scholars and other legal analysts who are interested in the law’s ordering functions. CLS flourished as a left-oriented school of thought in American law schools in the 1980s but largely disappeared as an organized movement by the century’s end (Kairys, 1998; Unger, 1986). In its heyday, however, CLS destabilized the authority of legal rule-making in much the same way that the sociology of scientific knowledge (SSK) attacked the authority of scientific fact-making. By debunking the power of legal rea- soning to justify practical rule application, CLS scholars engaged in the same kind of “unmasking” that Ian Hacking (1999: 53–54) identified as one version of construc- tionism in STS. Behind formal legal argument, CLS analysts discovered concealed interests and ideology, much as the SSK analysts of the Edinburgh school uncovered interests on both sides in their symmetrical studies of scientific controversies.
+
+# Highlight (page 789)
+The CLS project with regard to the law paralleled that of STS with regard to science in other important ways: in its focus on the indeterminacy of rules (cf. contingency and rule-following in STS), its emphasis on contradictions and dualities that legal doc- trine cannot resolve (cf. interpretive flexibility in STS), and its awareness that the law does not simply respond to social needs but creates the very conditions from which those needs arise (cf. rejection of the correspondence theory of truth in STS). The “Critics,” as they were called, conceptualized the law, just as STS scholars conceive of science, “as one of many cultural institutions that are constitutive of consciousness, that help delimit the world, make only certain thoughts sensible, thus ‘legitimating’ existing social relations” (Kelman, 1987: 244).
+
+# Highlight (page 790)
+Like STS scholars of her intellectual generation, Minow recognizes that differences between the normal and the abnormal are constructed and that acts of demarcation are far from epistemologically neutral. In particular, she lists five assumptions about differences commonly made in the law that closely parallel STS observations about the essentializing of social categories: differences are intrinsic; they are defined in relation to an unacknowledged reference point; they appear stand- point neutral; their legal treatment either ignores some perspectives or presumes that all will be fairly represented by the judge; and they rest on the naturalization of exist- ing social and economic arrangements (Minow, 1990: 50–74).
+
+# Note (page 792)
+Pirate Bay trial§
+
+# Highlight (page 792)
+While legal scholars debated the crisis narrative, STS attention turned for the most part to investigating the nature of the knowledge produced in legal settings. Although science arguably plays a more pervasive role across the broad domain of public health, safety, and environmental regulation than it does in trials, the topic of “regulatory science”—science done or applied in support of governmental policy (Jasanoff, 1990: 76–80)—has attracted less attention from STS researchers (but see Daemmrich, 2004; Bal & Halffman, 1997). This work remains significant, however, for its careful demonstrations of the state’s self-legitimation through boundary-drawing between science and politics and through discourses of risk that represent uncertainty as man- ageable by the regulatory state (Abraham & Reed, 2002).
+
+# Highlight (page 792)
+STS investigations helped focus attention on so-called boundary organizations, bodies such as expert advisory committees whose primary function is to maintain a clear demarcation between the authority of experts and political decision-makers (Guston, 2001).
+
+# Highlight (page 792)
+establishing the facts of the matter demands more than determining a witness’s expert status, and legal proceedings often serve as sites for the construction of highly ad hoc, technical narratives of causation.
+
+# Highlight (page 793)
+STS work on expertise vigorously takes issue with the “junk science” charge that proponents of the crisis narrative popularized so effectively. Instead of focusing on aggregate jury behavior, as sociologists of law have done, STS researchers have tended to look more closely at judicial reasoning, as offering textually grounded insights into legal epistemology.
+
+# Highlight (page 794)
+the interplay of culture, science, and law remains an underdeveloped zone of academic analysis.
+
+# Note (page 795)
+science and law, technology and norms/law in action?
+
+# Highlight (page 795)
+Investigations of the interactions between science and the law might be expected to add nuance to Foucault’s grand narrative of governmentality by revealing cultur- ally specific ways in which modern societies come to know the subjects who are gov- erned. As yet, however, STS analysis of law-science interactions has tended to focus on in-depth studies of individual cases or institutions rather than on varying practices across cultures or political systems.
+
+# Highlight (page 795)
+Since the early 1990s, STS scholars have increasingly turned to science’s interactions with the law as a fruitful field of study. A growing body of work attests to the pro- ductivity of these investigations, both as an extension of core concerns in STS with the construction of facts and truth and as a means of exploring the social relations of science and technology from standpoints outside the conventional spaces of scientific or technological activity. The law has emerged from these inquiries as a research site of paramount significance for STS. Not only are legal proceedings instrumental in pro- ducing and certifying new types of scientific knowledge, but the very building blocks of public reason are formed in engagements between science and the law, for example, notions of expertise, objectivity, evidence, and proof.
+
+# Note (page 796)
+And thus venture beyond the courtroom into other areas of legal praxis.
+
+# Highlight (page 796)
+Four of the five dominant story lines discussed in this chapter emanate primarily from lawyers and scientists rather than from STS scholars, while the fifth— co-production—remains in the domain of actor’s language, understood by specialists, but with little resonance as yet for legal scholars, lawmakers, or wider society. S
+
+# Highlight (page 796)
+To gain that wider hearing, STS research will have to reach beyond its parochial, field-specific, epistemological concerns and find new ways to engage with sympathetic critics of the law, both within and outside the circles of formal legal scholarship.
+
+# Highlight (page 796)
+With modernity’s two most important ordering institutions as their objects of study, STS analysts of science and the law are uniquely positioned to explore and question the hidden normativities underpinning the demarcations that matter in contemporary society. These, as the CLS movement and its intellectual descendants most cogently argued, are the divides that consistently separate the weak from the strong, the rich from the poor, the disabled from the competent, and the socially marginal from the powerful and privileged.
+
+# Highlight (page 797)
+Nor has STS systematically explored the interplay of law and science with cultural notions of self-hood, kinship, exchange, or community that introduce subtle differences into the kinds of modernity that we, as modernity’s inhabitants, experience in our everyday lives.
+
+# Highlight (page 966)
+scholars in this field had produced a handful of important studies of media and infor- mation technologies by the early 1990s, including examinations of the telephone and videotex as “large technical systems” (Mayntz & Schneider, 1988; Galambos, 1988; Schneider et al., 1991); cultural histories of radio, telephony, and electric media (Douglas, 1987; Fischer, 1992; Martin, 1991) and social studies of computing (Forsythe, 1993; Kling & Iacono, 1989; Star, 1995; Suchman, 1987; Turkle, 1984; Woolgar, 1991).
+
+# Highlight (page 966)
+in this chapter we focus on three conceptual bridges that have been especially fruitful in both fields—and that, taken together, map a significant portion of scholarship on media and information technologies at the intersection of STS and communication studies.1 Prevailing notions about causality in technology-society relationships The process of technology development The social consequences of technological change
+
+# Highlight (page 966)
+Questions about causality have been framed as a debate between determination and contingency. Questions about technology development have been framed in terms of opposing production and con- sumption processes. And questions regarding the consequences of media and infor- mation technologies have been framed around discontinuous versus continuous modes of social change, of disruptive “revolution” versus incremental “evolution.”
+
+# Highlight (page 967)
+An important tradition of inquiry in communication studies has tended to view technologies according to their technical features, particularly those that support or extend human sensory perception and communicative action across time and space. From the uses of symbols, language, and writing to express and shape thought and experience (Goody, 1981; Ong, 1982), to the cultural fixity and standardization sug- gested by mechanically printed texts (Eisenstein, 1979), to the “extension” of sounds and images via photography, motion pictures, sound recording, and electronic media (Williams, 1981), to the “separation of communication from transportation” achieved by the telegraph (Carey, 1989: 203), the significance of media technologies within this line of communication scholarship has often hinged on their role as “extensions of man” (McLuhan, 1964).
+
+# Note (page 967)
+But don't forget Kittlers crituque
+
+# Highlight (page 968)
+Suchman (1987) showed that human-machine interaction, even in sit- uations where technically skilled individuals operate complex computerized devices such as photocopiers, depends on locally contingent attributions of meaning rather than disembodied, decontextualized rules.
+
+# Highlight (page 969)
+Since the 1980s and 1990s, many of the views about media and information tech- nologies advanced within STS and media studies have been more broadly adopted among communication researchers dissatisfied with the implicit technological deter- minism of media effects research and the language of “impacts” of new technologies on society, behavior, and culture.
+
+# Highlight (page 970)
+Today, the deterministic language of “effects” and “impacts” has largely been supplanted in communication technology research by more relational, subjec- tive, and meaning-driven frameworks and concepts
+
+# Highlight (page 970)
+As stated previously, we have deliberately chosen the term “media and information technologies,” rather than other commonly used labels, to describe the broad class of sociotechnical systems that are studied in both STS and communication studies. In contrast to these other terms, the phrase “media and information technologies” fore- grounds four distinctive facets of these systems: their broad historical scope, their infrastructural dimension, their fundamental materiality, and the distinctive interplay of this materiality with symbolic content and meaning.
+
+# Highlight (page 971)
+Whether they mediate entertainment, arts, interaction, organizing, or data, in no other class of technolo- gies—such as bicycles, missiles, bridges, and electrical grids—are material form and symbolic configurations so intimately tied and mutually constructed.
+
+# Highlight (page 971)
+In a definition that draws from STS and communication research, Lievrouw and Liv- ingstone (2006b) argue that media and information technologies comprise the mate- rial systems themselves and their social contexts, including the artifacts or devices used to mediate, communicate, or convey information; the activities and practices in which people engage to communicate or share information; and the social arrangements or organizational forms that develop around the devices and practices
+
+# Highlight (page 972)
+On the one hand, given its history of behavioral and cultural theorizing, communication research has tended to see technology as a factor that can generate, or help generate, distinc- tive social effects, rather than as an object of inquiry worthy of social explanation in itself. On the other hand, STS technology research—with its grounding in contextu- alist history and constructivist sociology of technology—has often made the social factors that shape the development and, to a lesser extent, the use of technology the central focus of inquiry and has been hesitant to say much about technology’s large- scale societal effects.
+
+# Highlight (page 972)
+Johns’s (1998) Nature of the Book opposes critical aspects of Printing Press as an Agent of Change and Eisenstein’s theoretical and methodological approach. According to Johns, in Eisenstein’s account “printing itself stands outside history” (1998: 19).
+
+# Highlight (page 973)
+We may consider fixity not as an inherent quality, but as a transitive one . . . We may adopt the principle that fixity exists only inasmuch as it is recognized and acted upon by people—and not otherwise. The consequence of this change in perspective is that print culture itself is immedi- ately laid open to analysis. It becomes a result of manifold representations, practices, and con- flicts, rather than just the monolithic cause with which we are often presented. In contrast to talk of a “print logic” imposed on humanity, this approach allows us to recover the construction of different print cultures, in particular, historical circumstances.
+
+# Highlight (page 973)
+To overcome this shortcoming, Lievrouw (2002: 192) has proposed to recast this type of opposition as “a dynamic relationship between determination and contin- gency.” In her framework, “determination and contingency are interdependent and iterative, and . . . this relationship can be seen at key junctures or ‘moments’ in . . . media development and use” (2002: 183).
+
+# Note (page 973)
+Let's consider the same witth computational technologies, most evident in a post-pc world. There is not a digital logic causing changes but the dogital itself has to be created including by material sensing and institutional regulatory changes.
+
+# Highlight (page 974)
+Thus, in opposition to the argument that media and information technolo- gies cause or constitute an extension of human senses and sensorial practices, as argued by McLuhan (1964), Ong (1982), and Stone (1991), among others, Sterne (2003: 92) shows that
+
+# Highlight (page 975)
+All the technologies of listening that I discuss emerge out of techniques of listening. Many authors have conceptualized media and communication technologies as prosthetic sense. If media do, indeed, extend our senses, they do so as crystallized versions and elaborations of people’s prior practices—or techniques—of using their senses.
+
+# Highlight (page 976)
+Woolgar (1991) showed that the process of software production “configures the user;” that is, it embeds the producer’s vision of consumers and consumption practices in the design of the technology and thus influences technological adoption.
+
+# Highlight (page 976)
+Drawing from this notion as well as from Akrich’s (1992, 1995) related idea of “inscription,”8 a growing line of research bridg- ing STS and communication studies has argued that in the technology development process, technical choices are made, artifacts are symbolically framed, and regulatory environments are fostered in ways that have consequences for consumption.
+
+# Highlight (page 977)
+Whereas the notion of domestication underscores the interpretive agency of users, research on the role of users as agents of technological change examines situations in which unanticipated user practices trigger material transformations of artifacts, and the mechanisms by which makers incorporate such changes into subsequent versions of their design (Boczkowski, 1999; Feenberg, 1992; Fischer, 1992; Orlikowski et al., 1995; Suchman, 2000).11 For instance, Douglas (1987: 301–2) has shown that users of early radio broadcasting equipment were instrumental in turning what was initially a point-to-point communication system into a mass communication medium:
+
+# Highlight (page 979)
+After the Second World War, the discontinuity perspective was fostered by inven- tors, engineers, designers, and planners involved in the defense projects, academic labs, and industries where many of the technologies were first developed (Light, 2003).
+
+# Highlight (page 979)
+Influenced by the political economy of media, the critical/cultural turn noted above, and the critique of technological determinism advanced by STS, younger researchers in both communi- cation and STS have increasingly tended to reject the revolutionary “new technolo- gies, new society” discourse of information society research
+
+# Highlight (page 980)
+The discontinuity view was not dead, however. Artists, creative writers, historians, and critics who encountered networked computing for the first time in the early 1990s were well aware of the dangers of technological determinism; nonetheless, many of them used the novel technical features of these technologies as a point of departure for conceptualizing new kinds of digital media products (Bolter & Grusin, 1999; Hayles, 1999; Manovich, 2001; Murray, 1998; Poster, 1990; Stone, 1995).
+
+# Highlight (page 980)
+As media and information technologies have become commonplace over the last decade, some scholars in both STS and communication studies have begun to con- sider the consequences of new technologies as infrastructures, that is, as they become embedded in an existing technological base, transparent, and visible only when they break down (Star & Bowker, 2006; Star & Ruhleder, 1996).
+
+# Highlight (page 980)
+The increasingly routine quality of media and information technologies has also been characterized as “banalization” (Lievrouw, 2004). For instance, contributors to a recent special issue of New Media & Society suggest that the late-twentieth-century information technology “revolution” is over, supplanted by incremental improve- ments in stability, security, reliability, ubiquity, and ease of use. The current sense is one of “slouching toward the ordinary” (Herring, 2004: 26), of “new and improved without the new” (Lunenfeld, 2004: 65). Stephen Graham (2004), a critic of the dis- course of technological discontinuity, revolution, and “transcendence,” finds that rou- tinization largely confirms the continuity perspective. Calabrese (2004) argues that the reassertion of a familiar, mass-media “pipeline” style of sales and distribution online by traditional media and content industries has produced new media genres that look much like the old.
+
+# Highlight (page 981)
+In the preceding sections we have proposed that the study of media and information technologies, especially in communication research and STS over the last twenty years, can be mapped around three main conceptual bridges: causality, comprising a tension between determination and contingency; process, conceived as multiple relationships between production and consumption; and consequences, contrasting continuity and discontinuity views of social change.
+
+# Highlight (page 982)
+future work might address the particular conditions that may tilt the balance toward determination or contingency, or the spe- cific mechanisms and processes that “harden” sociotechnical configurations under certain conditions or make them more malleable in other conditions.
+
+# Highlight (page 983)
+Future studies must confront the ways that meaning and forms of content contribute to influence material alternatives, and by the same token, how the physical materiality, durability, and format of specific technological devices and systems help shape content and meaning. This fundamental dialectic is at the heart of the interplay of determination and contingency, production and consumption, and continuity and discontinuity.
+
+# Highlight (page 986)
+Boczkowski, P. & W. Orlikowski (2004) “Organizational Discourse and New Media: A Practice Perspec- tive,” in D. Grant, C. Hardy, C. Oswick, N. Philips, & L. Putnam (eds), The Handbook of Organizational Discourse (London: Sage): 359–77.
+
+# Highlight (page 987)
+Ginsburg, F., L. Abu-Lughod, & B. Larkin (eds) (2002) Media Worlds: Anthropology on New Terrain (Berke- ley and Los Angeles: University of California Press)
+
+# Highlight (page 988)
+Lievrouw, L. A. (2002) “Determination and Contingency in New Media Development: Diffusion of Inno- vations and Social Shaping of Technology Perspectives,” in L. A. Lievrouw & S. Livingstone (eds), The Handbook of New Media: Social Shaping and Consequences of ICTs (London: Sage): 183–99
+
+# Highlight (page 988)
+Jasanoff, S. (ed) (2004) States of Knowledge: The Co-Production of Science and Social Order (London: Routledge).
+
+# Highlight (page 988)
+Herring, S. C. (2004) “Slouching Toward the Ordinary: Current Trends in Computer-Mediated Com- munication,” New Media and Society 6(1): 26–36.
+
+# Highlight (page 989)
+Lunenfeld, P. (2004) “Media Design: New and Improved Without the New,” New Media and Society 6(1): 65–70
+
+# Highlight (page 992)
+Star, S. L. & G. Bowker (2006) “How to Infrastructure,” in L. A. Lievrouw & S. Livingstone (eds), The Handbook of New Media, updated student ed. (London: Sage): 230–45
+
+# Highlight (page 992)
+Turner, F. (2005) “Where the Counterculture Met the New Economy: Revisiting the WELL and the Origins of Virtual Community,” Technology and Culture 46(3): 485–512.
+
+# Highlight (page 992)
+Starr, P. (2004) The Creation of the Media: Political Origins of Modern Communications (New York: Basic Books).
+
+# Highlight (page 992)
+Verhulst, S. (2005) Analysis into the Social Implication of Mediation by Emerging Technologies, position paper for the MIT-OII Joint Workshop, “New Approaches to Research on the Social Implications of Emerging Technologies” (Oxford: Oxford Internet Institute, Oxford University), April 15–16. Available at: http://www.oii.ox.ac.uk.
+
+# Highlight (page 993)
+Yates, J. (2005) Structuring the Information Age: Life Insurance and Technology in the Twentieth Century (Baltimore, MD: Johns Hopkins University Press).

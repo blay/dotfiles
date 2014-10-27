@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#A script to cycle through various display options
+#
+#
+
+#Check whether external monitors are connected
+
+EXTERNAL=`xrandr | grep -c "VGA1 connected"`
+
+#Do the shit
+#if [ $EXTERNAL = 1 ]; 	then
+		if [ $1 = "same" ]; then
+			xrandr --output LVDS1 --auto
+			xrandr --output VGA1 --auto --same-as LVDS1
+		elif [ $1 = "right" ]; then
+			xrandr --output LVDS1 --auto
+			xrandr --output VGA1 --auto --right-of LVDS1
+		elif [ $1 = "off" ]; then
+			xrandr --output LVDS1 --auto
+			xrandr --output VGA1 --off
+fi

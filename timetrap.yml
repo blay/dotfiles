@@ -1,0 +1,17 @@
+---
+database_file: "/Users/svartfax/.timetrap.db"
+round_in_seconds: 900
+append_notes_delimiter: " "
+formatter_search_paths:
+- "/Users/svartfax/.timetrap/formatters"
+default_formatter: text
+auto_sheet: dotfiles
+auto_sheet_search_paths:
+- "/Users/svartfax/.timetrap/auto_sheets"
+default_command: 
+auto_checkout: false
+require_note: false
+
+day_length_hours: 8
+progress_width: 64
+day_exclude_sheets: reading,internet,sleep,workout,eat
