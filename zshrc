@@ -19,12 +19,17 @@ fpath=(~/.rvm/gems/ruby-2.1.2/gems/timetrap-1.8.14/completions/zsh $fpath)
 
 # Shell
 
+USER='svartfax'
+
 # Preferred editor for local and remote sessions
 if [[ $(uname) == Linux ]]; then
   export EDITOR='vim'
+  HARDHOME='home'
  else
   export EDITOR='mvim -v'
   alias vim='mvim -v'
+  HARDHOME='Users'
+  alias grep="ggrep"
 fi
 
 alias zshconfig="vim ~/.zshrc"
@@ -33,16 +38,9 @@ alias zshsource="source ~/.zshrc"
 alias rm="rm -i"
 alias mv="mv -i"
 
-alias irc='sh ~/.shell/irc'
-alias ta2='ssh -t magnus@129.16.157.66 "screen -rd"'
-alias www='ssh -t monki@blay.se "cd www"'
-alias you='python ~/.shell/youtube-dl -t'
-alias yoump3='python ~/.shell/youtube-dl -t -x --audio-format mp3 --audio-quality 0'
 alias uppa='sh ~/.shell/uppa'
 
 alias cpu='top -o cpu -n 5'
-
-alias grep="ggrep"
 
 alias solve='sh ~/.shell/solve'
 
@@ -69,7 +67,7 @@ alias tt='~/.rvm/gems/ruby-2.1.2/bin/t'
 alias plus='sh ~/.shell/plus.sh'
 alias minus='sh ~/.shell/minus.sh'
 
-PATH=$PATH:"/Users/svartfax/.todo"
+PATH=$PATH:"/$HARDHOME/$USER/.todo"
 alias t='todo.sh -d ~/.todo.cfg'
 alias ts='todo.sh -d ~/.todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon)"
@@ -90,8 +88,8 @@ alias tfix='todo.sh -d ~/.todofix.cfg'
 ## Defaults
 
 export TODOTXT_DEFAULT_ACTION=ls
-export TODOTXT_HOME=/Users/svartfax/.todo
-# source /Users/svartfax/.todo/todo_completion
+export TODOTXT_HOME=/$HARDHOME/$USER/.todo
+# source /$HARDHOME/$USER/.todo/todo_completion
 # complete -F _todo t
 
 alias p='python ~/.todo/Punch.py'
