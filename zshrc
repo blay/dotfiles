@@ -66,7 +66,7 @@ alias tt='~/.rvm/gems/ruby-2.1.2/bin/t'
 alias plus='sh ~/scripts/todo/plus.sh'
 alias minus='sh ~/scripts/todo/minus.sh'
 
-PATH=$PATH:"~/scripts/todo"
+PATH=$PATH:"/Users/svartfax/scripts/todo"
 alias t='todo.sh -d ~/scripts/todo/todo.cfg'
 alias ts='todo.sh -d ~/scripts/todo/todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon)"
@@ -87,8 +87,8 @@ alias tfix='todo.sh -d ~/scripts/todo/todofix.cfg'
 ## Defaults
 
 export TODOTXT_DEFAULT_ACTION=ls
-export TODOTXT_HOME=~/scripts/todo
-# source ~/scripts/todo/todo_completion
+export TODOTXT_HOME=/Users/svartfax/scripts/todo
+# source /Users/svartfax/scripts/todo/todo_completion
 # complete -F _todo t
 
 alias p='python ~/scripts/todo/Punch.py'
