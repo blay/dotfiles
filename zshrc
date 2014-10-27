@@ -20,7 +20,7 @@ fpath=(~/.rvm/gems/ruby-2.1.2/gems/timetrap-1.8.14/completions/zsh $fpath)
 # Shell
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ $(uname) == Linux ]]; then
   export EDITOR='vim'
  else
   export EDITOR='mvim -v'
