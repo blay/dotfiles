@@ -19,7 +19,13 @@ fpath=(~/.rvm/gems/ruby-2.1.2/gems/timetrap-1.8.14/completions/zsh $fpath)
 
 # Shell
 
-export EDITOR="mvim -v"
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+ else
+  export EDITOR='mvim -v'
+  alias vim='mvim -v'
+fi
 
 alias zshconfig="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
@@ -35,9 +41,6 @@ alias yoump3='python ~/.shell/youtube-dl -t -x --audio-format mp3 --audio-qualit
 alias uppa='sh ~/.shell/uppa'
 
 alias cpu='top -o cpu -n 5'
-
-alias vim='mvim -v'
-alias v='mvim -v'
 
 alias grep="ggrep"
 
