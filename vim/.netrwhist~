@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/svartfax/Dropbox/notes/ikiwiki/cybernetics'
-let g:netrw_dirhist_2='/Users/svartfax/Dropbox/dotfiles'
-let g:netrw_dirhist_3='/Users/svartfax/notes/simplenotes'
