@@ -35,6 +35,8 @@ fi
 alias zshconfig="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
+alias svim="sudo -E vim"
+
 alias rm="rm -i"
 alias mv="mv -i"
 

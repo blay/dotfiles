@@ -172,7 +172,8 @@ cmap w!! w !sudo tee % >/dev/null
 set clipboard=unnamed
 
 " Toggle spelling
-map <leader>s :setlocal spell! spelllang=en_us<CR>
+map <leader>c :setlocal spell! spelllang=en_us<CR>
+map <leader>v :NextWordy<CR>
 
 " Show latest notes
 map <leader>x :Explore ~/notes/simplenotes<CR>
@@ -201,10 +202,6 @@ let g:vimwiki_table_mappings = 0
 " GPG settings
 let g:GPGPreferArmor=1
 let g:GPGDefaultRecipients=["magnuse@tii.se"]
-
-" Note command
-command! -nargs=1 Newnote :exe "e! " . fnameescape("~/notes/simplenotes/<args>")
-map <leader>n :Newnote 
 
 " VimRoom
 nnoremap <silent> <Leader>go :Goyo<CR>:Limelight<CR>
