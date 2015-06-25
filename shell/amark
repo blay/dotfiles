@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -e 's/\(.*\)/"\1"/' | xargs head -n$1 |perl -pe 's/==>/\n#/g'|perl -pe 's/<==/#\n/g'|ack --passthru "\#(.*?)\#"

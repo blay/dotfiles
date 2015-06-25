@@ -1,0 +1,5 @@
+#!/bin/bash
+# Note: Perl functions are legacy for sorting last column, that is vvv
+
+# perl -pe 's/vvv/°/g'|column -t -s °|awk '{print $NF,$0}' | sort -n | cut -f2- -d' '
+column -t -s -|sort -fk$1

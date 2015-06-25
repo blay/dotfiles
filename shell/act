@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ack -x "TODO|FIXME|XXX|IDEA|\?\?\?|\!\!\!REF|REQ|HACK|NOTE"
