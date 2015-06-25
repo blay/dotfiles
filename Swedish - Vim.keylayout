@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.8 on 2014-10-30 at 11:33 (CET)-->
-<!--Last edited by Ukelele version 2.2.8 on 2014-10-30 at 12:28 (CET)-->
+<!--Last edited by Ukelele version 2.2.8 on 2015-06-15 at 22:45 (CEST)-->
 <keyboard group="0" id="5693" name="Swedish - Vim" maxout="1">
     <layouts>
         <layout first="0" last="0" modifiers="4c" mapSet="96c"/>
@@ -437,7 +437,7 @@
             <key code="24" output="´"/>
             <key code="25" output="]"/>
             <key code="26" output="|"/>
-            <key code="27" output="±"/>
+            <key code="27" output="\"/>
             <key code="28" output="["/>
             <key code="29" output="≈"/>
             <key code="30" action="4"/>
@@ -454,10 +454,10 @@
             <key code="41" output="["/>
             <key code="42" output="$"/>
             <key code="43" output="‚"/>
-            <key code="44" output="/"/>
+            <key code="44" output="–"/>
             <key code="45" output="‘"/>
             <key code="46" output="’"/>
-            <key code="47" output="…"/>
+            <key code="47" output="/"/>
             <key code="48" output="&#x0009;"/>
             <key code="49" output=" "/>
             <key code="50" output="≤"/>
@@ -566,7 +566,7 @@
             <key code="41" output="{"/>
             <key code="42" output="’"/>
             <key code="43" output="„"/>
-            <key code="44" output="|"/>
+            <key code="44" output="—"/>
             <key code="45" output="“"/>
             <key code="46" output="”"/>
             <key code="47" output="·"/>

@@ -46,6 +46,19 @@ alias cpu='top -o cpu -n 5'
 
 alias solve='sh ~/.shell/solve'
 
+# Zettel
+alias vo='vim "`r|tail -n1`"'
+alias co='cat "`r|tail -n1`"'
+alias a="ack"
+alias ag="ack -g"
+alias ax="ack -x"
+alias f="find ."
+
+
+# workout
+alias logbook="cat ~/notes/workout/logbook.md"
+alias logedit='vim ~/notes/workout/logbook.md'
+
 # Blog
 alias newo='sh ~/scripts/blog/newocto'
 alias new='sh ~/scripts/blog/new'
@@ -72,7 +85,7 @@ alias minus='sh ~/.shell/minus.sh'
 PATH=$PATH:"/$HARDHOME/$USER/.todo"
 alias t='todo.sh -d ~/.todo.cfg'
 alias ts='todo.sh -d ~/.todo.cfg schedule'
-alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon)"
+alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
 alias tbm="(t birdseye;echo '\n# Scheduled next 3 weeks #\n----------------------------';tv 3weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
 alias tu='todo.sh -d ~/.todo.cfg until'
 alias tx='todo.sh -x -d ~/.todo.cfg'
@@ -80,12 +93,14 @@ alias tv='todo.sh -x -d ~/.todo.cfg view'
 alias t1='(tv past;tv today)'
 alias t7='todo.sh -x -d ~/.todo.cfg view 1weeks'
 alias te='vim ~/Dropbox/todo/todo.txt'
-alias tc='clear && todo.sh -d ~/.todo.cfg'
+alias tc='clear && (tv past;tv today)'
+alias t7='todo.sh -x -d ~/.todo.cfg view 1weeks'
 function tm { t schedule $1 mv tomorrow; }
 
 ## Fix
 
-alias tfix='todo.sh -d ~/.todofix.cfg'
+alias tfix='todo.sh -x -d ~/.todofix.cfg'
+alias tfixc='tfix view context'
 
 ## Defaults
 
@@ -101,8 +116,10 @@ n() {
 
 # Common cd
 
-alias cdn='cd ~/notes/simplenotes'
+alias cdn='cd ~/notes/timenotes'
 alias cdsh='cd ~/.shell'
+alias cdbl='cd ~/notes/l.magnu.se'
+alias cdd='cd ~/Downloads'
 
 # Emacs
 
@@ -135,7 +152,7 @@ unsetopt nomatch
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx last-working-dir sublime)
+plugins=(git osx last-working-dir sublime colorize)
 
 PATH=$PATH:"/usr/local/sbin"
 
@@ -146,3 +163,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
+
+export LC_ALL=sv_SE.UTF-8
+export LESS=-RFX
