@@ -1,0 +1,13 @@
+set title "Exercise progression"
+unset multiplot
+set xdata time
+set style data lines
+set terminal dumb
+set timefmt "%Y-%m-%d"
+set format x "%Y-%m"
+set xlabel "Time"
+set ylabel "Reps"
+set autoscale y
+LAST_DAY="`gdate -d "-$(($(date +%d)-1)) days" +%Y-%m-%d`"
+set xrange ["2014-11-09":LAST_DAY]
+plot datafile using 1:2 with lines
