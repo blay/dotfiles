@@ -1,0 +1,4 @@
+#!/bin/bash
+time=$(gdate +%y%m%d%H%M)
+echo "\"$time $@.txt\"" |pbcopy
+echo "\"$time $@.txt\""

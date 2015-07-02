@@ -52,8 +52,12 @@ alias co='cat "`r|tail -n1`"'
 alias a="ack"
 alias ag="ack -g"
 alias ax="ack -x"
+alias ap="ack --passthru"
+alias aq="ack -Q"
 alias f="find ."
+alias lt='ls -Alhtr'
 
+alias am='a --passthru  "^\#.*"'
 
 # workout
 alias logbook="cat ~/notes/workout/logbook.md"
@@ -101,6 +105,7 @@ function tm { t schedule $1 mv tomorrow; }
 
 alias tfix='todo.sh -x -d ~/.todofix.cfg'
 alias tfixc='tfix view context'
+alias tfixe='vim ~/Dropbox/todo/todofix.txt'
 
 ## Defaults
 
