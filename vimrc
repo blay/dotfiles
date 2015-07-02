@@ -178,9 +178,9 @@ cmap w!! w !sudo tee % >/dev/null
 set clipboard=unnamed
 
 " Toggle spelling
-map <leader>c :setlocal spell! spelllang=en_us<CR>
+map <leader>c :setlocal nospell! spelllang=en_us,sv<CR>
 map <leader>v :NextWordy<CR>
-
+"
 " Show latest notes
 map <leader>x :Explore ~/notes/simplenotes<CR>
 " Default sorting
