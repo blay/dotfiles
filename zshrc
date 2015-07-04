@@ -44,6 +44,8 @@ alias cpu='top -o cpu -n 5'
 
 alias solve='sh ~/.shell/solve'
 
+alias scr='screen -rd'
+
 # Blog
 alias newo='sh ~/scripts/blog/newocto'
 alias new='sh ~/scripts/blog/new'
@@ -144,3 +146,5 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
