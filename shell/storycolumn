@@ -1,2 +1,0 @@
-#!/bin/bash
-column -t -s -|LC_ALL=C sort -fk$1

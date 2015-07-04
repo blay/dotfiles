@@ -141,6 +141,8 @@ set wildmode=longest:full
 set wildmenu
 
 "" A few remaps
+" Ö as colon
+nmap ö :
 " Soft wrap navigation
 nnoremap j gj
 nnoremap k gk
@@ -157,6 +159,10 @@ nnoremap <Leader>l :ls<CR>:b<space>
 " Better split positions"
 set splitbelow
 set splitright
+" Tab between buffers
+noremap <leader><tab> <c-w><c-w>
+" Switch between last two buffers
+nnoremap <leader> <leader><tab>
 " Save your fingers by escaping escape"
 :inoremap kj <esc>
 " These will make it so that going to the next one in a
@@ -172,8 +178,9 @@ cmap w!! w !sudo tee % >/dev/null
 set clipboard=unnamed
 
 " Toggle spelling
-map <leader>s :setlocal spell! spelllang=en_us<CR>
-
+map <leader>c :setlocal nospell! spelllang=en_us,sv<CR>
+map <leader>v :NextWordy<CR>
+"
 " Show latest notes
 map <leader>x :Explore ~/notes/simplenotes<CR>
 " Default sorting
@@ -202,10 +209,6 @@ let g:vimwiki_table_mappings = 0
 let g:GPGPreferArmor=1
 let g:GPGDefaultRecipients=["magnuse@tii.se"]
 
-" Note command
-command! -nargs=1 Newnote :exe "e! " . fnameescape("~/notes/simplenotes/<args>")
-map <leader>n :Newnote 
-
 " VimRoom
 nnoremap <silent> <Leader>go :Goyo<CR>:Limelight<CR>
 
@@ -225,3 +228,7 @@ map <leader>p /[<CR>lyi]<leader>/:execute 'vsp' "~/notes/simplenotes/" . fnamees
 command! Readall :g/vvv\|qqq/execute 'read' "~/notes/simplenotes/" .  fnameescape(getline("."))
 command! Removeall  :v/\(\(\(^#\\|^vvv\\|^qqq\)\).*\)/norm d_<CR>:g/.\n\@!/norm o<CR> 
 nmap <leader>cf :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+
+
+let g:pad#dir = "~/test"
+let g:pad#rename_files=0
