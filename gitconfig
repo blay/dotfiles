@@ -1,0 +1,18 @@
+[user]
+	name = Svartfax
+	email = ok@blay.se
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore_global
+[alias]
+	co = checkout
+	cob = checkout -b
+	ci = commit
+	cim = commit -m
+	cia = commit --amend
+	br = branch
+	st = status
+	a = add -u
