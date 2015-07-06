@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]] ; then
+    echo 'pass uid to script, ex 1507030906, or 1407271365'
+    exit 0
+fi
+
+file=$1
+
+printf "\n# Links to file:\n\n"
+ack $file
+
+
+printf "\n\n# Mutual Links\n\n"
+link=$(ack -o "(?<=§)[0-9]*" $file*)
+
+for line in $link
+  do
+    title=$(ack -g $line)
+    printf "\n## $title \n\n"
+    ack $line| ack -v $file
+  done
+
+
+printf "\n\n# Mutual References\n\n"
+ref=$(ack -o "(?<=\[\@)[a-z]*\:[0-9]*[a-z]*" $file*)
+
+for line in $ref
+  do
+    title=$line
+    printf "\n## $title \n\n"
+    ack -o $line| ack -v $file
+  done
+# TODO: Match a bit before and after ref
+# ack -o "(?<=\.).*(?<=\[\@)[a-z]*\:[0-9]*[a-z]*.{20}"
