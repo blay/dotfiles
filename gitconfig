@@ -8,11 +8,11 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
-	ch = checkout
-	chb = checkout -b
-	co = commit
-	com = commit -m
-	coa = commit --amend
+	co = checkout
+	cob = checkout -b
+	ci = commit
+	cim = commit -m
+	cia = commit --amend
 	br = branch
 	st = status
 	a = add -u

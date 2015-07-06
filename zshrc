@@ -47,8 +47,7 @@ alias cpu='top -o cpu -n 5'
 alias solve='sh ~/.shell/solve'
 
 # Zettel
-alias vo='vim "`r|tail -n1`"'
-alias co='cat "`r|tail -n1`"'
+alias co='r|tail -n1|pbcopy'
 alias a="ack"
 alias ag="ack -g"
 alias ax="ack -x"
