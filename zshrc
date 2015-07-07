@@ -25,6 +25,7 @@ USER='svartfax'
 if [[ $(uname) == Linux ]]; then
   export EDITOR='vim'
   HARDHOME='home'
+  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
   alias vim='mvim -v'
