@@ -49,14 +49,14 @@ alias solve='sh ~/.shell/solve'
 alias scr='screen -rd'
 
 # Zettel
-alias vo='vim "`r|tail -n1`"'
-alias co='cat "`r|tail -n1`"'
+alias co='r|tail -n1|pbcopy'
 alias a="ack"
 alias ag="ack -g"
 alias ax="ack -x"
 alias ap="ack --passthru"
+alias af="ack --follow"
 alias aq="ack -Q"
-alias f="find ."
+alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -Alhtr'
 
 alias am='a --passthru  "^\#.*"'
@@ -126,7 +126,7 @@ n() {
 
 alias cdn='cd ~/notes/timenotes'
 alias cdsh='cd ~/.shell'
-alias cdbl='cd ~/notes/l.magnu.se'
+alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 
 # Emacs

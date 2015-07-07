@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# For rendering note sequences. Takes one or more outline or sequence files as input. Supports branching and merging by duplicating a link where branching takes place with a new sequence at the end of a file. For merging, a duplicate link to the note where the merging happens is appended to this new sequence.
+
+echo "@startuml"
+echo "left to right direction"
+while read line
+do
+ file=`echo "$line"`
+  ggrep -Po '(?<=§)[a-zA-Z0-9]*?(?=\W|$)'  "${line}" | while read -r link ; do
+    linktxt=`ls *$link*`
+    echo "\"${file}\" --> \"${linktxt}\""
+  done
+done
+echo "@enduml"
+
+
+# TODO: Search with backlink=`ack -l $link` and echo  "\"${backlink}\" --> \"${$linktxt}\""
+# TODO: while read -r link2;do ggrep...one ore iteration
+# TODO In the end, search fileid=`cut or tr first column` backlink=`ack -l $fileid` and echo  "\"${backlink}\" --> \"${$fileid}\""
