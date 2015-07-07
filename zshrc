@@ -25,6 +25,7 @@ USER='svartfax'
 if [[ $(uname) == Linux ]]; then
   export EDITOR='vim'
   HARDHOME='home'
+  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
   alias vim='mvim -v'
@@ -49,7 +50,12 @@ alias solve='sh ~/.shell/solve'
 alias scr='screen -rd'
 
 # Zettel
-alias co='r|tail -n1|pbcopy'
+
+co() {
+
+	fc -e -|tail -n${@:-1}|head -n1|cut -f 1 -d " "|tr -d "\n"|pbcopy
+}
+
 alias a="ack"
 alias ag="ack -g"
 alias ax="ack -x"
