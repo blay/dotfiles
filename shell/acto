@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ack -x "TODO|FIXME|XXX|IDEA|\?\?\?|\!\!\!REF|REQ|HACK|NOTE" \
+| ack --flush --passthru --color --color-match="black on_cyan" "TODO" \
+| ack --flush --passthru --color --color-match="black on_red" "FIXME" \
+| ack --flush --passthru --color --color-match="black on_red" "XXX" \
+| ack --flush --passthru --color --color-match="black on_green" "IDEA" \
+| ack --flush --passthru --color --color-match="black on_red" "\?\?\?" \
+| ack --flush --passthru --color --color-match="black on_green" "\!\!\!" \
+| ack --flush --passthru --color --color-match="black on_red" "REF" \
+| ack --flush --passthru --color --color-match="black on_yellow" "REQ" \
+| ack --flush --passthru --color --color-match="black on_yellow" "HACK" \
+| ack --flush --passthru --color --color-match="black on_green" "NOTE" \
+| ack -o "(?<=<\!--).*?(?=-->)|(?<=>>).*?(?=<<)" |sort -nr
