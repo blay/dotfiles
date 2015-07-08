@@ -226,7 +226,7 @@ map <leader>g :execute 'read' "~/notes/simplenotes/" . fnameescape(getline("."))
 map <leader>t :execute 'vsp' "~/notes/simplenotes/" . fnameescape(getline("."))<CR><C-W>l
 map <leader>p /[<CR>lyi]<leader>/:execute 'vsp' "~/notes/simplenotes/" . fnameescape(expand(@"))<CR><C-W>l
 command! Readall :g/vvv\|qqq/execute 'read' "~/notes/simplenotes/" .  fnameescape(getline("."))
-command! Removeall  :v/\(\(\(^#\\|^vvv\\|^qqq\)\).*\)/norm d_<CR>:g/.\n\@!/norm o<CR> 
+command! Removeall  :v/\(\(\(^#\\|^vvv\\|^qqq\)\).*\)/norm d_<CR>:g/.\n\@!/norm o<CR>
 nmap <leader>cf :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
 
 

@@ -10,18 +10,9 @@ file=$1
 printf "\n# Links to file:\n\n"
 ack $file
 
-<<<<<<< HEAD
-
 printf "\n\n# Mutual Links\n\n"
-link=$(ack -o "(?<=§)[0-9]*" $file*)
+link=$(ack -o "(?<=§)[0-9]*" $file*|sort -n |uniq)
 
-=======
-printf "\n\n# Mutual Links\n\n"
-link=$(ack -o "(?<=§)[0-9]*" $file*)
-
-
-
->>>>>>> 3340e9f9efae8ded78b163e72257300772ed1f9a
 for line in $link
   do
     title=$(ack -g $line)
@@ -29,12 +20,8 @@ for line in $link
     ack $line| ack -v $file
   done
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3340e9f9efae8ded78b163e72257300772ed1f9a
 printf "\n\n# Mutual References\n\n"
-ref=$(ack -o "(?<=\[\@)[a-z]*\:[0-9]*[a-z]*" $file*)
+ref=$(ack -o "(?<=\[\@)[a-z]*\:[0-9]*[a-z]*" $file*|sort -n |uniq)
 
 for line in $ref
   do

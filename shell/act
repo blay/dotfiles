@@ -11,5 +11,3 @@ ack -x "TODO|FIXME|XXX|IDEA|\?\?\?|\!\!\!REF|REQ|HACK|NOTE" \
 | ack --flush --passthru --color --color-match="black on_yellow" "REQ" \
 | ack --flush --passthru --color --color-match="black on_yellow" "HACK" \
 | ack --flush --passthru --color --color-match="black on_green" "NOTE" \
-
-# TODO Add possiblity to sort output after tag. (save output to variable, echo header and ack match.)
