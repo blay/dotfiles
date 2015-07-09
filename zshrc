@@ -63,7 +63,7 @@ alias ap="ack --passthru"
 alias af="ack --follow"
 alias aq="ack -Q"
 alias f="find . -type f -not -path '*/\.*'"
-alias lt='ls -Alhtr'
+alias lt='ls -lhtr'
 
 alias am='a --passthru  "^\#.*"'
 

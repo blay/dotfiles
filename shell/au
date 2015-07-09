@@ -1,0 +1,4 @@
+#!/bin/bash
+uid=$(echo "$@"|ack -o "[0-9]{10}")
+printf "$uid"
+printf "$uid"|pbcopy

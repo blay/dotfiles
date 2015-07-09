@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ack -x "TODO|FIXME|XXX|IDEA|\?\?\?|\!\!\!REF|REQ|HACK|NOTE" \
+ack -x "TODO|FIXME|XXX|IDEA|\?\?\?|\!\!\!|REF|REQ|HACK|NOTE" \
 | ack --flush --passthru --color --color-match="black on_cyan" "TODO" \
 | ack --flush --passthru --color --color-match="black on_red" "FIXME" \
 | ack --flush --passthru --color --color-match="black on_red" "XXX" \
