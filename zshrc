@@ -107,8 +107,8 @@ alias t1='(tv past;tv today)'
 alias t7='todo.sh -x -d ~/.todo.cfg view 1weeks'
 alias te='vim ~/Dropbox/todo/todo.txt'
 alias tc='clear && (tv past;tv today)'
-alias t7='todo.sh -x -d ~/.todo.cfg view 1weeks'
-function tm { t schedule $1 mv tomorrow; }
+alias tf='clear && (tv past;tv today;tv future)'
+function tm { ts $1 mv tomorrow; }
 
 ## Fix
 
@@ -134,6 +134,7 @@ alias cdn='cd ~/notes/timenotes'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
+alias cdb='cd ~/builds'
 
 # Emacs
 
@@ -179,3 +180,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
 export LC_ALL=sv_SE.UTF-8
 export LESS=-RFX
+export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
+export ANDROID_HOME=/usr/local/opt/android-sdk
