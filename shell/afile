@@ -21,7 +21,7 @@ for line in $link
   done
 
 printf "\n\n# Mutual References\n\n"
-ref=$(ack -o "(?<=\[\@)[a-z]*\:[0-9]*[a-z]*" $file*|sort -n |uniq)
+ref=$(ack -o "(?<=\@)[a-z]*\:[0-9]*[a-z]*" $file*|sort -n |uniq)
 
 for line in $ref
   do

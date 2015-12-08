@@ -1,0 +1,135 @@
+{
+  "name": "linter-write-good",
+  "main": "./lib/init",
+  "activationCommands": [],
+  "version": "0.6.1",
+  "description": "Naive linter for English prose for developers who can't write good and wanna learn to do other stuff good too.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gepoch/linter-write-good"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "write-good": "~0.9.0",
+    "xregexp": "~2.0.0"
+  },
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# linter-write-good\n\nNaive linter for English prose for developers who can't write good and wanna\nlearn to do other stuff good too.\n\nA Linter interface for the [write-good](https://github.com/btford/write-good)\nlibrary.\n\nThis provides a variety of english usage text tips when writing documentation\nand commit messages.\n\nThis package requires [Linter](https://github.com/AtomLinter/Linter).\n\n[See it on atom.io](https://atom.io/packages/linter-write-good)\n\n[See it on github.com](https://github.com/gepoch/linter-write-good)\n\n![](https://raw.github.com/gepoch/linter-write-good/master/screenshot.png)\n\n## Configuration\n\nIn the package settings, you can use a custom node binary, a custom write-good\nscript, and pass arguments to the write good command. See\n[write-good](https://github.com/btford/write-good) for possible arguments to the\ncommand.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/gepoch/linter-write-good/issues"
+  },
+  "homepage": "https://github.com/gepoch/linter-write-good",
+  "_id": "linter-write-good@0.6.1",
+  "_shasum": "2e74e45db4b17ffd5f5196a996365aa8e16669e6",
+  "_resolved": "file:../d-115628-49235-e0qk0k/package.tgz",
+  "_from": "../d-115628-49235-e0qk0k/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "write-good",
+        "version": "0.9.1",
+        "path": "node_modules/write-good/write-good.js"
+      },
+      {
+        "name": "adverb-where",
+        "version": "0.0.7",
+        "path": "node_modules/write-good/node_modules/adverb-where/adverbs.js"
+      },
+      {
+        "name": "no-cliches",
+        "version": "0.1.0",
+        "path": "node_modules/write-good/node_modules/no-cliches/cliches.js"
+      },
+      {
+        "name": "passive-voice",
+        "version": "0.0.1",
+        "path": "node_modules/write-good/node_modules/passive-voice/passive.js"
+      },
+      {
+        "name": "too-wordy",
+        "version": "0.1.3",
+        "path": "node_modules/write-good/node_modules/too-wordy/too-wordy.js"
+      },
+      {
+        "name": "weasel-words",
+        "version": "0.1.1",
+        "path": "node_modules/write-good/node_modules/weasel-words/weasel.js"
+      },
+      {
+        "name": "xregexp",
+        "version": "2.0.0",
+        "path": "node_modules/xregexp/xregexp-all.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/init.coffee"
+      ],
+      ".js": [
+        "node_modules/write-good/bin/write-good.js",
+        "node_modules/write-good/lib/annotate.js",
+        "node_modules/write-good/lib/lexical-illusions.js",
+        "node_modules/write-good/lib/starts-with-so.js",
+        "node_modules/write-good/lib/there-is.js",
+        "node_modules/write-good/node_modules/adverb-where/adverbs.js",
+        "node_modules/write-good/node_modules/adverb-where/matcher.js",
+        "node_modules/write-good/node_modules/no-cliches/cliches.js",
+        "node_modules/write-good/node_modules/no-cliches/matcher.js",
+        "node_modules/write-good/node_modules/passive-voice/passive.js",
+        "node_modules/write-good/node_modules/too-wordy/matcher.js",
+        "node_modules/write-good/node_modules/too-wordy/too-wordy.js",
+        "node_modules/write-good/node_modules/weasel-words/weasel.js",
+        "node_modules/write-good/write-good.js",
+        "node_modules/xregexp/xregexp-all.js"
+      ],
+      ".json": [
+        "node_modules/write-good/node_modules/adverb-where/package.json",
+        "node_modules/write-good/node_modules/no-cliches/package.json",
+        "node_modules/write-good/node_modules/passive-voice/package.json",
+        "node_modules/write-good/node_modules/too-wordy/package.json",
+        "node_modules/write-good/node_modules/weasel-words/package.json",
+        "node_modules/write-good/package.json",
+        "node_modules/xregexp/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          ""
+        ],
+        "dependencies": {
+          "write-good": "~0.9.0",
+          "xregexp": "~2.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/write-good/bin",
+          "node_modules/write-good/lib",
+          "node_modules/write-good",
+          "node_modules/write-good/test"
+        ],
+        "dependencies": {
+          "passive-voice": "~0.0.0",
+          "weasel-words": "~0.1.0",
+          "adverb-where": "~0.0.0",
+          "too-wordy": "~0.1.0",
+          "no-cliches": "~0.1.0"
+        }
+      }
+    ]
+  }
+}

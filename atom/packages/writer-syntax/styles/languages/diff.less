@@ -1,0 +1,30 @@
+// Syntax coloring for diff
+
+.source .meta.diff {
+  &.header {
+    &.from-file {
+      color: @syntax-color-removed;
+    }
+    &.to-file {
+      color: @syntax-color-modified;
+    }
+  }
+  &.range {
+    color: @very-light-gray !important;
+  }
+  &.line-number {
+    color: @very-dark-gray !important;
+    font-weight: bold;
+  }
+}
+
+.source .diff{
+  &.deleted {
+    color: @syntax-color-removed !important;
+    text-decoration: line-through;
+  }
+  &.inserted {
+    color: @syntax-color-added !important;
+    text-decoration: underline;
+  }
+}

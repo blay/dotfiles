@@ -1,0 +1,91 @@
+.md {
+
+  .heading {
+    color: @very-dark-gray;
+    font-weight: bold;
+    .punctuation {
+      font-weight: normal !important;
+      color: @s3 !important;
+    }
+  }
+
+  .list, .quote {
+    .punctuation {
+      // FIXME This also colors italics, ...
+      color: @l3 !important;
+    }
+  }
+
+  .table {
+    color: @writer-fg;
+    .alignment {
+      color: @l3 !important;
+      font-weight: bold;
+    }
+  }
+
+  .emphasis {
+    color: @s1;
+    &.italic {
+      font-style: italic;
+    }
+    &.bold {
+      font-weight: bold;
+    }
+  }
+
+  .reference {
+    color: @s4 !important;
+  }
+
+  .fenced {
+    color: @very-dark-gray;
+  }
+
+  .raw {
+    color: @s5;
+  }
+
+  .link {
+    .text, .string {
+      color: @s1 !important;
+    }
+    .label, .destination {
+      color: @l1 !important;
+      font-weight: normal !important;
+    }
+  }
+
+  .image {
+    .punctuation {
+      &::first-letter {
+        color: @s3 !important;
+        // FIXME this is not working at the moment
+      }
+    }
+  }
+
+  .critic {
+
+    &.highlight {
+      .ooe-highlighted;
+    }
+
+    &.inserted {
+      .ooe-added;
+    }
+
+    &.deleted {
+      .ooe-removed;
+    }
+
+    &.comment {
+      .ooe-renamed;
+    }
+
+    &.substitution {
+      .ooe-changed;
+    }
+  }
+
+}

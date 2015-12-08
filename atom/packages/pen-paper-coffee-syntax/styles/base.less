@@ -1,0 +1,352 @@
+@import "syntax-variables";
+
+atom-text-editor,
+atom-text-editor::shadow, :host {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .line.cursor-line {
+    background-color: @syntax-cursor-line;
+  }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @invisible-ink;
+  }
+
+  .gutter-container {
+    // add a small margin right to the gutter
+    margin-right: 0.8em;
+  }
+
+    .gutter {
+      background-color: @syntax-gutter-background-color;
+      color: @syntax-gutter-text-color;
+
+      .line-number {
+        -webkit-font-smoothing: antialiased;
+        &.cursor-line {
+          background-color: @syntax-gutter-background-color-selected;
+          color: @syntax-gutter-text-color-selected;
+        }
+        &.cursor-line-no-selection {
+          color: @syntax-gutter-text-color-selected;
+        }
+      }
+    }
+
+
+    .line-number.folded, .line-number:after, .fold-marker:after {
+      color: @light-ink;
+    }
+
+
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+} // .editor bracket close
+
+.bracket-matcher .region{
+  background-color: rgba(237, 169, 251, 0.61);
+}
+
+.comment {
+  color: @comment-ink;
+  font-style: italic;
+}
+
+.entity {
+  &.name.type {
+    color: @cyan;
+  }
+
+  &.other.inherited-class {
+    color: @green;
+  }
+}
+
+.keyword {
+  color: @green;
+
+  &.control {
+    color: @ink;
+    font-weight: bold; // slightly bolder than normal
+  }
+
+  &.operator {
+    font-weight: bold;
+    color: darken(@cyan, 20%);
+  }
+
+  &.other.special-method {
+    color: @blue;
+  }
+
+  &.other.attribute-name {
+  color: @ink;
+  font-weight: bold;
+  }
+
+  &.other.unit {
+    color: @green;
+  }
+}
+
+.storage {
+  color: @blue;
+  &.todo, &.idea, &.fixme, &.hack {
+    // TODO
+    // FIXME
+    // IDEA
+    // HACK asdsadasdasdasdasdasd
+
+    color: @purple;
+    background-color: fade(@light-orange, 10%);
+    text-decoration: none;
+    border-bottom: @invisible-ink;
+    border-width: 0px 0px 1px 0px;
+    border-style: none none dotted none;
+  }
+}
+
+.constant {
+  color: @red;
+
+  &.character.escape {
+    color: @green;
+  }
+
+  &.numeric {
+    color: @red;
+  }
+
+  &.other.color {
+    color: @green;
+  }
+
+  &.other.symbol {
+    color: @green;
+  }
+}
+
+.variable {
+  color: @blue;
+
+  &.interpolation {
+    color: darken(@blue, 10%);
+  }
+
+  &.parameter.function {
+
+  }
+}
+
+.invalid.illegal {
+  background-color: @red;
+  color: @syntax-background-color;
+}
+
+.string {
+
+&.interpolated{
+  background-color: rgba(255, 204, 0, 0.03);
+}
+
+&.quoted{
+
+    background-color: rgba(255, 204, 0, 0.03);
+    color: darken(@quote-color, 5%);
+}
+
+  &.regexp {
+    color: @cyan;
+
+    .source.ruby.embedded {
+      color: @orange;
+    }
+  }
+
+  &.other.link {
+    color: @red;
+  }
+}
+
+.punctuation {
+  &.definition {
+    &.comment {
+      color: darken(@comment-ink,10%);
+    }
+
+    &.tag{
+      color: darken(@red, 10%);
+    }
+
+    &.string,
+    &.variable,
+    &.array {
+
+    }
+
+
+      &.parameters, &.arguments {
+        &.end, &.begin
+        {
+          color: @very-light-ink;
+        }
+      }
+
+
+
+    &.heading,
+    &.identity {
+      color: @blue;
+    }
+
+    &.bold {
+      color: bold-color;
+      font-weight: bold;
+    }
+  }
+
+  &.section.embedded {
+    color: darken(@red, 10%);
+  }
+
+}
+
+.support {
+  &.class {
+    color: @cyan;
+   //color: @very-light-ink;
+  }
+
+  &.function  {
+
+    color:@orange;
+
+  }
+}
+
+.entity {
+  &.name.function {
+    color: @orange;
+  }
+
+  &.name.class, &.name.type.class {
+    color: @ink;
+  }
+
+  &.name.section {
+    color: @red;
+  }
+
+  &.name.tag {
+    color: @blue;
+  }
+
+  &.name.label {
+    color: @blue;
+  }
+
+  &.other.attribute-name {
+    color: @orange;
+
+    &.id {
+      color: @blue;
+    }
+  }
+}
+
+.meta {
+  &.class {
+    color: @ink;
+  }
+
+  &.brace{
+
+  }
+
+  &.method{
+  color:@light-ink;
+  }
+
+  &.link {
+    color: @orange;
+  }
+
+  &.require {
+    color: @blue;
+  }
+
+  &.selector {
+    color: @orange;
+  }
+
+  &.separator {
+    color: @syntax-text-color;
+  }
+}
+
+.none {
+  color: red;
+}
+
+
+//create space for H1 at top of document
+// FIXME: this is gone for now, somehow also displaches autocomplete popups
+// will evaluate, once increased font-sizes are working reasonable
+
+// atom-text-editor[data-grammar="source gfm"]:not(.mini),
+// atom-text-editor[data-grammar="source gfm"]:not(.mini)::shadow{
+//     .gutter,
+//     .scroll-view {
+//       padding-top: 0.75em;
+//       .line-number-0 {
+//         padding-top: 0.75em;
+//         top: -0.75em !important; //overrule inline style
+//       }
+//
+//   }
+// }
+
+/*---------------------------------------
+ below: optional extra stuff for addon packages
+-----------------------------------------*/
+
+//highlight-selected
+.highlights {
+.highlight-selected .region {
+border-radius: 4px;
+box-sizing: content-box;
+padding: 0 1px 0 0;
+margin: -1px 0 0 -1px;
+background-color: transparent;
+border-width: 1.5px;
+border-style: dashed;
+}
+
+// Light theme box (set in settings)
+.highlight-selected.light-theme .region {
+border-color: rgba(238, 11, 143, 0.8);
+
+}
+// Light theme background (set in settings)
+.highlight-selected.light-theme.background .region {
+background-color: rgba(236, 13, 132, 0.35);
+}
+}
+
+// add a bigger margin right to the gutter if markdown
+// for regular margin for other files, see above, where general
+// gutter colors are defined
+atom-text-editor[data-grammar="source gfm"]::shadow .gutter-container {
+    margin-right:2em;
+}

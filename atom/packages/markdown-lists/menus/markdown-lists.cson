@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle markdown-lists'
+      'command': 'markdown-lists:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'markdown-lists'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'markdown-lists:toggle'
+        }
+      ]
+    ]
+  }
+]

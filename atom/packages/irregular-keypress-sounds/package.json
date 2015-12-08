@@ -1,0 +1,37 @@
+{
+  "name": "irregular-keypress-sounds",
+  "main": "irregular.js",
+  "version": "0.2.0",
+  "description": "Make Atom editor sound computers in 'The Irregular at Magic High School'",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stephen304/irregular-keypress-sounds"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "#Irregular Keypress Sounds\n\nSimple fun package (plugin) for [Atom editor](https://atom.io/) that will make the editor sound like the computers from The Irregular at Magic High School.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/Stephen304/irregular-keypress-sounds/issues"
+  },
+  "homepage": "https://github.com/Stephen304/irregular-keypress-sounds",
+  "_id": "irregular-keypress-sounds@0.2.0",
+  "_shasum": "af31689f434f86fa5cbb4e43a54898b9fbdfe725",
+  "_resolved": "file:../d-115514-28453-1hczmuk/package.tgz",
+  "_from": "../d-115514-28453-1hczmuk/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".js": [
+        "irregular.js"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

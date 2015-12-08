@@ -1,0 +1,227 @@
+.markup {
+    &.changed {
+        color: @purple;
+    }
+    &.deleted {
+        color: @red;
+    }
+    &.italic {
+        color: @emphasize-color;
+        font-style: italic;
+    }
+    &.bold {
+        color: @bold-color;
+        font-weight: bold;
+    }
+    &.heading .punctuation.definition.heading {
+        color: @blue;
+    }
+    &.inserted {
+        color: @green;
+    }
+    &.list {
+        color: @list-color;
+        font-weight: bold;
+    }
+    &.raw {
+        background-color: rgba(245, 250, 252, 0.65);
+        color: @dark-ink;
+        &.inline {
+            color: @green;
+        }
+    }
+    &.strike {
+        text-decoration: line-through;
+    }
+    &.underline {
+        text-decoration: none;
+        border-bottom: @invisible-ink;
+        border-width: 0px 0px 1px 0px;
+        border-style: none none solid none;
+
+    }
+    &.heading {
+        color: @heading-ink;
+        font-weight: normal;
+        // position: relative;
+        &.heading-1 {
+            font-weight: 900;
+            // font-size: 105%;
+            // font-size: 135%;
+            // bottom: 0.35em;
+            opacity: 1.0;
+        }
+        &.heading-2 {
+            font-weight: 800;
+            // font-size: 102%;
+            // font-size: 125%;
+            // bottom: 0.25em;
+            // opacity: 0.95;
+            opacity: 0.9;
+        }
+        &.heading-3 {
+            font-weight: 700;
+            // font-size: 115%;
+            // bottom: 0.15em;
+            // opacity: 0.90;
+            opacity: 0.85;
+        }
+        &.heading-4,
+        &.heading-5,
+        &.heading-6 {
+            // font-size: 105%;
+            // bottom: 0.05em;
+            // opacity: 0.80;
+            opacity: 0.80;
+        }
+        // marker of headings
+        &.marker {
+            color: fade(@heading-ink, 55%);
+        }
+    }
+}
+
+.gfm {
+    .support {
+        color:@very-light-ink;
+    }
+
+    .markup.heading {
+        font-weight: normal;
+    }
+    &.variable {
+        color: @blue;
+    }
+    &.entity {
+        color: @light-ink;
+    }
+
+    &.punctuation.definition {
+    &.begin, &.end {
+        color: @very-light-ink;
+        }
+    }
+
+    &.username {
+        // name after @ in citation
+        color:  @citation-name-color;
+    }
+    // citation
+    &.mention {
+        // @ symbol before citation
+        color: @citation-symbol-color;
+    }
+    &.list {
+        color: @list-color;
+        font-weight: bold;
+    }
+
+    &.critic {
+
+      &.addition {
+        color: @green;
+        &.marker {
+            color: fade(@green, 50%) !important;
+        }
+      }
+
+      &.deletion {
+          color:  @red;
+      }
+      .deletion.marker {
+          color: fade(@red, 50%) !important;
+      }
+
+
+      &.substitution {
+        color:   @orange;
+        &.marker {
+            color: fade(@orange, 50%) !important;
+        }
+        &.operator {
+            color: darken(@orange, 10%) !important;
+        }
+      }
+
+      &.comment {
+        color: @comment-ink;
+        &.marker {
+            color: fade(@comment-ink, 50%) !important;
+        }
+      }
+
+      &.highlight {
+          color: @blue;
+        &.marker {
+            color: fade(@blue, 50%) !important;
+        }
+      }
+
+    }
+}
+
+.comment.quote {
+    color: @quote-color;
+    font-style: italic;
+    // italics inside quotes/blockquotes
+    .italic{
+        font-style: italic;
+        color: @emphasize-quote-color;
+    }
+    .bold {
+        color: @bold-quote-color;
+        font-weight: bold;
+    }
+
+
+
+}
+
+.pfm {
+  &.math {
+    .gfm.support {
+      color: darken(@green, 10%);
+    }
+
+    .punctuation.arguments{
+      color: lighten(@red, 5%);
+    }
+
+    .tex {
+      &.constant {
+        color: @orange;
+        &.numeric {
+          color: @green;
+        }
+      }
+    }
+
+    background: fadeout(@green,90%);
+    color: @green;
+  }
+
+  &.definition.block {
+    background: fadeout(@blue,90%);
+  }
+
+  &.citation{
+    // background: fadeout(@citation-name-color,90%);
+  }
+
+  &.footnote {
+
+    // for now disabled as it is not reliable yet
+    // position: relative;
+    // top: -0.5em;
+    // font-size: 85%;
+    // font-weight:900;
+    // so far comes from language-pfm
+
+    // would be better?
+    // font-style: normal;
+    // vertical-align: super;
+    // font-size: 85%;
+    color:@ink;
+  }
+
+}

@@ -1,0 +1,33 @@
+{
+  "name": "language-pfm",
+  "version": "0.82.0",
+  "description": "Syntax highlighting and snippets for Pandoc Flavored Markdown (PFM).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leipert/language-pfm.git"
+  },
+  "engines": {
+    "atom": "*"
+  },
+  "readme": "# Pandoc flavored Markdown package [![wercker status](https://app.wercker.com/status/e2bfecae6e8a971093516b3b3ddd4721/s/master \"wercker status\")](https://app.wercker.com/project/bykey/e2bfecae6e8a971093516b3b3ddd4721)\n![screen shot 2015-03-14 at 15 36 12](https://cloud.githubusercontent.com/assets/2906107/6652065/f9d4048a-ca60-11e4-8c3f-c490c68b6559.png)\n\nAdds syntax highlighting and snippets to [Pandoc flavored Markdown](http://johnmacfarlane.net/pandoc/README.html)\nfiles in Atom. This was forked from [atoms language-gfm](https://github.com/atom/language-gfm). The goal is to maintain compatibility with the **Github Flavored Markdown** package while adding as much pandoc functionality as possible.\n\n**Setting `language-pfm` as default**\n\n* Disable `language-gfm`, all `.md` files will be highlighted using this package.\n* Or rename pandoc flavored markdown files to `.p.md` or `.pmd`\n\n**Supported Pandoc Features**\n\nThis package supports a lot of [pandoc features](https://github.com/leipert/language-pfm/blob/dist/docs/supported-features.md). Here are the highlights:\n\n* Math highlighting `$...$` and `\\(...\\)` and block `$$...$$` and `\\[...\\]` (copied from [language-latex](https://atom.io/packages/language-latex))\n* [Definition Lists] & [fancy lists]\n* [Raw HTML] with [inline markdown]\n* [Footnotes] & [Inline-Footnotes]\n* [Citations]\n* ... many more\n\nThere are [some quirks](https://github.com/leipert/language-pfm/blob/dist/docs/known-issues.md), but these should not affect your daily work to much.\n\n[fancy lists]: http://johnmacfarlane.net/pandoc/README.html#extension-fancy_lists\n[Citations]: http://johnmacfarlane.net/pandoc/README.html#extension-citations\n[Footnotes]: http://johnmacfarlane.net/pandoc/README.html#extension-footnotes\n[Inline-Footnotes]: http://johnmacfarlane.net/pandoc/README.html#extension-inline_notes\n[Definition Lists]: http://johnmacfarlane.net/pandoc/README.html#extension-definition_lists\n[Raw HTML]: http://johnmacfarlane.net/pandoc/README.html#extension-raw_html\n[inline markdown]: http://johnmacfarlane.net/pandoc/README.html#extension-markdown_in_html_blocks\n\n**Works great with other pandoc related packages**\n\n* [Autocomplete Bibtex] brings citation autocompletion\n* [Pen Paper Coffee] is a good looking theme for markdown editing\n* [Markdown Preview Plus] is a wonderful markdown preview with Mathjax support, hopefully able to work with pandoc natively soon: [#41]\n\n[Autocomplete Bibtex]: https://atom.io/packages/autocomplete-bibtex\n\n[Pen Paper Coffee]: https://atom.io/packages/pen-paper-coffee-syntax\n\n[Markdown Preview Plus]: https://atom.io/packages/markdown-preview-plus\n\n[#27]: https://github.com/Galadirith/markdown-preview-plus/pull/41\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/leipert/language-pfm/issues"
+  },
+  "homepage": "https://github.com/leipert/language-pfm#readme",
+  "_id": "language-pfm@0.82.0",
+  "_shasum": "93a9eb1990ddc08df22d0d246cb575104d2d9f5c",
+  "_resolved": "file:../d-115811-55334-1h24us3/package.tgz",
+  "_from": "../d-115811-55334-1h24us3/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

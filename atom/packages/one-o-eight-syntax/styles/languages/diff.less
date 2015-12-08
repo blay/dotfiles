@@ -1,0 +1,28 @@
+// Syntax coloring for diff
+
+.source .meta.diff {
+  &.header {
+    &.from-file {
+      .ooe-changed;
+    }
+    &.to-file {
+      .ooe-renamed;
+    }
+  }
+  &.range {
+    color: @very-light-gray !important;
+  }
+  &.line-number {
+    color: @very-dark-gray !important;
+    font-weight: bold;
+  }
+}
+
+.source .diff{
+  &.deleted {
+    .ooe-removed;
+  }
+  &.inserted {
+    .ooe-added;
+  }
+}

@@ -1,0 +1,25 @@
+@import "syntax-variables";
+
+.item-views {
+  background: @syntax-background-color !important;
+}
+
+[data-typewriter="true"] {
+  max-width: 100%;
+  margin: 0 auto;
+
+  &::shadow {
+    .gutter {
+      display: none;
+    }
+    .editor--private {
+      .vertical-scrollbar {
+        opacity: 0;
+        transition: opacity .2s .1s;
+      }
+      &:hover .vertical-scrollbar {
+        opacity: 1;
+      }
+    }
+  }
+}

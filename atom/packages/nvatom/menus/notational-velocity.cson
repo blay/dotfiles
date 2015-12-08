@@ -1,0 +1,19 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'nvAtom'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'nvatom:toggle'
+        }
+        {
+          'label': 'Open Interlink'
+          'command': 'nvatom:openInterlink'
+        }
+      ]
+    ]
+  }
+]

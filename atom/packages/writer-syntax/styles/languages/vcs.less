@@ -1,0 +1,44 @@
+.gutter {
+  .git-line-removed {
+    &::before {
+      border-left-color: @syntax-color-removed !important;
+    }
+  }
+  .line-number.git-line-added, .line-number.git-line-modified {
+    border-left-width: 2px !important;
+    padding-left: calc(0.5em - 2px) !important;
+  }
+}
+
+// Git config
+.git-config {
+  .constant {
+    color: @s3;
+  }
+  .boolean {
+    color: @s1;
+  }
+  .name {
+    &.section {
+      color: @s5;
+    }
+    &.subsection {
+      color: @l5;
+    }
+  }
+}
+
+// Folders and files in the tree view
+.list-tree, .tree-view-directory{
+  .status-modified {
+    color: @syntax-color-modified !important;
+  }
+  .status-added {
+    color: @syntax-color-added !important;
+  }
+}
+
+.list-tree li.list-nested-item.selected.status-modified > .list-item,
+.list-tree li.list-nested-item.status-modified > .list-item {
+  color: @syntax-color-modified !important;
+}

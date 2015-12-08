@@ -1,0 +1,29 @@
+// These colors are specific to the theme. Do not use in a package!
+
+@bv: 30;
+@wv: 252;
+@black: rgb(@bv, @bv, @bv);
+@white: rgb(@wv, @wv, @wv);
+
+// NOTE Auto-generated
+@import "background";
+//
+
+@very-light-gray: mix(@writer-bg, @writer-fg, 90%);
+@light-gray:      mix(@writer-bg, @writer-fg, 70%);
+@gray:            mix(@writer-bg, @writer-fg, 50%);
+@dark-gray:       mix(@writer-bg, @writer-fg, 30%);
+@very-dark-gray:  mix(@writer-bg, @writer-fg, 10%);
+
+// NOTE Auto-generated
+@import "foreground";
+//
+
+// Low colors (from foreground)
+@mix: 85%;
+
+@l1: mix(@s1, @writer-bg, @mix);
+@l2: mix(@s2, @writer-bg, @mix);
+@l3: mix(@s3, @writer-bg, @mix);
+@l4: mix(@s4, @writer-bg, @mix);
+@l5: mix(@s5, @writer-bg, @mix);
