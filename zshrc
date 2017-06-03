@@ -185,5 +185,3 @@ export LC_ALL=sv_SE.UTF-8
 export LESS=-RFX
 export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
 export ANDROID_HOME=/usr/local/opt/android-sdk
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
