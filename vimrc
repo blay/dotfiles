@@ -135,6 +135,7 @@ set noerrorbells         " don't beep
 set linebreak			 " Wrap around words
 set number
 setlocal breakat-=*		 " ...but not asterix
+setlocal fo+=aw        " Flowy text in mutt
 filetype plugin indent on " Indent depending of filetype
 
 set wildmode=longest:full

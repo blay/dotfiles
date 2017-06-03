@@ -1,3 +1,2 @@
 #!/bin/bash
-cd ~/notes/timenotes/
-(ack -g $1;ack -l $1;)|sort|uniq
+(ag -g $1;ag -l $1;)|sort|uniq

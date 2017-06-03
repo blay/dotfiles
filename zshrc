@@ -5,7 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dstufft"
+#ZSH_THEME="dstufft"
+ZSH_THEME="bira"
+#ZSH_THEME="arrow"
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -14,8 +16,6 @@ ZSH_THEME="dstufft"
 
 autoload -U compinit
 compinit
-
-fpath=(~/.rvm/gems/ruby-2.1.2/gems/timetrap-1.8.14/completions/zsh $fpath)
 
 # Shell
 
@@ -37,6 +37,7 @@ alias zshconfig="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
 alias svim="sudo -E vim"
+alias em="open -a Emacs"
 
 alias rm="rm -i"
 alias mv="mv -i"
@@ -49,6 +50,10 @@ alias solve='sh ~/.shell/solve'
 
 alias scr='screen -rd'
 
+alias 1024='sips -Z 1024 *.jpg'
+
+alias cal="ncal -w"
+
 # Zettel
 
 co() {
@@ -56,16 +61,18 @@ co() {
 	fc -e -|tail -n${@:-1}|head -n1|cut -f 1 -d " "|tr -d "\n"|pbcopy
 }
 
-alias a="ack"
-alias ag="ack -g"
-alias ax="ack -x"
-alias ap="ack --passthru"
-alias af="ack --follow"
-alias aq="ack -Q"
+alias a="ag"
+alias ah="ag -g"
+alias ax="ag -x"
+alias ap="ag --passthru"
+alias af="ag --follow"
+alias aq="ag -Q"
 alias f="find . -type f -not -path '*/\.*'"
-alias lt='ls -lhtr'
+alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
 
 alias am='a --passthru  "^\#.*"'
+
+alias pan='make -f ~/.pandoc/examples/Makefile'
 
 # workout
 alias logbook="cat ~/notes/workout/logbook.md"
@@ -86,9 +93,6 @@ alias preo='sh ~/scripts/blog/preocto'
 
 alias gitta='sh ~/scripts/blog/gitta'
 
-# Move t out of the way
-alias tt='~/.rvm/gems/ruby-2.1.2/bin/t'
-
 # Todo
 
 ## Commands
@@ -99,7 +103,7 @@ PATH=$PATH:"/$HARDHOME/$USER/.todo"
 alias t='todo.sh -d ~/.todo.cfg'
 alias ts='todo.sh -d ~/.todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
-alias tbm="(t birdseye;echo '\n# Scheduled next 3 weeks #\n----------------------------';tv 3weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
+alias tbm="(t birdseye;echo '\n# Scheduled next 3 weeks #\n----------------------------';tv 3weeks;cal;echo '\n';icf;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
 alias tu='todo.sh -d ~/.todo.cfg until'
 alias tx='todo.sh -x -d ~/.todo.cfg'
 alias tv='todo.sh -x -d ~/.todo.cfg view'
@@ -143,6 +147,7 @@ alias yearly='sh ~/.shell/yearly'
 # Weird Shit
 
 export GPG_TTY=`tty`
+export SLACK_TOKEN=xoxp-2595435360-2601421808-87008432564-4d41b394c8cc9a5abff36194af97e820
 
 # Se tto this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -169,16 +174,16 @@ unsetopt nomatch
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git osx last-working-dir sublime colorize)
 
-PATH=$PATH:"/usr/local/sbin"
 
 # Ensure user-installed binaries take precedence
 # export PATH=/usr/local/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
 export LC_ALL=sv_SE.UTF-8
 export LESS=-RFX
 export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

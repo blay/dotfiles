@@ -14,7 +14,7 @@ echo  "\n\n# Blog Posts # \n\n"
 cd ~/notes/omxi.se/_posts
 
 if [[ -n $(find *.md $time) ]]; then
-  ack -i "summary" `find *.md $time`
+  ag -i "summary" `find *.md $time`
 else
     echo "no blogposts found"
 fi
