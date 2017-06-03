@@ -147,7 +147,6 @@ alias yearly='sh ~/.shell/yearly'
 # Weird Shit
 
 export GPG_TTY=`tty`
-export SLACK_TOKEN=xoxp-2595435360-2601421808-87008432564-4d41b394c8cc9a5abff36194af97e820
 
 # Se tto this to use case-sensitive completion
 # CASE_SENSITIVE="true"
