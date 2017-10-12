@@ -52,7 +52,11 @@ alias scr='screen -rd'
 
 alias 1024='sips -Z 1024 *.jpg'
 
+alias ytmp3='youtube-dl -x --audio-format "mp3"'
+
 alias cal="ncal -w"
+
+alias fucking="sudo"
 
 # Zettel
 
@@ -63,7 +67,7 @@ co() {
 
 alias a="ag"
 alias ah="ag -g"
-alias ax="ag -x"
+alias ax="ack -x"
 alias ap="ag --passthru"
 alias af="ag --follow"
 alias aq="ag -Q"
