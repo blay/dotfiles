@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# printf  "# Daily Agenda #\n\n"
+
+agenda 
+
+printf  "\n## Today's Events ##\n\n"
+
+today
+
+printf "\n## Yesterday's notes ## \n\n"
+
+cd ~/notes/txt
+
+find *.txt -mtime 1

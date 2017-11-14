@@ -21,7 +21,7 @@ fi
 
 echo  "\n\n# Last weeks notes # \n\n"
 
-cd ~/notes/timenotes
+cd ~/notes/txt
 if [[ -n $(find *.txt $time) ]]; then
   find *.txt $time
 else

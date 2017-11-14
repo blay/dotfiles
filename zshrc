@@ -5,8 +5,8 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="dstufft"
-ZSH_THEME="bira"
+ZSH_THEME="dstufft"
+#ZSH_THEME="bira"
 #ZSH_THEME="arrow"
 
 # Example aliases
@@ -56,6 +56,7 @@ alias ytmp3='youtube-dl -x --audio-format "mp3"'
 
 alias cal="ncal -w"
 
+
 alias fucking="sudo"
 
 # Zettel
@@ -65,16 +66,16 @@ co() {
 	fc -e -|tail -n${@:-1}|head -n1|cut -f 1 -d " "|tr -d "\n"|pbcopy
 }
 
-alias a="ag"
-alias ah="ag -g"
+alias a="rg -i --sort-files"
+alias ah="a -l"
 alias ax="ack -x"
 alias ap="ag --passthru"
 alias af="ag --follow"
-alias aq="ag -Q"
+alias aq="rg -i -F"
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
 
-alias am='a --passthru  "^\#.*"'
+alias am='ag --passthru  "^\#.*"'
 
 alias pan='make -f ~/.pandoc/examples/Makefile'
 
@@ -138,7 +139,7 @@ n() {
 
 # Common cd
 
-alias cdn='cd ~/notes/timenotes'
+alias cdn='cd ~/notes/txt'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'

@@ -1,0 +1,2 @@
+#!/bin/bash
+icalBuddy -npn -nc -ps '/ » /' -eep 'notes,location' 'eventsToday +'$1''

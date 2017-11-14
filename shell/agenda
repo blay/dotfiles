@@ -1,0 +1,2 @@
+#!/bin/bash
+emacs -batch -l ~/.emacs.d/init.el -eval '(org-batch-agenda "d")' 2> /dev/null | perl -pe 's/^  /- /g'|perl -pe 's/==========\n/## /g'|perl -pe 's/^Scheduled/## Scheduled/g'|perl -pe 's/^.*\s2017.*$//g'

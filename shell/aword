@@ -3,4 +3,4 @@ while read line
 do
   content+=`sed -e 's/\(.*\)/"\1"/g' | xargs head -n999`
 done
-echo "$content" |tr -c '[:alpha:]' '[\n*]' |sort -f|gfgrep -viw --file=/Users/svartfax/.shell/stop |uniq -ic | sort -nr |tr '[:upper:]' '[:lower:]'| head  -${1-16}
+echo "$content" |tr -c '[:alpha:]' '[\n*]' |sort -f|gfgrep -viw --file=~/.shell/stop |uniq -ic | sort -nr |tr '[:upper:]' '[:lower:]'| head  -${1-16}
