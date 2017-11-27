@@ -1,0 +1,49 @@
+" vim-plug "
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+Plug 'vim-pandoc/vim-pandoc' | Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'vim-voom/VOoM'
+Plug 'reedes/vim-colors-pencil'
+
+call plug#end()
+
+" General Settings "
+
+language en_US.utf8
+
+"" A few remaps
+" change the mapleader from \ to ,
+let mapleader=","
+" Ö as colon
+nmap ö :
+" Copy/paste from clipboard
+":noremap p "+p
+set clipboard=unnamedplus
+
+" Save your fingers by escaping escape"
+:inoremap kj <esc>
+" Toggle spelling
+map <leader>c :setlocal nospell! spelllang=en_us,sv<CR>
+" VimRoom
+nnoremap <silent> <Leader>go :Goyo<CR>:Limelight<CR>
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Toggle Spell Check
+nn <F7> :setlocal spell! spell?<CR>
+
+" Voom
+map <leader>o :Voom pandoc<CR>
+
+" Pandoc everything
+au BufNewFile,BufRead *.txt   set filetype=pandoc
+
+" Don't fold, bro
+let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#syntax#style#underline_special = 0
+let g:pandoc#syntax#style#emphases = 0
+

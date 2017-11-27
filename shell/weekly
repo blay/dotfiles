@@ -13,7 +13,7 @@ echo  "\n\n# Blog Posts # \n\n"
 
 cd ~/notes/omxi.se/_posts
 
-if [[ -n $(find *.md $time) ]]; then
+if [ -n $(find *.md $time) ]; then
   ag -i "summary" `find *.md $time`
 else
     echo "no blogposts found"
@@ -22,20 +22,21 @@ fi
 echo  "\n\n# Last weeks notes # \n\n"
 
 cd ~/notes/txt
-if [[ -n $(find *.txt $time) ]]; then
+
+#if [ -n $(find *.txt $time) ]; then
   find *.txt $time
-else
-    echo "no notes found"
-fi
+#else
+#  echo "no notes found"
+#fi
 
 echo  "\n\n# Last weeks papers # \n\n"
 
 cd ~/Documents/library/papers
-if [[ -n $(find *.pdf $time) ]]; then
+if [ -n $(find *.pdf $time) ]; then
   find *.pdf $time
 else
     echo "no new papers found"
 fi
 
-echo "\n\n# Week $(gdate "+%V" -d ''$((1 + ${1-0}))' days ago')"
-echo From $(gdate "+%a %b %d" -d ''$((7 + ${1-0}))' days ago') to $(gdate "+%a %b %d" -d ''$((1 + ${1-0}))' days ago')
+echo "\n\n# Week $(date "+%V" -d ''$((1 + ${1-0}))' days ago')"
+echo From $(date "+%a %b %d" -d ''$((7 + ${1-0}))' days ago') to $(date "+%a %b %d" -d ''$((1 + ${1-0}))' days ago')
