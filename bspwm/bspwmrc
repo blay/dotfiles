@@ -36,7 +36,7 @@ bspc config presel_feedback_color \#aaaaaa
 
 xsetroot -cursor_name left_ptr
  
-feh --randomize --bg-fill ~/share/Pictures/wallpapers
+feh --randomize --bg-fill ~/share/Dropbox/wallpapers
 #gnome-wallpaper-changer &
 compton --config ~/.config/compton.conf -b
 xrdb -merge ~/.Xdefaults

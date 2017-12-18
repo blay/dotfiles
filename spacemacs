@@ -126,8 +126,8 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 11
-                               :weight normal
+                               :size 16
+                               
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
@@ -376,7 +376,11 @@ you should place your code here."
 (setq org-enforce-todo-dependencies t)
 
 (setq org-todo-keywords
-      '((sequence "TODO" "NEXT" "|" "DONE" )))
+      '((sequence "TODO" "|" "DONE" )))
+
+(setq org-highest-priority ?A)
+(setq org-lowest-priority ?D)
+(setq org-default-priority ?D)
 
 (setq org-agenda-exporter-settings
       '((ps-number-of-columns 2)
@@ -410,9 +414,16 @@ you should place your code here."
                                     (tags "PRIORITY=\"A\"\"" (
                                                    (org-agenda-overriding-header "Priority Tasks")
                                                    ))
-                                    (tags-todo "-noagenda/!NEXT" (
-                                                                  (org-agenda-overriding-header "Next Tasks")
-                                                                  ))
+
+                                    (tags "PRIORITY=\"B\"\"" (
+                                                              (org-agenda-overriding-header "Next Tasks")
+                                                              ))
+
+
+                                    (tags "PRIORITY=\"C\"\"" (
+                                                              (org-agenda-overriding-header "Waiting Tasks")
+                                                              ))
+
                                      ))
                                    ("p" "Project Overview"
                                     (

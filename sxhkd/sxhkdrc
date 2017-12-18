@@ -25,7 +25,7 @@ super + Tab
 # Change Wallpaper #
 
 super + x
-	feh --randomize --bg-fill ~/share/Pictures/wallpapers
+	feh --randomize --bg-fill ~/share/Dropbox/wallpapers
 
 
 # make sxhkd reload its configuration files:
