@@ -25,9 +25,6 @@ colorscheme hybrid_material
 let mapleader=","
 " Ö as colon
 nmap ö :
-" Soft wrap navigation 
-nnoremap j gj 
-nnoremap k gk 
 " Easy window navigation
 map <C-h> <C-w>h 
 map <C-j> <C-w>j 
@@ -55,8 +52,7 @@ cmap w!! w !sudo tee % >/dev/null
 :inoremap kj <esc>
 
 set number        " Line numbers
-set hlsearch      " highlight searches
-set incsearch     " do incremental searching
+set hlsearch	  " hilight search results
 set showmatch     " set show matching parenthesis
 set tabstop=4     " a tab is four spaces
 set smartcase     " ignore case if search pattern is all lowercase
@@ -64,7 +60,10 @@ set linebreak     " Break at word boundaries
 set history=1000         " remember more commands and search history 
 set undolevels=1000      " use many muchos levels of undo
 
- " For all text files set 'textwidth' to 78 characters. 
+" color linenumbers
+highlight LineNr ctermfg=darkblue
+
+" For all text files set 'textwidth' to 78 characters. 
  autocmd FileType text setlocal textwidth=78
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo, 

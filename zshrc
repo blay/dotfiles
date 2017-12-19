@@ -190,7 +190,6 @@ plugins=(git osx last-working-dir sublime colorize)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH" # Add Linuxbrew to path
 export LESS=-RFX
 export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
 export ANDROID_HOME=/usr/local/opt/android-sdk
