@@ -8,6 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="dstufft"
 #ZSH_THEME="bira"
 #ZSH_THEME="arrow"
+#ZSH_THEME="hyperzsh"
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -37,7 +38,8 @@ alias zshconfig="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
 alias svim="sudo -E vim"
-alias em="open -a Emacs"
+alias em="emacsclient -a '' -qc"
+alias ema="emacsclient -a '' -qc -e '(org-agenda)'"
 
 alias rm="rm -i"
 alias mv="mv -i"
@@ -66,12 +68,15 @@ co() {
 	fc -e -|tail -n${@:-1}|head -n1|cut -f 1 -d " "|tr -d "\n"|pbcopy
 }
 
-alias a="rg -i --sort-files"
-alias ah="a -l"
+alias a="ag"
+alias af="ag -g"
+alias al="a -l"
 alias ax="ack -x"
 alias ap="ag --passthru"
-alias af="ag --follow"
-alias aq="rg -i -F"
+alias aq="ag -Q"
+alias az="ag -l | fzf"
+alias av="ag --nobreak --nonumbers --noheading . | fzf" 
+
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
 
@@ -185,7 +190,8 @@ plugins=(git osx last-working-dir sublime colorize)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
-export LC_ALL=sv_SE.UTF-8
 export LESS=-RFX
 export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

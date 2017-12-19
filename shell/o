@@ -1,0 +1,17 @@
+#!/bin/bash
+
+clear 
+
+cd ~/notes/txt
+
+printf "\n\n# Important Tasks\n\n"
+
+ag --color-match "1;33" "@todooo"
+
+printf "\n\n# Next Tasks\n\n"
+
+ag --color-match "1;34" "@todoo "
+
+printf "\n\n# Waiting Tasks\n\n"
+
+ag --color-match "1;32" "@todo "

@@ -7,6 +7,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-voom/VOoM'
 Plug 'reedes/vim-colors-pencil'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -14,26 +17,79 @@ call plug#end()
 
 language en_US.utf8
 
+set background=dark
+colorscheme hybrid_material
+
 "" A few remaps
 " change the mapleader from \ to ,
 let mapleader=","
 " Ö as colon
 nmap ö :
-" Copy/paste from clipboard
-":noremap p "+p
-set clipboard=unnamedplus
-
+" Easy window navigation
+map <C-h> <C-w>h 
+map <C-j> <C-w>j 
+map <C-k> <C-w>k 
+map <C-l> <C-w>l "
+" Navigate buffers 
+nnoremap <Leader>j :bp<CR> 
+nnoremap <Leader>k :bn<CR>
+nnoremap <Leader>h :b#<CR> 
+nnoremap <Leader>l :ls<CR>:b<space> 
+" Better split positions 
+set splitbelow 
+set splitright 
+" Tab between buffers
+noremap <leader><tab> <c-w><c-w>
+" These will make it so that going to the next one in a 
+" search will center on the line it's found in. 
+map N Nzz 
+map n nzz 
+" Clear search highlight 
+nmap <silent> <leader>/ :nohlsearch<CR>
+" Save with sudo 
+cmap w!! w !sudo tee % >/dev/null
 " Save your fingers by escaping escape"
 :inoremap kj <esc>
-" Toggle spelling
-map <leader>c :setlocal nospell! spelllang=en_us,sv<CR>
+
+set number        " Line numbers
+set hlsearch	  " hilight search results
+set showmatch     " set show matching parenthesis
+set tabstop=4     " a tab is four spaces
+set smartcase     " ignore case if search pattern is all lowercase
+set linebreak     " Break at word boundaries
+set history=1000         " remember more commands and search history 
+set undolevels=1000      " use many muchos levels of undo
+
+" color linenumbers
+highlight LineNr ctermfg=darkblue
+
+" For all text files set 'textwidth' to 78 characters. 
+ autocmd FileType text setlocal textwidth=78
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo, 
+" so that you can undo CTRL-U after inserting a line break. 
+inoremap <C-U> <C-G>u<C-U>
+
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :tabfind $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Spellcheck
+set spelllang=en,sv 
+set nospell
+map <leader>c :setlocal spell!<CR>
+
+" @todo search
+map <leader>a :Ag! @todo
+map <leader>g :Ag!
+map <leader>f :FZF<CR>
+
 " VimRoom
-nnoremap <silent> <Leader>go :Goyo<CR>:Limelight<CR>
+nnoremap <silent> <Leader>r :Goyo<CR>:Limelight!!<CR>
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
-
-" Toggle Spell Check
-nn <F7> :setlocal spell! spell?<CR>
+nnoremap <silent> <Leader>y :Limelight!!<CR>
 
 " Voom
 map <leader>o :Voom pandoc<CR>
