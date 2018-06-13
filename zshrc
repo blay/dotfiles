@@ -26,7 +26,7 @@ USER='svartfax'
 if [[ $(uname) == Linux ]]; then
   export EDITOR='vim'
   HARDHOME='home'
-  alias ack='ack-grep'
+#  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
   alias vim='mvim -v'
@@ -145,10 +145,12 @@ n() {
 # Common cd
 
 alias cdn='cd ~/notes/txt'
+alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 alias cdb='cd ~/builds'
+alias cdp='~/share/Documents/library/papers'
 
 # Emacs
 
@@ -193,5 +195,9 @@ export PATH="$HOME/.shell:$PATH" # Add scripts to path
 export LESS=-RFX
 export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
 export ANDROID_HOME=/usr/local/opt/android-sdk
+export DISPLAY=:0 
+export XDG_RUNTIME_DIR=~/builds/xdg 
+export RUNLEVEL=3 
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
