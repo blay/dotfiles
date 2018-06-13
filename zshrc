@@ -44,6 +44,8 @@ alias ema="emacsclient -a '' -qc -e '(org-agenda)'"
 alias rm="rm -i"
 alias mv="mv -i"
 
+alias c="clear"
+
 alias uppa='sh ~/.shell/uppa'
 
 alias cpu='top -o cpu -n 5'
@@ -84,6 +86,12 @@ alias am='ag --passthru  "^\#.*"'
 
 alias pan='make -f ~/.pandoc/examples/Makefile'
 
+# Google Calendar
+
+alias ca="gcalcli agenda"
+alias cw="gcalcli calw"
+alias cm="gcalcli calm"
+
 # workout
 alias logbook="cat ~/notes/workout/logbook.md"
 alias logedit='vim ~/notes/workout/logbook.md'
@@ -109,7 +117,7 @@ alias gitta='sh ~/scripts/blog/gitta'
 alias plus='sh ~/.shell/plus.sh'
 alias minus='sh ~/.shell/minus.sh'
 
-PATH=$PATH:"/$HARDHOME/$USER/.todo"
+# PATH=$PATH:"/$HARDHOME/$USER/.todo"
 alias t='todo.sh -d ~/.todo.cfg'
 alias ts='todo.sh -d ~/.todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
@@ -193,11 +201,16 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
 export LESS=-RFX
-export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export DISPLAY=:0 
-export XDG_RUNTIME_DIR=~/builds/xdg 
-export RUNLEVEL=3 
+
+# Fuck Android
+#export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
+#export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# WSL shit
+#export DISPLAY=:0 
+#export XDG_RUNTIME_DIR=~/builds/xdg 
+#export RUNLEVEL=3 
+
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
