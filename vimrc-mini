@@ -6,6 +6,7 @@ Plug 'vim-pandoc/vim-pandoc' | Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-voom/VOoM'
+Plug 'easymotion/vim-easymotion'
 Plug 'reedes/vim-colors-pencil'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'rking/ag.vim'
@@ -59,6 +60,9 @@ set smartcase     " ignore case if search pattern is all lowercase
 set linebreak     " Break at word boundaries
 set history=1000         " remember more commands and search history 
 set undolevels=1000      " use many muchos levels of undo
+
+"Transparent background in terminal
+hi Normal guibg=NONE ctermbg=NONE
 
 " color linenumbers
 highlight LineNr ctermfg=darkblue

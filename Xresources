@@ -1,5 +1,6 @@
 ! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
 !          using https://github.com/richo/itermcolors2xdefaults
+URxvt.font: xft:monaco:size=14
 URxvt*background:   #1e1f28
 URxvt*foreground:   #ebece6
 URxvt*cursorColor:   #e4e4e4
