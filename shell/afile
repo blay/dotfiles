@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $# -eq 0 ]] ; then
-    echo 'pass uid to script, ex 1507030906, or 1407271365'
+    echo 'pass uid to script, ex 201507030906, or 201407271365'
     exit 0
 fi
 
@@ -11,7 +11,7 @@ printf "\n# Links to file:\n\n"
 ag $file
 
 printf "\n\n# Mutual Links\n\n"
-link=$(ag -o "(?<=§)[0-9]*" $file*|sort -n |uniq)
+link=$(ag -o "(?<=§|\[)[0-9]*" $file*|sort -n |uniq)
 
 for line in $link
   do

@@ -50,6 +50,8 @@ alias uppa='sh ~/.shell/uppa'
 
 alias cpu='top -o cpu -n 5'
 
+alias px='ps aux|a'
+
 alias solve='sh ~/.shell/solve'
 
 alias scr='screen -rd'
@@ -88,9 +90,12 @@ alias pan='make -f ~/.pandoc/examples/Makefile'
 
 # Google Calendar
 
-alias ca="gcalcli agenda"
+alias ca="gcalcli agenda;date"
 alias cw="gcalcli calw"
 alias cm="gcalcli calm"
+alias cq="gcalcli --cal Kalender quick"
+alias cr="gcalcli --cal RISE quick"
+alias cx="gcalcli --cal Dealines quick"
 
 # workout
 alias logbook="cat ~/notes/workout/logbook.md"

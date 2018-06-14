@@ -1,14 +1,16 @@
 #!/bin/bash
 
-ag -x "TODO|FIXME|XXX|IDEA|\?\?\?|\!\!\!REF|REQ|HACK|NOTE" \
-| ag --flush --passthru --color --color-match="black on_cyan" "TODO" \
-| ag --flush --passthru --color --color-match="black on_red" "FIXME" \
-| ag --flush --passthru --color --color-match="black on_red" "XXX" \
-| ag --flush --passthru --color --color-match="black on_green" "IDEA" \
-| ag --flush --passthru --color --color-match="black on_red" "\?\?\?" \
-| ag --flush --passthru --color --color-match="black on_green" "\!\!\!" \
-| ag --flush --passthru --color --color-match="black on_red" "REF" \
-| ag --flush --passthru --color --color-match="black on_yellow" "REQ" \
-| ag --flush --passthru --color --color-match="black on_yellow" "HACK" \
-| ag --flush --passthru --color --color-match="black on_green" "NOTE" \
-| ag -o "(?<=<\!--).*?(?=-->)|(?<=>>).*?(?=<<)" |sort -nr
+ack -x "TODO|FIX|NOW|IDEA|DRAFT|DONE|\?\?\?|\!\!\!|REF|REQ|CODE|NEXT" \
+| ack --flush --passthru --color --color-match="black on_cyan" "TODO" \
+| ack --flush --passthru --color --color-match="black on_yellow" "FIX" \
+| ack --flush --passthru --color --color-match="black on_red" "NOW" \
+| ack --flush --passthru --color --color-match="black on_green" "IDEA" \
+| ack --flush --passthru --color --color-match="black on_yellow" "DRAFT" \
+| ack --flush --passthru --color --color-match="black on_green" "DONE" \
+| ack --flush --passthru --color --color-match="black on_red" "\?\?\?" \
+| ack --flush --passthru --color --color-match="black on_green" "\!\!\!" \
+| ack --flush --passthru --color --color-match="black on_red" "REF" \
+| ack --flush --passthru --color --color-match="black on_yellow" "REQ" \
+| ack --flush --passthru --color --color-match="black on_yellow" "CODE" \
+| ack --flush --passthru --color --color-match="black on_green" "NEXT" \
+| ack -o "(?<=<\!--).*?(?=-->)|(?<=>>).*?(?=<<)" |sort -nr
