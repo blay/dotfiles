@@ -216,6 +216,9 @@ export LESS=-RFX
 #export XDG_RUNTIME_DIR=~/builds/xdg 
 #export RUNLEVEL=3 
 
-
+# Something to fix Tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte-2.91.sh
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
