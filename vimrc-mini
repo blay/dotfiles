@@ -60,7 +60,8 @@ set smartcase     " ignore case if search pattern is all lowercase
 set linebreak     " Break at word boundaries
 set history=1000         " remember more commands and search history 
 set undolevels=1000      " use many muchos levels of undo
-set clipboard=unnamedplus
+set clipboard=unnamedplus " System clipboard
+set mouse=a       " mouse support
 
 "Transparent background in terminal
 hi Normal guibg=NONE ctermbg=NONE

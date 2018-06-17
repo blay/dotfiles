@@ -26,6 +26,8 @@ USER='svartfax'
 if [[ $(uname) == Linux ]]; then
   export EDITOR='vim'
   HARDHOME='home'
+  alias pbcopy='xclip -selection c'
+  alias pbpaste='xclip -o'
 #  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
@@ -62,7 +64,6 @@ alias ytmp3='youtube-dl -x --audio-format "mp3"'
 
 alias cal="ncal -w"
 
-
 alias fucking="sudo"
 
 # Zettel
@@ -96,6 +97,10 @@ alias cm="gcalcli calm"
 alias cq="gcalcli --cal Kalender quick"
 alias cr="gcalcli --cal RISE quick"
 alias cx="gcalcli --cal Dealines quick"
+
+# Weather
+
+alias wtr="curl wttr.in"
 
 # workout
 alias logbook="cat ~/notes/workout/logbook.md"
@@ -164,6 +169,7 @@ alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 alias cdb='cd ~/builds'
 alias cdp='~/share/Documents/library/papers'
+alias r='ranger'
 
 # Emacs
 
