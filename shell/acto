@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ack -x "TODO|FIX|NOW|IDEA|DRAFT|DONE|\?\?\?|\!\!\!|REF|REQ|CODE|NEXT" \
+ack -x "#TODO|#ADD|#NOW|#IDEA|#DRAFT|#DONE|#\?\?\?|\!\!\!|#REF|#REQ|#FIX|#NEXT" \
 | ack --flush --passthru --color --color-match="black on_cyan" "TODO" \
-| ack --flush --passthru --color --color-match="black on_yellow" "FIX" \
+| ack --flush --passthru --color --color-match="black on_yellow" "ADD" \
 | ack --flush --passthru --color --color-match="black on_red" "NOW" \
 | ack --flush --passthru --color --color-match="black on_green" "IDEA" \
 | ack --flush --passthru --color --color-match="black on_yellow" "DRAFT" \
@@ -11,6 +11,6 @@ ack -x "TODO|FIX|NOW|IDEA|DRAFT|DONE|\?\?\?|\!\!\!|REF|REQ|CODE|NEXT" \
 | ack --flush --passthru --color --color-match="black on_green" "\!\!\!" \
 | ack --flush --passthru --color --color-match="black on_red" "REF" \
 | ack --flush --passthru --color --color-match="black on_yellow" "REQ" \
-| ack --flush --passthru --color --color-match="black on_yellow" "CODE" \
+| ack --flush --passthru --color --color-match="black on_yellow" "FIX" \
 | ack --flush --passthru --color --color-match="black on_green" "NEXT" \
-| ack -o "(?<=<\!--).*?(?=-->)|(?<=>>).*?(?=<<)" |sort -nr
+| ack -o "(?<=\#).*" |sort -nr

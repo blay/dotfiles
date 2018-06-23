@@ -1,3 +1,6 @@
+! Settings
+Xft.dpi: 144
+
 ! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
 !          using https://github.com/richo/itermcolors2xdefaults
 URxvt.font: xft:monaco:size=14

@@ -1,17 +1,17 @@
 {
     "type": "script",
-    "description": "todo",
+    "description": "add",
     "store": {},
     "modes": [
         1
     ],
-    "usageCount": 3,
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [
-            "ttt"
+            "ttg"
         ],
         "backspace": true,
         "ignoreCase": true,

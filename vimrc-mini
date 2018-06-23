@@ -8,6 +8,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'vim-voom/VOoM'
 Plug 'easymotion/vim-easymotion'
 Plug 'reedes/vim-colors-pencil'
+Plug 'rakr/vim-one'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
@@ -90,6 +91,9 @@ map <leader>c :setlocal spell!<CR>
 map <leader>a :Ag! @todo
 map <leader>g :Ag!
 map <leader>f :FZF<CR>
+
+" Zettel search
+map <leader>z /20<CR>,/yiw:e<C-R>0
 
 " VimRoom
 nnoremap <silent> <Leader>r :Goyo<CR>:Limelight!!<CR>

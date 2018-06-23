@@ -36,7 +36,9 @@ if [[ $(uname) == Linux ]]; then
   alias grep="ggrep"
 fi
 
+alias zc="vim ~/.zshrc"
 alias zshconfig="vim ~/.zshrc"
+alias zs="source ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
 alias svim="sudo -E vim"
@@ -91,12 +93,12 @@ alias pan='make -f ~/.pandoc/examples/Makefile'
 
 # Google Calendar
 
-alias ca="gcalcli agenda;date"
+alias ca="date;gcalcli agenda"
 alias cw="gcalcli calw"
 alias cm="gcalcli calm"
 alias cq="gcalcli --cal Kalender quick"
 alias cr="gcalcli --cal RISE quick"
-alias cx="gcalcli --cal Dealines quick"
+alias cx="gcalcli --cal Deadlines quick"
 
 # Weather
 
@@ -168,7 +170,7 @@ alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 alias cdb='cd ~/builds'
-alias cdp='~/share/Documents/library/papers'
+alias cdp='~/Documents/library/papers'
 alias r='ranger'
 
 # Emacs

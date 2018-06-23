@@ -1,0 +1,4 @@
+#!/bin/bash
+
+tmux new-session \; send-keys -t0 'week completed ' ${1} Enter \; split-window -h -p 60\; send-keys -t1 'week agenda ' $1 Enter \; split-window -h -p60\; send-keys -t2 'week notes ' $1 Enter \;
+

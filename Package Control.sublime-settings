@@ -7,12 +7,15 @@
 	[
 		"A File Icon",
 		"FindKeyConflicts",
+		"Git",
 		"Google Spell Check",
 		"LanguageTool",
+		"MarkdownEditing",
 		"Material Theme",
 		"Package Control",
 		"SideBarEnhancements",
 		"sublime_zk",
+		"Text Pastry",
 		"WordCount"
 	],
 	"repositories":
