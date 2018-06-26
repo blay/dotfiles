@@ -19,19 +19,22 @@ case $1 in
 		;;
 
 		"agenda")
-				gcalcli agenda $2
-		;;
-
+				gcalcli agenda $d1
+				;;
 		"notes")
 #				af "($d1|$d2|$d3|$d4|$d5|$d6|$d7)"
-find -newerct "$d1" ! -newerct "$d7" -name "*.md" -printf '%Tb %Td %f\n'|sort
+				find -newerct "$d1" ! -newerct "$d7" -name "*.md" -printf '%Tb %Td %f\n'|sort
 		;;
 
 		"papers")
-find -newerct "$d1" ! -newerct "$d2" -printf '%Tb %Td %f\n'|sort
+				find -newerct "$d1" ! -newerct "$d2" -printf '%Tb %Td %f\n'|sort
 		;;
-
-*) echo "wrong input"
+		
+        "git")
+				git log --graph --all --since "$d1" --pretty
+		;;
+*) echo "wrong input; use *completed*, *created*, *agenda*, *notes*, *papers*, or *git*.
+Thank you!"
 
 esac
 
