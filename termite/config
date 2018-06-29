@@ -1,5 +1,5 @@
 [options]
-font = Menlo 10
+font = noto mono 12
 
 [colors]
 foreground = rgb(239, 240, 235)

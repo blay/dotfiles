@@ -4,8 +4,7 @@
 
 # terminal emulator
 super + Return
-	termite
-
+      termite
 # GNOME System Monitor
 ctrl + shift + Escape
 	gnome-system-monitor
@@ -35,14 +34,14 @@ super + Escape
 
 # Common programs
 
-super + p
-	chromium-browser
+super + q
+	qutebrowser
 
 super + v
 	termite -e vim
 
 super + z 
-	termite
+	urxvt -e /usr/bin/zsh
 
 #
 # bspwm hotkeys
@@ -159,8 +158,8 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-super + {equal,minus} 
-	bspc config window_gap $(( $(bspc config window_gap) {+,-} 5 ))
+super + alt + {Up, Down} 
+	bspc config window_gap $(( $(bspc config window_gap) {+,-} 2 ))
 
 super + ctrl + {Left,Right,Up,Down}
     bspc node @focused:/ --rotate {270,90,180,180}
