@@ -54,6 +54,7 @@ cmap w!! w !sudo tee % >/dev/null
 :inoremap kj <esc>
 
 set number        " Line numbers
+set relativenumber " Relative line numbers    
 set hlsearch	  " hilight search results
 set showmatch     " set show matching parenthesis
 set tabstop=4     " a tab is four spaces

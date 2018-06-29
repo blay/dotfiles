@@ -123,7 +123,7 @@ alias edito='sh ~/scripts/blog/editocto'
 alias pubo='sh ~/scripts/blog/pubocto'
 alias preo='sh ~/scripts/blog/preocto'
 
-alias gitta='sh ~/scripts/blog/gitta'
+alias gitta='git commit -v -a -m'
 
 # Todo
 
@@ -173,7 +173,7 @@ alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 alias cdb='cd ~/builds'
 alias cdp='~/Documents/library/papers'
-alias r='ranger'
+alias rg='ranger'
 
 # Emacs
 
