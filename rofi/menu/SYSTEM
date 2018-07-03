@@ -16,18 +16,19 @@ script2bin(){
 
 if [ "$another" == "RELOAD" ] ; then
 	xrdb -load ~/.Xdefaults; 
-	i3-msg reload; 
-	i3-msg restart;
-	script2bin
+	xmodmap ~/.Xmodmap;
+#	i3-msg reload; 
+#	i3-msg restart;
+#	script2bin
 
 elif [ "$another" == "COLOR" ] ; then
 	exec ~/.config/rofi/menu/color;
 
 elif [ "$another" == "LOCK" ] ; then
-	exec  ~/.config/i3lock/blurlock;
+	exec  ~/.shell/lock;
 		
 elif [ "$another" == "LOGOUT" ] ; then
-	prompt "i3-msg exit" LOGOUT
+	prompt "bspc quit" LOGOUT
 	
 elif [ "$another" == "REBOOT" ] ; then
 	prompt "reboot" REBOOT

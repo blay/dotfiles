@@ -27,7 +27,9 @@ case $1 in
 		;;
 
 		"papers")
-				find -newerct "$d1" ! -newerct "$d2" -printf '%Tb %Td %f\n'|sort
+
+		        cd ~/papers
+				find -newerct "$d1" ! -newerct "$d7" -printf '%Tb %Td %f\n'|sort
 		;;
 		
         "git")

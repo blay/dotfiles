@@ -11,13 +11,18 @@ magenta = ${xrdb:color5}
 cyan = ${xrdb:color6}
 white = ${xrdb:color7}
 
+
 [bar/top]
+;dpi = 144
 width = 100%
 height = 30 
 offset-x = 0
 ; offset-y = -1 
 offset-y = 0
 ;bottom = true
+
+monitor = ${env:MONITOR:eDP-1}
+
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -40,13 +45,15 @@ font-4 = FontAwesome5Brands:style=Solid:pixelsize=14;4
 font-5 = MaterialIcons:pixelsize=13;4
 font-6 = Wuncon Siji:pixelsize=13;4
 
+
 modules-left = bspwm
 modules-center = xwindow 
-modules-right = battery wifi volume date clock powermenu
+modules-right = battery drop autokey vpn emacs wifi volume date clock powermenu
 
-;tray-position = right
-;tray-padding = 2
-;tray-background = #66333333
+tray-position = right
+tray-padding = 0
+tray-background = #000000
+tray-detatched = true
 
 wm-restack = bspwm
 
@@ -62,7 +69,7 @@ ws-icon-0 = web;
 ws-icon-1 = term;
 ws-icon-2 = chat;
 ws-icon-3 = code;
-ws-icon-4 = music;
+ws-icon-4 = music;♞
 ws-icon-default = 
 
 format = <label-state> <label-mode>
@@ -199,10 +206,10 @@ format-online-padding = 3
 [module/wifi]
 type = internal/network
 
-interface = wlp6s0
+interface = wlp4s0
 interval = 1
 
-label-connected = %{A} %{A:wicd-client &:} %essid%%{A} | %local_ip%
+label-connected = %{A} %{A:wicd-client &:}%essid%%{A} | %local_ip%
 format-connected-foreground = ${colors.blue}
 
 format-disconnected-padding = 1
@@ -216,7 +223,7 @@ type = internal/date
 
 interval = 1.0
 
-time =  %H:%M
+time =  %H:%M
 
 format = <label>
 format-prefix = " "
@@ -227,7 +234,7 @@ label = %time%
 [module/date]
 type = internal/date
 
-date =  %d/%m
+date =  %d/%m
 
 format = <label>
 format-prefix = " "
@@ -255,9 +262,9 @@ type = custom/menu
 
 format-prefix = " "
 
-label-open = 
+label-open = o
 label-open-foreground = ${colors.red}
-label-close = 
+label-close = c
 label-close-foreground = ${colors.red}
 label-separator = "  "
 
@@ -268,19 +275,45 @@ menu-0-1-exec = menu-open-2
 menu-0-2 = Exit
 menu-0-2-exec = menu-open-3
 
-menu-1-0 = 
+menu-1-0 = r
 menu-1-0-exec = termite -e 'reboot'
 menu-1-1 = 
 menu-1-1-exec = menu-open-0
 
-menu-2-0 = 
+menu-2-0 = p
 menu-2-0-exec = termite -e 'poweroff'
 menu-2-1 = 
 menu-2-1-exec = menu-open-0
 
-menu-3-0 = 
+menu-3-0 = q
 menu-3-0-exec = herbstclient quit; bspc quit; exec i3-msg exit
 menu-3-1 = 
 menu-3-1-exec = menu-open-0
 
+[module/vpn]
+type = custom/script
+exec = echo V
+exec-if = pgrep -x openvpn
+interval = 5
+format-underline = #268bd2
 
+[module/drop]
+type = custom/script
+exec = echo D
+exec-if = pgrep -x dropbox
+interval = 5
+format-underline = #268bd2
+
+[module/autokey]
+type = custom/script
+exec = echo A
+exec-if = pgrep -x autokey
+interval = 5
+format-underline = #268bd2
+
+[module/emacs]
+type = custom/script
+exec = echo E
+exec-if = pgrep -x emacs
+interval = 5
+format-underline = #268bd2

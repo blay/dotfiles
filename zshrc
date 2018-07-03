@@ -85,6 +85,7 @@ alias ap="ag --passthru"
 alias aq="ag -Q"
 alias az="ag -l | fzf"
 alias av="ag --nobreak --nonumbers --noheading . | fzf" 
+alias auid="xargs -i ag -g {}"
 
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
@@ -96,8 +97,8 @@ alias pan='make -f ~/.pandoc/examples/Makefile'
 # Google Calendar
 
 alias ca="date;gcalcli agenda"
-alias cw="gcalcli calw"
-alias cm="gcalcli calm"
+alias cw="gcalcli calw --monday"
+alias cm="gcalcli calm --monday"
 alias cq="gcalcli --cal Kalender quick"
 alias cr="gcalcli --cal RISE quick"
 alias cx="gcalcli --cal Deadlines quick"
@@ -173,7 +174,7 @@ alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 alias cdb='cd ~/builds'
 alias cdp='~/Documents/library/papers'
-alias rg='ranger'
+alias rng='ranger'
 
 # Emacs
 

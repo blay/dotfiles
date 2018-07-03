@@ -1,0 +1,13 @@
+#!/bin/bash
+case "$1" in
+    thaw|resume)
+      /usr/bin/xrandr --output eDP-1 --scale 1.25x1.25 --panning 3200x1800
+        ;;
+    suspend|hibernate)
+      /usr/bin/xrandr --output eDP-1 --scale 1.25x1.25 --panning 3200x1800
+	  OUTPUT="$(/usr/bin/xrandr --output eDP-1 --scale 1.25x1.25 --panning 3200x1800)"
+      echo "${OUTPUT}" > /var/log/xrandr.log
+		;;
+    *)
+        ;;
+esac

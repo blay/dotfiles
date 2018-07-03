@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ 
+xclip -selection c -o|ag -o "[0-9]{12}"|tr -d '\n'|xclip -selection c

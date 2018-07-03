@@ -43,4 +43,4 @@ while IFS= read -r line
     fi  
 done <<< "$result"
 echo $link
-mpv --ytdl-format='bestvideo[height<=?1080]+bestaudio/best' --input-file /home/bresilla/.config/mpv/control --speed 1.0 "$link"
+mpv --ytdl-format='bestvideo[height<=?1080]+bestaudio/best'  --speed 1.0 "$link"

@@ -3,9 +3,7 @@ ROFI_OPTIONS=(-theme $HOME/.config/rofi/rofi_full -m 0 -fullscreen)
 
 another=$(echo "CONFIGS
 SCRIPTS
-FUNCTIS
-SHELL
-OMZSH" | awk '{print $(NF-1)}' | rofi "${ROFI_OPTIONS[@]}" -dmenu -i -p "SYSTEM: ")
+SHELL" | awk '{print $(NF-1)}' | rofi "${ROFI_OPTIONS[@]}" -dmenu -i -p "SYSTEM: ")
 
 
 
@@ -26,27 +24,21 @@ browse(){
 
 
 if [ "$another" == "SHELL" ] ; then
-	selected=$(echo "$HOME/Dots/.zshrc
-$HOME/Dots/.bashrc
-$HOME/Dots/.tmux.conf
-$HOME/Dots/.spacevim
-$HOME/Dots/.alias
-$HOME/Dots/.Xmodmap
+	selected=$(echo "$HOME/dotfiles/.zshrc
+$HOME/dotfiles/.bashrc
+$HOME/dotfiles/.tmux.conf
+$HOME/dotfiles/.spacevim
+$HOME/dotfiles/.alias
+$HOME/dotfiles/.Xmodmap
 $HOME/.Xdefaults" | rofi "${ROFI_OPTIONS[@]}" -dmenu -p "shell: ")
 	[[ -z $selected ]] && exit
 	gedit $selected
 
 elif [ "$another" == "CONFIGS" ] ; then
-	browse /home/bresilla/Dots/.config;
+	browse /home/bresilla/dotfiles/.config;
 
 elif [ "$another" == "SCRIPTS" ] ; then
-	browse /home/bresilla/Dots/.scripts;
-
-elif [ "$another" == "FUNCTIS" ] ; then
-	browse /home/bresilla/Dots/.func;
-
-elif [ "$another" == "OMZSH" ] ; then
-	browse /home/bresilla/Dots/.zsh;
+	browse /home/.shell;
 
 else
     echo $another

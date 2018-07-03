@@ -30,13 +30,20 @@ rofi.window-format: {t}
 ! Xft settings
 !-------------------------------------------------------------------------------
 Xft.autohint:   1
-Xft.dpi:        96
+Xft.dpi:        144
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 
+!-------------------------------------------------------------------------------
+! xterm settings
+!-------------------------------------------------------------------------------
+
+xterm*termName: xterm-256color
+xterm*faceName: Noto Mono
+xterm*faceSize: 10
 !-------------------------------------------------------------------------------
 ! URxvt settings
 !-------------------------------------------------------------------------------

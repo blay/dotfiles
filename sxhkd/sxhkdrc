@@ -9,14 +9,17 @@ super + Return
 ctrl + shift + Escape
 	gnome-system-monitor
 
+ctrl + alt + Escape
+    bash ~/.config/rofi/menu/CONFIG
+
 # program launcher
 super + space
-	rofi -show run
+    rofi -combi-modi run,drun -show combi -modi combi
 
 # rofi -show run -lines 10 -padding 300 -opacity "100" -font "Roboto Mono 15" -width 1368 -separator-style "none" -hide-scrollbar -color-window "argb:dd000000, argb:0002b36, argb:7bffffff" -color-normal "argb:0ffffff, #ffffff, argb:0eee8d5, #ffffff, #000000" -color-active "argb:0fdf6e3, #268bd2, argb:0eee8d5, #268bd2, #fdf6e3" -color-urgent "argb:0fdf6e3, #dc322f, argb:0eee8d5, #dc322f, #fdf6e3"	
 
 super + shift + space
-	rofi -show drun
+      bash ~/.config/rofi/menu/SEARCH
 
 super + Tab
 	rofi -show window
@@ -24,7 +27,7 @@ super + Tab
 # Change Wallpaper #
 
 super + x
-	feh --randomize --bg-fill ~/share/Dropbox/wallpapers
+	feh --randomize --bg-fill ~/Dropbox/wallpapers
 
 
 # make sxhkd reload its configuration files:
@@ -35,7 +38,10 @@ super + Escape
 # Common programs
 
 super + q
-	qutebrowser
+	firefox
+
+super + p
+    sh /home/svartfax/.shell/uidpaste
 
 super + v
 	termite -e vim
@@ -43,13 +49,55 @@ super + v
 super + z 
 	urxvt -e /usr/bin/zsh
 
+super + u
+    emacsclient -c
+
+super + shift + u
+    emacs --daemon
+
+##########################
+#System
+##########################
+
+# Raises volume
+XF86AudioRaiseVolume
+    amixer set Master 2%+
+
+# Lowers volume
+XF86AudioLowerVolume
+    amixer set Master 2%-
+
+# Mutes
+XF86AudioMute
+#amixer set Master toggle
+    amixer -D pulse set Master 1+ toggle
+
+# Brightness goes up
+super + alt + 6
+	brightness + eDP-1
+
+# Brightness goes down
+super + alt + 5
+    brightness - eDP-1
+
+# Control spotify
+super + alt + p
+	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+super + alt + o
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+super + alt + i
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
 #
 # bspwm hotkeys
 #
 
 # quit bspwm normally
 super + shift + Escape
-	bspc quit
+#	bspc quit
+    bash ~/.config/rofi/menu/SYSTEM
 
 # close and kill
 super + {_,shift + }w
@@ -70,7 +118,7 @@ super + y
 
 # swap the current node and the biggest node
 super + g
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 #
 # state/flags
