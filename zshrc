@@ -62,6 +62,8 @@ alias scr='screen -rd'
 
 alias 1024='sips -Z 1024 *.jpg'
 
+alias jab="wmname LG3D"
+
 alias ytmp3='youtube-dl -x --audio-format "mp3"'
 
 alias cal="ncal -w"

@@ -2,20 +2,19 @@
 
 ROFI_OPTIONS=(-theme $HOME/.config/rofi/rofi_bar -m 0 -width 1500)
 
-another=$(echo "runapp
+another=$(echo "papers
 notes
-papers
 websearch
-youtube" | awk '{print $(NF-1)}' | rofi "${ROFI_OPTIONS[@]}" -dmenu -i -p "search: ")
+youtube
+runapp" | awk '{print $(NF-1)}' | rofi "${ROFI_OPTIONS[@]}" -dmenu -i -p "search: ")
 
+if [ "$another" == "papers" ] ; then
+#	find /home/svartfax/Documents/library/papers | rofi "${ROFI_OPTIONS[@]}" -threads 0 -dmenu -i -p 'locate:' | xargs -r -0 xdg-open;
+mupdf "$(find /home/svartfax/Documents/library/papers | rofi "${ROFI_OPTIONS[@]}" -matching fuzzy -threads 0 -dmenu -i -p 'locate:')";
 
-if [ "$another" == "notes" ] ; then
+elif [ "$another" == "notes" ] ; then
 #	find /home/svartfax/Documents/library/papers | rofi "${ROFI_OPTIONS[@]}" -threads 0 -dmenu -i -p 'locate:' | xargs -r -0 xdg-open;
 vim "$(find /home/svartfax/notes/txt | rofi "${ROFI_OPTIONS[@]}" -threads 0 -dmenu -i -p 'locate:')";
-
-elif [ "$another" == "papers" ] ; then
-#	find /home/svartfax/Documents/library/papers | rofi "${ROFI_OPTIONS[@]}" -threads 0 -dmenu -i -p 'locate:' | xargs -r -0 xdg-open;
-mupdf "$(find /home/svartfax/Documents/library/papers | rofi "${ROFI_OPTIONS[@]}" -threads 0 -dmenu -i -p 'locate:')";
 
 elif [ "$another" == "websearch" ] ; then
 	surfraw $(sr -elvi | awk -F'-' '{print $1}' | sed '/:/d' | awk '{$1=$1};1' | rofi "${ROFI_OPTIONS[@]}" -kb-row-select 'Tab' -kb-row-tab 'Control+space' -dmenu -i -p 'websearch: ')

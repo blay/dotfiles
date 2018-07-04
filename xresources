@@ -59,7 +59,7 @@ URxvt*termName: xterm-256color
 URxvt.visualBell: false
 
 URxvt.depth: 32
-URxvt.background: [0]black
+URxvt.background: [20]black
 ! disable ctrl+shift binding
 URxvt.iso14755:             false
 URxvt.iso14755_52:          false
@@ -82,8 +82,9 @@ URxvt.keysym.KP_Home: \033[1~
 URxvt.keysym.KP_End:  \033[4~
 
 !! Fonts
-URxvt.font: xft:TamzenForPowerline:pixelsize=14
-URxvt*boldFont: xft:TamzenForPowerline:size=14
+URxvt*font:     xft:mono:medium:size=12
+!URxvt.font: xft:TamzenForPowerline:pixelsize=14
+URxvt*boldFont: xft:mono:bold:size=12
 URxvt.allow_bold:           false
 URxvt*boldMode:             true
 ! Fix font space
