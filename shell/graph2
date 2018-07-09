@@ -1,0 +1,26 @@
+#!/bin/bash
+
+nodes=( $(cat $1*|ag -o [0-9]{12}) )
+
+links=( 
+$(for node in "${nodes[@]}"
+do
+		echo "[ $(ag -g $1|cut -d'-' -f4-) ] -> [ $(ag -g $node|cut -d'-' -f4-)  ]"
+
+		nodes2=( $(cat $node*|ag -o [0-9]{12}) )
+
+		links2=( 
+				$(for node2 in "${nodes2[@]}"
+				do
+						echo "[ $(ag -g $node|cut -d'-' -f4) ] -> [ $(ag -g $node2|cut -d'-' -f4)  ]"
+				done)
+		
+				)
+		       
+		
+echo "${links2[@]}"
+
+done)
+)
+
+echo "${links[@]}"

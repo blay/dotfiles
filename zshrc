@@ -72,6 +72,8 @@ alias fucking="sudo"
 
 alias freq="history | cut -c 8- | sort | uniq -c  | sort -n -r | head -n 20"
 
+alias vpn="nmcli con up client"
+
 # Zettel
 
 co() {
