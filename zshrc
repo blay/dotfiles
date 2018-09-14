@@ -221,6 +221,8 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
 export LESS=-RFX
+export GEM_HOME=$HOME/bin/gems
+export PATH=$HOME/bin/gems/bin:$PATH
 
 # Fuck Android
 #export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk

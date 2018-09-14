@@ -29,6 +29,10 @@ super + Tab
 super + x
 	feh --randomize --bg-fill ~/Dropbox/wallpapers
 
+# Lock screen
+
+super + shift + x
+    i3lock -c000000
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -42,6 +46,9 @@ super + q
 
 super + p
     sh /home/svartfax/.shell/uidpaste
+
+super + y
+    nautilus
 
 super + v
 	termite -e vim
@@ -113,7 +120,7 @@ super + r
 	bspc node @/ -R 90
 
 # if the current node is automatic, send it to the last manual, otherwise pull the last leaf
-super + y
+super + shift + y
 	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 # swap the current node and the biggest node

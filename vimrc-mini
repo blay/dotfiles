@@ -6,6 +6,8 @@ Plug 'vim-pandoc/vim-pandoc' | Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-voom/VOoM'
+Plug 'vimwiki/vimwiki'
+Plug 'jamessan/vim-gnupg'
 Plug 'easymotion/vim-easymotion'
 Plug 'reedes/vim-colors-pencil'
 Plug 'rakr/vim-one'
@@ -82,6 +84,18 @@ inoremap <C-U> <C-G>u<C-U>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :tabfind $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" VimWiki stuff
+let wiki_1 = {}
+let wiki_1.path = '~/notes/vimwiki/wiki'
+let wiki_1.path_html = '~/notes/vimwiki/html'
+let wiki_1.ext = '.gpg'
+let g:vimwiki_list = [wiki_1]
+let g:vimwiki_table_mappings = 0
+
+" GPG settings
+let g:GPGPreferArmor=1
+let g:GPGDefaultRecipients=["magnuse@tii.se"]
 
 " Spellcheck
 set spelllang=en,sv 

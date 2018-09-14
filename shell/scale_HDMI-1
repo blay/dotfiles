@@ -1,3 +1,6 @@
 #!/bin/bash
-xrandr --dpi 144 --fb 5440x3060 --output eDP-1 --mode 2560x1440 --output HDMI-1 --scale 1.5x1.5 --pos 2560x0 --panning 2880x1620+2560+0
+xrandr --dpi 144 --fb 5440x3060 --output eDP-1 --mode 2560x1440 --output HDMI-1 --auto --scale 1.5x1.5 --pos 2560x0 --panning 2880x1620+2560+0
 
+bspc monitor HDMI-1 -d VI VII VIII 
+
+polybar second &

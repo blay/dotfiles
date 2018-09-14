@@ -19,7 +19,7 @@ bspc rule -a Spotify desktop=^5
 bspc rule -a Lmms desktop=^5
 bspc rule -a mplayer2 state=floating
 bspc rule -a Eog state=floating
-bspc rule -a Nautilus state=floating
+#bspc rule -a Nautilus state=floating
 bspc rule -a File-roller state=floating
 bspc rule -a Gnome-system-monitor state=floating
 

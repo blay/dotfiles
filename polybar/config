@@ -60,6 +60,15 @@ wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
+[bar/second]
+monitor = ${env:MONITOR:HDMI-1}
+inherit = bar/top
+
+modules-left = bspwm
+modules-center = xwindow 
+modules-right = 
+
+
 ; MODULES
 
 [module/bspwm]
