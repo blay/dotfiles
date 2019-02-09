@@ -103,8 +103,8 @@ super + alt + i
 
 # quit bspwm normally
 super + shift + Escape
-#	bspc quit
-    bash ~/.config/rofi/menu/SYSTEM
+	bspc quit
+#    bash ~/.config/rofi/menu/SYSTEM
 
 # close and kill
 super + {_,shift + }w
@@ -164,7 +164,7 @@ super + bracket{left,right}
 #	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-super + {o,i}
+super + {i,o}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on

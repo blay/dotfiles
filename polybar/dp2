@@ -1,0 +1,385 @@
+#==================================================
+#
+#  INFO: https://github.com/jaagr/polybar
+#
+#===================================================
+
+#========================================
+# RESOURCES
+#========================================
+[res/colors]
+primary = ${xrdb:color4}
+secondary = ${xrdb:color12}
+alert = ${xrdb:color3}
+
+icon-battery = ${xrdb:color7}
+icon-cpu = ${xrdb:color4}
+icon-date = ${xrdb:color7}
+icon-fs = ${xrdb:color2}
+icon-memory = ${xrdb:color5}
+icon-volume = ${xrdb:color7}
+icon-wlan = ${xrdb:color6}
+icon-wm = ${xrdb:color7}
+icon-xbacklight = ${xrdb:color7}
+
+background = ${xrdb:background}
+background-alt = ${xrdb:color10}
+foreground = ${xrdb:color15}
+
+[res/config]
+padding = 2
+
+[res/fonts]
+font-0 = "xos4 Terminus:size=9;2"
+font-1 = "Wuncon Siji:size=9;2"
+font-2 = "FontAwesome:size=10;2"
+font-3 = "Material Design Icons:size=11;3"
+font-4 =
+
+#========================================
+# BARS
+#========================================
+
+# TEMPLATE
+#====================
+
+[template/bar]
+# Rendering of the bar
+width = 100%
+height = 30
+wm-restack = ${env:PB_WM_RESTACK:bspwm}
+
+# Module padding and spacing
+module-margin = 1
+
+# Mild ricing
+background = #00000000
+foreground = ${res/colors.foreground}
+
+# Invisible border on three sides; it cooperates well with i3
+border-top-size = 10
+border-left-size = ${self.border-top-size}
+border-right-size = ${self.border-top-size}
+border-color = #00000000
+
+# Module fonts
+font-0 = ${res/fonts.font-0}
+font-1 = ${res/fonts.font-1}
+font-2 = ${res/fonts.font-2}
+font-3 = ${res/fonts.font-3}
+font-4 = ${res/fonts.font-4}
+
+# BARS
+#====================
+[bar/primary-top]
+monitor = ${env:PB_MONITOR:DP-2}
+inherit = template/bar
+
+modules-left = bspwm 
+modules-center = 
+modules-right = wlan xbacklight volume battery date
+
+[bar/secondary-top]
+monitor = ${env:PB_MONITOR:DP-2}
+inherit = template/bar
+
+modules-left = bspwm
+modules-center = xwindow
+modules-right =
+
+#========================================
+# MODULES
+#========================================
+
+# BORDERS and WHITESPACE
+#====================
+[module/|]
+type = custom/text
+content = " "
+content-foreground = ${res/colors.background-alt}
+
+# OTHER
+#====================
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+format-prefix = i3
+format-prefix-padding = ${res/config.padding}
+format-prefix-foreground = ${res/colors.background}
+format-prefix-background = ${res/colors.icon-wm}
+enable-scroll = false
+index-sort = true
+pin-workspaces = true
+
+label-mode-padding = ${res/config.padding}
+label-mode-foreground = ${res/colors.background}
+label-mode-background = ${res/colors.icon-wm}
+
+label-focused = %name%
+label-focused-padding = ${res/config.padding}
+label-focused-foreground = ${self.label-mode-foreground}
+label-focused-background = ${res/colors.secondary}
+
+label-visible = ${self.label-focused}
+label-visible-padding = ${res/config.padding}
+label-visible-background = ${res/colors.background-alt}
+
+label-unfocused = ${self.label-focused}
+label-unfocused-padding = ${res/config.padding}
+label-unfocused-background = ${res/colors.background}
+
+label-urgent = ${self.label-focused}
+label-urgent-padding = ${res/config.padding}
+label-urgent-background = ${res/colors.alert}
+
+[module/bspwm]
+type = internal/bspwm
+format = <label-state><label-mode>
+format-prefix = b
+format-prefix-padding = 2
+format-prefix-foreground = ${res/colors.background}
+format-prefix-background = ${res/colors.icon-wm}
+enable-scroll = false
+pin-workspaces = true
+
+ws-icon-0 = VI;VI
+ws-icon-1 = VII;VII
+ws-icon-2 = VIII;VIII
+ws-icon-default = B
+
+label-monocle = 
+label-monocle-padding = ${res/config.padding}
+label-monocle-background = ${res/colors.icon-wm}
+label-monocle-foreground = ${res/colors.background}
+label-tiled = 
+label-tiled-padding = ${res/config.padding}
+label-tiled-background = ${res/colors.icon-wm}
+label-tiled-foreground = ${res/colors.background}
+label-fullscreen = 
+label-fullscreen-padding = ${res/config.padding}
+label-fullscreen-background = ${res/colors.icon-wm}
+label-fullscreen-foreground = ${res/colors.background}
+label-floating = 
+label-floating-padding = ${res/config.padding}
+label-floating-background = ${res/colors.icon-wm}
+label-floating-foreground = ${res/colors.background}
+label-pseudotiled = 
+label-pseudotiled-padding = ${res/config.padding}
+label-pseudotiled-background = ${res/colors.icon-wm}
+label-pseudotiled-foreground = ${res/colors.background}
+label-locked = 
+label-locked-padding = ${res/config.padding}
+label-locked-background = ${res/colors.icon-wm}
+label-locked-foreground = ${res/colors.background}
+label-sticky = 
+label-sticky-padding = ${res/config.padding}
+label-sticky-background = ${res/colors.icon-wm}
+label-sticky-foreground = ${res/colors.background}
+label-private = 
+label-private-padding = ${res/config.padding}
+label-private-background = ${res/colors.icon-wm}
+label-private-foreground = ${res/colors.background}
+
+label-focused = %icon%
+label-focused-padding = ${res/config.padding}
+label-focused-foreground = ${res/colors.background}
+label-focused-background = ${res/colors.secondary}
+
+label-dimmed = ${self.label-focused}
+label-dimmed-padding = ${res/config.padding}
+label-dimmed-foreground = ${self.label-focused-foreground}
+label-dimmed-background = ${res/colors.background-alt}
+
+label-occupied = ${self.label-focused}
+label-occupied-padding = ${res/config.padding}
+label-occupied-foreground = ${res/colors.foreground}
+label-occupied-background = ${res/colors.background}
+
+label-urgent = ${self.label-focused}
+label-urgent-padding = ${res/config.padding}
+label-urgent-foreground = ${res/colors.alert}
+label-urgent-background = ${res/colors.background}
+
+label-empty = ${self.label-focused}
+label-empty-padding = ${res/config.padding}
+label-empty-foreground = ${res/colors.background-alt}
+label-empty-background = ${res/colors.background}
+
+
+[module/battery]
+type = internal/battery
+format-charging = <ramp-capacity>
+format-charging-background = ${res/colors.background-alt}
+format-discharging = <ramp-capacity><label-discharging>
+format-discharging-background = ${res/colors.icon-battery}
+format-full = <label-full>
+time-format = %H:%M
+full-at = 98
+interval = 15
+
+label-charging = %percentage%%
+label-charging-padding = ${res/config.padding}
+label-charging-foreground = ${res/colors.background-alt}
+label-charging-background = ${res/colors.background}
+label-discharging = %percentage%%
+label-discharging-padding = ${self.label-charging-padding}
+label-discharging-background = ${res/colors.background}
+label-full = 
+label-full-padding = ${res/config.padding}
+label-full-foreground = ${res/colors.background}
+label-full-background = ${res/colors.alert}
+
+ramp-capacity-0= 
+ramp-capacity-1= 
+ramp-capacity-2= 
+ramp-capacity-3= 
+ramp-capacity-4= 
+ramp-capacity-5= 
+ramp-capacity-6= 
+ramp-capacity-7= 
+ramp-capacity-8= 
+ramp-capacity-padding = ${res/config.padding}
+ramp-capacity-foreground = ${res/colors.background}
+
+animation-charging-0 = ${self.ramp-capacity-0}
+animation-charging-1 = ${self.ramp-capacity-1}
+animation-charging-2 = ${self.ramp-capacity-2}
+animation-charging-3 = ${self.ramp-capacity-3}
+animation-charging-4 = ${self.ramp-capacity-4}
+animation-charging-5 = ${self.ramp-capacity-5}
+animation-charging-6 = ${self.ramp-capacity-6}
+animation-charging-7 = ${self.ramp-capacity-7}
+animation-charging-8 = ${self.ramp-capacity-8}
+animation-charging-padding = ${self.ramp-capacity-padding}
+animation-charging-foreground = ${res/colors.background}
+animation-charging-background = ${res/colors.background-alt}
+animation-charging-framerate = 500
+
+[module/cpu]
+type = internal/cpu
+format = <label>
+format-prefix = 
+format-prefix-padding = ${res/config.padding}
+format-prefix-foreground = ${res/colors.background}
+format-prefix-background = ${res/colors.icon-cpu}
+interval = 1
+
+label = %percentage%%
+label-padding = ${res/config.padding}
+label-background = ${res/colors.background}
+
+[module/date]
+type = internal/date
+format = <label>
+format-prefix = 
+format-prefix-padding = ${res/config.padding}
+format-prefix-foreground = ${res/colors.background}
+format-prefix-background = ${res/colors.icon-date}
+date = %a
+time = %I:%M %p
+interval = 30
+
+label = %date% %time%
+label-padding = ${res/config.padding}
+label-background = ${res/colors.background}
+
+[module/fs-home]
+type = internal/fs
+format-mounted = <label-mounted>
+format-mounted-prefix = 
+format-mounted-prefix-padding = ${res/config.padding}
+format-mounted-prefix-foreground = ${res/colors.background}
+format-mounted-prefix-background = ${res/colors.icon-fs}
+mount-0 = /home
+
+label-mounted = %percentage_used%%
+label-mounted-padding = ${res/config.padding}
+label-mounted-background = ${res/colors.background}
+
+[module/memory]
+type = internal/memory
+format = <label>
+format-prefix = 
+format-prefix-padding = ${res/config.padding}
+format-prefix-foreground = ${res/colors.background}
+format-prefix-background = ${res/colors.icon-memory}
+interval = 1
+
+label = %percentage_used%%
+label-padding = ${res/config.padding}
+label-background = ${res/colors.background}
+
+[module/update-arch]
+type = custom/script
+exec = echo `checkupdates | wc -l`
+exec-if = wget -q --spider http://www.startpage.com/ && uname -r | grep -q "ARCH" && [ `checkupdates | wc -l` != 0 ]
+format-prefix = 
+format-prefix-padding = ${res/config.padding}
+format-prefix-foreground = ${res/colors.background}
+format-prefix-background = ${res/colors.alert}
+interval = 60
+
+label-padding = ${res/config.padding}
+label-background = ${res/colors.background}
+
+[module/volume]
+type = internal/volume
+format-volume = <label-volume>
+format-volume-prefix = 
+format-volume-prefix-padding = ${res/config.padding}
+format-volume-prefix-foreground = ${res/colors.background}
+format-volume-prefix-background = ${res/colors.icon-volume}
+format-muted = <label-muted>
+
+label-volume-padding = ${res/config.padding}
+label-volume-background = ${res/colors.background}
+
+label-muted = 
+label-muted-padding = ${res/config.padding}
+label-muted-foreground = ${res/colors.background}
+label-muted-background = ${res/colors.background-alt}
+
+[module/wlan]
+type = internal/network
+format-connected = <ramp-signal><label-connected>
+format-disconnected = <label-disconnected>
+interface = wlp1s0
+
+label-connected = %essid%
+label-connected-padding = ${res/config.padding}
+label-connected-background = ${res/colors.background}
+label-disconnected = 
+label-disconnected-padding = ${res/config.padding}
+label-disconnected-foreground = ${res/colors.background}
+label-disconnected-background = ${res/colors.background-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-padding = ${res/config.padding}
+ramp-signal-foreground = ${res/colors.background}
+ramp-signal-background = ${res/colors.icon-wlan}
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <label>
+format-prefix = 
+format-prefix-padding = ${res/config.padding}
+format-prefix-foreground = ${res/colors.background}
+format-prefix-background = ${res/colors.icon-xbacklight}
+
+label = %percentage%%
+label-padding = ${res/config.padding}
+label-background = ${res/colors.background}
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-padding = ${res/config.padding}
+label-background = ${res/colors.background}
+label-maxlen = 75
+label-ellipsis = true
+
+# vim:ft=dosini

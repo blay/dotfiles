@@ -1,3 +1,6 @@
 #!/bin/bash
+xrandr --dpi 144 --fb 5440x3060 --output eDP-1 --mode 2560x1440 --output DP-2 --auto --scale 1.5x1.5 --pos 2560x0 --panning 2880x1620+2560+0
 
-xrandr --output eDP-1 --auto --output DP-2 --auto --panning 2560x2048+2560+0 --scale 2x2 --right-of eDP-1
+bspc monitor DP-2 -d VI VII VIII 
+
+polybar dp2 &

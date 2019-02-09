@@ -53,7 +53,7 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " Save with sudo 
 cmap w!! w !sudo tee % >/dev/null
 " Save your fingers by escaping escape"
-:inoremap kj <esc>
+":inoremap kj <esc>
 
 set number        " Line numbers
 set relativenumber " Relative line numbers    

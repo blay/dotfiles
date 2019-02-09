@@ -1,0 +1,5 @@
+#!/bin/bash
+xrandr --dpi 144 --fb 2560x1440 --output eDP-1 --mode 2560x1440 --output HDMI-1 --off --output DP-2 --off
+
+bspc monitor eDP-1 -d web term chay code music VI VII VIII 
+

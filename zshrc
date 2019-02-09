@@ -64,7 +64,7 @@ alias 1024='sips -Z 1024 *.jpg'
 
 alias jab="wmname LG3D"
 
-alias ytmp3='youtube-dl -x --audio-format "mp3"'
+alias yoump3='youtube-dl -x --audio-format "mp3"'
 
 alias cal="ncal -w"
 
@@ -176,6 +176,7 @@ alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
+alias cdv='cd ~/Videos'
 alias cdb='cd ~/builds'
 alias cdp='~/Documents/library/papers'
 alias rng='ranger'

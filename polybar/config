@@ -48,7 +48,7 @@ font-6 = Wuncon Siji:pixelsize=13;4
 
 modules-left = bspwm
 modules-center = xwindow 
-modules-right = battery drop autokey vpn emacs wifi volume date clock powermenu
+modules-right = drop autokey vpn emacs battery volume date clock powermenu wifi
 
 tray-position = right
 tray-padding = 0
@@ -68,7 +68,13 @@ modules-left = bspwm
 modules-center = xwindow 
 modules-right = 
 
+[bar/dp2]
+monitor = ${env:MONITOR:DP-2}
+inherit = bar/top
 
+modules-left = bspwm
+modules-center = xwindow 
+modules-right = 
 ; MODULES
 
 [module/bspwm]

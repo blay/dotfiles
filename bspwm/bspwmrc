@@ -14,14 +14,6 @@ bspc config gapless_monocle      false
 bspc desktop ^1 -l tiled
 
 bspc rule -a Gimp desktop=^8 state=floating follow=on
-bspc rule -a Google-chrome desktop=^1
-bspc rule -a Spotify desktop=^5
-bspc rule -a Lmms desktop=^5
-bspc rule -a mplayer2 state=floating
-bspc rule -a Eog state=floating
-#bspc rule -a Nautilus state=floating
-bspc rule -a File-roller state=floating
-bspc rule -a Gnome-system-monitor state=floating
 
 bspc rule -a Screenkey manage=off
 
@@ -46,8 +38,10 @@ dropbox start &
 kdeconnect-indicator &
 dunst -conf ~/.config/dunst/config &
 redshift &
+conky &
+albert &
 
-xrdb -merge ~/.Xresources
+rdb -merge ~/.Xresources
 sleep 2;xmodmap /home/svartfax/.Xmodmap
 xcape
 
