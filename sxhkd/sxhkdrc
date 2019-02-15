@@ -47,6 +47,9 @@ super + q
 super + p
     sh /home/svartfax/.shell/uidpaste
 
+super + shift + p
+    sh /home/svartfax/.shell/uidnamepaste
+	
 super + y
     nautilus
 
