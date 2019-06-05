@@ -10,8 +10,12 @@ file=$1
 printf "\n# Links to file:\n\n"
 ag $file
 
+printf "\n# Before and After:\n\n"
+
+ls|ag -C3 $file
+
 printf "\n\n# Mutual Links\n\n"
-link=$(ag -o "(?<=§|\[)[0-9]*" $file*|sort -n |uniq)
+link=$(ag -o "(?<=§|\[)[0-9]{12}" $file*|sort -n |uniq)
 
 for line in $link
   do
@@ -21,7 +25,7 @@ for line in $link
   done
 
 printf "\n\n# Mutual References\n\n"
-ref=$(ag -o "(?<=\@)[a-z]*\:[0-9]*[a-z]*" $file*|sort -n |uniq)
+ref=$(ag -o "(?<=\@)[a-z]*[0-9]*[a-z]*" $file*|sort -n |uniq)
 
 for line in $ref
   do

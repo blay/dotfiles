@@ -58,13 +58,15 @@ alias px='ps aux|a'
 
 alias solve='sh ~/.shell/solve'
 
+alias in='insect'
+
 alias scr='screen -rd'
 
 alias 1024='sips -Z 1024 *.jpg'
 
 alias jab="wmname LG3D"
 
-alias yoump3='youtube-dl -x --audio-format "mp3"'
+alias mp3='youtube-dl -x --audio-format "mp3"'
 
 alias cal="ncal -w"
 
@@ -90,9 +92,11 @@ alias aq="ag -Q"
 alias az="ag -l | fzf"
 alias av="ag --nobreak --nonumbers --noheading . | fzf" 
 alias auid="xargs -i ag -g {}"
+alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
 
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
+alias rnd='ls|sort -R' 
 
 alias am='ag --passthru  "^\#.*"'
 

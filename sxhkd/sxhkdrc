@@ -22,7 +22,7 @@ super + shift + space
       bash ~/.config/rofi/menu/SEARCH
 
 super + Tab
-	rofi -show window
+	rofi -show window -show-icons
 
 # Change Wallpaper #
 
@@ -83,12 +83,12 @@ XF86AudioMute
     amixer -D pulse set Master 1+ toggle
 
 # Brightness goes up
-super + alt + 6
-	brightness + eDP-1
+super + alt + k
+	brightness + 
 
 # Brightness goes down
-super + alt + 5
-    brightness - eDP-1
+super + alt + j
+    brightness -
 
 # Control spotify
 super + alt + p
