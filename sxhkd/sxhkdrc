@@ -69,6 +69,10 @@ super + shift + u
 #System
 ##########################
 
+# Show Battery
+super + alt + b
+    notify-send "$(acpi)"
+
 # Raises volume
 XF86AudioRaiseVolume
     amixer set Master 2%+
