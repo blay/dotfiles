@@ -60,7 +60,7 @@ super + z
 	urxvt -e /usr/bin/zsh
 
 super + u
-    emacsclient -c
+    emacsclient -c 
 
 super + shift + u
     emacs --daemon

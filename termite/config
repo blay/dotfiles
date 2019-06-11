@@ -1,5 +1,8 @@
 [options]
-font = noto mono 12
+#font = noto mono 12
+font = fira code 12
+#font = iosevka term 12
+#font = hack 12
 
 [colors]
 foreground = rgb(239, 240, 235)

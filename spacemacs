@@ -213,7 +213,7 @@ It should only modify the values of Spacemacs settings."
                          badwolf
                          hydandata-light
                          poet
-                         poet-dark)
+                         )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -230,11 +230,11 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("noto mono"
-                               :size 12
+   dotspacemacs-default-font '("Fira Code"
+                               :size 11
                                :weight normal
                                :width normal
-                               :powerline-scale 0.8)
+                               :powerline-scale 1)
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
@@ -468,6 +468,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq default-frame-alist '((font . "Fira Code-11")))
   )
 
 (defun dotspacemacs/user-load ()
@@ -497,7 +498,9 @@ before packages are loaded."
 ;  (spacemacs/toggle-visual-line-navigation 1)
   (setq helm-buffer-max-length nil)
   (helm-recoll-create-source "papers" "~/.recoll")
- 
+  (setq vc-follow-symlinks nil) 
+  (scroll-bar-mode -1)
+
   ;; Native uid function
 
   (defun insert-current-date () (interactive)
@@ -543,8 +546,9 @@ before packages are loaded."
 
   (setq org-agenda-use-tag-inheritance nil)
   (setq org-agenda-ignore-drawer-properties '(effort appt category))
-;  (setq org-agenda-inhibit-startup t)
-
+  (setq org-agenda-dim-blocked-tasks nil)
+  (setq org-agenda-inhibit-startup t)
+  (remove-hook 'org-mode-hook 'enable-flyspell-mode)
 
 ;; Orgmode Agenda
 
