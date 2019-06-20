@@ -5,10 +5,12 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dstufft"
-#ZSH_THEME="bira"
+#ZSH_THEME="dstufft"
+#ZSH_THEME="spaceship"
+#ZSH_THEME="avit"
 #ZSH_THEME="arrow"
 #ZSH_THEME="hyperzsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -102,6 +104,8 @@ alias am='ag --passthru  "^\#.*"'
 
 alias pan='make -f ~/.pandoc/examples/Makefile'
 
+alias zkviz='~/envs/zkviz/bin/zkviz'
+
 # Google Calendar
 
 alias ca="date;gcalcli agenda"
@@ -181,6 +185,7 @@ alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 alias cdv='cd ~/Videos'
+alias cdm='cd ~/Music'
 alias cdb='cd ~/builds'
 alias cdp='~/Documents/library/papers'
 alias rng='ranger'
@@ -225,6 +230,7 @@ plugins=(git osx last-working-dir sublime colorize)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
+export PATH="$HOME/.local/bin:$PATH" # Add pip scripts to path
 export LESS=-RFX
 export GEM_HOME=$HOME/bin/gems
 export PATH=$HOME/bin/gems/bin:$PATH
@@ -244,3 +250,4 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.purepower

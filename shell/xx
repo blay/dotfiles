@@ -6,11 +6,11 @@ cd ~/notes/txt
 
 printf "\n\n# Important Tasks\n\n"
 
-ag -A3  --color-match "1;33" "#NOW:"
+ag -Q --color-match "1;33" "* TODO [#A]"
 
 printf "\n\n# Next Tasks\n\n"
 
-ag -A2 --color-match "1;34" "#NEXT:"
+ag -Q --color-match "1;34" "* TODO [#B]"
 
 printf "\n\n# Other Tasks\n\n"
 

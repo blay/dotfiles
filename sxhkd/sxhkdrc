@@ -2,15 +2,10 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
+# konsole emulator
 super + Return
-      termite
-# GNOME System Monitor
-ctrl + shift + Escape
-	gnome-system-monitor
+      konsole
 
-ctrl + alt + Escape
-    bash ~/.config/rofi/menu/CONFIG
 
 # program launcher
 super + space
@@ -26,13 +21,13 @@ super + Tab
 
 # Change Wallpaper #
 
-super + x
-	feh --randomize --bg-fill ~/Dropbox/wallpapers
-
+super + shift + z
+	#feh --randomize --bg-fill ~/Dropbox/wallpapers
+    randomwall	
 # Lock screen
 
-super + shift + x
-    i3lock -c000000
+#super + shift + x
+#    i3lock -c000000
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -51,13 +46,13 @@ super + shift + p
     sh /home/svartfax/.shell/uidnamepaste
 	
 super + y
-    nautilus
+    dolphin
 
 super + v
-	termite -e vim
+	konsole -e vim
 
 super + z 
-	urxvt -e /usr/bin/zsh
+	konsole
 
 super + u
     emacsclient -c 
@@ -70,21 +65,21 @@ super + shift + u
 ##########################
 
 # Show Battery
-super + alt + b
-    notify-send "$(acpi)"
+#super + alt + b
+#    notify-send "$(acpi)"
 
 # Raises volume
-XF86AudioRaiseVolume
-    amixer set Master 2%+
+#XF86AudioRaiseVolume
+#    amixer set Master 2%+
 
 # Lowers volume
-XF86AudioLowerVolume
-    amixer set Master 2%-
+#XF86AudioLowerVolume
+#    amixer set Master 2%-
 
 # Mutes
-XF86AudioMute
+#XF86AudioMute
 #amixer set Master toggle
-    amixer -D pulse set Master 1+ toggle
+#    amixer -D pulse set Master 1+ toggle
 
 # Brightness goes up
 super + alt + k
@@ -233,20 +228,3 @@ super + b
 
 super + n
 	bspc config -d focused window_gap 0
-
-# Screenshots
-Print
-	gnome-screenshot; \
-	notify-send "Screenshot saved"
-
-ctrl + Print
-	gnome-screenshot -c; \
-	notify-send "Screenshot copied to clipboard"
-
-shift + Print
-	gnome-screenshot -a; \
-	notify-send "Screenshot saved"
-
-ctrl + shift + Print
-	gnome-screenshot -ac; \
-	notify-send "Screenshot copied to clipboard"
