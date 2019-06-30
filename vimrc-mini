@@ -7,6 +7,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-voom/VOoM'
 Plug 'reedes/vim-colors-pencil'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -47,3 +50,5 @@ let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#syntax#style#underline_special = 0
 let g:pandoc#syntax#style#emphases = 0
 
+" Airline
+let g:airline_theme = "hybrid"
