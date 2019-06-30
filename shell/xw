@@ -3,4 +3,4 @@
 wallpaper="$(find /home/svartfax/wallpapers/ -name '*.jpg' $1 $2|shuf -n 1)"
 
 echo "$wallpaper"
-ksetwallpaper.py $wallpaper
+ksetwallpaper.py "$wallpaper"
