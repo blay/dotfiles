@@ -8,6 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="dstufft"
 #ZSH_THEME="bira"
 #ZSH_THEME="arrow"
+#ZSH_THEME="hyperzsh"
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -25,7 +26,9 @@ USER='svartfax'
 if [[ $(uname) == Linux ]]; then
   export EDITOR='vim'
   HARDHOME='home'
-  alias ack='ack-grep'
+  alias pbcopy='xclip -selection c'
+  alias pbpaste='xclip -o'
+#  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
   alias vim='mvim -v'
@@ -33,31 +36,45 @@ if [[ $(uname) == Linux ]]; then
   alias grep="ggrep"
 fi
 
+alias zc="vim ~/.zshrc"
 alias zshconfig="vim ~/.zshrc"
+alias zs="source ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
 alias svim="sudo -E vim"
-alias em="open -a Emacs"
+alias em="emacsclient -a '' -qc"
+alias ema="emacsclient -a '' -qc -e '(org-agenda)'"
 
 alias rm="rm -i"
 alias mv="mv -i"
+
+alias c="clear"
 
 alias uppa='sh ~/.shell/uppa'
 
 alias cpu='top -o cpu -n 5'
 
+alias px='ps aux|a'
+
 alias solve='sh ~/.shell/solve'
+
+alias in='insect'
 
 alias scr='screen -rd'
 
 alias 1024='sips -Z 1024 *.jpg'
 
-alias ytmp3='youtube-dl -x --audio-format "mp3"'
+alias jab="wmname LG3D"
+
+alias mp3='youtube-dl -x --audio-format "mp3"'
 
 alias cal="ncal -w"
 
-
 alias fucking="sudo"
+
+alias freq="history | cut -c 8- | sort | uniq -c  | sort -n -r | head -n 20"
+
+alias vpn="nmcli con up client"
 
 # Zettel
 
@@ -66,18 +83,37 @@ co() {
 	fc -e -|tail -n${@:-1}|head -n1|cut -f 1 -d " "|tr -d "\n"|pbcopy
 }
 
-alias a="rg -i --sort-files"
-alias ah="a -l"
+alias a="ag"
+alias af="ag -g"
+alias al="a -l"
 alias ax="ack -x"
 alias ap="ag --passthru"
-alias af="ag --follow"
-alias aq="rg -i -F"
+alias aq="ag -Q"
+alias az="ag -l | fzf"
+alias av="ag --nobreak --nonumbers --noheading . | fzf" 
+alias auid="xargs -i ag -g {}"
+alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
+
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
+alias rnd='ls|sort -R' 
 
 alias am='ag --passthru  "^\#.*"'
 
 alias pan='make -f ~/.pandoc/examples/Makefile'
+
+# Google Calendar
+
+alias ca="date;gcalcli agenda"
+alias cw="gcalcli calw --monday"
+alias cm="gcalcli calm --monday"
+alias cq="gcalcli --cal Kalender quick"
+alias cr="gcalcli --cal RISE quick"
+alias cx="gcalcli --cal Deadlines quick"
+
+# Weather
+
+alias wtr="curl wttr.in"
 
 # workout
 alias logbook="cat ~/notes/workout/logbook.md"
@@ -96,7 +132,7 @@ alias edito='sh ~/scripts/blog/editocto'
 alias pubo='sh ~/scripts/blog/pubocto'
 alias preo='sh ~/scripts/blog/preocto'
 
-alias gitta='sh ~/scripts/blog/gitta'
+alias gitta='git commit -v -a -m'
 
 # Todo
 
@@ -104,7 +140,7 @@ alias gitta='sh ~/scripts/blog/gitta'
 alias plus='sh ~/.shell/plus.sh'
 alias minus='sh ~/.shell/minus.sh'
 
-PATH=$PATH:"/$HARDHOME/$USER/.todo"
+# PATH=$PATH:"/$HARDHOME/$USER/.todo"
 alias t='todo.sh -d ~/.todo.cfg'
 alias ts='todo.sh -d ~/.todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
@@ -140,10 +176,14 @@ n() {
 # Common cd
 
 alias cdn='cd ~/notes/txt'
+alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
+alias cdv='cd ~/Videos'
 alias cdb='cd ~/builds'
+alias cdp='~/Documents/library/papers'
+alias rng='ranger'
 
 # Emacs
 
@@ -185,7 +225,22 @@ plugins=(git osx last-working-dir sublime colorize)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
-export LC_ALL=sv_SE.UTF-8
 export LESS=-RFX
-export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
-export ANDROID_HOME=/usr/local/opt/android-sdk
+export GEM_HOME=$HOME/bin/gems
+export PATH=$HOME/bin/gems/bin:$PATH
+
+# Fuck Android
+#export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
+#export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# WSL shit
+#export DISPLAY=:0 
+#export XDG_RUNTIME_DIR=~/builds/xdg 
+#export RUNLEVEL=3 
+
+# Something to fix Tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte-2.91.sh
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

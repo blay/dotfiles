@@ -1,0 +1,11 @@
+[
+
+{ "keys": ["shift+alt+m"], "command": "smart_folding"},
+{ "keys": ["ctrl+l"], "command": "toggle_comment", "args": { "block": false } },
+{ "keys": ["ctrl+shift+l"], "command": "toggle_comment", "args": { "block": true } },
+{ "keys": ["[", "#"], "command": "zk_insert_citation"},
+{ "keys": ["[", "!"], "command": "zk_get_wiki_link"},
+
+]
+
+

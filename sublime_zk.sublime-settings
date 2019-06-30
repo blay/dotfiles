@@ -1,0 +1,11 @@
+{
+	"extensions":
+	[
+		"txt",
+		"md"
+	],
+	"id_in_title": true,
+	"insert_links_with_titles": true,
+	"wiki_extension": ".md",
+    "auto_match_enabled": true
+}

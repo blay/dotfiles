@@ -7,7 +7,7 @@ echo "left to right direction"
 while read line
 do
  file=`echo "$line"`
-  ggrep -Po '(?<=§)[a-zA-Z0-9]*?(?=\W|$)'  "${line}" | while read -r link ; do
+  grep -Po '(?<=§|[)[a-zA-Z0-9]*?(?=\W|$|])'  "${line}" | while read -r link ; do
     linktxt=`ls *$link*`
     echo "\"${file}\" --> \"${linktxt}\""
   done

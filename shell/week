@@ -1,0 +1,42 @@
+#!/bin/bash
+
+d1=$(date +%Y-%m-%d -d "$2")
+d2=$(date +%Y-%m-%d -d "$2+1 days")
+d3=$(date +%Y-%m-%d -d "$2+2 days")
+d4=$(date +%Y-%m-%d -d "$2+3 days")
+d5=$(date +%Y-%m-%d -d "$2+4 days")
+d6=$(date +%Y-%m-%d -d "$2+5 days")
+d7=$(date +%Y-%m-%d -d "$2+6 days")
+
+case $1 in 
+
+		"completed")
+				ag "completed\:($d1|$d2|$d3|$d4|$d5|$d6|$d7)"
+		;;
+
+		"created")
+				ag "created\:($d1|$d2|$d3|$d4|$d5|$d6|$d7)"
+		;;
+
+		"agenda")
+				gcalcli agenda $d1
+				;;
+		"notes")
+#				af "($d1|$d2|$d3|$d4|$d5|$d6|$d7)"
+				find -newerct "$d1" ! -newerct "$d7" -name "*.md" -printf '%Tb %Td %f\n'|sort
+		;;
+
+		"papers")
+
+		        cd ~/papers
+				find -newerct "$d1" ! -newerct "$d7" -printf '%Tb %Td %f\n'|sort
+		;;
+		
+        "git")
+				git log --graph --all --since "$d1" --pretty
+		;;
+*) echo "wrong input; use *completed*, *created*, *agenda*, *notes*, *papers*, or *git*.
+Thank you!"
+
+esac
+

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Date format
+
+date=$(date +%Y-%m-%d -d "$1")
+
+first=$(git rev-list --since=$date master | tail -1)
+last=$(git rev-list --since=$date  master | head -1)
+
+# Total words
+
+words=$(git diff --word-diff=porcelain $first..$last *$2*.md| grep -e "^+[^+]" | wc -w | xargs)
+
+
+printf "\n"
+printf "# $words words added since $date"
+printf "\n\n"
+
+# Individual files
+
+files=$(git diff --name-only $first..$last *$2*.md|cut -d " " -f1)
+
+for file in $files
+do
+		filename=$(ls $file*)
+		wordfile=$(git diff --word-diff=porcelain $first..$last *$file*.md| grep -e "^+[^+]" | wc -w | xargs)
+
+		echo "- $filename had *$wordfile words*"
+done

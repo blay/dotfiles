@@ -1,0 +1,25 @@
+#!/bin/bash
+
+nodes=( $(cat $1*|ag -o [0-9]{12}) )
+
+incoming=( $(ag -l -o $1|ag -o [0-9]{12}) )
+
+in=(  
+$(for i in "${incoming[@]}"
+do 
+		echo "[ $(ag -g $i|cut -d'-' -f3-) ] -> [ $(ag -g $1|cut -d'-' -f3-)  ]"
+done)
+)
+
+out=( 
+$(for node in "${nodes[@]}"
+do
+		echo "[ $(ag -g $1|cut -d'-' -f3-) ] -> [ $(ag -g $node|cut -d'-' -f3-)  ]"
+
+done)
+)
+
+
+echo "${in[@]} ${out[@]}"
+
+#echo "${out[@]}"|graph-easy

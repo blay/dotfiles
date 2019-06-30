@@ -1,0 +1,27 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"FindKeyConflicts",
+		"Git",
+		"Google Spell Check",
+		"LanguageTool",
+		"MarkdownEditing",
+		"Material Theme",
+		"orgmode",
+		"Package Control",
+		"SideBarEnhancements",
+		"sublime_zk",
+		"Tabright",
+		"Text Pastry",
+		"WordCount"
+	],
+	"repositories":
+	[
+		"https://github.com/renerocksai/sublime_zk"
+	]
+}

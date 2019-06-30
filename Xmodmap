@@ -1,0 +1,12 @@
+! make caps_lock an additional control
+clear Lock
+keycode 66 = Control_L
+add Control = Control_L
+
+! make a fake escape key (so we can map it with xcape)
+keycode 999 = Escape
+
+!keycode any = space
+
+!keycode 65 = Hyper_L
+!add mod4 = Hyper_L

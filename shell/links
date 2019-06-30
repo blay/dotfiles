@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Make a files command, then do diff commands calling variables not repeating...
+
+# Incoming
+
+## Files with incoming links (has friends)
+inlinks=$(ag --nofilename -o "20[0-1][0-9]{9}(?!([0-9]))"|ag [0-9]{12}|sort|uniq)
+
+## Files with no incoming links (friendless)
+inlinksno=$(diff <($files) <($inlinks))
+
+## Top incoming links
+inlinkstop=$(ag --nofilename -o "20[0-1][0-9]{9}(?!([0-9]))"|ag [0-9]{12}|sort|uniq -D|sort|xargs -i ag -g {}|uniq -cd|sort)
+
+# Outgoing
+
+## Files with outgoing links
+outlinks=$(ag -l "20[0-1][0-9]{9}(?!([0-9]))"|sort)
+
+## Files with no outgoing links (dead ends)
+outlinksno=$(diff <(ls *.md|sort) <(ag -l "20[0-1][0-9]{9}(?!([0-9]))"|sort)|sort|uniq|tr -d '< '|ag [0-9]{12})
+
+## Top Zettels with outgoing links
+outlinkstop=$(ag -o "20[0-1][0-9]{9}(?!([0-9]))"|uniq -cdw12|sort -n)
+
+# Other
+
+## Files with no incoming nor outoging links (islands)(ag lot of -bl-)
+islands=$(diff <(ls *.md|ag --nofilename -o [0-9]{12}|sort) <(ag 20[0-1][0-9]{9}(?!([0-9]))|ag -o 20[0-1][0-9]{9}|sort|uniq)|ag "\<"|ag -o [0-9]{12})
+
+## Links to other things than zettels (index cards, todos, in-file uids)
+index=$(diff <(ls *.md|ag -o [0-9]{12}|sort) <(ag --nofilename -o "20[0-1][0-9]{9}(?!([0-9]))"|sort|uniq)|sort|uniq|ag "\>"|ag -o [0-9]{12})
+
+
+case $1 in 
+		"inlinks")
+				echo "$inlinks"
+		;;
+
+		"inlinksno")
+				echo "$inlinksno"	
+		;;
+
+		"inlinkstop")
+		
+		;;
+
+		"outlinks")
+		
+		;;
+
+		"outlinksno")
+		
+		;;
+
+		"outlinkstop")
+		
+		;;
+*) echo "wrong input;"
+
+esac

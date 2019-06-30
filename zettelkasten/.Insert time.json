@@ -1,0 +1,30 @@
+{
+    "type": "script",
+    "description": "Insert time",
+    "store": {},
+    "modes": [
+        1
+    ],
+    "usageCount": 3,
+    "prompt": false,
+    "omitTrigger": false,
+    "showInTrayMenu": false,
+    "abbreviation": {
+        "abbreviations": [
+            "ttime"
+        ],
+        "backspace": true,
+        "ignoreCase": true,
+        "immediate": true,
+        "triggerInside": true,
+        "wordChars": "[\\w]"
+    },
+    "hotkey": {
+        "modifiers": [],
+        "hotKey": null
+    },
+    "filter": {
+        "regex": null,
+        "isRecursive": false
+    }
+}

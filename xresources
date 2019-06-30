@@ -1,0 +1,146 @@
+!------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! first two color-window were a013191c
+! a6 = 65% amount of black needed over white for white to be a 7 contrast score
+! b3 = 70%
+! 80 = 50%
+
+rofi.line-margin: 20
+rofi.fullscreen: true
+rofi.color-enabled: true
+rofi.color-window: argb:DA222222, argb:DA222222, argb:00222222
+rofi.color-normal: argb:00000000, #e8e8e8, argb:00000000, argb:00000000, #e29a49
+rofi.color-urgent: argb:00000000, #f43753, argb:00000000, argb:00000000, #e29a49
+rofi.color-active: argb:00000000, #49bbfb, argb:00000000, argb:00000000, #e29a49
+rofi.font: TamzenForPowerline 14
+rofi.eh: 2
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.lines: 7
+rofi.width: 50
+rofi.padding: 200
+rofi.bw: 0
+rofi.auto-select: false
+rofi.fuzzy: true
+rofi.scroll-method: 1
+rofi.window-format: {t}
+
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+Xft.autohint:   0
+Xft.dpi:        162
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+
+!-------------------------------------------------------------------------------
+! xterm settings
+!-------------------------------------------------------------------------------
+
+xterm*termName: xterm-256color
+xterm*faceName: Noto Mono
+xterm*faceSize: 10
+!-------------------------------------------------------------------------------
+! URxvt settings
+!-------------------------------------------------------------------------------
+URxvt.modifier: mod1
+URxvt*loginShell: true
+URxvt.borderless: true
+URxvt*dynamicColors: on
+URxvt.geometry: 90x20
+URxvt.internalBorder: 30
+URxvt.lineSpace: 1
+URxvt.saveLines: 1000000
+URxvt*termName: xterm-256color
+URxvt.visualBell: false
+
+URxvt.depth: 32
+URxvt.background: [20]black
+! disable ctrl+shift binding
+URxvt.iso14755:             false
+URxvt.iso14755_52:          false
+
+! Disable Perl extension
+! If you do not use the Perl extension features, you can improve the security
+! and speed by disabling Perl extensions completely.
+!URxvt.perl-ext:
+URxvt.perl-ext-common: default,matcher,font-size,url-select,keyboard-select, selection-to-clipboard, config-reload, color-themes
+
+!! resize-font
+URxvt.keysym.Control-Up:     font-size:increase
+URxvt.keysym.Control-Down:   font-size:decrease
+URxvt.keysym.Control-equal:  font-size:reset
+
+!! Home and end
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
+
+!! Fonts
+URxvt*font:     xft:mono:medium:size=12
+!URxvt.font: xft:TamzenForPowerline:pixelsize=14
+URxvt*boldFont: xft:mono:bold:size=12
+URxvt.allow_bold:           false
+URxvt*boldMode:             true
+! Fix font space
+!URxvt*letterSpace:          -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         false
+
+
+
+! ------------------------------------------------------------------------------
+! theme colors
+! ------------------------------------------------------------------------------
+! special
+! special
+*.foreground:   #d3d0c8
+*.background:   #2d2d2d
+*.cursorColor:  #d3d0c8
+
+! black
+*.color0:       #2d2d2d
+*.color8:       #747369
+
+! red
+*.color1:       #f2777a
+*.color9:       #f2777a
+
+! green
+*.color2:       #99cc99
+*.color10:      #99cc99
+
+! yellow
+*.color3:       #ffcc66
+*.color11:      #ffcc66
+
+! blue
+*.color4:       #6699cc
+*.color12:      #6699cc
+
+! magenta
+*.color5:       #cc99cc
+*.color13:      #cc99cc
+
+! cyan
+*.color6:       #66cccc
+*.color14:      #66cccc
+
+! white
+*.color7:       #d3d0c8
+*.color15:      #f2f0ec
+
