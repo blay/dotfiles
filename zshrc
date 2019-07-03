@@ -5,12 +5,12 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="dstufft"
+ZSH_THEME="dstufft"
 #ZSH_THEME="spaceship"
 #ZSH_THEME="avit"
 #ZSH_THEME="arrow"
 #ZSH_THEME="hyperzsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -46,6 +46,7 @@ alias zshsource="source ~/.zshrc"
 alias svim="sudo -E vim"
 alias em="emacsclient -a '' -qc"
 alias ema="emacsclient -a '' -qc -e '(org-agenda)'"
+alias nv="nvim"
 
 alias rm="rm -i"
 alias mv="mv -i"
@@ -234,6 +235,7 @@ export PATH="$HOME/.local/bin:$PATH" # Add pip scripts to path
 export LESS=-RFX
 export GEM_HOME=$HOME/bin/gems
 export PATH=$HOME/bin/gems/bin:$PATH
+export PATH=$HOME/bin/go/bin:$PATH
 
 # Fuck Android
 #export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
@@ -243,6 +245,8 @@ export PATH=$HOME/bin/gems/bin:$PATH
 #export DISPLAY=:0 
 #export XDG_RUNTIME_DIR=~/builds/xdg 
 #export RUNLEVEL=3 
+
+
 
 # Something to fix Tilix
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then

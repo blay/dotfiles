@@ -502,6 +502,12 @@ before packages are loaded."
   (setq vc-follow-symlinks nil) 
   (scroll-bar-mode -1)
 
+
+; Redefine some EVIL keys back to normal Emacs keys for more fluid editing
+  (with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd "C-a") 'move-beginning-of-line)
+    (define-key evil-motion-state-map (kbd "C-e") 'move-end-of-line))
+
   ;; Native uid function
 
   (defun insert-current-date () (interactive)

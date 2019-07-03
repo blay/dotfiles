@@ -9,7 +9,8 @@ super + Return
 
 # program launcher
 super + space
-    rofi -combi-modi run,drun -show combi -modi combi
+     rofi -modi drun -show drun
+#    rofi -combi-modi run,drun -show combi -modi combi
 
 # rofi -show run -lines 10 -padding 300 -opacity "100" -font "Roboto Mono 15" -width 1368 -separator-style "none" -hide-scrollbar -color-window "argb:dd000000, argb:0002b36, argb:7bffffff" -color-normal "argb:0ffffff, #ffffff, argb:0eee8d5, #ffffff, #000000" -color-active "argb:0fdf6e3, #268bd2, argb:0eee8d5, #268bd2, #fdf6e3" -color-urgent "argb:0fdf6e3, #dc322f, argb:0eee8d5, #dc322f, #fdf6e3"	
 

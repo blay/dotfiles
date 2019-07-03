@@ -1,2 +1,15 @@
 #!/bin/bash
-emacs -batch -l ~/.emacs.d/init.el -eval '(org-batch-agenda "d")' 2> /dev/null | perl -pe 's/^  /- /g'|perl -pe 's/==========\n/## /g'|perl -pe 's/^Scheduled/## Scheduled/g'|perl -pe 's/^.*\s2017.*$//g'
+
+today=$(gcalcli --nocolor agenda today tomorrow)
+deadlines=$(gcalcli --nocolor --cal Deadlines agenda today 2w)
+gitlog=$(git --git-dir ~/zettel/.git log --name-only --pretty=format:"%h%x09%ar%x09%s" -1)
+gitstatus=$(cd ~/zettel && git status|ag [0-9])
+
+echo "# Scheduled Today"
+echo "$today" |sed '/^[a-z]/s/^/## /'|tr -s '\n'|sed '/^\ /s/^/   /'
+echo -e "\n# Deadlines"
+echo "$deadlines" |sed '/^[a-z]/s/^/## /'|tr -s '\n' 
+echo -e "\n# Last Git Log\n"
+echo "$gitlog"|sed '1 s/^/## /'|sed '1 s/$/\n /'|sed '/^20/s/^/- §/'
+echo -e "\n# Git Unstaged\n"
+echo "$gitstatus"|sed 's/^	/- /'

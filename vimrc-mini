@@ -1,21 +1,33 @@
 " vim-plug "
 call plug#begin('~/.vim/plugged')
 
+" General
+
 Plug 'tpope/vim-sensible'
-Plug 'vim-pandoc/vim-pandoc' | Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'vim-voom/VOoM'
-Plug 'vimwiki/vimwiki'
-Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
 Plug 'jamessan/vim-gnupg'
 Plug 'easymotion/vim-easymotion'
-Plug 'reedes/vim-colors-pencil'
-Plug 'rakr/vim-one'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'rking/ag.vim'
+"Plug 'rking/ag.vim'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'tpope/vim-commentary'
+Plug 'dyng/ctrlsf.vim'
+
+" Zettel
+
+"Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-voom/VOoM'
+Plug 'vimwiki/vimwiki'
+Plug 'jceb/vim-orgmode'
+" Theme
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 call plug#end()
 
@@ -25,33 +37,58 @@ language en_US.utf8
 
 set background=dark
 colorscheme hybrid_material
+let g:airline_theme = "hybrid"
 
 "" A few remaps
 " change the mapleader from \ to ,
-let mapleader=","
+"let mapleader=","
+map <space> <leader>
+map "," <leader>
 " Ö as colon
 nmap ö :
+" Switch : and .
+nnoremap . :
+nnoremap ; .
+" Better Undo
+noremap U <C-R>
+noremap <C-R> :LeaderfHistoryCmd<CR>
 " Easy window navigation
 map <C-h> <C-w>h 
 map <C-j> <C-w>j 
 map <C-k> <C-w>k 
 map <C-l> <C-w>l "
+" Soft line navigation
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 " Navigate buffers 
 nnoremap <Leader>j :bp<CR> 
 nnoremap <Leader>k :bn<CR>
-nnoremap <Leader>h :b#<CR> 
-nnoremap <Leader>l :ls<CR>:b<space> 
+nnoremap <Leader>h :LeaderfBufferAll<CR>
+nnoremap <Leader>l :LeaderfMru<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>q :q
+nnoremap <Leader>Q :only<CR>
+
+" Navigate buffer
+let g:EasyMotion_smartcase = 1
+map <leader>S <Plug>(easymotion-overwin-f2)
+map <leader>s :LeaderfLine<CR>
+
+
 " Better split positions 
 set splitbelow 
 set splitright 
 " Tab between buffers
-noremap <leader><tab> <c-w><c-w>
+noremap <leader><tab> :tabNext<CR>
 " These will make it so that going to the next one in a 
 " search will center on the line it's found in. 
 map N Nzz 
 map n nzz 
-" Clear search highlight 
-nmap <silent> <leader>/ :nohlsearch<CR>
+" Clear search
+nmap <silent> <leader>/ :let @/ = ""<CR>
 " Save with sudo 
 cmap w!! w !sudo tee % >/dev/null
 " Save your fingers by escaping escape"
@@ -64,10 +101,14 @@ set showmatch     " set show matching parenthesis
 set tabstop=4     " a tab is four spaces
 set smartcase     " ignore case if search pattern is all lowercase
 set linebreak     " Break at word boundaries
+set wrap		  " Wrap all text
 set history=1000         " remember more commands and search history 
 set undolevels=1000      " use many muchos levels of undo
 set clipboard=unnamedplus " System clipboard
 set mouse=a       " mouse support
+set hidden        " hide buffers
+set confirm	      " confirm unsaved
+let @/ = ""
 
 "Transparent background in terminal
 hi Normal guibg=NONE ctermbg=NONE
@@ -84,8 +125,8 @@ inoremap <C-U> <C-G>u<C-U>
 
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :tabfind $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ev :find $MYVIMRC<CR>
+nmap <silent> <leader>er :so $MYVIMRC<CR>
 
 " VimWiki stuff
 let wiki_1 = {}
@@ -102,15 +143,31 @@ let g:GPGDefaultRecipients=["magnuse@tii.se"]
 " Spellcheck
 set spelllang=en,sv 
 set nospell
+au BufNew,BufRead  * set nospell
+"autocmd BufRead,BufNewFile * setlocal nospell
 map <leader>c :setlocal spell!<CR>
 
-" @todo search
-map <leader>a :Ag! @todo
-map <leader>g :Ag!
-map <leader>f :FZF<CR>
+" Search
+map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
+map <leader>A :lcd ~/zettel<CR>:CtrlSF<CR>
+map <leader>f :Leaderf file ~/zettel<CR>
+map <leader>F :Leaderf --cword file ~/zettel<CR>
+map <leader>g :Leaderf file ~/notes/<CR>
+
+" CtrlSF
+let g:ctrlsf_default_root = "project" 
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_auto_focus = {
+    \ "at": "done",
+    \ "duration_less_than": 1000
+    \ }
+map <leader>t :lcd ~/zettel<CR>:CtrlSF -G * @todo:
+map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -G * @todo:
 
 " Zettel search
 map <leader>z /20<CR>,/yiw:e<C-R>0
+
+map <leader>n :new<CR>
 
 " VimRoom
 nnoremap <silent> <Leader>r :Goyo<CR>:Limelight!!<CR>
@@ -123,6 +180,7 @@ map <leader>o :Voom pandoc<CR>
 
 " Pandoc everything
 au BufNewFile,BufRead *.txt   set filetype=pandoc
+au BufNewFile,BufRead *.md   set filetype=pandoc
 
 " Don't fold, bro
 let g:pandoc#modules#disabled = ["folding"]
@@ -130,3 +188,29 @@ let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#syntax#style#underline_special = 0
 let g:pandoc#syntax#style#emphases = 0
 
+" Color
+highlight customHeader1 ctermfg=220
+highlight customHeader2 ctermfg=127
+highlight customHeader3 ctermfg=45
+highlight customHeader4 ctermfg=32
+highlight customHeader5 ctermfg=34
+
+syn match    customHeader1     "^#.*"
+syn match    customHeader2     "^## "
+syn match    customHeader3     "^### "
+syn match    customHeader4     "^#### "
+syn match    customHeader5     "^##### "
+
+" Bibtex
+let $FZF_BIBTEX_SOURCES = '/home/svartfax/notes/zotero.bib'
+
+function! s:bibtex_cite_sink(lines)
+    let r=system("bibtex-cite ", a:lines)
+    execute ':normal! i' . r
+endfunction
+
+nnoremap <leader>d :call fzf#run({
+                        \ 'source': 'bibtex-ls',
+                        \ 'sink*': function('<sid>bibtex_cite_sink'),
+                        \ 'up': '40%',
+                        \ 'options': '--ansi --multi --prompt "Cite> "'})<CR>
