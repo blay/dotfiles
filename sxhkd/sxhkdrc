@@ -6,6 +6,8 @@
 super + Return
       konsole
 
+super + shift + Return
+      xfce4-terminal
 
 # program launcher
 super + space
@@ -23,12 +25,12 @@ super + Tab
 # Change Wallpaper #
 
 super + shift + z
-	#feh --randomize --bg-fill ~/Dropbox/wallpapers
-    randomwall	
+	feh --randomize --bg-fill ~/Dropbox/wallpapers
+#
 # Lock screen
 
-#super + shift + x
-#    i3lock -c000000
+super + shift + x
+    i3lock -c000000
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -7,20 +7,26 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'jamessan/vim-gnupg'
 Plug 'easymotion/vim-easymotion'
-"Plug 'rking/ag.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'tpope/vim-commentary'
-Plug 'dyng/ctrlsf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'Shougo/denite.nvim'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'chrisbra/NrrwRgn'
+Plug 'masukomi/vim-markdown-folding'
 
 " Zettel
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'dyng/ctrlsf.vim'
 "Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-voom/VOoM'
 Plug 'vimwiki/vimwiki'
 Plug 'jceb/vim-orgmode'
+
 " Theme
 
 Plug 'junegunn/goyo.vim'
@@ -28,6 +34,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'jaredgorski/spacecamp'
 
 call plug#end()
 
@@ -39,6 +46,17 @@ set background=dark
 colorscheme hybrid_material
 let g:airline_theme = "hybrid"
 
+" Airline conf
+let g:airline_section_b = ''
+let g:airline_section_y = ''
+let g:airline_skip_empty_sections = 1
+
+" Markdown Folding requires this
+set nocompatible
+ if has("autocmd")
+  filetype plugin indent on
+ endif
+ 
 "" A few remaps
 " change the mapleader from \ to ,
 "let mapleader=","
@@ -52,6 +70,9 @@ nnoremap ; .
 " Better Undo
 noremap U <C-R>
 noremap <C-R> :LeaderfHistoryCmd<CR>
+" Yank filename to clipboard
+nnoremap <leader>y :let @+ = expand("%:t")<CR>
+
 " Easy window navigation
 map <C-h> <C-w>h 
 map <C-j> <C-w>j 
@@ -63,20 +84,25 @@ noremap k gk
 noremap gj j
 noremap gk k
 " Navigate buffers 
-nnoremap <Leader>j :bp<CR> 
-nnoremap <Leader>k :bn<CR>
-nnoremap <Leader>h :LeaderfBufferAll<CR>
-nnoremap <Leader>l :LeaderfMru<CR>
+nnoremap <Leader>j :bn<CR> 
+nnoremap <Leader>k :b#<CR>
+nnoremap <Leader>h :Buffers<CR>
+nnoremap <Leader>l :History<CR>
+nnoremap <Leader>L :LeaderfMru<CR>
 nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>fs :w<CR>
-nnoremap <Leader>q :q
+nnoremap <Leader>q :Sayonara<CR>
 nnoremap <Leader>Q :only<CR>
+nnoremap <Leader>w :w<CR>
+map <leader>n :new<CR>
 
 " Navigate buffer
 let g:EasyMotion_smartcase = 1
-map <leader>S <Plug>(easymotion-overwin-f2)
-map <leader>s :LeaderfLine<CR>
-
+map <leader>s :BLines<CR>
+map <leader>S <Plug>(easymotion-overwin-f)
+map <leader>- <Plug>(easymotion-overwin-f)@
+nmap - <Plug>(easymotion-overwin-f)@
+map <leader>gf :e <cfile><cr>
+nmap gf gF
 
 " Better split positions 
 set splitbelow 
@@ -91,9 +117,11 @@ map n nzz
 nmap <silent> <leader>/ :let @/ = ""<CR>
 " Save with sudo 
 cmap w!! w !sudo tee % >/dev/null
-" Save your fingers by escaping escape"
-":inoremap kj <esc>
+" Stop accidental recording
+noremap <C-q> q
+noremap q <Nop>
 
+set nofoldenable  " start unfolded
 set number        " Line numbers
 set relativenumber " Relative line numbers    
 set hlsearch	  " hilight search results
@@ -108,13 +136,14 @@ set clipboard=unnamedplus " System clipboard
 set mouse=a       " mouse support
 set hidden        " hide buffers
 set confirm	      " confirm unsaved
+set isfname+=32	  " space in filenames
 let @/ = ""
 
 "Transparent background in terminal
 hi Normal guibg=NONE ctermbg=NONE
 
 " color linenumbers
-highlight LineNr ctermfg=darkblue
+highlight LineNr ctermfg=lightblue
 
 " For all text files set 'textwidth' to 78 characters. 
  autocmd FileType text setlocal textwidth=78
@@ -125,7 +154,8 @@ inoremap <C-U> <C-G>u<C-U>
 
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :find $MYVIMRC<CR>
+"nmap <silent> <leader>ev :find $MYVIMRC<CR>
+nmap <silent> <leader>ev :find ~/.vimrc<CR>
 nmap <silent> <leader>er :so $MYVIMRC<CR>
 
 " VimWiki stuff
@@ -140,47 +170,60 @@ let g:vimwiki_table_mappings = 0
 let g:GPGPreferArmor=1
 let g:GPGDefaultRecipients=["magnuse@tii.se"]
 
+" Search
+map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
+map <leader>A :lcd ~/zettel<CR>:CtrlSF '<C-R>"'<CR>
+map <leader>f :Leaderf file ~/zettel<CR>
+map <leader>F :Leaderf --cword file ~/zettel<CR>
+map <leader>g :Leaderf file ~/notes/<CR>
+map <leader>p :e ~/zettel/.agenda.md<CR>
+map <leader>P :silent exec "!agenda > ~/zettel/.agenda.md"<CR>
+
+" CtrlSF
+let g:ctrlsf_default_root = "project" 
+let g:ctrlsf_default_view_mode = 'normal'
+let g:ctrlsf_auto_focus = {
+    \ "at": "done",
+    \ "duration_less_than": 1000
+    \ }
+let g:ctrlsf_ackprg = 'rg'
+let g:ctrlsf_extra_backend_args = {
+    \ 'rg': '--no-hidden'
+    \ }
+
+" todo Search
+
+map <leader>T :lcd ~/zettel<CR>:CtrlSF -G "*20*" "* TODO [#A]"
+map <leader>t :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]<CR>
+map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]
+
+" Git search
+map <leader>å :Gblame<CR>
+map <leader>Å :GV! -p<CR>:BLines<CR>
+
+" VimRoom
+nnoremap <silent> <Leader>r :Goyo<CR>:Limelight!!<CR>
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+nnoremap <silent> <Leader>R :Limelight!!<CR>
+
+" Voom
+map <leader>o :Voom pandoc<CR>
+
+" Pandoc everything
+au BufNewFile,BufRead *.txt   set filetype=markdown
+au BufNewFile,BufRead *.txt   set syntax=pandoc
+au BufNewFile,BufRead *.md   set filetype=markdown
+au BufNewFile,BufRead *.md   set syntax=pandoc
+
+autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
+
 " Spellcheck
 set spelllang=en,sv 
 set nospell
 au BufNew,BufRead  * set nospell
 "autocmd BufRead,BufNewFile * setlocal nospell
 map <leader>c :setlocal spell!<CR>
-
-" Search
-map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
-map <leader>A :lcd ~/zettel<CR>:CtrlSF<CR>
-map <leader>f :Leaderf file ~/zettel<CR>
-map <leader>F :Leaderf --cword file ~/zettel<CR>
-map <leader>g :Leaderf file ~/notes/<CR>
-
-" CtrlSF
-let g:ctrlsf_default_root = "project" 
-let g:ctrlsf_default_view_mode = 'compact'
-let g:ctrlsf_auto_focus = {
-    \ "at": "done",
-    \ "duration_less_than": 1000
-    \ }
-map <leader>t :lcd ~/zettel<CR>:CtrlSF -G * @todo:
-map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -G * @todo:
-
-" Zettel search
-map <leader>z /20<CR>,/yiw:e<C-R>0
-
-map <leader>n :new<CR>
-
-" VimRoom
-nnoremap <silent> <Leader>r :Goyo<CR>:Limelight!!<CR>
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-nnoremap <silent> <Leader>y :Limelight!!<CR>
-
-" Voom
-map <leader>o :Voom pandoc<CR>
-
-" Pandoc everything
-au BufNewFile,BufRead *.txt   set filetype=pandoc
-au BufNewFile,BufRead *.md   set filetype=pandoc
 
 " Don't fold, bro
 let g:pandoc#modules#disabled = ["folding"]
@@ -213,4 +256,5 @@ nnoremap <leader>d :call fzf#run({
                         \ 'source': 'bibtex-ls',
                         \ 'sink*': function('<sid>bibtex_cite_sink'),
                         \ 'up': '40%',
-                        \ 'options': '--ansi --multi --prompt "Cite> "'})<CR>
+                        \ 'options': '--ansi --multi --prompt "Cite> "'})<CR><CR>
+

@@ -19,6 +19,8 @@ ZSH_THEME="dstufft"
 
 autoload -U compinit
 compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 
 # Shell
 
@@ -30,6 +32,7 @@ if [[ $(uname) == Linux ]]; then
   HARDHOME='home'
   alias pbcopy='xclip -selection c'
   alias pbpaste='xclip -o'
+  alias vim='nvim'
 #  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
@@ -97,6 +100,7 @@ alias av="ag --nobreak --nonumbers --noheading . | fzf"
 alias auid="xargs -i ag -g {}"
 alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
 
+alias fd=fdfind
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
 alias rnd='ls|sort -R' 
@@ -141,6 +145,9 @@ alias gitta='git commit -v -a -m'
 
 # Todo
 
+# Git
+alias gitdone='git log -p -1|ag @todo:|ap "^-"'
+
 ## Commands
 alias plus='sh ~/.shell/plus.sh'
 alias minus='sh ~/.shell/minus.sh'
@@ -180,7 +187,7 @@ n() {
 
 # Common cd
 
-alias cdn='cd ~/notes/txt'
+alias cdn='cd ~/zettel'
 alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
@@ -246,12 +253,13 @@ export PATH=$HOME/bin/go/bin:$PATH
 #export XDG_RUNTIME_DIR=~/builds/xdg 
 #export RUNLEVEL=3 
 
-
-
 # Something to fix Tilix
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte-2.91.sh
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 source ~/.purepower

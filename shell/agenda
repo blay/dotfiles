@@ -1,15 +1,53 @@
 #!/bin/bash
 
-today=$(gcalcli --nocolor agenda today tomorrow)
+today=$(gcalcli --nocolor agenda today 1day)
 deadlines=$(gcalcli --nocolor --cal Deadlines agenda today 2w)
 gitlog=$(git --git-dir ~/zettel/.git log --name-only --pretty=format:"%h%x09%ar%x09%s" -1)
 gitstatus=$(cd ~/zettel && git status|ag [0-9])
+gittodo=$(cd ~/zettel && git log -p -1|ag @todo)
 
-echo "# Scheduled Today"
+deadline=$(
+IFS='
+'
+for line in $deadlines
+do
+		pattern=" "
+		if [[ $line == $pattern* ]]
+		then
+				line=$(echo $line|awk '$1=$1')
+				echo -e "- $line"
+		else
+				line=$(echo $line|awk '$1=$1')
+				date=$(echo $line|cut -d' ' -f -3)
+				desc=$(echo $line|cut -d' ' -f 4-)
+				datestring=$(echo $line | awk '{print "date -d\""$2FS$3"\" +%s"}'|bash)
+				now=$(date +%s)
+				diff=$(( ($datestring-$now) / (60*60*24) ))
+				if [ $diff == 0 ]
+				then
+						echo -e "\n## Today, on $date\n- $desc"
+				else
+						diff=$(($diff+1))
+						echo -e "\n## In $diff Days, on $date\n- $desc"
+				fi
+		fi
+done
+)
+
+echo "# Scheduled Today and Tomorrow @$(date +%Y%m%d).md"
 echo "$today" |sed '/^[a-z]/s/^/## /'|tr -s '\n'|sed '/^\ /s/^/   /'
+
 echo -e "\n# Deadlines"
-echo "$deadlines" |sed '/^[a-z]/s/^/## /'|tr -s '\n' 
+echo "$deadline"
+
 echo -e "\n# Last Git Log\n"
-echo "$gitlog"|sed '1 s/^/## /'|sed '1 s/$/\n /'|sed '/^20/s/^/- §/'
-echo -e "\n# Git Unstaged\n"
+echo "$gitlog"|sed '1 s/^/## /'|sed '1 s/$/\n /'|sed '/^20/s/^/- @/'
+
+echo -e "\n## Git Unstaged\n"
 echo "$gitstatus"|sed 's/^	/- /'
+
+echo -e "\n## TODO Changes"
+echo -e "\n### Completed\n"
+echo -e "$gittodo"
+echo -e "\n### Created\n"
+echo -e "$gittodo"
