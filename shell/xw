@@ -1,6 +1,11 @@
 #!/bin/bash
 
+if [ -n "$1" ]
+then
+wallpaper="/home/svartfax/wallpapers/$1"
+else
 wallpaper="$(find /home/svartfax/wallpapers/ -name '*.jpg' $1 $2|shuf -n 1)"
+fi
 
 echo "$wallpaper"
 ksetwallpaper.py "$wallpaper"

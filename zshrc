@@ -145,6 +145,10 @@ alias gitta='git commit -v -a -m'
 
 # Todo
 
+alias tt='rg @todo:a ~/zettel'
+alias tb='rg @todo:b ~/zettel'
+alias tc='rg @todo:c ~/zettel'
+
 # Git
 alias gitdone='git log -p -1|ag @todo:|ap "^-"'
 
@@ -163,7 +167,7 @@ alias tv='todo.sh -x -d ~/.todo.cfg view'
 alias t1='(tv past;tv today)'
 alias t7='todo.sh -x -d ~/.todo.cfg view 1weeks'
 alias te='vim ~/Dropbox/todo/todo.txt'
-alias tc='clear && (tv past;tv today)'
+alias tn='clear && (tv past;tv today)'
 alias tf='clear && (tv past;tv today;tv future)'
 function tm { ts $1 mv tomorrow; }
 
@@ -194,9 +198,10 @@ alias cdxi='cd ~/notes/omxi.se'
 alias cdd='cd ~/Downloads'
 alias cdv='cd ~/Videos'
 alias cdm='cd ~/Music'
+alias cdw='cd ~/wallpapers'
 alias cdb='cd ~/builds'
-alias cdp='~/Documents/library/papers'
-alias rng='ranger'
+alias cdp='~/papers'
+alias rn='ranger'
 
 # Emacs
 

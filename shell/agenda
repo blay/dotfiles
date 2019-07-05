@@ -28,9 +28,21 @@ do
 						echo -e "\n## Today, on $date\n- $desc"
 				else
 						diff=$(($diff+1))
-						echo -e "\n## In $diff Days, on $date\n- $desc"
+						echo -e "\n## In *$diff* Days, on $date\n- $desc"
 				fi
 		fi
+done
+)
+
+todoin="$(rg @todo:a)"
+
+todoout=$(
+IFS='
+'
+for line in $todoin
+do
+		newline=$(echo $line|sed "s/20/@20/g"|sed "s/:/\n/")
+		echo -e "$newline\n"
 done
 )
 
@@ -40,14 +52,20 @@ echo "$today" |sed '/^[a-z]/s/^/## /'|tr -s '\n'|sed '/^\ /s/^/   /'
 echo -e "\n# Deadlines"
 echo "$deadline"
 
-echo -e "\n# Last Git Log\n"
-echo "$gitlog"|sed '1 s/^/## /'|sed '1 s/$/\n /'|sed '/^20/s/^/- @/'
+echo -e "\n## Priority todo\n"
+echo -e "$todoout"
 
-echo -e "\n## Git Unstaged\n"
+echo -e "\n# Git Logs\n"
+
+echo -e "\n## Current files\n"
 echo "$gitstatus"|sed 's/^	/- /'
+
+echo -e "\n## Recent files\n"
+echo "$gitlog"|sed '1 s/^/### /'|sed '1 s/$/\n /'|sed '/^20/s/^/- @/'
 
 echo -e "\n## TODO Changes"
 echo -e "\n### Completed\n"
 echo -e "$gittodo"
 echo -e "\n### Created\n"
 echo -e "$gittodo"
+

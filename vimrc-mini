@@ -176,7 +176,7 @@ map <leader>A :lcd ~/zettel<CR>:CtrlSF '<C-R>"'<CR>
 map <leader>f :Leaderf file ~/zettel<CR>
 map <leader>F :Leaderf --cword file ~/zettel<CR>
 map <leader>g :Leaderf file ~/notes/<CR>
-map <leader>p :e ~/zettel/.agenda.md<CR>
+map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
 map <leader>P :silent exec "!agenda > ~/zettel/.agenda.md"<CR>
 
 " CtrlSF
