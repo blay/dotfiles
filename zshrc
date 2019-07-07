@@ -19,8 +19,6 @@ ZSH_THEME="dstufft"
 
 autoload -U compinit
 compinit
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
 
 # Shell
 
@@ -268,4 +266,3 @@ fi
 export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-source ~/.purepower
