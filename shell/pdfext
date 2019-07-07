@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pdfan --no-group -p --codec cp850 -o "$1.md" "$1.pdf"

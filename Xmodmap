@@ -10,3 +10,21 @@ keycode 999 = Escape
 
 !keycode 65 = Hyper_L
 !add mod4 = Hyper_L
+
+!Custom Keybindings
+! "#@  /\|&  ()[]{}  <>~$ 
+!
+keycode  44 = j J j J quotedbl apostrophe quotedbl apostrophe
+keycode  45 = k K k K numbersign ampersand numbersign ampersand
+keycode  46 = l L l L at dollar at dollar
+
+keycode  47 = odiaeresis Odiaeresis odiaeresis Odiaeresis slash braceleft slash braceleft
+keycode  48 = adiaeresis Adiaeresis adiaeresis Adiaeresis backslash braceright backslash braceright 
+keycode  51 = apostrophe asterisk apostrophe asterisk bar ampersand bar
+
+keycode  33 = p P p P parenleft bracketleft parenleft
+keycode  34 = aring Aring aring Aring parenright bracketright parenright
+
+keycode  59 = comma semicolon comma semicolon less dead_ogonek less
+keycode  60 = period colon period colon greater dead_abovedot greater
+keycode  61 = minus underscore minus underscore asciitilde dollar asciitilde

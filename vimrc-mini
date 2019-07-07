@@ -11,21 +11,22 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'Shougo/denite.nvim'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
-Plug 'chrisbra/NrrwRgn'
-Plug 'masukomi/vim-markdown-folding'
+Plug 'dahu/vim-fanfingtastic'
 
 " Zettel
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
-"Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'blay/vim-pandoc-syntax'
 Plug 'vim-voom/VOoM'
 Plug 'vimwiki/vimwiki'
 Plug 'jceb/vim-orgmode'
+Plug 'chrisbra/NrrwRgn'
+Plug 'masukomi/vim-markdown-folding'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 
 " Theme
 
@@ -34,7 +35,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'jaredgorski/spacecamp'
+Plug 'ayu-theme/ayu-vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -42,20 +44,22 @@ call plug#end()
 
 language en_US.utf8
 
+set termguicolors
 set background=dark
-colorscheme hybrid_material
 let g:airline_theme = "hybrid"
+
+"let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+
+"colorscheme hybrid_material
+colorscheme ayu
+"colorscheme solarized
 
 " Airline conf
 let g:airline_section_b = ''
 let g:airline_section_y = ''
 let g:airline_skip_empty_sections = 1
-
-" Markdown Folding requires this
-set nocompatible
- if has("autocmd")
-  filetype plugin indent on
- endif
  
 "" A few remaps
 " change the mapleader from \ to ,
@@ -140,7 +144,7 @@ set isfname+=32	  " space in filenames
 let @/ = ""
 
 "Transparent background in terminal
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " color linenumbers
 highlight LineNr ctermfg=lightblue
@@ -209,40 +213,29 @@ nnoremap <silent> <Leader>R :Limelight!!<CR>
 
 " Voom
 map <leader>o :Voom pandoc<CR>
-
-" Pandoc everything
-au BufNewFile,BufRead *.txt   set filetype=markdown
-au BufNewFile,BufRead *.txt   set syntax=pandoc
-au BufNewFile,BufRead *.md   set filetype=markdown
-au BufNewFile,BufRead *.md   set syntax=pandoc
-
-autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
+nmap <S-Tab> zi 
 
 " Spellcheck
 set spelllang=en,sv 
 set nospell
 au BufNew,BufRead  * set nospell
 "autocmd BufRead,BufNewFile * setlocal nospell
-map <leader>c :setlocal spell!<CR>
+"map <leader>c :setlocal spell!<CR>
+map <leader>c :SpellCheck<CR>
 
-" Don't fold, bro
-let g:pandoc#modules#disabled = ["folding"]
-let g:pandoc#syntax#conceal#use = 0
+" Pandoc Settings
+autocmd FileType pandoc setlocal commentstring=<!--\ %s\ -->
+let g:pandoc#modules#disabled = ["formatting", "keyboard"]
+let g:pandoc#folding#mode = "relative"
+let g:pandoc#spell#enabled = 0
+let g:pandoc#syntax#conceal#use = 1
+let g:pandoc#syntax#conceal#urls = 1
 let g:pandoc#syntax#style#underline_special = 0
 let g:pandoc#syntax#style#emphases = 0
 
-" Color
-highlight customHeader1 ctermfg=220
-highlight customHeader2 ctermfg=127
-highlight customHeader3 ctermfg=45
-highlight customHeader4 ctermfg=32
-highlight customHeader5 ctermfg=34
-
-syn match    customHeader1     "^#.*"
-syn match    customHeader2     "^## "
-syn match    customHeader3     "^### "
-syn match    customHeader4     "^#### "
-syn match    customHeader5     "^##### "
+" Pandoc everything
+au BufNewFile,BufRead *.md   set filetype=pandoc
+au BufNewFile,BufRead *.md   set syntax=pandoc
 
 " Bibtex
 let $FZF_BIBTEX_SOURCES = '/home/svartfax/notes/zotero.bib'

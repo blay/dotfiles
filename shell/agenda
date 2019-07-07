@@ -65,7 +65,7 @@ echo "$gitlog"|sed '1 s/^/### /'|sed '1 s/$/\n /'|sed '/^20/s/^/- @/'
 
 echo -e "\n## TODO Changes"
 echo -e "\n### Completed\n"
-echo -e "$gittodo"
+echo -e "$gittodo"|ag "^-"
 echo -e "\n### Created\n"
-echo -e "$gittodo"
+echo -e "$gittodo"|ag "^\+"
 

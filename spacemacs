@@ -64,11 +64,11 @@ This function should only modify configuration layer settings."
       python
       graphviz
       bibtex
-      journal
+     ; journal
       deft
       zetteldeft
       ;org-zotero
-      org-recoll
+      ;org-recoll
      )
 
    ;; List of additional packages that will be installed without being
@@ -489,7 +489,7 @@ before packages are loaded."
   ;; Zetteldeft
 
 (setq deft-extensions '("md" "org" "txt"))
-(setq deft-directory "/home/svartfax/notes/txt")
+(setq deft-directory "/home/svartfax/zettel")
 (setq deft-file-limit 40)
 (add-hook 'markdown-mode-hook 'pandoc-mode)
 
@@ -539,7 +539,7 @@ before packages are loaded."
 
   ;; Various settings
 
-  (setq org-journal-dir "~/notes/txt/")
+  (setq org-journal-dir "~/zettel/")
   (setq org-journal-file-format "%Y%m%d.org")
   (setq org-archive-location "::* Archive")
   (setq org-bullets-bullet-list '("◉" "○" "✸" "▶"))
@@ -559,7 +559,7 @@ before packages are loaded."
 
 ;; Orgmode Agenda
 
-(setq org-agenda-files (quote ("~/notes/txt")))
+(setq org-agenda-files (quote ("~/zettel")))
 
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-deadline-warning-days 14)
@@ -630,7 +630,7 @@ This function is called at the very end of Spacemacs initialization."
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#000000" "#8b0000" "#00ff00" "#ffa500" "#7b68ee" "#dc8cc3" "#93e0e3" "#dcdccc"])
- '(deft-directory "/home/svartfax/notes/txt" t)
+ '(deft-directory "/home/svartfax/zettel" t)
  '(deft-file-limit 20 t)
  '(deft-new-file-format "%Y%m%d%H%M")
  '(deft-use-filename-as-title t t)
