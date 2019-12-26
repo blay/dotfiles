@@ -1,7 +1,7 @@
 " vim-plug "
 call plug#begin('~/.vim/plugged')
 
-" General
+" Generals
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
@@ -13,6 +13,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'dahu/vim-fanfingtastic'
+Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
 
 " Zettel
 
@@ -28,7 +30,7 @@ Plug 'masukomi/vim-markdown-folding'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 
-" Theme
+" Themes
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -37,6 +39,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ayu-theme/ayu-vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'rhysd/try-colorscheme.vim'
 
 call plug#end()
 
@@ -76,6 +79,8 @@ noremap U <C-R>
 noremap <C-R> :LeaderfHistoryCmd<CR>
 " Yank filename to clipboard
 nnoremap <leader>y :let @+ = expand("%:t")<CR>
+" Yank uid to clipboard
+nnoremap <leader>Y :let @+ = expand("%:t")<CR>:silent ! uidpaste<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h 
@@ -144,7 +149,7 @@ set isfname+=32	  " space in filenames
 let @/ = ""
 
 "Transparent background in terminal
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " color linenumbers
 highlight LineNr ctermfg=lightblue
@@ -176,10 +181,12 @@ let g:GPGDefaultRecipients=["magnuse@tii.se"]
 
 " Search
 map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
-map <leader>A :lcd ~/zettel<CR>:CtrlSF '<C-R>"'<CR>
+map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
 map <leader>f :Leaderf file ~/zettel<CR>
 map <leader>F :Leaderf --cword file ~/zettel<CR>
 map <leader>g :Leaderf file ~/notes/<CR>
+
+map <leader>G :Leaderf rg --sortr "modified" -g "*20*" 
 map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
 map <leader>P :silent exec "!agenda > ~/zettel/.agenda.md"<CR>
 
@@ -245,9 +252,22 @@ function! s:bibtex_cite_sink(lines)
     execute ':normal! i' . r
 endfunction
 
+
 nnoremap <leader>d :call fzf#run({
                         \ 'source': 'bibtex-ls',
                         \ 'sink*': function('<sid>bibtex_cite_sink'),
                         \ 'up': '40%',
-                        \ 'options': '--ansi --multi --prompt "Cite> "'})<CR><CR>
+                        \ 'options': '--ansi --multi --prompt "Cite> "'})
+
+function! s:bibtex_markdown_sink(lines)
+    let r=system("bibtex-markdown ", a:lines)
+    execute ':normal! i' . r
+endfunction
+
+nnoremap <leader>D :call fzf#run({
+                        \ 'source': 'bibtex-ls',
+                        \ 'sink*': function('<sid>bibtex_markdown_sink'),
+                        \ 'up': '40%',
+								\ 'options': '--ansi --multi --prompt "Markdown> "'})<CR>
+
 

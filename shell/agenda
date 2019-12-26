@@ -4,7 +4,7 @@ today=$(gcalcli --nocolor agenda today 1day)
 deadlines=$(gcalcli --nocolor --cal Deadlines agenda today 2w)
 gitlog=$(git --git-dir ~/zettel/.git log --name-only --pretty=format:"%h%x09%ar%x09%s" -1)
 gitstatus=$(cd ~/zettel && git status|ag [0-9])
-gittodo=$(cd ~/zettel && git log -p -1|ag @todo)
+gittodo=$(cd ~/zettel && git log -p --since=1.week|ag @todo)
 
 deadline=$(
 IFS='
@@ -34,7 +34,7 @@ do
 done
 )
 
-todoin="$(rg @todo:a)"
+todoin="$(cd ~/zettel && rg @todo:a)"
 
 todoout=$(
 IFS='
@@ -46,8 +46,8 @@ do
 done
 )
 
-echo "# Scheduled Today and Tomorrow @$(date +%Y%m%d).md"
-echo "$today" |sed '/^[a-z]/s/^/## /'|tr -s '\n'|sed '/^\ /s/^/   /'
+echo "# Scheduled Today and Tomorrow @$(date +%Y%m%d).md && @$(date --date "next day" +%Y%m%d).md"
+echo -e "$today" |sed '/^[a-z]/s/^/- /'|tr -s '\n'|sed '/^\ /s/^/   /'
 
 echo -e "\n# Deadlines"
 echo "$deadline"
