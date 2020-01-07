@@ -12,7 +12,7 @@ include "%L"
 <Multi_key> <U00F6> : "@"
 <Multi_key> <U00E4> : "~"
 
-<Multi_key> <apostrophe> : """
+#<Multi_key> <apostrophe> : """
 <Multi_key> <asterisk> : "$"
 
 <Multi_key> <U00D6> : "{"
