@@ -32,6 +32,7 @@ inactive-opacity-override = false;
 #alpha-step = 0.06;
 opacity-rule = [ 
 		"99:class_g = 'mpv'", 
+		"99:class_g = 'vlc'", 
 		"99:class_g = 'smplayer'",
 		"99:class_g = 'Spotify'", 
 		"99:class_g = 'Firefox' && focused",

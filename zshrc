@@ -20,6 +20,8 @@ ZSH_THEME="dstufft"
 autoload -U compinit
 compinit
 
+setopt auto_cd
+
 # Shell
 
 USER='svartfax'
@@ -139,8 +141,6 @@ alias edito='sh ~/scripts/blog/editocto'
 alias pubo='sh ~/scripts/blog/pubocto'
 alias preo='sh ~/scripts/blog/preocto'
 
-alias gitta='git commit -v -a -m'
-
 # Todo
 
 alias tt='rg @todo:a ~/zettel'
@@ -150,12 +150,20 @@ alias tc='rg @todo:c ~/zettel'
 # Git
 alias gitdone='git log -p -1|ag @todo:|ap "^-"'
 
+gitpush() {
+    git add .
+    git commit -m "$*"
+    git push
+}
+alias gitta=gitpush
+
+
 ## Commands
 alias plus='sh ~/.shell/plus.sh'
 alias minus='sh ~/.shell/minus.sh'
 
 # PATH=$PATH:"/$HARDHOME/$USER/.todo"
-alias t='todo.sh -d ~/.todo.cfg'
+alias td='todo.sh -d ~/.todo.cfg'
 alias ts='todo.sh -d ~/.todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
 alias tbm="(t birdseye;echo '\n# Scheduled next 3 weeks #\n----------------------------';tv 3weeks;cal;echo '\n';icf;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"

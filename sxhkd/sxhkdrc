@@ -52,10 +52,10 @@ super + y
     dolphin
 
 super + v
-	konsole -e vim
+	konsole -e nvim
 
 super + z 
-	konsole
+	konsole -e ooo
 
 super + u
     emacsclient -c 
