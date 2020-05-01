@@ -47,6 +47,7 @@ call plug#end()
 " General Settings "
 
 language en_US.utf8
+set shell=zsh
 
 set termguicolors
 set background=dark
@@ -90,7 +91,8 @@ nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
 " Insert blank space
 nnoremap <leader>ö a<space><Esc>
-
+" Multiple Cursors Paragraph
+nnoremap <leader>m vip<C-n>i
 
 
 " Easy window navigation
@@ -119,8 +121,8 @@ map <leader>n :new<CR>
 let g:EasyMotion_smartcase = 1
 map <leader>s :BLines<CR>
 map <leader>S <Plug>(easymotion-overwin-f)
-map <leader>- <Plug>(easymotion-overwin-f)@
-nmap - <Plug>(easymotion-overwin-f)@
+map <leader>- <Plug>(easymotion-overwin-f)[
+nmap - <Plug>(easymotion-overwin-f)[
 map <leader>G :e <cfile><CR>
 map <leader>g gF
 map <leader>b f[ll
@@ -194,11 +196,11 @@ let g:GPGDefaultRecipients=["magnuse@tii.se"]
 " Search
 map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
 map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
-map <leader>f :Leaderf file ~/zettel<CR>
-map <leader>F :Leaderf --cword file ~/zettel<CR>
+map <leader>f :LeaderfFile ~/zettel<CR>
+map <leader>F :LeaderfFileCword<CR>
 
 map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
-map <leader>P :silent exec "!bash ~/.shell/agenda > ~/zettel/.agenda.md"<CR>
+map <leader>P :silent exec "!agenda > ~/zettel/.agenda.md"<CR>
 
 " CtrlSF
 let g:ctrlsf_default_root = "project" 
@@ -214,7 +216,7 @@ let g:ctrlsf_extra_backend_args = {
 
 " todo Search
 
-map <leader>T :lcd ~/zettel<CR>:CtrlSF -G "*20*" "* TODO [#A]"
+map <leader>T :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[b]<CR>
 map <leader>t :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]<CR>
 map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]
 
@@ -249,6 +251,12 @@ let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#conceal#urls = 1
 let g:pandoc#syntax#style#underline_special = 0
 let g:pandoc#syntax#style#emphases = 0
+
+set conceallevel=2
+
+" Insert Pandoc Link
+
+nnoremap <leader>I i[]<Esc>Pla()<Esc>
 
 " Pandoc everything
 au BufNewFile,BufRead *.md   set filetype=pandoc

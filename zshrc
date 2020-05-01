@@ -103,6 +103,7 @@ alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
 alias fd=fdfind
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
+alias ltg='git log --since="10 days ago" --name-only --pretty=format:%ar'
 alias rnd='ls|sort -R' 
 
 alias am='ag --passthru  "^\#.*"'
@@ -130,17 +131,9 @@ alias logedit='vim ~/notes/workout/logbook.md'
 
 
 # Blog
-alias newo='sh ~/scripts/blog/newocto'
-alias new='sh ~/scripts/blog/new'
-alias pre='sh ~/scripts/blog/pre'
-alias news='sh ~/scripts/blog/news'
-alias edits='sh ~/scripts/blog/edits'
-alias edit='sh ~/scripts/blog/edit'
-alias pre='sh ~/scripts/blog/pre'
-alias edito='sh ~/scripts/blog/editocto'
-alias pubo='sh ~/scripts/blog/pubocto'
-alias preo='sh ~/scripts/blog/preocto'
-
+alias bs="bundle exec jekyll serve"
+alias bb="bundle exec jekyll build"
+alias bp="rsync -havz --delete _site monki@blay.se:www/blay.se/"
 # Todo
 
 alias tt='rg @todo:a ~/zettel'
