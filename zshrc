@@ -46,7 +46,7 @@ alias zshconfig="vim ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
-alias svim="sudo -E vim"
+alias svim="sudo -E nvim"
 alias em="emacsclient -a '' -qc"
 alias ema="emacsclient -a '' -qc -e '(org-agenda)'"
 alias nv="nvim"
@@ -248,6 +248,10 @@ export GEM_HOME=$HOME/bin/gems
 export PATH=$HOME/bin/gems/bin:$PATH
 export PATH=$HOME/bin/go/bin:$PATH
 export PATH=$HOME/bin/:$PATH
+
+# Golang
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # Fuck Android
 #export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
