@@ -1,0 +1,2 @@
+#!/bin/bash
+zgraph $1|graph-easy --from=dot --as_svg| display -density 168 -

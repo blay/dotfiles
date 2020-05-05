@@ -21,6 +21,7 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
+Plug 'dkarter/bullets.vim'
 Plug 'blay/vim-pandoc-syntax'
 Plug 'vim-voom/VOoM'
 Plug 'vimwiki/vimwiki'
@@ -86,6 +87,8 @@ noremap <C-R> :LeaderfHistoryCmd<CR>
 nnoremap <leader>y :let @+ = expand("%:t")<CR>
 " Yank uid to clipboard
 nnoremap <leader>Y :let @+ = expand("%:t")<CR>:silent ! uidpaste<CR>
+" make Y consistent with C and D.
+nnoremap Y y$
 " Paste brackets
 nnoremap <leader>v i[[]]<Esc>hP
 nnoremap <leader>V i[[<Esc>Ea]]<Esc>
@@ -108,6 +111,11 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+" make J, K, L, and H move the cursor MORE.
+nnoremap J }
+nnoremap K {
+nnoremap L g_
+nnoremap H ^
 " Navigate buffers 
 nnoremap <Leader>j :bn<CR> 
 nnoremap <Leader>k :b#<CR>
@@ -206,6 +214,7 @@ map <Leader>H :LeaderfFile ~/notes<CR>
 " Backlinks
 map <leader>C <leader>Y:vnew<CR>:read !zfile <C-R><C-R>+\|zwiki<CR>:set filetype=pandoc<CR>
 map <leader>c <leader>Y<leader>A
+map <leader>ö <leader>Y>:!zdisp <C-R><C-R>+<CR>
 
 " Agenda
 map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
@@ -250,6 +259,12 @@ au BufNew,BufRead  * set nospell
 "autocmd BufRead,BufNewFile * setlocal nospell
 "map <leader>c :setlocal spell!<CR>
 map <leader>z :SpellCheck<CR>
+ 
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'pandoc',
+    \ 'markdown'
+    \]
 
 " Pandoc Settings
 autocmd FileType pandoc setlocal commentstring=<!--\ %s\ -->

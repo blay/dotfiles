@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]] ; then
+    echo 'pass uid to script, ex 201507030906, or 201407271365'
+    exit 0
+fi
+
+file=$1
+
+ag -l $file|sed 's/^20/< 20/'
+
+link=$(ag -o "(?<=§|\[)[0-9]{12}" $file*|sort -n |uniq)
+
+for line in $link
+  do
+    title=$(ag -g $line)
+    printf "> $title \n"
+    l2=$(ag -o "(?<=§|\[)[0-9]{12}" $line*|sort -n |uniq)
+		for line2 in $l2
+				do
+						title2=$(ag -g $line2)
+						printf ">> $title2 \n"
+						l3=$(ag -o "(?<=§|\[)[0-9]{12}" $line2*|sort -n |uniq)
+								for line3 in $l3
+										do
+												title3=$(ag -g $line3)
+												printf ">>> $title3 \n"
+										done
+				done
+  done
