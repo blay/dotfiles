@@ -1,0 +1,4 @@
+#!/bin/bash
+git log --since="10 days ago" --name-only --pretty=format:%ar|
+head -${1-40}
+

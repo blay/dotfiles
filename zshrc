@@ -103,7 +103,6 @@ alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
 alias fd=fdfind
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
-alias ltg='git log --since="10 days ago" --name-only --pretty=format:%ar'
 alias rnd='ls|sort -R' 
 
 alias am='ag --passthru  "^\#.*"'
@@ -194,6 +193,8 @@ alias cdn='cd ~/zettel'
 alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
+alias cdbl='cd ~/notes/blay.se'
+alias cdcv='cd ~/notes/cv.blay.se'
 alias cdd='cd ~/Downloads'
 alias cdv='cd ~/Videos'
 alias cdm='cd ~/Music'

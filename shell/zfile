@@ -7,12 +7,8 @@ fi
 
 file=$1
 
-printf "\n# Links to file:\n\n"
+printf "# Links to file:\n\n"
 ag $file
-
-printf "\n# Before and After:\n\n"
-
-ls|ag -C3 $file
 
 printf "\n\n# Mutual Links\n\n"
 link=$(ag -o "(?<=§|\[)[0-9]{12}" $file*|sort -n |uniq)
@@ -21,7 +17,7 @@ for line in $link
   do
     title=$(ag -g $line)
     printf "\n## $title \n\n"
-    ag $line| ag -v $file
+	ag $line| ag -v $file
   done
 
 printf "\n\n# Mutual References\n\n"
@@ -33,5 +29,11 @@ for line in $ref
     printf "\n## $title \n\n"
     ag -o $line| ag -v $file
   done
+
+printf "\n# Before and After:\n\n"
+
+ls|ag -C3 $file
+
+
 # TODO: Match a bit before and after ref
 # ag -o "(?<=\.).*(?<=\[\@)[a-z]*\:[0-9]*[a-z]*.{20}"
