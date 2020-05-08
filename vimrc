@@ -1,202 +1,196 @@
+" vim-plug "
+call plug#begin('~/.vim/plugged')
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Generals
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-speeddating'
+Plug 'jamessan/vim-gnupg'
+Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'dahu/vim-fanfingtastic'
+Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" Zettel
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'dyng/ctrlsf.vim'
+Plug 'dkarter/bullets.vim'
+Plug 'blay/vim-pandoc-syntax'
+Plug 'vim-voom/VOoM'
+Plug 'vimwiki/vimwiki'
+Plug 'jceb/vim-orgmode'
+Plug 'chrisbra/NrrwRgn'
+Plug 'masukomi/vim-markdown-folding'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-set backupdir=~/.tmp
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+" Themes
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ayu-theme/ayu-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'rhysd/try-colorscheme.vim'
+Plug 'cormacrelf/vim-colors-github'
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+call plug#end()
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+" General Settings "
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
+language en_US.utf8
+set shell=zsh
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
+set termguicolors
+set background=dark
+let g:airline_theme = "hybrid"
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+"let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+"colorscheme hybrid_material
+colorscheme ayu
+"colorscheme solarized
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+" Airline conf
+let g:airline_section_b = ''
+let g:airline_section_y = ''
+let g:airline_skip_empty_sections = 1
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
-
-" something for Ack..
-let g:ackprg="ack -H --nocolor --nogroup --column"
-let g:ackhighlight = 1
-
-"Use pathogen to easily modify the runtime path to include all
-" " plugins under the ~/.vim/bundle directory
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
-" change the mapleader from \ to ,
-let mapleader=","
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :tabfind $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" A few minor tweaks...
-set hidden " Hides buffers instead of closing them
-set tabstop=4     " a tab is four spaces
-set autoindent    " always set autoindenting on
-set copyindent    " copy the previous indentation on autoindentingoset number
-set shiftwidth=4  " number of spaces to use for autoindenting
-set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-set showmatch     " set show matching parenthesis
-set ignorecase    " ignore case when searching
-set smartcase     " ignore case if search pattern is all lowercase
-set smarttab      " insert tabs on the start of a line according to shiftwidth
-set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class
-set title                " change the terminal's title
-set visualbell           " don't beep
-set noerrorbells         " don't beep
-set linebreak			 " Wrap around words
-set number
-setlocal breakat-=*		 " ...but not asterix
-setlocal fo+=aw        " Flowy text in mutt
-filetype plugin indent on " Indent depending of filetype
-
-set wildmode=longest:full
-set wildmenu
+" Search conf
+let g:Lf_ShowDevIcons = 0
 
 "" A few remaps
+" change the mapleader from \ to ,
+"let mapleader=","
+map <space> <leader>
+map "," <leader>
 " Ö as colon
 nmap ö :
-" Soft wrap navigation
-nnoremap j gj
-nnoremap k gk
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-" Navigate buffers
-nnoremap <Leader>j :bp<CR>
-nnoremap <Leader>k :bn<CR>
-nnoremap <Leader>h :b#<CR>
-nnoremap <Leader>l :ls<CR>:b<space>
-" Better split positions"
-set splitbelow
-set splitright
+" Switch : and .
+nnoremap . :
+nnoremap ; .
+" Better Undo
+noremap U <C-R>
+noremap <C-R> :LeaderfHistoryCmd<CR>
+" Yank filename to clipboard
+nnoremap <leader>y :let @+ = expand("%:t")<CR>
+" Yank uid to clipboard
+nnoremap <leader>Y :let @+ = expand("%:t")<CR>:silent ! uidpaste<CR>
+" make Y consistent with C and D.
+nnoremap Y y$
+" Paste brackets
+nnoremap <leader>v i[[]]<Esc>hP
+nnoremap <leader>V i[[<Esc>Ea]]<Esc>
+" Paste without pastemode
+set clipboard+=unnamed
+nnoremap p p`]<Esc>
+" Multiple Cursors Paragraph
+nnoremap <leader>m vip<C-n>i
+
+" Insert empty line before and after
+nnoremap <C-k> O<Esc>
+nnoremap <C-j> o<Esc>
+" Insert blank space before and after
+nnoremap <C-l> a<space><Esc>
+nnoremap <C-h> i<space><Esc>l
+" Soft line navigation
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+" make J, K, L, and H move the cursor MORE.
+nnoremap J }
+nnoremap K {
+nnoremap L g_
+nnoremap H ^
+" Navigate buffers 
+nnoremap <Leader>j :bn<CR> 
+nnoremap <Leader>k :b#<CR>
+nnoremap <Leader>h :Buffers<CR>
+nnoremap <Leader>l :History<CR>
+nnoremap <Leader>L :LeaderfMru<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>q :Sayonara<CR>
+nnoremap <Leader>Q :only<CR>
+nnoremap <Leader>w :w<CR>
+map <leader>n :new<CR>
+
+" Navigate buffer
+let g:EasyMotion_smartcase = 1
+map <leader>s :BLines<CR>
+map <leader>S <Plug>(easymotion-overwin-f)
+map <leader>- <Plug>(easymotion-overwin-f)[
+nmap - <Plug>(easymotion-overwin-f)[
+map <leader>G :e <cfile><CR>
+map <leader>g gF
+map <leader>ö f[w
+
+" Better split positions 
+set splitbelow 
+set splitright 
 " Tab between buffers
-noremap <leader><tab> <c-w><c-w>
-" Switch between last two buffers
-nnoremap <leader> <leader><tab>
-" Save your fingers by escaping escape"
-:inoremap kj <esc>
-" These will make it so that going to the next one in a
-" search will center on the line it's found in.
-map N Nzz
-map n nzz
-" Clear search highlight
-nmap <silent> <leader>/ :nohlsearch<CR>
-" Save with sudo
+noremap <leader><tab> :tabNext<CR>
+" These will make it so that going to the next one in a 
+" search will center on the line it's found in. 
+map N Nzz 
+map n nzz 
+" Clear search
+nmap <silent> <leader>/ :let @/ = ""<CR>
+" Save with sudo 
 cmap w!! w !sudo tee % >/dev/null
+" Stop accidental recording
+noremap <C-q> q
+noremap q <Nop>
 
-" Clipboard Mac
-set clipboard=unnamed
+set nofoldenable  " start unfolded
+set number        " Line numbers
+set relativenumber " Relative line numbers    
+set hlsearch	  " hilight search results
+set showmatch     " set show matching parenthesis
+set expandtab     " tab is just spaces
+set shiftwidth=2  " Indent two spaces
+set tabstop=4     " a tab is four spaces
+set smartcase     " ignore case if search pattern is all lowercase
+set linebreak     " Break at word boundaries
+set wrap		  " Wrap all text
+set history=1000         " remember more commands and search history 
+set undolevels=1000      " use many muchos levels of undo
+set clipboard=unnamedplus " System clipboard
+set mouse=a       " mouse support
+set hidden        " hide buffers
+set confirm	      " confirm unsaved
+set isfname+=32	  " space in filenames
+let @/ = ""
 
-" Toggle spelling
-map <leader>c :setlocal nospell! spelllang=en_us,sv<CR>
-map <leader>v :NextWordy<CR>
-"
-" Show latest notes
-map <leader>x :Explore ~/notes/simplenotes<CR>
-" Default sorting
-let g:netrw_sort_by="time"
-let g:netrw_sort_direction="reverse"
+"Transparent background in terminal
+hi Normal guibg=NONE ctermbg=NONE
 
-" Pandoc everything
-au BufNewFile,BufRead *.txt   set filetype=pandoc
-" Pandoc bibliography file
-let g:pandoc_bibfiles = ['~/Documents/library/lib.bib']
-" Don't fold, bro
-let g:pandoc#modules#disabled = ["folding"]
-let g:pandoc#syntax#conceal#use = 0
-let g:pandoc#syntax#style#underline_special = 0
-let g:pandoc#syntax#style#emphases = 0
+" color linenumbers
+highlight LineNr ctermfg=lightblue
+
+" For all text files set 'textwidth' to 78 characters. 
+ autocmd FileType text setlocal textwidth=78
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo, 
+" so that you can undo CTRL-U after inserting a line break. 
+inoremap <C-U> <C-G>u<C-U>
+
+
+" Quickly edit/reload the vimrc file
+"nmap <silent> <leader>ev :find $MYVIMRC<CR>
+nmap <silent> <leader>ev :find ~/.vimrc<CR>
+nmap <silent> <leader>er :so $MYVIMRC<CR>
 
 " VimWiki stuff
 let wiki_1 = {}
@@ -210,26 +204,113 @@ let g:vimwiki_table_mappings = 0
 let g:GPGPreferArmor=1
 let g:GPGDefaultRecipients=["magnuse@tii.se"]
 
+" Search
+map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
+map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
+map <leader>f :LeaderfFile ~/zettel<CR>
+map <leader>F :LeaderfFileCword<CR>
+map <Leader>H :LeaderfFile ~/notes<CR>
+
+" Backlinks
+map <leader>C <leader>Y:vnew<CR>:read !zfile <C-R><C-R>+\|zwiki<CR>:set filetype=pandoc<CR>
+map <leader>c <leader>Y<leader>A
+map <leader>Ö <leader>Y:silent !zdisp <C-R><C-R>+<CR>
+
+" Agenda
+map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
+map <leader>P :silent exec "!agenda > ~/zettel/.agenda.md"<CR>
+
+" CtrlSF
+let g:ctrlsf_default_root = "project" 
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_auto_focus = {
+    \ "at": "done",
+    \ "duration_less_than": 1000
+    \ }
+let g:ctrlsf_ackprg = 'rg'
+let g:ctrlsf_extra_backend_args = {
+    \ 'rg': '--no-hidden'
+    \ }
+
+" todo Search
+
+map <leader>T :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[b]<CR>
+map <leader>t :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]<CR>
+map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]
+
+" Git search
+map <leader>å :Gblame<CR>
+map <leader>Å :GV! -p<CR>:BLines<CR>
+
 " VimRoom
-nnoremap <silent> <Leader>go :Goyo<CR>:Limelight<CR>
+nnoremap <silent> <Leader>r :Goyo<CR>:Limelight!!<CR>
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+nnoremap <silent> <Leader>R :Limelight!!<CR>
 
 " Voom
-map <leader>o :Voom pandoc<CR>
+map <leader>i :Voom pandoc<CR>
+nmap <S-Tab> zi 
 
-" Colors"
-syntax enable
-set background=dark
-colorscheme pencil
-set guifont=Menlo:h14
+" Spellcheck
+set spelllang=en,sv 
+set nospell
+au BufNew,BufRead  * set nospell
+"autocmd BufRead,BufNewFile * setlocal nospell
+"map <leader>c :setlocal spell!<CR>
+map <leader>z :SpellCheck<CR>
+ 
+" Bullets.vim
+let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
+let g:bullets_enabled_file_types = [
+    \ 'pandoc',
+    \ 'markdown'
+    \]
 
-" test
-map <leader>g :execute 'read' "~/notes/simplenotes/" . fnameescape(getline("."))<CR>
-map <leader>t :execute 'vsp' "~/notes/simplenotes/" . fnameescape(getline("."))<CR><C-W>l
-map <leader>p /[<CR>lyi]<leader>/:execute 'vsp' "~/notes/simplenotes/" . fnameescape(expand(@"))<CR><C-W>l
-command! Readall :g/vvv\|qqq/execute 'read' "~/notes/simplenotes/" .  fnameescape(getline("."))
-command! Removeall  :v/\(\(\(^#\\|^vvv\\|^qqq\)\).*\)/norm d_<CR>:g/.\n\@!/norm o<CR>
-nmap <leader>cf :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+" Pandoc Settings
+autocmd FileType pandoc setlocal commentstring=<!--\ %s\ -->
+let g:pandoc#modules#disabled = ["formatting", "keyboard"]
+let g:pandoc#folding#mode = "relative"
+let g:pandoc#spell#enabled = 0
+let g:pandoc#syntax#conceal#use = 1
+let g:pandoc#syntax#conceal#urls = 1
+let g:pandoc#syntax#style#underline_special = 0
+let g:pandoc#syntax#style#emphases = 0
+
+set conceallevel=2
+
+" Insert Pandoc Link
+
+nnoremap <leader>I i[]<Esc>Pla()<Esc>
+
+" Pandoc everything
+au BufNewFile,BufRead *.md   set filetype=pandoc
+au BufNewFile,BufRead *.md   set syntax=pandoc
+
+" Bibtex
+let $FZF_BIBTEX_SOURCES = '/home/svartfax/notes/zotero.bib'
+
+function! s:bibtex_cite_sink(lines)
+    let r=system("bibtex-cite ", a:lines)
+    execute ':normal! i' . r
+endfunction
 
 
-let g:pad#dir = "~/test"
-let g:pad#rename_files=0
+nnoremap <leader>d :call fzf#run({
+                        \ 'source': 'bibtex-ls',
+                        \ 'sink*': function('<sid>bibtex_cite_sink'),
+                        \ 'up': '40%',
+                        \ 'options': '--ansi --multi --prompt "Cite> "'})
+
+function! s:bibtex_markdown_sink(lines)
+    let r=system("bibtex-markdown ", a:lines)
+    execute ':normal! i' . r
+endfunction
+
+nnoremap <leader>D :call fzf#run({
+                        \ 'source': 'bibtex-ls',
+                        \ 'sink*': function('<sid>bibtex_markdown_sink'),
+                        \ 'up': '40%',
+								\ 'options': '--ansi --multi --prompt "Markdown> "'})<CR>
+
+
