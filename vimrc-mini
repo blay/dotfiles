@@ -7,6 +7,17 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'jamessan/vim-gnupg'
 Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'dahu/vim-fanfingtastic'
+Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
+
+" Zettel
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
