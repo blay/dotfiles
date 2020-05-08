@@ -92,20 +92,18 @@ nnoremap Y y$
 " Paste brackets
 nnoremap <leader>v i[[]]<Esc>hP
 nnoremap <leader>V i[[<Esc>Ea]]<Esc>
-" Insert empty line before and after
-nnoremap o o<Esc>
-nnoremap O O<Esc>
-" Insert blank space before and after
-nnoremap <leader>o a<space><Esc>
-nnoremap <leader>O i<space><Esc>
+" Paste without pastemode
+set clipboard+=unnamed
+nnoremap p p`]<Esc>
 " Multiple Cursors Paragraph
 nnoremap <leader>m vip<C-n>i
 
-" Easy window navigation
-map <C-h> <C-w>h 
-map <C-j> <C-w>j 
-map <C-k> <C-w>k 
-map <C-l> <C-w>l "
+" Insert empty line before and after
+nnoremap <C-k> O<Esc>
+nnoremap <C-j> o<Esc>
+" Insert blank space before and after
+nnoremap <C-l> a<space><Esc>
+nnoremap <C-h> i<space><Esc>l
 " Soft line navigation
 noremap j gj
 noremap k gk
@@ -136,7 +134,7 @@ map <leader>- <Plug>(easymotion-overwin-f)[
 nmap - <Plug>(easymotion-overwin-f)[
 map <leader>G :e <cfile><CR>
 map <leader>g gF
-map <leader>b f[ll
+map <leader>ö f[w
 
 " Better split positions 
 set splitbelow 
@@ -160,6 +158,8 @@ set number        " Line numbers
 set relativenumber " Relative line numbers    
 set hlsearch	  " hilight search results
 set showmatch     " set show matching parenthesis
+set expandtab     " tab is just spaces
+set shiftwidth=2  " Indent two spaces
 set tabstop=4     " a tab is four spaces
 set smartcase     " ignore case if search pattern is all lowercase
 set linebreak     " Break at word boundaries
@@ -214,7 +214,7 @@ map <Leader>H :LeaderfFile ~/notes<CR>
 " Backlinks
 map <leader>C <leader>Y:vnew<CR>:read !zfile <C-R><C-R>+\|zwiki<CR>:set filetype=pandoc<CR>
 map <leader>c <leader>Y<leader>A
-map <leader>ö <leader>Y>:!zdisp <C-R><C-R>+<CR>
+map <leader>Ö <leader>Y:silent !zdisp <C-R><C-R>+<CR>
 
 " Agenda
 map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
@@ -261,6 +261,7 @@ au BufNew,BufRead  * set nospell
 map <leader>z :SpellCheck<CR>
  
 " Bullets.vim
+let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
 let g:bullets_enabled_file_types = [
     \ 'pandoc',
     \ 'markdown'

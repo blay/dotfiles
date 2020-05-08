@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# This script allows the user to send a file to hackmd.io for collaborative markdown editing while continuing to edit it in a local editor and the integrate the online changes through a vimdiff
+# Use "zhack filename" to send it to hackmd.io.
+# The URL till be appended to the file to preserve the relation and to be able to import it
+# It will also be copied to the clipboard
+# Use "zhack diff filename" to read the appended note id and fetch the content on the URL and perform a vimdiff on it.
+
+if [[ $1 == "diff" ]]
+    then
+echo "diffing..."
+import=$(hackmd-cli export $(tail -1 $2|awk -F '/' '{print $NF}' ))
+vimdiff $2 <(echo "$import")
+    else
+
+file=$1
+
+echo "sending..."
+
+return=$(hackmd-cli import $file)
+
+echo "appending..."
+
+id=$(echo "$return"|awk -F '/' '{print $NF}')
+link=$(echo "$return"|awk -F ' ' '{print $NF}')
+
+echo "$link" >> $file
+echo "$link" |xclip -selection c
+
+echo "$link"
+  fi
+
+

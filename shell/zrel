@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script gives a quick overview of the incoming and outgoing link relations of the immediate surroundings of a Zettel in the form of < and > links in the temrinal. 
+# The script can be used together with zwiki to make nice [[wiki-links]]
+
 if [[ $# -eq 0 ]] ; then
     echo 'pass uid to script, ex 201507030906, or 201407271365'
     exit 0
@@ -20,11 +23,11 @@ for line in $link
 				do
 						title2=$(ag -g $line2)
 						printf ">> $title2 \n"
-						l3=$(ag -o "(?<=§|\[)[0-9]{12}" $line2*|sort -n |uniq)
-								for line3 in $l3
-										do
-												title3=$(ag -g $line3)
-												printf ">>> $title3 \n"
-										done
+						#l3=$(ag -o "(?<=§|\[)[0-9]{12}" $line2*|sort -n |uniq)
+								#for line3 in $l3
+										#do
+												#title3=$(ag -g $line3)
+												#printf ">>> $title3 \n"
+										#done
 				done
   done

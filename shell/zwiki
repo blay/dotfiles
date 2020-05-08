@@ -1,4 +1,6 @@
 #!/bin/bash
 
+# This script turns an output into nice [[wiki-links]]
+
 sed -r 's/^20[^:]*/\n- \[\[\0\]\]\n\n/'|
 sed '/^$/{:a;N;s/\n$//;ta}'

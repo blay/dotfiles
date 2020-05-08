@@ -1,2 +1,5 @@
 #!/bin/bash
+
+# This script displays a graph of the outgoing links from a uid and the outgoing links of the outgoing links as an SVG in the terminal by using the zgraph script.
+
 zgraph $1|graph-easy --from=dot --as_svg| display -density 168 -

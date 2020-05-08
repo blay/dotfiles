@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script gives a deep overview of the relations to a file by showing files with mutual links and references as well as the files that was created immediately before and after it.
+
 if [[ $# -eq 0 ]] ; then
     echo 'pass uid to script, ex 201507030906, or 201407271365'
     exit 0
