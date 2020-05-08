@@ -2,19 +2,17 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
+# konsole emulator
 super + Return
-      termite
-# GNOME System Monitor
-ctrl + shift + Escape
-	gnome-system-monitor
+      konsole
 
-ctrl + alt + Escape
-    bash ~/.config/rofi/menu/CONFIG
+super + shift + Return
+      xfce4-terminal
 
 # program launcher
 super + space
-    rofi -combi-modi run,drun -show combi -modi combi
+     rofi -modi drun -show drun
+#    rofi -combi-modi run,drun -show combi -modi combi
 
 # rofi -show run -lines 10 -padding 300 -opacity "100" -font "Roboto Mono 15" -width 1368 -separator-style "none" -hide-scrollbar -color-window "argb:dd000000, argb:0002b36, argb:7bffffff" -color-normal "argb:0ffffff, #ffffff, argb:0eee8d5, #ffffff, #000000" -color-active "argb:0fdf6e3, #268bd2, argb:0eee8d5, #268bd2, #fdf6e3" -color-urgent "argb:0fdf6e3, #dc322f, argb:0eee8d5, #dc322f, #fdf6e3"	
 
@@ -26,9 +24,9 @@ super + Tab
 
 # Change Wallpaper #
 
-super + x
+super + shift + z
 	feh --randomize --bg-fill ~/Dropbox/wallpapers
-
+#
 # Lock screen
 
 super + shift + x
@@ -51,13 +49,13 @@ super + shift + p
     sh /home/svartfax/.shell/uidnamepaste
 	
 super + y
-    nautilus
+    dolphin
 
 super + v
-	termite -e vim
+	konsole -e nvim
 
 super + z 
-	urxvt -e /usr/bin/zsh
+	konsole -e ooo
 
 super + u
     emacsclient -c 
@@ -70,21 +68,21 @@ super + shift + u
 ##########################
 
 # Show Battery
-super + alt + b
-    notify-send "$(acpi)"
+#super + alt + b
+#    notify-send "$(acpi)"
 
 # Raises volume
-XF86AudioRaiseVolume
-    amixer set Master 2%+
+#XF86AudioRaiseVolume
+#    amixer set Master 2%+
 
 # Lowers volume
-XF86AudioLowerVolume
-    amixer set Master 2%-
+#XF86AudioLowerVolume
+#    amixer set Master 2%-
 
 # Mutes
-XF86AudioMute
+#XF86AudioMute
 #amixer set Master toggle
-    amixer -D pulse set Master 1+ toggle
+#    amixer -D pulse set Master 1+ toggle
 
 # Brightness goes up
 super + alt + k
@@ -233,20 +231,3 @@ super + b
 
 super + n
 	bspc config -d focused window_gap 0
-
-# Screenshots
-Print
-	gnome-screenshot; \
-	notify-send "Screenshot saved"
-
-ctrl + Print
-	gnome-screenshot -c; \
-	notify-send "Screenshot copied to clipboard"
-
-shift + Print
-	gnome-screenshot -a; \
-	notify-send "Screenshot saved"
-
-ctrl + shift + Print
-	gnome-screenshot -ac; \
-	notify-send "Screenshot copied to clipboard"

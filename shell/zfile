@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script gives a deep overview of the relations to a file by showing files with mutual links and references as well as the files that was created immediately before and after it.
+
 if [[ $# -eq 0 ]] ; then
     echo 'pass uid to script, ex 201507030906, or 201407271365'
     exit 0
@@ -7,12 +9,8 @@ fi
 
 file=$1
 
-printf "\n# Links to file:\n\n"
+printf "# Links to file:\n\n"
 ag $file
-
-printf "\n# Before and After:\n\n"
-
-ls|ag -C3 $file
 
 printf "\n\n# Mutual Links\n\n"
 link=$(ag -o "(?<=§|\[)[0-9]{12}" $file*|sort -n |uniq)
@@ -21,7 +19,7 @@ for line in $link
   do
     title=$(ag -g $line)
     printf "\n## $title \n\n"
-    ag $line| ag -v $file
+	ag $line| ag -v $file
   done
 
 printf "\n\n# Mutual References\n\n"
@@ -33,5 +31,11 @@ for line in $ref
     printf "\n## $title \n\n"
     ag -o $line| ag -v $file
   done
+
+printf "\n# Before and After:\n\n"
+
+ls|ag -C3 $file
+
+
 # TODO: Match a bit before and after ref
 # ag -o "(?<=\.).*(?<=\[\@)[a-z]*\:[0-9]*[a-z]*.{20}"

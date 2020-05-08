@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wallpaper="$(find /home/svartfax/wallpapers/ -type f $@|shuf -n 1)"
+
+echo "$wallpaper"
+ksetwallpaper.py "$wallpaper"

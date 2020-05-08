@@ -5,7 +5,8 @@ sxhkd &
 bspc monitor -d web term chat code music
 
 bspc config border_width         0 
-bspc config window_gap           37 
+bspc config window_gap           36 
+#bspc config top_padding		     36
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -14,6 +15,9 @@ bspc config gapless_monocle      false
 bspc desktop ^1 -l tiled
 
 bspc rule -a Gimp desktop=^8 state=floating follow=on
+bspc rule -a Plasma state=floating manage=off layer=above
+bspc rule -a krunner state=floating border=off
+bspc rule -a plasmashell sticky=on layer=above state=floating
 
 bspc rule -a Screenkey manage=off
 
@@ -27,19 +31,23 @@ bspc config focus_follows_pointer true
 bspc config presel_feedback_color \#aaaaaa
 
 xsetroot -cursor_name left_ptr
- 
-feh --randomize --bg-fill ~/Dropbox/wallpapers
+
+# Startup programs
+
+# feh --randomize --bg-fill ~/Dropbox/wallpapers
 #gnome-wallpaper-changer &
 compton --config ~/.config/compton.conf -b
-polybar top &
-nm-applet &
-autokey &
-dropbox start &
-kdeconnect-indicator &
-dunst -conf ~/.config/dunst/config &
-redshift &
-conky &
-albert &
+#polybar top &
+#nm-applet &
+#autokey &
+#dropbox start &
+#kdeconnect-indicator &
+#dunst -conf ~/.config/dunst/config &
+#redshift &
+#conky &
+#albert &
+flashfocus &
+ksuperkey
 
 rdb -merge ~/.Xresources
 sleep 2;xmodmap /home/svartfax/.Xmodmap

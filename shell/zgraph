@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# This scripts create a graph that gives the user a good overview of the outgoing relations of a Zettel. The script zdisp used this script to directly display the graph.
+# This script creates a DOT graph of a uid, the links in the uid and the links in the links of the uid
+
+if [[ $# -eq 0 ]] ; then
+    echo 'pass uid to script, ex 201507030906, or 201407271365'
+    exit 0
+fi
+
+# Get the original file and functions
+file=$1
+filetitle=$(ag -g $file)
+
+# Print DOT intro
+printf "digraph graphname {\n"
+printf "label = \"$filetitle\"\n"
+
+# Level 1 incoming links
+incoming=$(ag -l $file)
+for inline in $incoming
+  do
+printf "\"$inline\" -> \"$filetitle\"\n"
+  done
+
+# Level 1 outgoing
+link=$(ag -o "(?<=§|\[)[0-9]{12}" $file*|sort -n |uniq)
+for line in $link
+  do
+    title=$(ag -g $line)
+    printf "\"$filetitle\" -> \"$title\"\n"
+    # Level 2 incoming
+      #incoming2=$(ag -l $line)
+      #for inline in $incoming2
+        #do
+          #printf "\"$inline2\" -> \"$title\"\n"
+        #done
+    # Level 2 outgoing	
+    l2=$(ag -o "(?<=§|\[)[0-9]{12}" $line*|sort -n |uniq)
+		for line2 in $l2
+				do
+						title2=$(ag -g $line2)
+						printf "\"$title\" -> \"$title2\"\n"
+						# Level 3 outgoing						
+					#	l3=$(ag -o "(?<=§|\[)[0-9]{12}" $line2*|sort -n |uniq)
+								#for line3 in $l3
+										#do
+												#title3=$(ag -g $line3)
+												#printf "\"$title2\" -> \"$title3\"\n"
+										#done
+				done
+  done
+# The End
+printf "}"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# This script allows the user to see which files have been edited the last 10 days.
+# Default is to present 40 lines but limit it by running ex "zgit 10"
+
+git log --since="10 days ago" --name-only --pretty=format:%ar|
+head -${1-40}
+

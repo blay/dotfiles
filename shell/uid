@@ -1,0 +1,2 @@
+#!/bin/bash
+xdotool type $(date +%Y%m%d%H%M)

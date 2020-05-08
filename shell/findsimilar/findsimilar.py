@@ -8,7 +8,7 @@ import os
 
 # USER SET PARAMETERS ############
 
-notesDir =              "archive"   # set this to the (relative to the script) folder that contains your notes.
+notesDir =              "../zettel"   # set this to the (relative to the script) folder that contains your notes.
 notesFileExtension =    "md"        # set this to the file extension of the notes you want to query (txt, md, markdown etc.)
 indexDir =              ".index"    # whoosh index folder
 

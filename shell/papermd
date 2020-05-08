@@ -1,0 +1,18 @@
+#!/bin/sh
+
+IFS='
+'
+files=$($@)
+for filename in $files
+do
+
+                title=$(echo $filename|sed 's/.md//g')
+				cdate=$(stat ~/papers/$title.pdf|ag modify|ag -o "[0-9]{4}-[0-9]{2}-[0-9]{2}\ [0-9]{2}:[0-9]{2}"|sed 's/[^0-9]*//g')
+				cp "$filename" "$cdate -B-$filename"
+
+				echo $files
+				echo $filename
+				echo $title
+				echo $cdate
+done
+

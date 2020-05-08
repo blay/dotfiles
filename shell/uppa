@@ -1,5 +1,5 @@
 #!/bin/bash
 chmod 775 $1
-scp -r "$1" monki@blay.se:www/files.magnu.se/www/
-echo 'http://files.magnu.se/'$1 | pbcopy
+rsync -havzP --progress "$1" monki@stat.blay.se:www/files.magnu.se/
+echo 'http://files.magnu.se/'$1 | xclip -selection c
 echo 'http://files.magnu.se/'$1 

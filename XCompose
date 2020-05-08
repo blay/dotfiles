@@ -1,0 +1,28 @@
+include "%L"
+
+<Multi_key> <a> : "å"
+<Multi_key> <e> : "ä"
+<Multi_key> <o> : "ö"
+
+<Multi_key> <comma> : "<"
+<Multi_key> <period> : ">"
+<Multi_key> <minus> : "/"
+
+<Multi_key> <space> : "#"
+<Multi_key> <U00F6> : "@"
+<Multi_key> <U00E4> : "~"
+
+#<Multi_key> <apostrophe> : """
+<Multi_key> <asterisk> : "$"
+
+<Multi_key> <U00D6> : "{"
+<Multi_key> <U00C4> : "}"
+
+<Multi_key> <p> : "("
+<Multi_key> <P> : "["
+
+<Multi_key> <U00E5> : ")"
+<Multi_key> <U00C5> : "]"
+
+<Multi_key> <plus> : "%"
+<Multi_key> <question> : "&"

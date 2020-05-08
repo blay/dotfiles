@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# This script adds nice colors to headers and links in an output.
+
+sed -r 's/^#.*/\x1b[33m\0\x1b[0m/; 
+s/##.*/\x1b[35m\0\x1b[0m/;
+s/###.*/\x1b[36m\0\x1b[0m/;
+s/\[\[[0-9].*\]\]/\x1b[36m\0\x1b[0m/'

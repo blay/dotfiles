@@ -1,0 +1,11 @@
+#!/bin/sh
+
+IFS='
+'
+files=$($@)
+for filename in $files
+do
+
+		title=$(echo $filename|sed 's/.pdf//g')
+		pdfan --no-group -p --codec cp850 -o "$title.md" "$title.pdf"
+done

@@ -6,9 +6,11 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="dstufft"
-#ZSH_THEME="bira"
+#ZSH_THEME="spaceship"
+#ZSH_THEME="avit"
 #ZSH_THEME="arrow"
 #ZSH_THEME="hyperzsh"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -17,6 +19,8 @@ ZSH_THEME="dstufft"
 
 autoload -U compinit
 compinit
+
+setopt auto_cd
 
 # Shell
 
@@ -28,6 +32,7 @@ if [[ $(uname) == Linux ]]; then
   HARDHOME='home'
   alias pbcopy='xclip -selection c'
   alias pbpaste='xclip -o'
+  alias vim='nvim'
 #  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
@@ -41,9 +46,10 @@ alias zshconfig="vim ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
-alias svim="sudo -E vim"
+alias svim="sudo -E nvim"
 alias em="emacsclient -a '' -qc"
 alias ema="emacsclient -a '' -qc -e '(org-agenda)'"
+alias nv="nvim"
 
 alias rm="rm -i"
 alias mv="mv -i"
@@ -94,6 +100,7 @@ alias av="ag --nobreak --nonumbers --noheading . | fzf"
 alias auid="xargs -i ag -g {}"
 alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
 
+alias fd=fdfind
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
 alias rnd='ls|sort -R' 
@@ -101,6 +108,8 @@ alias rnd='ls|sort -R'
 alias am='ag --passthru  "^\#.*"'
 
 alias pan='make -f ~/.pandoc/examples/Makefile'
+
+alias zkviz='~/envs/zkviz/bin/zkviz'
 
 # Google Calendar
 
@@ -121,27 +130,32 @@ alias logedit='vim ~/notes/workout/logbook.md'
 
 
 # Blog
-alias newo='sh ~/scripts/blog/newocto'
-alias new='sh ~/scripts/blog/new'
-alias pre='sh ~/scripts/blog/pre'
-alias news='sh ~/scripts/blog/news'
-alias edits='sh ~/scripts/blog/edits'
-alias edit='sh ~/scripts/blog/edit'
-alias pre='sh ~/scripts/blog/pre'
-alias edito='sh ~/scripts/blog/editocto'
-alias pubo='sh ~/scripts/blog/pubocto'
-alias preo='sh ~/scripts/blog/preocto'
-
-alias gitta='git commit -v -a -m'
-
+alias bs="bundle exec jekyll serve"
+alias bb="bundle exec jekyll build"
+alias bp="rsync -havz --delete _site monki@blay.se:www/blay.se/"
 # Todo
+
+alias tt='rg @todo:a ~/zettel'
+alias tb='rg @todo:b ~/zettel'
+alias tc='rg @todo:c ~/zettel'
+
+# Git
+alias gitdone='git log -p -1|ag @todo:|ap "^-"'
+
+gitpush() {
+    git add .
+    git commit -m "$*"
+    git push
+}
+alias gitta=gitpush
+
 
 ## Commands
 alias plus='sh ~/.shell/plus.sh'
 alias minus='sh ~/.shell/minus.sh'
 
 # PATH=$PATH:"/$HARDHOME/$USER/.todo"
-alias t='todo.sh -d ~/.todo.cfg'
+alias td='todo.sh -d ~/.todo.cfg'
 alias ts='todo.sh -d ~/.todo.cfg schedule'
 alias tbw="(t birdseye;echo '\n# Scheduled next week #\n----------------------------';tv 1weeks;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
 alias tbm="(t birdseye;echo '\n# Scheduled next 3 weeks #\n----------------------------';tv 3weeks;cal;echo '\n';icf;echo '\n# Due Soon #\n------------';t until soon;echo '\n# No Dates #\n------------';tv nodate;)"
@@ -151,7 +165,7 @@ alias tv='todo.sh -x -d ~/.todo.cfg view'
 alias t1='(tv past;tv today)'
 alias t7='todo.sh -x -d ~/.todo.cfg view 1weeks'
 alias te='vim ~/Dropbox/todo/todo.txt'
-alias tc='clear && (tv past;tv today)'
+alias tn='clear && (tv past;tv today)'
 alias tf='clear && (tv past;tv today;tv future)'
 function tm { ts $1 mv tomorrow; }
 
@@ -175,15 +189,19 @@ n() {
 
 # Common cd
 
-alias cdn='cd ~/notes/txt'
+alias cdn='cd ~/zettel'
 alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
+alias cdbl='cd ~/notes/blay.se'
+alias cdcv='cd ~/notes/cv.blay.se'
 alias cdd='cd ~/Downloads'
 alias cdv='cd ~/Videos'
+alias cdm='cd ~/Music'
+alias cdw='cd ~/wallpapers'
 alias cdb='cd ~/builds'
-alias cdp='~/Documents/library/papers'
-alias rng='ranger'
+alias cdp='~/papers'
+alias rn='ranger'
 
 # Emacs
 
@@ -225,9 +243,16 @@ plugins=(git osx last-working-dir sublime colorize)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
+export PATH="$HOME/.local/bin:$PATH" # Add pip scripts to path
 export LESS=-RFX
 export GEM_HOME=$HOME/bin/gems
 export PATH=$HOME/bin/gems/bin:$PATH
+export PATH=$HOME/bin/go/bin:$PATH
+export PATH=$HOME/bin/:$PATH
+
+# Golang
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # Fuck Android
 #export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
@@ -244,3 +269,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This is a utility script that makes a line break in a filename after the uid
+
+sed -r 's/[0-9]{12}/\0\n/g'

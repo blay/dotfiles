@@ -2,16 +2,16 @@
 
 clear 
 
-cd ~/notes/txt
+cd ~/zettel
 
 printf "\n\n# Important Tasks\n\n"
 
-ag --color-match "1;33" "@todooo"
+ag --color-match "1;33" "@todo:a"
 
 printf "\n\n# Next Tasks\n\n"
 
-ag --color-match "1;34" "@todoo "
+ag --color-match "1;34" "@todo:b"
 
 printf "\n\n# Waiting Tasks\n\n"
 
-ag --color-match "1;32" "@todo "
+ag --color-match "1;32" "@todo:c"

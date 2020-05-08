@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Removed @todo in last commit
+echo -e $(cd ~/zettel && git log -p -1|ag "^-"|ag @todo:)
+
