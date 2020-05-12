@@ -195,6 +195,7 @@ alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdbl='cd ~/notes/blay.se'
 alias cdcv='cd ~/notes/cv.blay.se'
+alias cdha='cd ~/notes/hack'
 alias cdd='cd ~/Downloads'
 alias cdv='cd ~/Videos'
 alias cdm='cd ~/Music'
@@ -234,7 +235,7 @@ unsetopt nomatch
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx last-working-dir sublime colorize)
+plugins=(git last-working-dir sublime colorize)
 
 
 # Ensure user-installed binaries take precedence
@@ -269,6 +270,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='fdfind --type file --color=always --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 

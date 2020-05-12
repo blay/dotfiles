@@ -219,6 +219,7 @@ map <leader>Ö <leader>Y:silent !zdisp <C-R><C-R>+<CR>
 " Agenda
 map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
 map <leader>P :silent exec "!agenda > ~/zettel/.agenda.md"<CR>
+map <C-p> :execute 'e ' . strftime("%Y%m%d") . '.md'<CR>
 
 " CtrlSF
 let g:ctrlsf_default_root = "project" 
@@ -249,7 +250,7 @@ let g:limelight_conceal_ctermfg = 240
 nnoremap <silent> <Leader>R :Limelight!!<CR>
 
 " Voom
-map <leader>i :Voom pandoc<CR>
+map <leader>o :Voom pandoc<CR>
 nmap <S-Tab> zi 
 
 " Spellcheck
@@ -280,9 +281,9 @@ let g:pandoc#syntax#style#emphases = 0
 set conceallevel=2
 
 " Insert Pandoc Link
-
-nnoremap <leader>I i[]<Esc>Pla()<Esc>
-
+nnoremap <leader>i i](<Esc>pa)[<Esc>x
+" Make list of links
+nnoremap <leader>I :%s/^\[\[/- \[\[/<CR><leader>/
 " Pandoc everything
 au BufNewFile,BufRead *.md   set filetype=pandoc
 au BufNewFile,BufRead *.md   set syntax=pandoc
