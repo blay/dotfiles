@@ -1,0 +1,11 @@
+#!/bin/bash
+
+command="reveal-md -w --separator '^\n'"
+
+if [ -n "$2" ]
+then
+  $command --theme $1 $2
+else 
+  $command --theme white $1
+fi
+

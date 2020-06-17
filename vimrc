@@ -24,12 +24,13 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'blay/vim-pandoc-syntax'
 Plug 'vim-voom/VOoM'
-Plug 'vimwiki/vimwiki'
 Plug 'jceb/vim-orgmode'
 Plug 'chrisbra/NrrwRgn'
 Plug 'masukomi/vim-markdown-folding'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
+Plug 'sotte/presenting.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Themes
 
@@ -70,6 +71,10 @@ let g:airline_skip_empty_sections = 1
 " Search conf
 let g:Lf_ShowDevIcons = 0
 
+" Cursor Style
+"set cursorcolumn
+"set cursorline
+
 "" A few remaps
 " change the mapleader from \ to ,
 "let mapleader=","
@@ -91,7 +96,8 @@ nnoremap <leader>Y :let @+ = expand("%:t")<CR>:silent ! uidpaste<CR>
 nnoremap Y y$
 " Paste brackets
 nnoremap <leader>v i[[]]<Esc>hP
-nnoremap <leader>V i[[<Esc>Ea]]<Esc>
+" Make list of links
+nnoremap <leader>V :%s/^\[/- \[/<CR><leader>/
 " Paste without pastemode
 set clipboard+=unnamed
 nnoremap p p`]<Esc>
@@ -129,7 +135,7 @@ map <leader>n :new<CR>
 " Navigate buffer
 let g:EasyMotion_smartcase = 1
 map <leader>s :BLines<CR>
-map <leader>S <Plug>(easymotion-overwin-f)
+map <leader>S <Plug>(easymotion-overwin-f2)
 map <leader>- <Plug>(easymotion-overwin-f)[
 nmap - <Plug>(easymotion-overwin-f)[
 map <leader>G :e <cfile><CR>
@@ -192,24 +198,16 @@ inoremap <C-U> <C-G>u<C-U>
 nmap <silent> <leader>ev :find ~/.vimrc<CR>
 nmap <silent> <leader>er :so $MYVIMRC<CR>
 
-" VimWiki stuff
-let wiki_1 = {}
-let wiki_1.path = '~/notes/vimwiki/wiki'
-let wiki_1.path_html = '~/notes/vimwiki/html'
-let wiki_1.ext = '.gpg'
-let g:vimwiki_list = [wiki_1]
-let g:vimwiki_table_mappings = 0
+" Vim Presenting
 
-" GPG settings
-let g:GPGPreferArmor=1
-let g:GPGDefaultRecipients=["magnuse@tii.se"]
+au FileType pandoc let s:presenting_slide_separator = '\v(^|\n)\ze#+'
 
 " Search
 map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
 map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
 map <leader>f :LeaderfFile ~/zettel<CR>
 map <leader>F :LeaderfFileCword<CR>
-map <Leader>H :LeaderfFile ~/notes<CR>
+map <Leader>H yw:LeaderfFile ~/notes<CR>
 
 " Backlinks
 map <leader>C <leader>Y:vnew<CR>:read !zfile <C-R><C-R>+\|zwiki<CR>:set filetype=pandoc<CR>
@@ -249,18 +247,27 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 nnoremap <silent> <Leader>R :Limelight!!<CR>
 
+" Fold and Unfold
+
+nnoremap <leader>u zMzozozo
+nnoremap <leader>U zR
+
 " Voom
 map <leader>o :Voom pandoc<CR>
 nmap <S-Tab> zi 
 
 " Spellcheck
 set spelllang=en,sv 
-set nospell
+"set nospell
 au BufNew,BufRead  * set nospell
 "autocmd BufRead,BufNewFile * setlocal nospell
 "map <leader>c :setlocal spell!<CR>
-map <leader>z :SpellCheck<CR>
- 
+map <leader>z :set spell!<CR>
+imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
+imap <c-s> <c-g>u<Esc>[szg`]a<c-g>u
+nmap <c-f> [s1z=<c-o>
+nmap <c-s> [szg<c-o>
+
 " Bullets.vim
 let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
 let g:bullets_enabled_file_types = [
@@ -282,36 +289,45 @@ set conceallevel=2
 
 " Insert Pandoc Link
 nnoremap <leader>i i](<Esc>pa)[<Esc>x
-" Make list of links
-nnoremap <leader>I :%s/^\[\[/- \[\[/<CR><leader>/
 " Pandoc everything
 au BufNewFile,BufRead *.md   set filetype=pandoc
 au BufNewFile,BufRead *.md   set syntax=pandoc
 
 " Bibtex
-let $FZF_BIBTEX_SOURCES = '/home/svartfax/notes/zotero.bib'
+let $FZF_BIBTEX_SOURCES = '/home/svartfax/notes/lib.bib'
 
-function! s:bibtex_cite_sink(lines)
+" Insert Citekey
+
+function! Bibtex_cite_sink(lines)
     let r=system("bibtex-cite ", a:lines)
     execute ':normal! i' . r
 endfunction
 
-
-nnoremap <leader>d :call fzf#run({
+function! CiteKey()
+call fzf#run({
                         \ 'source': 'bibtex-ls',
-                        \ 'sink*': function('<sid>bibtex_cite_sink'),
+                        \ 'sink*': function('Bibtex_cite_sink'),
                         \ 'up': '40%',
                         \ 'options': '--ansi --multi --prompt "Cite> "'})
-
-function! s:bibtex_markdown_sink(lines)
-    let r=system("bibtex-markdown ", a:lines)
-    execute ':normal! i' . r
 endfunction
 
-nnoremap <leader>D :call fzf#run({
+" Insert Citation
+
+function! Citation()
+
+  function! Bibtex_markdown_sink(lines) 
+    let r=system("bibtex-markdown ", a:lines)
+    execute ':normal! i' . r
+  endfunction
+
+
+call fzf#run({
                         \ 'source': 'bibtex-ls',
-                        \ 'sink*': function('<sid>bibtex_markdown_sink'),
+                        \ 'sink*': function('Bibtex_markdown_sink'),
                         \ 'up': '40%',
-								\ 'options': '--ansi --multi --prompt "Markdown> "'})<CR>
+								\ 'options': '--ansi --multi --prompt "Markdown> "'})
+endfunction
 
-
+" Bibtex Mapping
+nnoremap <leader>d :call CiteKey()<CR>
+nnoremap <leader>D :call Citation()<CR>

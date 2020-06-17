@@ -1,0 +1,13 @@
+#!/bin/bash
+mapfile -t list
+
+for var in "${list[@]}"
+do
+  content+=$(echo "$var"|tr -d 0-9|tr -d ' '|xargs al)
+done
+ echo "$content" |
+   sort -f|
+   uniq -ic | 
+   sort -nr |
+   tr '[:upper:]' '[:lower:]'|
+   head  -${1-16}

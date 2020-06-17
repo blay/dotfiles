@@ -104,7 +104,7 @@ alias fd=fdfind
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
 alias rnd='ls|sort -R' 
-
+alias pre='fzf --preview="head -$LINES {}" --preview-window wrap'
 alias am='ag --passthru  "^\#.*"'
 
 alias pan='make -f ~/.pandoc/examples/Makefile'
@@ -141,6 +141,7 @@ alias tc='rg @todo:c ~/zettel'
 
 # Git
 alias gitdone='git log -p -1|ag @todo:|ap "^-"'
+alias gitlogs='git log --pretty=format:"%ar : %s"'
 
 gitpush() {
     git add .
@@ -189,10 +190,12 @@ n() {
 
 # Common cd
 
-alias cdn='cd ~/zettel'
+alias cdl='cd ~/zettel'
+alias cdn='cd ~/notes'
 alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
+alias cdx='cd ~/notes/hexo'
 alias cdbl='cd ~/notes/blay.se'
 alias cdcv='cd ~/notes/cv.blay.se'
 alias cdha='cd ~/notes/hack'
@@ -254,6 +257,9 @@ export PATH=$HOME/bin/:$PATH
 # Golang
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+# Doom Emacs
+export PATH=$PATH:~/.emacs.d/bin
 
 # Fuck Android
 #export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk

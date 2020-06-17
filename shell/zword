@@ -1,0 +1,14 @@
+#!/bin/bash
+while read line
+do
+  content+=$(xargs cat)
+done
+echo "$content" |
+  tr -d 0-9|
+  sed -n -e 's/^\W*//' -e 's/\(\W\+\)/\n/gp'|
+  sort -f|
+  fgrep -viw --file=/home/svartfax/.shell/stop |
+  uniq -ic | 
+  sort -nr |
+  tr '[:upper:]' '[:lower:]'|
+  head  -${1-16}

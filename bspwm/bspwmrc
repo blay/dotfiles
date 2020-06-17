@@ -48,6 +48,7 @@ compton --config ~/.config/compton.conf -b
 #albert &
 flashfocus &
 ksuperkey
+./scripts/swallow.py &
 
 rdb -merge ~/.Xresources
 sleep 2;xmodmap /home/svartfax/.Xmodmap

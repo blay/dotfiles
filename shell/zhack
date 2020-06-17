@@ -24,7 +24,7 @@ echo "appending..."
 id=$(echo "$return"|awk -F '/' '{print $NF}')
 link=$(echo "$return"|awk -F ' ' '{print $NF}')
 
-echo "$link" >> $file
+printf "\n\n$link" >> $file
 echo "$link" |xclip -selection c
 
 echo "$link"
