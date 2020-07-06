@@ -1,26 +1,10 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="dstufft"
-#ZSH_THEME="spaceship"
-#ZSH_THEME="avit"
-#ZSH_THEME="arrow"
-#ZSH_THEME="hyperzsh"
-#ZSH_THEME="powerlevel10k/powerlevel10k"
+# Theme
 
-# Example aliases
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Autocomplete
-
-autoload -U compinit
-compinit
-
-setopt auto_cd
 
 # Shell
 
@@ -28,11 +12,13 @@ USER='svartfax'
 
 # Preferred editor for local and remote sessions
 if [[ $(uname) == Linux ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
   HARDHOME='home'
   alias pbcopy='xclip -selection c'
   alias pbpaste='xclip -o'
   alias vim='nvim'
+  export VISUAL='nvim'
 #  alias ack='ack-grep'
  else
   export EDITOR='mvim -v'
@@ -190,6 +176,7 @@ n() {
 
 # Common cd
 
+alias k='cd ~/zettel && nv'
 alias cdl='cd ~/zettel'
 alias cdn='cd ~/notes'
 alias cdo='cd ~/notes/org'
@@ -215,37 +202,6 @@ alias yearly='sh ~/.shell/yearly'
 
 export GPG_TTY=`tty`
 
-# Se tto this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
-
-unsetopt nomatch
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git last-working-dir sublime colorize)
-
-
-# Ensure user-installed binaries take precedence
-# export PATH=/usr/local/bin:$PATH
-
-source $ZSH/oh-my-zsh.sh
-
 export PATH="$HOME/.shell:$PATH" # Add scripts to path
 export PATH="$HOME/.local/bin:$PATH" # Add pip scripts to path
 export LESS=-RFX
@@ -269,6 +225,10 @@ export PATH=$PATH:~/.emacs.d/bin
 #export DISPLAY=:0 
 #export XDG_RUNTIME_DIR=~/builds/xdg 
 #export RUNLEVEL=3 
+#autoload -Uz compinit
+#compinit
+# Completion for kitty
+#kitty + complete setup zsh | source /dev/stdin
 
 # Something to fix Tilix
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
@@ -278,4 +238,3 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type file --color=always --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-

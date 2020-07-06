@@ -31,6 +31,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 Plug 'sotte/presenting.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'mipmip/vim-scimark'
 
 " Themes
 
@@ -38,11 +39,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ayu-theme/ayu-vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'cideM/yui'
+Plug 'andreypopp/vim-colors-plain'
 
 call plug#end()
 
@@ -59,9 +60,8 @@ let g:airline_theme = "hybrid"
 let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
 
-"colorscheme hybrid_material
 colorscheme ayu
-"colorscheme solarized
+"colorscheme yui
 
 " Airline conf
 let g:airline_section_b = ''
@@ -96,8 +96,7 @@ nnoremap <leader>Y :let @+ = expand("%:t")<CR>:silent ! uidpaste<CR>
 nnoremap Y y$
 " Paste brackets
 nnoremap <leader>v i[[]]<Esc>hP
-" Make list of links
-nnoremap <leader>V :%s/^\[/- \[/<CR><leader>/
+nnoremap <leader>V i[@]<Esc>P
 " Paste without pastemode
 set clipboard+=unnamed
 nnoremap p p`]<Esc>
@@ -178,6 +177,7 @@ set hidden        " hide buffers
 set confirm	      " confirm unsaved
 set isfname+=32	  " space in filenames
 let @/ = ""
+set inccommand=nosplit "substitute live
 
 "Transparent background in terminal
 hi Normal guibg=NONE ctermbg=NONE
@@ -289,6 +289,8 @@ set conceallevel=2
 
 " Insert Pandoc Link
 nnoremap <leader>i i](<Esc>pa)[<Esc>x
+" Make list of links
+nnoremap <leader>I :%s/^\[/- \[/<CR><leader>/
 " Pandoc everything
 au BufNewFile,BufRead *.md   set filetype=pandoc
 au BufNewFile,BufRead *.md   set syntax=pandoc
