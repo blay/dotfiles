@@ -217,6 +217,9 @@ export PATH=$GOPATH/bin:$PATH
 # Doom Emacs
 export PATH=$PATH:~/.emacs.d/bin
 
+# NPM Global
+export PATH=~/.npm-global/bin:$PATH
+
 # Fuck Android
 #export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
 #export ANDROID_HOME=/usr/local/opt/android-sdk
