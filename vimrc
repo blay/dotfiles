@@ -97,7 +97,7 @@ nnoremap <leader>Y :let @+ = expand("%:t")<CR>:silent ! uidpaste<CR>
 nnoremap Y y$
 " Paste brackets
 nnoremap <leader>v i[[]]<Esc>hP
-nnoremap <leader>V i[@]<Esc>P
+nnoremap <leader>V ea]<Esc>F@i[<Esc>
 " Paste without pastemode
 set clipboard+=unnamed
 nnoremap p p`]<Esc>
