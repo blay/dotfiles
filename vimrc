@@ -49,8 +49,8 @@ call plug#end()
 
 " General Settings "
 
-language en_US.utf8
-set encoding=utf-8
+language en_US.UTF-8
+set encoding=UTF-8
 set shell=zsh
 
 set termguicolors
