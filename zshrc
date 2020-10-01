@@ -220,23 +220,22 @@ export PATH=$PATH:~/.emacs.d/bin
 # NPM Global
 export PATH=~/.npm-global/bin:$PATH
 
-# Fuck Android
-#export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk
-#export ANDROID_HOME=/usr/local/opt/android-sdk
-
-# WSL shit
-#export DISPLAY=:0 
-#export XDG_RUNTIME_DIR=~/builds/xdg 
-#export RUNLEVEL=3 
-#autoload -Uz compinit
-#compinit
 # Completion for kitty
 #kitty + complete setup zsh | source /dev/stdin
 
-# Something to fix Tilix
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte-2.91.sh
-fi
+# Customize to your needs...
+source ~/.zplug/init.zsh# Plugins
+zplug "plugins/git",   from:oh-my-zsh
+#zplug "plugins/osx",   from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "clvv/fasd"
+zplug "b4b4r07/enhancd"
+zplug "junegunn/fzf"
+zplug "Peltoche/lsd"
+
+autoload -Uz promptinit
+promptinit
+prompt steeef
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type file --color=always --follow --hidden --exclude .git'
