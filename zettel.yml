@@ -1,0 +1,12 @@
+name: zettel
+parent: default
+
+matches:
+  - trigger: ":id"
+    replace: "{{iddate}}"
+    vars:
+      - name: iddate
+        type: date
+        params:
+          format: "%Y%m%d%H%M"
+

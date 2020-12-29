@@ -97,7 +97,7 @@ nnoremap <leader>Y :let @+ = expand("%:t")<CR>:silent ! uidpaste<CR>
 nnoremap Y y$
 " Paste brackets
 nnoremap <leader>v i[[]]<Esc>hP
-nnoremap <leader>V ea]<Esc>F@i[<Esc>
+nnoremap <leader>V a]<Esc>F@i[<Esc>
 " Paste without pastemode
 set clipboard+=unnamed
 nnoremap p p`]<Esc>
@@ -334,3 +334,5 @@ endfunction
 " Bibtex Mapping
 nnoremap <leader>d :call CiteKey()<CR>
 nnoremap <leader>D :call Citation()<CR>
+
+nmap <leader>M yiw:silent !paper <C-R><C-R>+<CR>
