@@ -62,6 +62,7 @@ alias mp3='youtube-dl -x --audio-format "mp3"'
 
 alias cal="ncal -w"
 
+alias please="sudo"
 alias fucking="sudo"
 
 alias freq="history | cut -c 8- | sort | uniq -c  | sort -n -r | head -n 20"
@@ -192,6 +193,7 @@ alias cdm='cd ~/Music'
 alias cdw='cd ~/wallpapers'
 alias cdb='cd ~/builds'
 alias cdp='~/papers'
+alias lib='nvim ~/notes/lib.bib'
 alias rn='ranger'
 
 # Emacs
