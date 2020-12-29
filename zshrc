@@ -21,10 +21,11 @@ if [[ $(uname) == Linux ]]; then
   export VISUAL='nvim'
 #  alias ack='ack-grep'
  else
-  export EDITOR='mvim -v'
-  alias vim='mvim -v'
+  export EDITOR='nvim'
+  alias vim='nvim'
   HARDHOME='Users'
   alias grep="ggrep"
+  alias date="gdate"
 fi
 
 alias zc="vim ~/.zshrc"
@@ -224,7 +225,8 @@ export PATH=~/.npm-global/bin:$PATH
 #kitty + complete setup zsh | source /dev/stdin
 
 # Customize to your needs...
-source ~/.zplug/init.zsh# Plugins
+source ~/.zplug/init.zsh
+# Plugins
 zplug "plugins/git",   from:oh-my-zsh
 #zplug "plugins/osx",   from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"

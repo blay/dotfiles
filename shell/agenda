@@ -46,7 +46,7 @@ do
 done
 )
 
-echo "# Scheduled Today and Tomorrow [[$(date +%Y%m%d).md]] && [[$(date --date "next day" +%Y%m%d).md]]"
+echo "# Scheduled Today and Tomorrow [[$(date +%Y%m%d).md]] && [[$(gdate --date="tomorrow" +%Y%m%d).md]]"
 echo -e "$today" |sed '/^[a-z]/s/^/- /'|tr -s '\n'|sed '/^\ /s/^/   /'
 
 echo -e "\n# Deadlines"
