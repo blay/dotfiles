@@ -31,7 +31,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 Plug 'sotte/presenting.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'mipmip/vim-scimark'
+Plug 'cloudhead/neovim-fuzzy'
 
 " Themes
 
@@ -134,7 +134,7 @@ map <leader>n :new<CR>
 
 " Navigate buffer
 let g:EasyMotion_smartcase = 1
-map <leader>s :BLines<CR>
+noremap <leader>s :BLines<CR>
 map <leader>S <Plug>(easymotion-overwin-f2)
 map <leader>- <Plug>(easymotion-overwin-f)[
 nmap - <Plug>(easymotion-overwin-f)[
@@ -204,9 +204,12 @@ nmap <silent> <leader>er :so $MYVIMRC<CR>
 au FileType pandoc let s:presenting_slide_separator = '\v(^|\n)\ze#+'
 
 " Search
-map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
+
+nnoremap <leader>a :FuzzyGrep<CR>
+" map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
 map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
-map <leader>f :LeaderfFile ~/zettel<CR>
+nnoremap <leader>f :FuzzyOpen<CR>
+"map <leader>f :LeaderfFile ~/zettel<CR>
 map <leader>F :LeaderfFileCword<CR>
 map <Leader>H yw:LeaderfFile ~/notes<CR>
 
@@ -297,7 +300,7 @@ au BufNewFile,BufRead *.md   set filetype=pandoc
 au BufNewFile,BufRead *.md   set syntax=pandoc
 
 " Bibtex
-let $FZF_BIBTEX_SOURCES = '/home/svartfax/notes/lib.bib'
+let $FZF_BIBTEX_SOURCES = '/Users/svartfax/notes/lib.bib'
 
 " Insert Citekey
 

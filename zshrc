@@ -223,6 +223,9 @@ export PATH=$PATH:~/.emacs.d/bin
 # NPM Global
 export PATH=~/.npm-global/bin:$PATH
 
+# Annot2md path
+export PATH=~/bin/annot2md/bin:$PATH
+
 # Completion for kitty
 #kitty + complete setup zsh | source /dev/stdin
 

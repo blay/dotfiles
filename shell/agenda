@@ -20,7 +20,7 @@ do
 				line=$(echo $line|awk '$1=$1')
 				date=$(echo $line|cut -d' ' -f -3)
 				desc=$(echo $line|cut -d' ' -f 4-)
-				datestring=$(echo $line | awk '{print "date -d\""$2FS$3"\" +%s"}'|bash)
+				datestring=$(echo $line | awk '{print "gdate -d\""$2FS$3"\" +%s"}'|bash)
 				now=$(date +%s)
 				diff=$(( ($datestring-$now) / (60*60*24) ))
 				if [ $diff == 0 ]
