@@ -102,7 +102,7 @@ nnoremap <leader>V a]<Esc>F@i[<Esc>
 set clipboard+=unnamed
 nnoremap p p`]<Esc>
 " Multiple Cursors Paragraph
-nnoremap <leader>m vip<C-n>i
+nnoremap <leader>m vip<C-n>
 
 " Insert empty line before and after
 nnoremap <C-k> O<Esc>
@@ -129,8 +129,10 @@ nnoremap <Leader>L :LeaderfMru<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>q :Sayonara<CR>
 nnoremap <Leader>Q :only<CR>
-nnoremap <Leader>w :w<CR>
 map <leader>n :new<CR>
+nnoremap <Leader>w :w<CR>
+" Diff current buffer and saved file
+nnoremap <Leader>W :w !diff % -<CR>
 
 " Navigate buffer
 let g:EasyMotion_smartcase = 1
@@ -253,7 +255,7 @@ nnoremap <silent> <Leader>R :Limelight!!<CR>
 
 " Fold and Unfold
 
-nnoremap <leader>u zMzozozo
+nnoremap <leader>u zM9zo
 nnoremap <leader>U zR
 
 " Voom
@@ -269,8 +271,8 @@ au BufNew,BufRead  * set nospell
 map <leader>z :set spell!<CR>
 imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 imap <c-s> <c-g>u<Esc>[szg`]a<c-g>u
-nmap <c-f> [s1z=<c-o>
-nmap <c-s> [szg<c-o>
+nmap zf [s1z=<c-o>
+nmap zs [szg<c-o>
 
 " Bullets.vim
 let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']

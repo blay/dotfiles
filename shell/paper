@@ -1,3 +1,8 @@
 #!/bin/sh
 
-mupdf ~/papers/$1*.pdf
+if command -v mupdf &> /dev/null
+then
+  mupdf ~/papers/$1*.pdf
+else
+  open ~/papers/$1*.pdf
+fi
