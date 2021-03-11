@@ -239,9 +239,9 @@ let g:ctrlsf_extra_backend_args = {
 
 " todo Search
 
-map <leader>T :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[b]<CR>
-map <leader>t :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]<CR>
-map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" @todo:[a]
+map <leader>T :lcd ~/zettel<CR>:CtrlSF -R " \[[a-c]\] "<CR>
+map <leader>t :lcd ~/zettel<CR>:CtrlSF -R " \[[a]\] "<CR>
+map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R " \[[a]\] "
 
 " Git search
 map <leader>å :Gblame<CR>
