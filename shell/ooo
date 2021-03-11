@@ -6,4 +6,4 @@ cd ~/zettel
 
 printf "\n\n# Important Tasks\n\n"
 
-ag --color-match "1;33" "@todo:a"
+ag --color-match "1;33" " \[[a]\] "

@@ -4,7 +4,7 @@ today=$(gcalcli --nocolor agenda today 1day)
 deadlines=$(gcalcli --nocolor --cal Deadlines agenda today 3w)
 gitlog=$(git --git-dir ~/zettel/.git log --name-only --pretty=format:"%h%x09%ar%x09%s" -1)
 gitstatus=$(cd ~/zettel && git status|ag [0-9])
-gittodo=$(cd ~/zettel && git log -p --since=1.week|ag @todo)
+gittodo=$(cd ~/zettel && git log -p --since=1.week|ag " \[.?\] ")
 
 deadline=$(
 IFS='
