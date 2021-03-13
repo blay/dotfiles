@@ -32,6 +32,7 @@ Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 Plug 'sotte/presenting.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'cloudhead/neovim-fuzzy'
+Plug 'jkramer/vim-checkbox'
 
 " Themes
 
@@ -125,7 +126,6 @@ nnoremap <Leader>j :bn<CR>
 nnoremap <Leader>k :b#<CR>
 nnoremap <Leader>h :Buffers<CR>
 nnoremap <Leader>l :History<CR>
-nnoremap <Leader>L :LeaderfMru<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>q :Sayonara<CR>
 nnoremap <Leader>Q :only<CR>
@@ -167,7 +167,7 @@ set relativenumber " Relative line numbers
 set hlsearch	  " hilight search results
 set showmatch     " set show matching parenthesis
 set expandtab     " tab is just spaces
-set shiftwidth=2  " Indent two spaces
+set shiftwidth=4  " Indent two spaces
 set tabstop=4     " a tab is four spaces
 set smartcase     " ignore case if search pattern is all lowercase
 set linebreak     " Break at word boundaries
@@ -213,7 +213,6 @@ map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
 nnoremap <leader>f :FuzzyOpen<CR>
 "map <leader>f :LeaderfFile ~/zettel<CR>
 map <leader>F :LeaderfFileCword<CR>
-map <Leader>H yw:LeaderfFile ~/notes<CR>
 
 " Backlinks
 map <leader>C <leader>Y:vnew<CR>:read !zfile <C-R><C-R>+\|zwiki<CR>:set filetype=pandoc<CR>
@@ -237,10 +236,7 @@ let g:ctrlsf_extra_backend_args = {
     \ 'rg': '--no-hidden'
     \ }
 
-" todo Search
-
-map <leader>T :lcd ~/zettel<CR>:CtrlSF -R " \[[a-c]\] "<CR>
-map <leader>t :lcd ~/zettel<CR>:CtrlSF -R " \[[a]\] "<CR>
+" todo Mappings
 map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R " \[[a]\] "
 
 " Git search
@@ -254,13 +250,11 @@ let g:limelight_conceal_ctermfg = 240
 nnoremap <silent> <Leader>R :Limelight!!<CR>
 
 " Fold and Unfold
-
 nnoremap <leader>u zM9zo
 nnoremap <leader>U zR
-
+"
 " Voom
 map <leader>o :Voom pandoc<CR>
-nmap <S-Tab> zi 
 
 " Spellcheck
 set spelllang=en,sv 
@@ -275,11 +269,24 @@ nmap zf [s1z=<c-o>
 nmap zs [szg<c-o>
 
 " Bullets.vim
-let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
+let g:bullets_outline_levels = ['num', 'num', 'std-']
+"let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
+let g:bullets_pad_right = 0
+let g:bullets_nested_checkboxes = 1
+let g:bullets_checkbox_partials_toggle = 1
+let g:bullets_checkbox_markers = ' ox'
 let g:bullets_enabled_file_types = [
     \ 'pandoc',
     \ 'markdown'
     \]
+
+" Checkbox
+let g:checkbox_states = [' ', 'x','a','b','o']
+let g:insert_checkbox_suffix = ' '
+"" insert a-task list at beginning of line
+nmap <leader>T 0i- [a] <Esc> 
+"" Turn block into list
+nmap <leader>L vip<C-v><S-i>- <Esc>
 
 " Pandoc Settings
 autocmd FileType pandoc setlocal commentstring=<!--\ %s\ -->
@@ -340,4 +347,4 @@ endfunction
 nnoremap <leader>d :call CiteKey()<CR>
 nnoremap <leader>D :call Citation()<CR>
 
-nmap <leader>M yiw:silent !paper <C-R><C-R>+<CR>
+nmap <leader>M yiw:silent !paper <C-R><C-R>+

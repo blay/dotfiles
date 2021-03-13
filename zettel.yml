@@ -9,4 +9,5 @@ matches:
         type: date
         params:
           format: "%Y%m%d%H%M"
-
+  - trigger: ":tt"
+    replace: "- [a] "
