@@ -34,7 +34,7 @@ do
 done
 )
 
-todoin="$(cd ~/zettel && rg @todo:a)"
+todoin="$(cd ~/zettel && rg '\[a\]')"
 
 todoout=$(
 IFS='

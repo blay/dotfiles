@@ -1,0 +1,6 @@
+#!/bin/bash
+
+EXT=${2:-pdf}
+
+pandoc -L pandoc-zotxt.lua -C -t $EXT --metadata=zotero_csl-style:apa -o ~/notes/preview/preview.$EXT ~/zettel/$1
+open ~/notes/preview/preview.$EXT
