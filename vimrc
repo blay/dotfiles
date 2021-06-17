@@ -19,7 +19,6 @@ Plug 'mhinz/vim-startify'
 " Zettel
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'blay/vim-pandoc-syntax'
