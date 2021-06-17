@@ -31,7 +31,6 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 Plug 'sotte/presenting.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'cloudhead/neovim-fuzzy'
 Plug 'jkramer/vim-checkbox'
 
 " Themes
@@ -54,6 +53,41 @@ language en_US.UTF-8
 set encoding=UTF-8
 set shell=zsh
 
+set nofoldenable  " start unfolded
+set number        " Line numbers
+set relativenumber " Relative line numbers    
+set hlsearch	  " hilight search results
+set showmatch     " set show matching parenthesis
+set expandtab     " tab is just spaces
+set shiftwidth=4  " Indent two spaces
+set tabstop=4     " a tab is four spaces
+set smartcase     " ignore case if search pattern is all lowercase
+set linebreak     " Break at word boundaries
+set wrap		  " Wrap all text
+set history=1000         " remember more commands and search history 
+set undolevels=1000      " use many muchos levels of undo
+set clipboard=unnamedplus " System clipboard
+set mouse=a       " mouse support
+set hidden        " hide buffers
+set confirm	      " confirm unsaved
+set isfname+=32	  " space in filenames
+let @/ = ""
+set inccommand=nosplit "substitute live
+"
+" Better split positions 
+set splitbelow 
+set splitright 
+
+" Styling "
+
+"Transparent background in terminal
+hi Normal guibg=NONE ctermbg=NONE
+
+" color linenumbers
+highlight LineNr ctermfg=lightblue
+
+" For all text files set 'textwidth' to 78 characters. 
+ autocmd FileType text setlocal textwidth=78
 set termguicolors
 set background=dark
 let g:airline_theme = "hybrid"
@@ -73,11 +107,8 @@ let g:airline_skip_empty_sections = 1
 " Search conf
 let g:Lf_ShowDevIcons = 0
 
-" Cursor Style
-"set cursorcolumn
-"set cursorline
-
 "" A few remaps
+
 " change the mapleader from \ to ,
 "let mapleader=","
 map <space> <leader>
@@ -89,7 +120,12 @@ nnoremap . :
 nnoremap ; .
 " Better Undo
 noremap U <C-R>
-noremap <C-R> :LeaderfHistoryCmd<CR>
+noremap <C-R> :History:<CR>
+" Quickly edit/reload the vimrc file
+"nmap <silent> <leader>ev :find $MYVIMRC<CR>
+nmap <silent> <leader>ev :find ~/.vimrc<CR>
+nmap <silent> <leader>er :so $MYVIMRC<CR>
+"
 " Yank filename to clipboard
 nnoremap <leader>y :let @+ = expand("%:t")<CR>
 " Yank uid to clipboard
@@ -99,11 +135,11 @@ nnoremap Y y$
 " Paste brackets
 nnoremap <leader>v i[[]]<Esc>hP
 nnoremap <leader>V a]<Esc>F@i[<Esc>
+inoremap <C-v> [[]]<Esc>hPA
+
 " Paste without pastemode
 set clipboard+=unnamed
 nnoremap p p`]<Esc>
-" Multiple Cursors Paragraph
-nnoremap <leader>m vip<C-n>
 
 " Insert empty line before and after
 nnoremap <C-k> O<Esc>
@@ -144,9 +180,6 @@ map <leader>G :e <cfile><CR>
 map <leader>g gF
 map <leader>ö f[w
 
-" Better split positions 
-set splitbelow 
-set splitright 
 " Tab between buffers
 noremap <leader><tab> :tabNext<CR>
 " These will make it so that going to the next one in a 
@@ -161,45 +194,10 @@ cmap w!! w !sudo tee % >/dev/null
 noremap <C-q> q
 noremap q <Nop>
 
-set nofoldenable  " start unfolded
-set number        " Line numbers
-set relativenumber " Relative line numbers    
-set hlsearch	  " hilight search results
-set showmatch     " set show matching parenthesis
-set expandtab     " tab is just spaces
-set shiftwidth=4  " Indent two spaces
-set tabstop=4     " a tab is four spaces
-set smartcase     " ignore case if search pattern is all lowercase
-set linebreak     " Break at word boundaries
-set wrap		  " Wrap all text
-set history=1000         " remember more commands and search history 
-set undolevels=1000      " use many muchos levels of undo
-set clipboard=unnamedplus " System clipboard
-set mouse=a       " mouse support
-set hidden        " hide buffers
-set confirm	      " confirm unsaved
-set isfname+=32	  " space in filenames
-let @/ = ""
-set inccommand=nosplit "substitute live
-
-"Transparent background in terminal
-hi Normal guibg=NONE ctermbg=NONE
-
-" color linenumbers
-highlight LineNr ctermfg=lightblue
-
-" For all text files set 'textwidth' to 78 characters. 
- autocmd FileType text setlocal textwidth=78
-
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo, 
 " so that you can undo CTRL-U after inserting a line break. 
 inoremap <C-U> <C-G>u<C-U>
 
-
-" Quickly edit/reload the vimrc file
-"nmap <silent> <leader>ev :find $MYVIMRC<CR>
-nmap <silent> <leader>ev :find ~/.vimrc<CR>
-nmap <silent> <leader>er :so $MYVIMRC<CR>
 
 " Vim Presenting
 
@@ -207,12 +205,19 @@ au FileType pandoc let s:presenting_slide_separator = '\v(^|\n)\ze#+'
 
 " Search
 
-nnoremap <leader>a :FuzzyGrep<CR>
-" map <leader>a :lcd ~/zettel<CR>:Leaderf rg<CR> 
+" fzf customization
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
+
+command! -bang -nargs=? -complete=dir CFiles call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--info=inline', '-q '.shellescape(expand("<cword>"))]}), <bang>0)
+
+nnoremap <leader>a :lcd ~/zettel<CR>:Rg<CR>
 map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
-nnoremap <leader>f :FuzzyOpen<CR>
-"map <leader>f :LeaderfFile ~/zettel<CR>
-map <leader>F :LeaderfFileCword<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :CFiles<CR><BS>
 
 " Backlinks
 map <leader>C <leader>Y:vnew<CR>:read !zfile <C-R><C-R>+\|zwiki<CR>:set filetype=pandoc<CR>
@@ -220,8 +225,8 @@ map <leader>c <leader>Y<leader>A
 map <leader>Ö <leader>Y:silent !zdisp <C-R><C-R>+<CR>
 
 " Agenda
-map <leader>p :e ~/zettel/.agenda.md<CR>:loadview<CR>
-map <leader>P :silent exec "!agenda > ~/zettel/.agenda.md"<CR>
+map <leader>p :buffer agenda<CR>
+map <leader>P :terminal agenda<CR>:set filetype=pandoc<CR>
 map <C-p> :execute 'e ' . strftime("%Y%m%d") . '.md'<CR>
 
 " CtrlSF
@@ -269,7 +274,7 @@ nmap zf [s1z=<c-o>
 nmap zs [szg<c-o>
 
 " Bullets.vim
-let g:bullets_outline_levels = ['num', 'num', 'std-']
+let g:bullets_outline_levels = ['num', 'std-', 'std-']
 "let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
 let g:bullets_pad_right = 0
 let g:bullets_nested_checkboxes = 1
@@ -285,8 +290,13 @@ let g:checkbox_states = [' ', 'x','a','b','o']
 let g:insert_checkbox_suffix = ' '
 "" insert a-task list at beginning of line
 nmap <leader>T 0i- [a] <Esc> 
+" Make list of links
+nnoremap <leader>L :%s/^\[/- \[/<CR><leader>/
+
+" Multiple Cursors Paragraph
+nnoremap <leader>i vip<C-n>
 "" Turn block into list
-nmap <leader>L vip<C-v><S-i>- <Esc>
+nmap <leader>I vip<C-v><S-i>- <Esc>
 
 " Pandoc Settings
 autocmd FileType pandoc setlocal commentstring=<!--\ %s\ -->
@@ -300,13 +310,23 @@ let g:pandoc#syntax#style#emphases = 0
 
 set conceallevel=2
 
-" Insert Pandoc Link
-nnoremap <leader>i i](<Esc>pa)[<Esc>x
-" Make list of links
-nnoremap <leader>I :%s/^\[/- \[/<CR><leader>/
+
 " Pandoc everything
 au BufNewFile,BufRead *.md   set filetype=pandoc
 au BufNewFile,BufRead *.md   set syntax=pandoc
+
+" Zotero CSL
+
+function! ZoteroCite()
+  " pick a format based on the filetype (customize at will)
+  let format = &filetype =~ '.*tex' ? 'citep' : 'pandoc'
+  let api_call = 'http://127.0.0.1:23119/better-bibtex/cayw?format='.format.'&brackets=1'
+  let ref = system('curl -s '.shellescape(api_call))
+  return ref
+endfunction
+
+noremap <leader>d "=ZoteroCite()<CR>p
+inoremap <C-z> <C-r>=ZoteroCite()<CR>
 
 " Bibtex
 let $FZF_BIBTEX_SOURCES = '/Users/svartfax/notes/lib.bib'
@@ -325,26 +345,27 @@ call fzf#run({
                         \ 'up': '40%',
                         \ 'options': '--ansi --multi --prompt "Cite> "'})
 endfunction
+"
+"" Insert Citation
+"
+"function! Citation()
+"
+  "function! Bibtex_markdown_sink(lines) 
+    "let r=system("bibtex-markdown ", a:lines)
+    "execute ':normal! i' . r
+  "endfunction
+"
+"
+"call fzf#run({
+                        "\ 'source': 'bibtex-ls',
+                        "\ 'sink*': function('Bibtex_markdown_sink'),
+                        "\ 'up': '40%',
+								"\ 'options': '--ansi --multi --prompt ""Markdown> "'})
+"endfunction
+"
+"" Bibtex Mapping
+nnoremap <leader>D :call CiteKey()<CR>
+"nnoremap <leader>D :call Citation()<CR>
 
-" Insert Citation
-
-function! Citation()
-
-  function! Bibtex_markdown_sink(lines) 
-    let r=system("bibtex-markdown ", a:lines)
-    execute ':normal! i' . r
-  endfunction
-
-
-call fzf#run({
-                        \ 'source': 'bibtex-ls',
-                        \ 'sink*': function('Bibtex_markdown_sink'),
-                        \ 'up': '40%',
-								\ 'options': '--ansi --multi --prompt "Markdown> "'})
-endfunction
-
-" Bibtex Mapping
-nnoremap <leader>d :call CiteKey()<CR>
-nnoremap <leader>D :call Citation()<CR>
-
-nmap <leader>M yiw:silent !paper <C-R><C-R>+
+nmap <leader>M yiw:terminal paper <C-R><C-R>+
+nmap <leader>m <leader>Y:terminal preview <C-R><C-R>+
