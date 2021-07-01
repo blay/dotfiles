@@ -177,14 +177,14 @@ map <leader>- <Plug>(easymotion-overwin-f)[
 nmap - <Plug>(easymotion-overwin-f)[
 map <leader>G :e <cfile><CR>
 map <leader>g gF
-map <leader>ö f[w
+map <leader>ö /[[<CR><leader>/
 
 " Tab between buffers
 noremap <leader><tab> :tabNext<CR>
 " These will make it so that going to the next one in a 
 " search will center on the line it's found in. 
-map N Nzz 
-map n nzz 
+nnoremap n nzz 
+nnoremap N Nzz 
 " Clear search
 nmap <silent> <leader>/ :let @/ = ""<CR>
 " Save with sudo 
