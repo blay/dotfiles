@@ -15,6 +15,7 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'dahu/vim-fanfingtastic'
 Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
+Plug 'tversteeg/registers.nvim'
 
 " Zettel
 
