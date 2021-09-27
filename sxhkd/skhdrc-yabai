@@ -1,5 +1,5 @@
 # opens iTerm2
-alt - return : "${HOME}"/.shell/open_iterm2.sh
+alt - o : "${HOME}"/.shell/open_iterm2.sh
 
 # Open Firefox
 
