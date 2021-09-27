@@ -247,3 +247,4 @@ prompt steeef
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export PATH=/opt/homebrew/bin:/usr/local/Cellar/zplug/2.4.2/bin:/Users/svartfax/bin/annot2md/bin:/Users/svartfax/.npm-global/bin:/Users/svartfax/go/bin:/Users/svartfax/bin/:/Users/svartfax/bin/go/bin:/Users/svartfax/bin/gems/bin:/Users/svartfax/.local/bin:/Users/svartfax/.shell:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/svartfax/.emacs.d/bin:/Users/svartfax/.fzf/bin
