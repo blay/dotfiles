@@ -89,7 +89,6 @@ alias av="ag --nobreak --nonumbers --noheading . | fzf"
 alias auid="xargs -i ag -g {}"
 alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
 
-#alias fd=fdfind
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'
 alias rnd='ls|sort -R' 
