@@ -115,7 +115,7 @@ map <space> <leader>
 map "," <leader>
 " Ö as colon
 nmap ö :
-" Switch : and .
+" Switch :; and .
 nnoremap . :
 nnoremap ; .
 " Better Undo
@@ -227,7 +227,8 @@ map <leader>Ö <leader>Y:silent !zdisp <C-R><C-R>+<CR>
 " Agenda
 map <leader>p :buffer agenda<CR>
 map <leader>P :terminal agenda<CR>:set filetype=pandoc<CR>
-map <C-p> :execute 'e ' . strftime("%Y%m%d") . '.md'<CR>
+map <leader>å :execute 'e ' . strftime("%Y%m%d") . '.md'<CR>
+map <silent> <leader>Å :execute 'e ' . strftime( "%Y%m%d", localtime() + (24 * 3600) ) . '.md'<CR>
 
 " CtrlSF
 let g:ctrlsf_default_root = "project" 
@@ -245,8 +246,8 @@ let g:ctrlsf_extra_backend_args = {
 map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R " \[[a]\] "
 
 " Git search
-map <leader>å :Gblame<CR>
-map <leader>Å :GV! -p<CR>:BLines<CR>
+map <leader>ä :Gblame<CR>
+map <leader>Ä :GV! -p<CR>:BLines<CR>
 
 " VimRoom
 nnoremap <silent> <Leader>r :Goyo<CR>:Limelight!!<CR>
