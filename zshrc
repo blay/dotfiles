@@ -18,6 +18,7 @@ if [[ $(uname) == Linux ]]; then
   alias pbcopy='xclip -selection c'
   alias pbpaste='xclip -o'
   alias vim='nvim'
+  alias fd='fdfind'
   export VISUAL='nvim'
 #  alias ack='ack-grep'
  else
@@ -239,6 +240,7 @@ zplug "clvv/fasd"
 zplug "b4b4r07/enhancd"
 zplug "junegunn/fzf"
 zplug "Peltoche/lsd"
+zplug "zsh-users/zsh-history-substring-search"
 
 autoload -Uz promptinit
 promptinit
