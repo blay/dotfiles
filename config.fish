@@ -163,4 +163,6 @@ export PATH=~/.npm-global/bin:$PATH
 # Annot2md path
 export PATH=~/bin/annot2md/bin:$PATH
 
-export PATH=/Users/svartfax/bin/annot2md/bin:/Users/svartfax/.npm-global/bin:/Users/svartfax/go/bin:/Users/svartfax/bin/:/Users/svartfax/bin/go/bin:/Users/svartfax/bin/gems/bin:/Users/svartfax/.local/bin:/Users/svartfax/.shell:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/svartfax/.emacs.d/bin:/Users/svartfax/.fzf/bin
+export PATH=/Users/svartfax/bin/annot2md/bin:/Users/svartfax/.npm-global/bin:/Users/svartfax/go/bin:/Users/svartfax/bin/:/Users/svartfax/bin/go/bin:/Users/svartfax/bin/gems/bin:/Users/svartfax/.local/bin:/Users/svartfax/.shell:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/svartfax/.emacs.d/bin:/Users/svartfax/.fzf/bin:/opt/homebrew/bin/
+
+starship init fish | source
