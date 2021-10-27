@@ -19,6 +19,10 @@ Plug 'tversteeg/registers.nvim'
 
 " Zettel
 
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'dkarter/bullets.vim'
@@ -32,6 +36,7 @@ Plug 'inkarkat/vim-SpellCheck' | Plug 'inkarkat/vim-ingo-library'
 Plug 'sotte/presenting.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'jkramer/vim-checkbox'
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 " Themes
 
@@ -243,7 +248,7 @@ let g:ctrlsf_extra_backend_args = {
     \ }
 
 " todo Mappings
-map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R " \[[a]\] "
+map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R "\s\[[a]\]\s"
 
 " Git search
 map <leader>ä :Gblame<CR>

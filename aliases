@@ -26,6 +26,7 @@ alias zc="vim ~/.zshrc"
 alias zshconfig="vim ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias zshsource="source ~/.zshrc"
+alias za="nvim ~/.aliases"
 
 alias svim="sudo -E nvim"
 alias em="emacsclient -a '' -qc"
@@ -176,7 +177,7 @@ alias cdn='cd ~/notes'
 alias cdo='cd ~/notes/org'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
-alias cdx='cd ~/notes/hexo'
+alias cdx='cd ~/notes/latex'
 alias cdbl='cd ~/notes/blay.se'
 alias cdcv='cd ~/notes/cv.blay.se'
 alias cdha='cd ~/notes/hack'
@@ -220,6 +221,6 @@ export PATH=~/bin/annot2md/bin:$PATH
 #kitty + complete setup zsh | source /dev/stdin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type file --color=auto --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PATH="/opt/homebrew/bin:/Users/svartfax/bin/annot2md/bin:/Users/svartfax/.npm-global/bin:/Users/svartfax/go/bin:/Users/svartfax/bin/:/Users/svartfax/bin/go/bin:/Users/svartfax/bin/gems/bin:/Users/svartfax/.local/bin:/Users/svartfax/.shell:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/svartfax/.emacs.d/bin:/Users/svartfax/.fzf/bin:$PATH"
