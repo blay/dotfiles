@@ -19,9 +19,9 @@ Plug 'tversteeg/registers.nvim'
 
 " Zettel
 
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
 Plug 'dyng/ctrlsf.vim'
@@ -54,7 +54,7 @@ call plug#end()
 
 " General Settings "
 
-language en_US.UTF-8
+"language en_US.UTF-8
 set encoding=UTF-8
 set shell=zsh
 
@@ -220,6 +220,8 @@ let g:fzf_action = {
 command! -bang -nargs=? -complete=dir CFiles call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--info=inline', '-q '.shellescape(expand("<cword>"))]}), <bang>0)
 
 nnoremap <leader>a :lcd ~/zettel<CR>:Rg<CR>
+"nnoremap <leader>a :lcd ~/zettel<CR>:Telescope live_grep<CR>
+
 map <leader>A :lcd ~/zettel<CR>:CtrlSF -R -G "*20*" '<C-R><C-R>+'<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>F :CFiles<CR><BS>
@@ -251,7 +253,7 @@ let g:ctrlsf_extra_backend_args = {
 map <leader><CR> :lcd ~/zettel<CR>:CtrlSF -R "\s\[[a]\]\s"
 
 " Git search
-map <leader>ä :Gblame<CR>
+map <leader>ä :Git blame<CR>
 map <leader>Ä :GV! -p<CR>:BLines<CR>
 
 " VimRoom
@@ -371,6 +373,8 @@ endfunction
 "
 "" Bibtex Mapping
 nnoremap <leader>D :call CiteKey()<CR>
+inoremap <C-c> []<Esc>:call CiteKey()<CR>
+
 "nnoremap <leader>D :call Citation()<CR>
 
 nmap <leader>M yiw:terminal paper <C-R><C-R>+

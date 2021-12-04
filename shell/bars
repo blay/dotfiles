@@ -1,0 +1,51 @@
+#!/bin/bash
+#-------------------------------------------------------------------------------
+# draw-histogram - generates an ASCII-art histogram (bar chart) from input data.
+#-------------------------------------------------------------------------------
+# Expects a series of lines of the form `<category-name> <count>` to passed
+# via stdin.
+#
+# Generates a table the looks something like the following:
+#
+#  +-------+----+
+#  |   foo | 10 | ##########
+#  |   bar | 21 | #####################
+#  | xyzzy | 12 | ############
+#  +-------+----+
+#
+# Where the width of the category and count fields is automatically determined
+# and the number of hash-marks (`#`) is scaled to fit with the current width
+# of the terminal.
+#
+# Requires `tput` and `bc`
+#
+# Example:
+#
+#   echo -e "foo 10\nbar 21\nxyzzy 12" | draw-histogram
+#
+#-------------------------------------------------------------------------------
+# rodw <https://gist.github.com/rodw>                        rev. 1 / 2018-02-26
+#-------------------------------------------------------------------------------
+INPUT=$(cat)
+# determine the largest count in the input data
+MAX_VALUE=$(echo "$INPUT" | sort -k2 -n | tail -1 | awk '{print $2}')
+# determine the width of the largest count in the input data
+MAX_VALUE_WIDTH=$(echo "$MAX_VALUE" | wc -c)
+MAX_VALUE_WIDTH=$(($MAX_VALUE_WIDTH-1))
+# determine the width of the largest category name in the input data
+MAX_CAT_WIDTH=$(echo "$INPUT" | awk '{printf("%s\n",$1)}' | wc -L)
+# calculate the width of the label section ('| <CAT> | <CNT> |`)
+LABEL_WIDTH=$((MAX_VALUE_WIDTH + MAX_CAT_WIDTH + 7))
+# determine how many columns are available for the bar chart (with some extra padding)
+NUM_COLS=$(($(tput cols) - LABEL_WIDTH - 5 ))
+# calculate the number of elements each character in the chart represents, with a minimum value of 1
+STEP=$( echo -e "1\n`bc -l <<< "($MAX_VALUE / $NUM_COLS)"`" | sort -n | tail -1)
+# print the table header
+echo "" | awk -v VW=$MAX_VALUE_WIDTH -v CW=$MAX_CAT_WIDTH '{printf("+ %*s + %*s +", CW, "", VW, "")}' | tr ' ' '-'
+# print the table itself
+echo "$INPUT" | awk -v VW=$MAX_VALUE_WIDTH -v CW=$MAX_CAT_WIDTH '{printf("\n| %*s | %*d |", CW, $1, VW, $2)}' | awk -v STEP=$STEP '{printf("\n%s ", $0) ; for (i = 0; i<$4; i+=STEP) { printf("#")};}' | grep -v "^\$"
+# print the table footer
+echo "" | awk -v VW=$MAX_VALUE_WIDTH -v CW=$MAX_CAT_WIDTH '{printf("+ %*s + %*s +", CW, "", VW, "")}' | tr ' ' '-'
+# print a trailing newline
+echo ""
+

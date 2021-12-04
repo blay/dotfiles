@@ -1,0 +1,35 @@
+#!/bin/bash
+
+time=${2-1}
+
+if [ -z $1 ]
+then
+    select="origin/master"
+    message="Since last commit"
+else
+    select="HEAD@{$time $1 ago}"
+    message="In the last $time $1"
+fi
+
+cat=("phd-" "tii-" "bl-" )
+words=()
+
+echo "# $message, you have written the following words:"
+
+for str in ${cat[@]}; do
+  gitwa=$(git diff --word-diff=porcelain "$select" *$str*.md| grep -e "^+[^+]" | wc -w | xargs)
+  gitwd=$(git diff --word-diff=porcelain "$select" *$str*.md| grep -e "^-[^-]" | wc -w | xargs)
+  
+  gitw=$((gitwa-gitwd))
+
+  words+=("$gitw $str")
+done
+
+  gitwa=$(git diff --word-diff=porcelain "$select" | grep -e "^+[^+]" | wc -w | xargs)
+  gitwd=$(git diff --word-diff=porcelain "$select" | grep -e "^-[^-]" | wc -w | xargs)
+  
+  gitw=$((gitwa-gitwd))
+
+  words+=("$gitw TOTAL")
+
+  printf '%s\n' "${words[@]}"|sort -n

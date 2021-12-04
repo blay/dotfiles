@@ -9,7 +9,7 @@ antigen theme spaceship-prompt/spaceship-prompt
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle compleat
-antigen bundle osx
+antigen bundle macos
 antigen bundle z
 #antigen bundle Aloxaf/fzf-tab
 antigen bundle clvv/fasd

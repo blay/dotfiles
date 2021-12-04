@@ -29,6 +29,4 @@ do
 
     # Capture a moment at the time of a present from the melting and place it in a book, named after the timestamp of its moment.
     ffmpeg -ss $MOMENT -i $1 -frames:v 1 $BOOK/$MOMENT.jpg
-
-# All operations are done, object has melted.
 done

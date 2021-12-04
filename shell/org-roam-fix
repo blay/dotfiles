@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Rename tii => ri and phd => pd
+
+printf "Renaming tii => ri..."
+
+for file in *-tii-*.md; do 
+    target=$(echo $file|sed -e 's/-tii-/-ri-/g') 
+    mv "$file" "$target"
+done
+
+printf "Renaming -phd- => -pd-..."
+
+for file in *-phd-*.md; do 
+    target=$(echo $file|sed -e 's/-phd-/-pd-/g') 
+    mv "$file" "$target"
+done
+
+# Pandoc from md to org
+
+#printf "Converting from md to org..."
+#find ./ -iname "*.md" -type f -exec sh -c 'pandoc --wrap=none --lua-filter=remove-properties.lua "${0}" -o "${0%.md}.org"' {} \;
+
+# insert title and id
+
+printf "inserting title and id"
+for file in *.org; do 
+    emacs "${file}"  -Q --batch -l batch.el --eval "(progn (contain-prop) (save-buffer))"
+done
+
+printf " Fixing links targets..."
+
+sed -i 's/\[\[\([0-9]\{12\}\)/\[\[id:\1\]\[\1/g' *.org
+sed -i 's/.md\]\]/.org\]\]/g' *.org
+sed -e 's/-tii-/-ri-/g' *.org
+sed -e 's/-phd-/-pd-/g' *.org
+
+printf "Fixing cite"
+sed -i 's/\[@/\[cite:@/g' *.org
+
