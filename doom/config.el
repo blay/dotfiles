@@ -116,7 +116,7 @@
 
 
 ;;;;;; Dailies
-(setq org-roam-dailies-directory "")
+(setq org-roam-dailies-directory "daily")
 
 (setq org-roam-dailies-capture-templates
      '(("d" "default" entry
@@ -137,7 +137,7 @@
         :desc "today's note" "d" #'org-roam-dailies-goto-today
         :desc "grep in project" "j" #'affe-grep
         :desc "last buffer" "k" #'evil-switch-to-windows-last-buffer
-        :desc "recent files" "l" #'consult-recent-file
+        :desc "Open link hint" "l" #'link-hint-open-link
         )
 ;; Custom Functions
 ;;
