@@ -16,6 +16,13 @@ for file in *-phd-*.md; do
     mv "$file" "$target"
 done
 
+printf "Renaming -zet- => -zk-..."
+
+for file in *-zet-*.md; do 
+    target=$(echo $file|sed -e 's/-zet-/-zk-/g') 
+    mv "$file" "$target"
+done
+
 # Pandoc from md to org
 
 #printf "Converting from md to org..."
