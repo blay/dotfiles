@@ -120,8 +120,8 @@
   (org-journal-file-format "%Y%m000000-%B.org")
   (org-journal-date-prefix "* ")
   (org-journal-date-format "%A, %d %B")
-  (setq org-journal-time-format "")
-  (setq org-journal-time-prefix "")
+  (org-journal-time-format "")
+  (org-journal-time-prefix "")
   )
 
 ;;;;;; id-timestampe
