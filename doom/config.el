@@ -33,7 +33,6 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/notes/org/")
-(setq org-roam-directory "~/notes/org/")
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
@@ -113,30 +112,85 @@
 (after! citar
 (setq! citar-bibliography '("~/notes/lib.bib"))
   )
+;;;;;; Org-journal
+(use-package org-journal
+  :custom
+  (org-journal-dir "~/notes/org")
+  (org-journal-file-type 'monthly "#+TITLE: Monthly Journal %B %Y\n")
+  (org-journal-file-format "%Y%m000000-%B.org")
+  (org-journal-date-prefix "* ")
+  (org-journal-date-format "%A, %d %B")
+  (setq org-journal-time-format "")
+  (setq org-journal-time-prefix "")
+  )
 
 ;;;;;; id-timestampe
 (setq org-id-ts-format "%Y%m%d%H%M")
 (setq org-id-method 'ts)
 
-;;;;;; Default template
+;; Org Roam Config
 
-(setq org-roam-capture-templates
+(use-package! org-roam
+  :hook
+  (after-init . org-roam-mode)
+   :custom
+  (org-roam-directory "~/notes/org")
+;;;;;; Default template
+(org-roam-capture-templates
 '(("d" "default" plain "%?" :target
   (file+head "%<%Y%m%d%H%M>-${slug}.org" "#+title: %<%Y%m%d%H%M>-${title}.org
         ")
   :unnarrowed t))
 )
-
-
 ;;;;;; Dailies
-(setq org-roam-dailies-directory "daily")
-
-(setq org-roam-dailies-capture-templates
+(org-roam-dailies-directory "daily")
+(org-roam-dailies-capture-templates
      '(("d" "default" entry
        "* %?"
          :target (file+head "%<%Y%m%d>0000.org"
                             "#+title: %<%Y%m%d>0000\n"))))
+:config
+(cl-defmethod org-roam-node-slug ((node org-roam-node))
+  "Return the slug of NODE."
+  (let ((title (org-roam-node-title node))
+        (slug-trim-chars '(;; Combining Diacritical Marks https://www.unicode.org/charts/PDF/U0300.pdf
+                           768 ; U+0300 COMBINING GRAVE ACCENT
+                           769 ; U+0301 COMBINING ACUTE ACCENT
+                           770 ; U+0302 COMBINING CIRCUMFLEX ACCENT
+                           771 ; U+0303 COMBINING TILDE
+                           772 ; U+0304 COMBINING MACRON
+                           774 ; U+0306 COMBINING BREVE
+                           775 ; U+0307 COMBINING DOT ABOVE
+                           776 ; U+0308 COMBINING DIAERESIS
+                           777 ; U+0309 COMBINING HOOK ABOVE
+                           778 ; U+030A COMBINING RING ABOVE
+                           780 ; U+030C COMBINING CARON
+                           795 ; U+031B COMBINING HORN
+                           803 ; U+0323 COMBINING DOT BELOW
+                           804 ; U+0324 COMBINING DIAERESIS BELOW
+                           805 ; U+0325 COMBINING RING BELOW
+                           807 ; U+0327 COMBINING CEDILLA
+                           813 ; U+032D COMBINING CIRCUMFLEX ACCENT BELOW
+                           814 ; U+032E COMBINING BREVE BELOW
+                           816 ; U+0330 COMBINING TILDE BELOW
+                           817 ; U+0331 COMBINING MACRON BELOW
+                           )))
+    (cl-flet* ((nonspacing-mark-p (char)
+                                  (memq char slug-trim-chars))
+               (strip-nonspacing-marks (s)
+                                       (ucs-normalize-NFC-string
+                                        (apply #'string (seq-remove #'nonspacing-mark-p
+                                                                    (ucs-normalize-NFD-string s)))))
+               (cl-replace (title pair)
+                           (replace-regexp-in-string (car pair) (cdr pair) title)))
+      (let* ((pairs `(("[^[:alnum:][:digit:]]" . "-") ;; convert anything not alphanumeric
+                      ("--*" . "-")                   ;; remove sequential underscores
+                      ("^-" . "")                     ;; remove starting underscore
+                      ("-$" . "")))                   ;; remove ending underscore
+             (slug (-reduce-from #'cl-replace (strip-nonspacing-marks title) pairs)))
+        (downcase slug)))))
 
+)
 (use-package! websocket
     :after org-roam)
 
@@ -171,12 +225,16 @@
 (define-key evil-motion-state-map "\C-e" 'evil-end-of-line)
 (map! :leader
         :desc "Correct previous error" "r" #'flyspell-correct-previous
-        :desc "today's note" "D" #'org-roam-dailies-goto-today
+        :desc "today's note" "D" #'org-journal-new-entry
         :desc "today's note" "d" #'org-agenda
         :desc "grep in project" "j" #'consult-ripgrep
         :desc "last buffer" "k" #'evil-switch-to-windows-last-buffer
         :desc "Open link hint" "l" #'link-hint-open-link
         )
+;; Fold previous header level
+(global-set-key (kbd "C-c k") (lambda () (interactive)
+  (outline-up-heading 1)
+  (org-cycle)))
 
 ;; Mark Paragraph as list
 ;;
