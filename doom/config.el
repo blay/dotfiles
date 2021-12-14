@@ -123,6 +123,9 @@
   (org-journal-time-format "")
   (org-journal-time-prefix "")
   )
+;;;;;; Org-agenda
+
+(setq org-agenda-skip-deadline-prewarning-if-scheduled t)
 
 ;;;;;; id-timestampe
 (setq org-id-ts-format "%Y%m%d%H%M")
@@ -135,6 +138,7 @@
   (after-init . org-roam-mode)
    :custom
   (org-roam-directory "~/notes/org")
+  (org-roam-db-location "~/notes/org-roam.db")
 ;;;;;; Default template
 (org-roam-capture-templates
 '(("d" "default" plain "%?" :target
