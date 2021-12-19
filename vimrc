@@ -28,7 +28,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'blay/vim-pandoc-syntax'
 Plug 'vim-voom/VOoM'
-Plug 'jceb/vim-orgmode'
+"Plug 'jceb/vim-orgmode'
 Plug 'chrisbra/NrrwRgn'
 Plug 'masukomi/vim-markdown-folding'
 Plug 'vim-pandoc/vim-pandoc'
@@ -38,6 +38,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'jkramer/vim-checkbox'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-orgmode/orgmode'
 " Themes
 
 Plug 'junegunn/goyo.vim'

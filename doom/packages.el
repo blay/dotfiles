@@ -51,3 +51,5 @@
 (unpin! org-roam)
 (package! org-roam-ui)
 (package! vulpea)
+(package! visual-regexp)
+(package! visual-regexp-steroids)

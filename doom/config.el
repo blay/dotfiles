@@ -32,7 +32,7 @@
 'doom-molokai))
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/notes/org/")
+(setq org-directory "~/Dropbox/notes/org/")
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
@@ -137,8 +137,9 @@
   :hook
   (after-init . org-roam-mode)
    :custom
-  (org-roam-directory "~/notes/org")
-  (org-roam-db-location "~/notes/org-roam.db")
+  (org-roam-directory "~/Dropbox/notes/org")
+  ;(org-roam-db-location "~/Dropbox/notes/org-roam.db")
+  (org-roam-db-location (file-truename (concat "~/Dropbox/notes/" system-name ".roam.db")))
 ;;;;;; Default template
 (org-roam-capture-templates
 '(("d" "default" plain "%?" :target

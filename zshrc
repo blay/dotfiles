@@ -11,7 +11,7 @@ zgen oh-my-zsh plugins/command-not-found
 # Load Github Plugins
 zgen load zsh-users/zsh-autosuggestions
 zgen load zsh-users/zsh-syntax-highlighting
-
+zgen load zsh-users/zsh-completions
 # Load theme
 zgen oh-my-zsh themes/steeef
 
