@@ -29,7 +29,7 @@
 (setq doom-theme
       (if (string-equal (format-time-string "%A") "Monday")
 'doom-gruvbox
-'doom-ayu-mirage))
+'doom-molokai))
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/notes/org/")

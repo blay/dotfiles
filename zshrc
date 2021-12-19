@@ -1,24 +1,24 @@
-# OSX antigen file
-source ~/bin/antigen.zsh
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-# Load the theme
-antigen theme spaceship-prompt/spaceship-prompt
+# load zgen
+source "${HOME}/.zgen/init.zsh"
+# if the init script doesn't exist
+if ! zgen saved; then
 
-# Plugins
-antigen bundle git
-antigen bundle command-not-found
-antigen bundle compleat
-antigen bundle macos
-antigen bundle z
-#antigen bundle Aloxaf/fzf-tab
-antigen bundle clvv/fasd
-#antigen bundle b4b4r07/enhancd
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
+# Load oh-my-zsh base and plugins
+zgen oh-my-zsh
+zgen oh-my-zsh plugins/git
+zgen oh-my-zsh plugins/command-not-found
 
-# Tell Antigen that you're done.
-antigen apply
+# Load Github Plugins
+zgen load zsh-users/zsh-autosuggestions
+zgen load zsh-users/zsh-syntax-highlighting
+
+# Load theme
+zgen oh-my-zsh themes/steeef
+
+
+  # generate the init script from plugins above
+  zgen save
+fi
 
 # Load custom aliases
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
