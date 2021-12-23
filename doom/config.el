@@ -115,9 +115,9 @@
 ;;;;;; Org-journal
 (use-package org-journal
   :custom
-  (org-journal-dir "~/notes/org")
+  (org-journal-dir "~/notes/org/jott")
   (org-journal-file-type 'monthly "#+TITLE: Monthly Journal %B %Y\n")
-  (org-journal-file-format "%Y%m000000-%B.org")
+  (org-journal-file-format "%Y%m000000-M-gt-%B.org")
   (org-journal-date-prefix "* ")
   (org-journal-date-format "%A, %d %B")
   (org-journal-time-format "")

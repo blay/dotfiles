@@ -38,7 +38,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'jkramer/vim-checkbox'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-orgmode/orgmode'
 " Themes
 
