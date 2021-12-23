@@ -87,26 +87,46 @@
 (unless (file-exists-p ispell-personal-dictionary)
   (write-region "" nil ispell-personal-dictionary nil 0))
 
-;; (add-to-list 'ispell-dictionary-alist '(("svenska"
-;; "[A-ZÖÄÅa-zöäå]"
-;; "[^A-ZÖÄÅa-zöäå]"
-;; "[']"
-;; nil
-;; ("-d" "sv_SE")
-;; t
-;; utf-8)
-;; ("american"
-;; "[[:alpha:]]"
-;; "[^[:alpha:]]"
-;; "[']"
-;; t
-;; ("-d" "en_US")
-;; nil
-;; utf-8)))
-
 ;; Default and per-save backups go here:
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup/per-save")))
-;;;; Org-Roam
+;;;; Org
+
+(after! org
+(setq org-todo-keywords
+        '((sequence "TODO(t)" "SOME(s)" "|" "DONE(d!)" "CANC(c@)")))
+  )
+;;;;;; Org-agenda
+
+(setq org-agenda-custom-commands '(
+                                   ("d" "Daily Schedule"
+                                   (
+                                    (agenda "" (
+                                    (org-agenda-overriding-header "Scheduled Today")
+                                    (org-agenda-ndays 1)
+                                    (org-agenda-start-day "+0")
+                                    (org-agenda-span 'day)
+                                    (org-agenda-entry-types '(:scheduled))
+                                     ))
+                                    (agenda "" (
+                                     (org-agenda-overriding-header "Deadlines 7 Days")
+                                     (org-agenda-entry-types '(:deadline))
+                                     (org-agenda-ndays 7)
+                                     (org-agenda-start-day "+0")
+                                     (org-agenda-span 'day)
+                                     (org-deadline-warning-days 8)
+                                     (org-agenda-time-grid nil)
+                                     (org-agenda-dim-blocked-tasks t)
+                                     ))
+                                    (todo ""
+                                           ((org-agenda-overriding-header "\nUnscheduled TODO")
+                                            (org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp))))
+                                    (tags "PRIORITY=\"A\"\"" (
+                                                   (org-agenda-overriding-header "Priority Tasks")
+                                                   (org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp))
+                                                   ))
+
+                                    ))
+                                   ))
 
 ;;;;;; Citation
 (after! citar
@@ -251,6 +271,15 @@
                  #'+org-present--hide-first-heading-maybe-a)
   )
 (setq org-tree-slide-cursor-init nil)
+;; Native Power
+(when (and (fboundp 'native-comp-available-p)
+           (native-comp-available-p))
+  (progn
+    (setq native-comp-async-report-warnings-errors nil)
+    (setq comp-deferred-compilation t)
+    (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
+    (setq package-native-compile t)
+    ))
 ;; Custom Functions
 ;;
 
