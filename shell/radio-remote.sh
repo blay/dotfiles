@@ -32,7 +32,7 @@ read -n1 -p "Select station: " station
             ;;
         [+]* ) 
             clear
-            echo "Playing: $(mpc current)"
+            echo "Playing: $(ssh pi 'mpc current')"
             ssh $pi 'espeak "$(mpc current)"'
             ssh $pi 'mpc play'
             ;;
