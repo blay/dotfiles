@@ -1,0 +1,2 @@
+#!/bin/bash
+vlc $1 & disown $!
