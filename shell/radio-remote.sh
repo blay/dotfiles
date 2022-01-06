@@ -4,6 +4,8 @@ station_names="
 [2] NTS2
 [3] Resonance.fm
 [4] Radio Flouka
+[5] Sub FM
+[6] BBC 6
 [0] Next Station
 [+] Play
 [-] Pause
@@ -37,6 +39,16 @@ read -n1 -p "Select station: " station
             echo Radio Flouka
             ssh $pi 'mpc play 4'
             ;;
+        [5]* ) 
+            clear
+            echo Sub FM
+            ssh $pi 'mpc play 5'
+            ;;
+        [6]* ) 
+            clear
+            echo BBC 6
+            ssh $pi 'mpc play 6'
+            ;;
         [0]* ) 
             clear
             echo Next
@@ -44,7 +56,7 @@ read -n1 -p "Select station: " station
             ;;
         [+]* ) 
             clear
-            echo "Playing: $(ssh pi 'mpc current')"
+            echo "Playing: $(ssh $pi 'mpc current')"
             ssh $pi 'espeak "$(mpc current)"'
             ssh $pi 'mpc play'
             ;;
