@@ -240,6 +240,10 @@
                   (window-width . 0.25)
                   (window-height . fit-window-to-buffer)))
 
+;; Org Bemaer Settings
+(setq org-beamer-theme "metropolis")
+(setq org-export-with-toc 'nil)
+(setq org-latex-logfiles-extensions (quote("aux" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv" "tex")))
 ;; Custom Keymaps
 ;;
 (define-key evil-motion-state-map "j" 'evil-next-visual-line)
