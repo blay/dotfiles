@@ -116,8 +116,9 @@
                                      (org-deadline-warning-days 8)
                                      (org-agenda-time-grid nil)
                                      (org-agenda-dim-blocked-tasks t)
+                                     (org-agenda-skip-deadline-prewarning-if-scheduled t)
                                      ))
-                                    (todo ""
+                                    (todo "TODO"
                                            ((org-agenda-overriding-header "\nUnscheduled TODO")
                                             (org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp))))
                                     (tags "PRIORITY=\"A\"\"" (
@@ -126,7 +127,29 @@
                                                    ))
 
                                     ))
-                                   ))
+                                ("f" "Future Deadlines"
+                                   (
+                                    (agenda "" (
+                                     (org-agenda-overriding-header "Deadlines next 30 days")
+                                     (org-agenda-entry-types '(:deadline))
+                                     (org-agenda-ndays 30)
+                                     (org-agenda-start-day "+0")
+                                     (org-agenda-span 'day)
+                                     (org-deadline-warning-days 29)
+                                     (org-agenda-time-grid nil)
+                                     (org-agenda-dim-blocked-tasks t)
+                                     (org-agenda-skip-deadline-prewarning-if-scheduled nil)
+                                     ))
+                                    ))
+                                ("x" "Someday"
+                                   (
+                                     (todo "SOME"
+                                     ((org-agenda-overriding-header "\nThings to do someday")
+
+                                     ))
+                                    ))
+
+                                ))
 
 ;;;;;; Citation
 (after! citar
@@ -253,12 +276,14 @@
 (define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
 (define-key evil-motion-state-map "\C-e" 'evil-end-of-line)
 (map! :leader
-        :desc "Correct previous error" "r" #'flyspell-correct-previous
+        :desc "Correct previous error" "e" #'flyspell-correct-previous
+        :desc "Insert Citation" "r" #'citar-insert-citation
         :desc "today's note" "D" #'org-journal-new-entry
-        :desc "today's note" "d" #'org-agenda
+        :desc "today's tasks" "d" #'org-agenda
         :desc "grep in project" "j" #'consult-ripgrep
         :desc "last buffer" "k" #'evil-switch-to-windows-last-buffer
         :desc "Open link hint" "l" #'link-hint-open-link
+        :desc "Show only current header" "y" #'org-show-current-heading
         )
 ;; Fold previous header level
 (global-set-key (kbd "C-c k") (lambda () (interactive)
@@ -476,3 +501,18 @@ If nil it defaults to `split-string-default-separators', normally
     (when (re-search-forward (concat "\\(^#\\+" name ":.*\n?\\)")
                              (point-max) t)
       (replace-match ""))))
+
+(defun org-show-current-heading ()
+  (interactive)  ;Inteactive
+  "Show next entry, keeping other entries closed."
+  (if (save-excursion (end-of-line) (outline-invisible-p))
+      (progn (org-show-entry) (show-children))
+    (outline-back-to-heading)
+    (unless (and (bolp) (org-on-heading-p))
+      (org-up-heading-safe)
+      (hide-subtree)
+      (error "Boundary reached"))
+    (org-overview)
+    (org-reveal t)
+    (org-show-entry)
+    (show-children)))
