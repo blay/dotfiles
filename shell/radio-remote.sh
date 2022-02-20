@@ -11,7 +11,7 @@ station_names="
 [-] Pause
 "
 
-pi="pi@192.168.0.7"
+pi="mypi"
 
 while :
 do
