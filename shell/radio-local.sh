@@ -11,8 +11,6 @@ station_names="
 [-] Pause
 "
 
-
-
 while :
 do
 

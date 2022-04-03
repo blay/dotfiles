@@ -21,6 +21,8 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+;;(setq doom-font (font-spec :family "Menlo" :size 12 :weight 'medium))
+(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'medium))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -181,6 +183,7 @@
   (after-init . org-roam-mode)
    :custom
   (org-roam-directory "~/Dropbox/notes/org")
+  (+org-roam-open-buffer-on-find-file nil)
   ;(org-roam-db-location "~/Dropbox/notes/org-roam.db")
   (org-roam-db-location (file-truename (concat "~/Dropbox/notes/" system-name ".roam.db")))
 ;;;;;; Default template
@@ -277,13 +280,14 @@
 (define-key evil-motion-state-map "\C-e" 'evil-end-of-line)
 (map! :leader
         :desc "Correct previous error" "e" #'flyspell-correct-previous
-        :desc "Insert Citation" "r" #'citar-insert-citation
+        :desc "Insert Citation" "z" #'citar-insert-citation
         :desc "today's note" "D" #'org-journal-new-entry
         :desc "today's tasks" "d" #'org-agenda
         :desc "grep in project" "j" #'consult-ripgrep
         :desc "last buffer" "k" #'evil-switch-to-windows-last-buffer
         :desc "Open link hint" "l" #'link-hint-open-link
-        :desc "Show only current header" "y" #'org-show-current-heading
+        :desc "Show only current header" "r" #'org-show-current-heading
+        :desc "Copy Roam Link" "y" #'copy-link
         )
 ;; Fold previous header level
 (global-set-key (kbd "C-c k") (lambda () (interactive)
@@ -325,6 +329,17 @@
   (interactive)
   (kill-new
    (file-name-nondirectory buffer-file-name)))
+
+(defun copy-link ()
+  "Copy the filename of buffer"
+  (interactive)
+  (kill-new
+(concat "[[id:"
+   (substring
+    (file-name-nondirectory buffer-file-name)
+    0 12) "][" (file-name-nondirectory buffer-file-name) "]]"
+   )
+   ))
 
 (defun id-uid ()
 (interactive)
