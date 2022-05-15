@@ -4,7 +4,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(warning-suppress-types
-   '((after-save-hook)
+   '(((yasnippet zombie))
+     (after-save-hook)
      (after-save-hook)
      (before-save-hook)
      (emacs)

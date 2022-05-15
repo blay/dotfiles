@@ -1,0 +1,18 @@
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+
+Host mypi
+    HostName 192.168.0.3
+    User pi
+
+Host static
+    HostName static.blay.se
+    User monki
+
+Host dyno
+    HostName dyno.blay.se
+    User monki
+
+
