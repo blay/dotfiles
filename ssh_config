@@ -5,7 +5,7 @@ Host *
   IdentityFile ~/.ssh/id_rsa
 
 Host mypi
-    HostName 192.168.0.3
+    HostName 192.168.0.8
     User pi
 
 Host static

@@ -288,6 +288,7 @@
         :desc "Open link hint" "l" #'link-hint-open-link
         :desc "Show only current header" "r" #'org-show-current-heading
         :desc "Copy Roam Link" "y" #'copy-link
+        :desc "Query Replace Regexp" "-" #'query-replace-regexp
         )
 ;; Fold previous header level
 (global-set-key (kbd "C-c k") (lambda () (interactive)
