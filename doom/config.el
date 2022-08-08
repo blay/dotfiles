@@ -172,6 +172,8 @@
 
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
 
+;;;;;; Correct folds
+(setq org-fold-core-style 'overlays)
 ;;;;;; id-timestampe
 (setq org-id-ts-format "%Y%m%d%H%M")
 (setq org-id-method 'ts)

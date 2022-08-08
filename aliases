@@ -207,6 +207,8 @@ export PATH=$HOME/bin/gems/bin:$PATH
 export PATH=$HOME/bin/go/bin:$PATH
 export PATH=$HOME/bin/:$PATH
 
+# VCV Rack
+export RACK_DIR=~/builds/vcvrack/Rack-SDK
 # Golang
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH

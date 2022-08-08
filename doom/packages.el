@@ -53,3 +53,5 @@
 (package! vulpea)
 (package! visual-regexp)
 (package! visual-regexp-steroids)
+(package! magit-section)
+(package! exec-path-from-shell)

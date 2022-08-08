@@ -2,11 +2,17 @@ Host *
   AddKeysToAgent yes
   IgnoreUnknown UseKeychain
   UseKeychain yes
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_ed25519
 
 Host mypi
-    HostName 192.168.0.3
+    HostName 192.168.0.22
     User pi
+    IdentityFile ~/.ssh/id_rsa
+
+Host mypi-audio
+    HostName 192.168.0.19
+    User pi
+    
 
 Host static
     HostName static.blay.se
@@ -16,4 +22,6 @@ Host dyno
     HostName dyno.blay.se
     User monki
 
-
+Host rise
+    Hostname ssh.loopia.se
+    User k1otga
