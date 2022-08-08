@@ -61,6 +61,7 @@ alias cal="ncal -w"
 alias please="sudo"
 alias fucking="sudo"
 
+alias p="sudo pacman -Syu"
 alias freq="history | cut -c 8- | sort | uniq -c  | sort -n -r | head -n 20"
 
 alias vpn="nmcli con up client"
@@ -164,10 +165,10 @@ export TODOTXT_HOME=/$HARDHOME/$USER/.todo
 # source /$HARDHOME/$USER/.todo/todo_completion
 # complete -F _todo t
 
-alias p='python ~/.todo/Punch.py'
-n() {
-	    echo $(date "+%Y%m%dT%H%M%S => ") "$@" | tee -a ~/Dropbox/todo/notes.txt
-	}
+#alias p='python ~/.todo/Punch.py'
+#n() {
+#	    echo $(date "+%Y%m%dT%H%M%S => ") "$@" | tee -a ~/Dropbox/todo/notes.txt
+#	}
 
 # Common cd
 
@@ -225,4 +226,4 @@ export PATH=~/bin/annot2md/bin:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type file --color=auto --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export PATH="/opt/homebrew/bin:/Users/svartfax/bin/annot2md/bin:/Users/svartfax/.npm-global/bin:/Users/svartfax/go/bin:/Users/svartfax/bin/:/Users/svartfax/bin/go/bin:/Users/svartfax/bin/gems/bin:/Users/svartfax/.local/bin:/Users/svartfax/.shell:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/svartfax/.emacs.d/bin:/Users/svartfax/.fzf/bin:$PATH"
+export PATH="/opt/homebrew/bin:$HOME/bin/annot2md/bin:$HOME/.npm-global/bin:$HOME/go/bin:$HOME/bin/:$HOME/bin/go/bin:$HOME/bin/gems/bin:$HOME/.local/bin:$HOME/.shell:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:$HOME/.emacs.d/bin:$HOME/.fzf/bin:$PATH"

@@ -38,8 +38,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'jkramer/vim-checkbox'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'nvim-orgmode/orgmode'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'kristijanhusak/orgmode.nvim'
 " Themes
 
 Plug 'junegunn/goyo.vim'
@@ -89,6 +89,9 @@ set splitright
 
 "Transparent background in terminal
 hi Normal guibg=NONE ctermbg=NONE
+"Transparent gui
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
 
 " color linenumbers
 highlight LineNr ctermfg=lightblue
