@@ -97,6 +97,7 @@
 (setq org-todo-keywords
         '((sequence "TODO(t)" "SOME(s)" "|" "DONE(d!)" "CANC(c@)")))
   )
+(setq org-fold-core-style 'overlays)
 ;;;;;; Org-agenda
 
 (setq org-agenda-custom-commands '(
@@ -168,6 +169,7 @@
   (org-journal-time-format "")
   (org-journal-time-prefix "")
   )
+
 ;;;;;; Org-agenda
 
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
@@ -532,3 +534,13 @@ If nil it defaults to `split-string-default-separators', normally
     (org-reveal t)
     (org-show-entry)
     (show-children)))
+
+;; Transparent background in terminal
+
+;;(defun set-background-for-terminal (&optional frame)
+;;  (or frame (setq frame (selected-frame)))
+;;  "unsets the background color in terminal mode"
+;;  (unless (display-graphic-p frame)
+;;    (set-face-background 'default "unspecified-bg" (selected-frame)))
+;;(add-hook 'after-make-frame-functions 'set-background-for-terminal)
+;;(add-hook 'window-setup-hook 'set-background-for-terminal)

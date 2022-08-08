@@ -53,3 +53,5 @@
 (package! vulpea)
 (package! visual-regexp)
 (package! visual-regexp-steroids)
+(package! creamsody-theme)
+(package! catppuccin-theme)
