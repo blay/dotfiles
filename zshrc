@@ -7,7 +7,7 @@ if ! zgen saved; then
 zgen oh-my-zsh
 zgen oh-my-zsh plugins/git
 zgen oh-my-zsh plugins/command-not-found
-
+zgen oh-my-zsh plugins/history-substring-search
 # Load Github Plugins
 zgen load zsh-users/zsh-autosuggestions
 zgen load zsh-users/zsh-syntax-highlighting
@@ -24,3 +24,8 @@ fi
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.2

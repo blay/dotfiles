@@ -46,7 +46,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
+Plug 'Luxed/ayu-vim'
 Plug 'rhysd/try-colorscheme.vim'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'cideM/yui'
@@ -167,6 +167,11 @@ nnoremap J }
 nnoremap K {
 nnoremap L g_
 nnoremap H ^
+" Emacs navigations
+map <C-a> <ESC>^
+imap <C-a> <ESC>I
+map <C-e> <ESC>$
+imap <C-e> <ESC>A
 " Navigate buffers 
 nnoremap <Leader>j :bn<CR> 
 nnoremap <Leader>k :b#<CR>
@@ -239,8 +244,9 @@ map <leader>Ö <leader>Y:silent !zdisp <C-R><C-R>+<CR>
 " Agenda
 map <leader>p :buffer agenda<CR>
 map <leader>P :terminal agenda<CR>:set filetype=pandoc<CR>
-map <leader>å :execute 'e ' . strftime("%Y%m%d") . '.md'<CR>
+map <leader>å :execute 'e ' . strftime("%Y%m") . '000000-J-' . strftime("%B") . '.md'<CR>
 map <silent> <leader>Å :execute 'e ' . strftime( "%Y%m%d", localtime() + (24 * 3600) ) . '.md'<CR>
+
 
 " CtrlSF
 let g:ctrlsf_default_root = "project" 

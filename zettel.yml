@@ -9,5 +9,19 @@ matches:
         type: date
         params:
           format: "%Y%m%d%H%M"
+  - trigger: ":iw"
+    replace: "{{iddate}}"
+    vars:
+      - name: iddate
+        type: date
+        params:
+          format: "%Y-%m-%d %A"
+  - trigger: ":it"
+    replace: "{{iddate}}"
+    vars:
+      - name: iddate
+        type: date
+        params:
+          format: "%H:%M"
   - trigger: ":tt"
     replace: "- [a] "

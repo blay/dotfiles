@@ -30,8 +30,8 @@
 ;(setq doom-theme 'doom-one)
 (setq doom-theme
       (if (string-equal (format-time-string "%A") "Monday")
-'doom-gruvbox
-'doom-molokai))
+          'catppuccin
+          'kanagawa))
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/notes/org/")
@@ -98,6 +98,7 @@
         '((sequence "TODO(t)" "SOME(s)" "|" "DONE(d!)" "CANC(c@)")))
   )
 (setq org-fold-core-style 'overlays)
+(setq org-archive-location "%s.archive::")
 ;;;;;; Org-agenda
 
 (setq org-agenda-custom-commands '(
@@ -294,6 +295,9 @@
         :desc "Copy Roam Link" "y" #'copy-link
         :desc "Query Replace Regexp" "-" #'query-replace-regexp
         )
+(define-key evil-insert-state-map (kbd "C-z") 'citar-insert-citation)
+(define-key evil-insert-state-map (kbd "C-i") 'org-roam-node-insert)
+
 ;; Fold previous header level
 (global-set-key (kbd "C-c k") (lambda () (interactive)
   (outline-up-heading 1)
