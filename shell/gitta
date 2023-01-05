@@ -1,6 +1,20 @@
 #!/bin/bash
-    
-git add .
-git commit -m "$*"
-git push
+#
+# Check if the commit message was provided as an argument
+if [ -z "$*" ]
+then
+  # Set the commit message to a default value
+  message="Commit message not provided"
+else
+  # Get the commit message from the command line arguments
+  message=$*
+fi
 
+printf "adding"
+git add .
+
+printf "mitting"
+git commit -m "$message"
+
+printf "pushing"
+git push
