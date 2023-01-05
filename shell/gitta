@@ -10,11 +10,18 @@ else
   message=$*
 fi
 
+printf ""
 printf "adding"
+printf ""
+
 git add .
 
+printf ""
 printf "mitting"
+printf ""
 git commit -m "$message"
 
+printf ""
 printf "pushing"
+printf ""
 git push
