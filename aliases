@@ -126,14 +126,6 @@ alias tc='rg @todo:c ~/zettel'
 alias gitdone='git log -p -1|ag @todo:|ap "^-"'
 alias gitlogs='git log --pretty=format:"%ar : %s"'
 
-gitpush() {
-    git add .
-    git commit -m "$*"
-    git push
-}
-alias gitta=gitpush
-
-
 ## Commands
 alias plus='sh ~/.shell/plus.sh'
 alias minus='sh ~/.shell/minus.sh'
@@ -177,6 +169,7 @@ alias cdl='cd ~/zettel'
 alias cdn='cd ~/notes'
 alias cdo='cd ~/notes/org'
 alias cdm='cd ~/md'
+alias cdmd='cd ~/md'
 alias cdsh='cd ~/.shell'
 alias cdxi='cd ~/notes/omxi.se'
 alias cdx='cd ~/notes/latex'
