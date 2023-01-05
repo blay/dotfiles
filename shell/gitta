@@ -21,7 +21,7 @@ printf "mitting"
 printf "\n"
 git commit -m "$message"
 
-printf ""
+printf "\n"
 printf "pushing"
-printf ""
+printf "\n"
 git push
