@@ -4,4 +4,28 @@ printf "syncing"
 rsync -rahv --delete ~/md/* ~/notes/md/
 cd ~/notes/md
 
-gitta
+# Check if the commit message was provided as an argument
+if [ -z "$*" ]
+then
+  # Set the commit message to a default value
+  message="Commit message not provided"
+else
+  # Get the commit message from the command line arguments
+  message=$*
+fi
+
+printf "\n"
+printf "adding"
+printf "\n"
+
+git add .
+
+printf "\n"
+printf "mitting"
+printf "\n"
+git commit -m "$message"
+
+printf "\n"
+printf "pushing"
+printf "\n"
+git push
