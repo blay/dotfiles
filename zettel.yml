@@ -8,7 +8,7 @@ matches:
       - name: iddate
         type: date
         params:
-          format: "%Y%m%d%H%M"
+          format: "%Y-%m-%d-%H%M"
   - trigger: ":iw"
     replace: "{{iddate}}"
     vars:

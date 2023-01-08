@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Generals
-
+"Plug 'Shatur/neovim-ayu'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'jamessan/vim-gnupg'
@@ -40,14 +40,15 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'kristijanhusak/orgmode.nvim'
+
 " Themes
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Luxed/ayu-vim'
-Plug 'rhysd/try-colorscheme.vim'
+"Plug 'Luxed/ayu-vim'
+"Plug 'rhysd/try-colorscheme.vim'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'cideM/yui'
 Plug 'andreypopp/vim-colors-plain'
