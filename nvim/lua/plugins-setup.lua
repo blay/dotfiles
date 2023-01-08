@@ -32,35 +32,12 @@ return packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
 
--- Utilities
-  use("phaazon/hop.nvim")
-  use("tpope/vim-sensible")
-  use("tpope/vim-eunuch")
-  use("tpope/vim-speeddating")
-  use("tpope/vim-commentary")
-  use("tpope/vim-fugitive")
-  use("junegunn/gv.vim")
-  use{
-    'mhinz/vim-sayonara', 
-    on = 'Sayonara'
-  }
-  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
-  use("inkarkat/vim-ReplaceWithRegister") -- replace with register (gr + motion)
-  use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-}
-use {
-  'lewis6991/gitsigns.nvim',
-  config = function()
-    require('gitsigns').setup()
-  end
-}
-
 -- Theme
   use("mhinz/vim-startify")
   use("Shatur/neovim-ayu")
   use("nvim-lualine/lualine.nvim")
+  use('junegunn/goyo.vim')
+  use('junegunn/limelight.vim')
 
   -- fuzzy finding w/ telescope
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
@@ -78,7 +55,53 @@ use {
 	  requires = { {'inkarkat/vim-ingo-library'} }
   } 
 
+-- LSP Config
+  -- managing & installing lsp servers, linters & formatters
+  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+  -- configuring lsp servers
+  use("neovim/nvim-lspconfig") -- easily configure language servers
+  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 
+
+-- Utilities
+  use("phaazon/hop.nvim")
+  use("tpope/vim-sensible")
+  use("tpope/vim-eunuch")
+  use("tpope/vim-speeddating")
+  use("tpope/vim-commentary")
+  use("tpope/vim-fugitive")
+  use("junegunn/gv.vim")
+  use('dkarter/bullets.vim')
+  use('mg979/vim-visual-multi')
+  use{
+    'mhinz/vim-sayonara', 
+    on = 'Sayonara'
+  }
+  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+  use("inkarkat/vim-ReplaceWithRegister") -- replace with register (gr + motion)
+  use {
+	"windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+}
+use {
+  'lewis6991/gitsigns.nvim',
+  config = function()
+    require('gitsigns').setup()
+  end
+}
+use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional, for file icons
+  },
+}
+
+  -- autocompletion
+  use("hrsh7th/nvim-cmp") -- completion plugin
+  use("hrsh7th/cmp-buffer") -- source for text in buffer
+  use("hrsh7th/cmp-path") -- source for file system paths
+  
 -- packer stuff 
   if packer_bootstrap then
     require("packer").sync()

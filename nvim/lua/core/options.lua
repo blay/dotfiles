@@ -1,13 +1,31 @@
 local opt = vim.opt -- for conciseness
 
+-- Pandoc
+vim.g["pandoc#modules#disabled"] = { "formatting", "keyboard" }
+vim.g["pandoc#folding#mode"] = "relative"
+vim.g["pandoc#spell#enabled"] = false
+
+vim.g["pandoc#syntax#conceal#use"] = true
+vim.g["pandoc#syntax#conceal#urls"] = true
+vim.g["pandoc#syntax#style#underline_special"] = false
+vim.g["pandoc#syntax#style#emphases"] = false
+
+-- Bullets.vim
+vim.g.bullets_outline_levels = {'num', 'std-', 'std-'}
+--vim.g.bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
+vim.g.bullets_pad_right = 0
+vim.g.bullets_nested_checkboxes = 1
+vim.g.bullets_checkbox_partials_toggle = 1
+vim.g.bullets_checkbox_markers = ' ox'
+vim.g.bullets_enabled_file_types = { 'pandoc', 'markdown'}
+
 -- general settings
-local opt = vim.opt -- for conciseness
 
 opt.encoding = "UTF-8"
 opt.shell = "zsh"
 opt.number = true        -- Line numbers
 opt.relativenumber = true -- Relative line numbers    
--- opt.nofoldenable = true  -- start unfolded
+opt.foldenable = false  -- start unfolded
 opt.hlsearch = true      -- hilight search results
 opt.showmatch = true     -- set show matching parenthesis
 opt.shiftwidth = 2       -- Indent two spaces
@@ -22,6 +40,7 @@ opt.undolevels = 1000    -- use many muchos levels of undo
 opt.mouse = "a"          -- mouse support
 opt.hidden = true        -- hide buffers
 opt.confirm = true       -- confirm unsaved
+opt.conceallevel = 2      -- confirm unsaved
 
 -- Spellcheck
 opt.spelllang = "en,sv" 

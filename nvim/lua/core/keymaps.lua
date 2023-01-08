@@ -25,7 +25,7 @@ key.set("n", "n", "zz")
 key.set("n", "N", "zz")
 
 -- clear search highlights
-key.set("n", "<leader>nh", ":nohl<CR>")
+key.set("n", "<leader>/", ":nohl<CR>")
 
 -- Stop accidental recording
 key.set("n", "<C-q>", "q")
@@ -75,7 +75,7 @@ key.set("i", "<C-e>", "<ESC>A")
 key.set("n", "<leader>b", "zM9zo")
 key.set("n", "<leader>B", "zR")
 -- Jump with hop word
-key.set("n", "<leader>g", ":HopWord <CR>")
+key.set("n", "<leader>g", "<cmd>HopWord<cr>")
 -- Turn block into list
 key.set("n", "<leader>I", "vip<C-v><S-i>- <Esc>")
 -- Make list of links
@@ -87,7 +87,6 @@ key.set("n", "<leader>k", ":b#<CR>")
 key.set("n", "<leader>d", ":bd<CR>")
 key.set("n", "<leader>q", ":Sayonara<CR>")
 key.set("n", "<leader>Q", ":only<CR>")
-key.set("n", "<leader>n", ":new<CR>")
 key.set("n", "<leader>w", ":w<cr>")
 
 -- Diff current buffer and saved file
@@ -101,6 +100,11 @@ key.set("n", "<leader>cp", ":e ~/.config/nvim/lua/plugins-setup.lua<cr>")
 key.set("n", "<leader>co", ":e ~/.config/nvim/lua/core/options.lua<cr>")
 key.set("n", "<leader>ck", ":e ~/.config/nvim/lua/core/keymaps.lua<cr>")
 key.set("n", "<leader>cr", ":w<cr>:luafile %<cr>")
+
+--- Open nvim-tree
+key.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+-- Git search
+key.set("n", "<leader>ä", "<cmd>Git blame<cr>")
 
 
 -- Plugins
@@ -119,6 +123,13 @@ key.set("n", "<leader>r", "<cmd>Telescope command_history<cr>")
 
 key.set("n", "<leader>u", "<cmd>Telescope bibtex<cr>")
 key.set("i", "<C-u>", "<cmd>Telescope bibtex<cr>")
+
+-- Vim room
+key.set("n", "<leader>n", "<cmd>Goyo<cr><cmd>Limelight!!<cr>")
+key.set("n", "<leader>N", "<cmd>Limelight!!<cr>")
+
+-- Voom
+key.set("n", "<leader>o", "<cmd>Voom pandoc<cr>")
 
 -- Spell
 key.set("n", "<leader>z", ":set spell!<CR>")
