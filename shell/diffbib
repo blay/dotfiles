@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+
+import difflib
+import sys
+
+# Check that the correct number of command line arguments was provided
+if len(sys.argv) != 3:
+    print("Usage: diff.py file1.aux file2.bib")
+    sys.exit(1)
+
+# Get the filenames from the command line arguments
+filename1 = sys.argv[1]
+filename2 = sys.argv[2]
+
+# Open the two files and read the lines into lists
+with open(filename1, 'r') as f1:
+    lines1 = f1.readlines()
+
+with open(filename2, 'r') as f2:
+    lines2 = f2.readlines()
+
+# Create two sets of citation keys by extracting the keys from the appropriate lines
+# in each file
+s1 = set()
+s2 = set()
+
+for line in lines1:
+    if 'bibcite{' in line:
+        start = line.index('{')
+        end = line.index('}')
+        s1.add(line[start+1:end])
+
+for line in lines2:
+    if 'article{' in line:
+        start = line.index('{')
+        end = line.index(',')
+        s2.add(line[start+1:end])
+
+# Find the items that are in s2 but not in s1
+only_in_s2 = s2 - s1
+
+# Print the items that are only in s2
+#for item in only_in_s2:
+for item in only_in_s2:
+    print(item)

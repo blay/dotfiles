@@ -19,6 +19,10 @@ vim.g.bullets_checkbox_partials_toggle = 1
 vim.g.bullets_checkbox_markers = ' ox'
 vim.g.bullets_enabled_file_types = { 'pandoc', 'markdown'}
 
+-- Disable table mode mappings and move them away
+vim.g.table_mode_disable_mappings = true
+vim.g.table_mode_map_prefix = '<Leader>´'
+
 -- general settings
 
 opt.encoding = "UTF-8"

@@ -63,6 +63,10 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 
+  -- autocompletion
+  use("hrsh7th/nvim-cmp") -- completion plugin
+  use("hrsh7th/cmp-buffer") -- source for text in buffer
+  use("hrsh7th/cmp-path") -- source for file system paths
 
 -- Utilities
   use("phaazon/hop.nvim")
@@ -73,6 +77,7 @@ return packer.startup(function(use)
   use("tpope/vim-fugitive")
   use("junegunn/gv.vim")
   use('dkarter/bullets.vim')
+  use('dhruvasagar/vim-table-mode')
   use('mg979/vim-visual-multi')
   use{
     'mhinz/vim-sayonara', 
@@ -97,10 +102,6 @@ use {
   },
 }
 
-  -- autocompletion
-  use("hrsh7th/nvim-cmp") -- completion plugin
-  use("hrsh7th/cmp-buffer") -- source for text in buffer
-  use("hrsh7th/cmp-path") -- source for file system paths
   
 -- packer stuff 
   if packer_bootstrap then
