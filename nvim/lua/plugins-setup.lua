@@ -46,6 +46,14 @@ return packer.startup(function(use)
   use("crispgm/telescope-heading.nvim")
   use("nvim-telescope/telescope-bibtex.nvim")
 
+  use {
+  "danielfalk/smart-open.nvim",
+  config = function()
+    require"telescope".load_extension("smart_open")
+  end,
+  requires = {"tami5/sqlite.lua"}
+  }
+
 -- Zettel
   use("vim-voom/VOoM")
   use("blay/vim-pandoc-syntax")

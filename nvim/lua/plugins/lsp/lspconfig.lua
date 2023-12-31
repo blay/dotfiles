@@ -19,6 +19,7 @@ local on_attach = function(client, bufnr)
 
   -- set keybinds
 --  keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
+keymap.set("i", "<c-i>", "<Cmd>lua vim.lsp.buf.completion()<CR>", opts) -- got to declaration
 
 end
 

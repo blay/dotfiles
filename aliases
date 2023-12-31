@@ -90,7 +90,8 @@ alias rnd='ls|sort -R'
 alias pre='fzf --preview="head -$LINES {}" --preview-window wrap'
 alias am='ag --passthru  "^\#.*"'
 
-alias pan='make -f ~/.pandoc/examples/Makefile'
+alias pan='pandoc --citeproc --bibliography ~/notes/lib.bib -V papersize:a4 --pdf-engine xelatex '
+
 
 alias zkviz='~/envs/zkviz/bin/zkviz'
 

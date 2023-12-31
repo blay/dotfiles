@@ -2,6 +2,7 @@
 
 import difflib
 import sys
+import re
 
 # Check that the correct number of command line arguments was provided
 if len(sys.argv) != 3:
@@ -24,22 +25,25 @@ with open(filename2, 'r') as f2:
 s1 = set()
 s2 = set()
 
+# Compile a regular expression pattern to match the citation key format in filename2
+pattern = re.compile(r'@\w+\{([^,]+),')
+
+# Extract citation keys from filename1 using the old syntax
 for line in lines1:
-    if 'bibcite{' in line:
+    if 'cite{' in line:
         start = line.index('{')
         end = line.index('}')
         s1.add(line[start+1:end])
 
+# Extract citation keys from filename2 using the new syntax
 for line in lines2:
-    if 'article{' in line:
-        start = line.index('{')
-        end = line.index(',')
-        s2.add(line[start+1:end])
+    match = pattern.match(line)
+    if match:
+        s2.add(match.group(1))
 
 # Find the items that are in s2 but not in s1
 only_in_s2 = s2 - s1
 
 # Print the items that are only in s2
-#for item in only_in_s2:
 for item in only_in_s2:
     print(item)

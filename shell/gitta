@@ -19,9 +19,16 @@ git add .
 printf "\n"
 printf "mitting"
 printf "\n"
+
 git commit -m "$message"
 
 printf "\n"
 printf "pushing"
 printf "\n"
+
 git push
+
+printf "\n"
+printf "leaving"
+printf "\n"
+

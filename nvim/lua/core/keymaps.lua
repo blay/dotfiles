@@ -117,12 +117,15 @@ key.set("n", "<leader>f", "<cmd>Telescope find_files<cr>")
 key.set("n", "<leader>h", "<cmd>Telescope buffers<cr>")
 key.set("n", "<leader>l", "<cmd>Telescope oldfiles<cr>")
 
+key.set("n", "<leader><leader>", "<cmd>Telescope smart_open<cr>")
+
 key.set("n", "<leader>t", "<cmd>Telescope builtin<cr>")
 key.set("n", "<leader>T", "<cmd>Telescope resume<cr>")
 key.set("n", "<leader>r", "<cmd>Telescope command_history<cr>")
 
 key.set("n", "<leader>u", "<cmd>Telescope bibtex<cr>")
 key.set("i", "<C-u>", "<cmd>Telescope bibtex<cr>")
+key.set("n", "<leader>F", "<cmd>YankFile<cr>")
 
 -- Vim room
 key.set("n", "<leader>n", "<cmd>Goyo<cr><cmd>Limelight!!<cr>")

@@ -1,5 +1,8 @@
 local opt = vim.opt -- for conciseness
 
+-- Commands
+vim.api.nvim_create_user_command('YankFilename', 'call setreg("", expand("<cfile>"))', {})
+
 -- Pandoc
 vim.g["pandoc#modules#disabled"] = { "formatting", "keyboard" }
 vim.g["pandoc#folding#mode"] = "relative"
