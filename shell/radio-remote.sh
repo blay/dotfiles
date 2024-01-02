@@ -3,7 +3,7 @@ station_names="
 [1] NTS1
 [2] NTS2
 [3] Resonance.fm
-[4] Flux?
+[4] Rinse FM France
 [5] Sub FM
 [6] Radio Flouka
 [7] BBC 6
@@ -39,7 +39,7 @@ read -n1 -p "Select station: " station
             ;;
         [4]* ) 
             clear
-            echo Radio Flux
+            echo Rinse FM
             ssh $pi 'mpc play 4'
             ;;
         [5]* ) 
@@ -56,14 +56,17 @@ read -n1 -p "Select station: " station
             clear
             echo BBC 6
             ssh $pi 'mpc play 7'
+            ;;
         [8]* ) 
             clear
             echo Radio Fume
             ssh $pi 'mpc play 8'
+            ;;
         [9]* ) 
             clear
             echo World Wide Radio
             ssh $pi 'mpc play 9'
+            ;;
         [0]* ) 
             clear
             echo Next
