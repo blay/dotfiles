@@ -76,9 +76,9 @@ key.set("n", "<leader>B", "zR")
 -- Jump with hop word
 key.set("n", "<leader>g", "<cmd>HopWord<cr>")
 -- Turn block into list
-key.set("n", "<leader>i", "vip<C-v><S-i>- <Esc>")
+key.set("n", "<leader>I", "vip<C-v><S-i>- <Esc>")
 -- Make list of links
-key.set("n", "<leader>I", ":%s/^\\[/- \\[/<CR><leader>/")
+-- key.set("n", "<leader>I", ":%s/^\\[/- \\[/<CR><leader>/")
 
 -- Navigate between buffers 
 key.set("n", "<leader>k", ":b#<CR>")
@@ -91,7 +91,8 @@ key.set("n", "<leader>w", ":w<cr>")
 key.set("n", "<leader>W", ":w !diff % -<CR>")
 
 -- Tab between buffers
-key.set("n", "<leader><tab>", ":tabNext<CR>")
+key.set("n", "<tab>", "<cmd>BulletDemote<CR>")
+key.set("n", "<S-tab>", "<cmd>BulletPromote<CR>")
 
 -- Access config files
 key.set("n", "<leader>cp", ":e ~/.config/nvim/lua/plugins-setup.lua<cr>")
@@ -103,9 +104,6 @@ key.set("n", "<leader>cr", ":w<cr>:luafile %<cr>")
 key.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 -- Git search
 key.set("n", "<leader>ä", "<cmd>Git blame<cr>")
-
---- New Zettel Note
-key.set("n", "<leader>n", ":e <C-R>=strftime('%Y-%m-%d-%H%M')<CR>..md")
 
 -- Plugins
 
@@ -132,11 +130,50 @@ key.set("n", "<leader>t", "<cmd>Telekasten panel<cr>")
 key.set("n", "<leader>l", "<cmd>Telekasten find_notes<cr>")
 key.set("i", "<C-l>", "<cmd>Telekasten insert_link<cr>")
 key.set("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
+key.set("n", "<leader>i", "<cmd>Telekasten toggle_todo<cr>")
+key.set("n", "<leader>n", "<cmd>Telekasten new_note<cr>")
+
+-- todo note yaml
+function TodoYaml()
+    local one_week = 7 * 24 * 60 * 60 -- seconds in a week
+    local future_date = os.date("%Y-%m-%d", os.time() + one_week)
+    local date_header = "---\nDue: " .. future_date .. "\n---\n"
+    vim.api.nvim_buf_set_lines(0, 0, 0, false, vim.split(date_header, "\n"))
+end
+
+key.set("n", "<leader>N", ":lua TodoYaml()<CR>")
+
+-- Monthly headings
+
+function InsertDateTime(mode)
+    local lines = {}  -- Table to hold lines to insert
+    local date_str = os.date("%Y-%m-%d, %A") -- Date in YYYY-MM-DD, WEEKDAY format
+    local time_str = os.date("%H:%M")        -- Time in HH:MM format
+
+    -- Determine what to insert based on the mode
+    if mode == "date" then
+        table.insert(lines, "## " .. date_str)
+        table.insert(lines, "") -- Add an empty line after the date
+    elseif mode == "time" then
+        table.insert(lines, "### " .. time_str)
+        table.insert(lines, "") -- Add an empty line after the time
+    end
+
+    -- Get the current line number
+    local line_num = vim.api.nvim_win_get_cursor(0)[1]
+
+    -- Insert the lines at the current line
+    vim.api.nvim_buf_set_lines(0, line_num - 1, line_num - 1, false, lines)
+end
+
+
+key.set("n", "<leader>M", ":lua InsertDateTime('date')<CR>")
+key.set("n", "<leader>m", ":lua InsertDateTime('time')<CR>")
 
 
 -- Vim room
-key.set("n", "<leader>m", "<cmd>Goyo<cr><cmd>Limelight!!<cr>")
-key.set("n", "<leader>M", "<cmd>Limelight!!<cr>")
+key.set("n", "<leader>h", "<cmd>Goyo<cr><cmd>Limelight!!<cr><cmd>edit<cr>")
+key.set("n", "<leader>H", "<cmd>Limelight!!<cr>")
 
 -- Voom
 key.set("n", "<leader>o", "<cmd>Voom pandoc<cr>")
