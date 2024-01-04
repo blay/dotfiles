@@ -73,6 +73,7 @@ return packer.startup(function(use)
   }
   require('telekasten').setup({
     home = vim.fn.expand("~/zettel"), -- Put the name of your notes directory here
+    auto_set_syntax = false,
   })
 
 -- Zettel
