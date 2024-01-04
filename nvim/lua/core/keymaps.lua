@@ -35,7 +35,6 @@ key.set("n", "q", "<Nop>")
 -- so that you can undo CTRL-U after inserting a line break. 
 key.set("i", "<C-U>", "<C-G>u<C-U>")
 
-
 -- yanking
 -- yank filename and uid
 key.set("n", "<leader>y", ":let @+ = expand(\"%:t\")<CR>")
@@ -77,12 +76,11 @@ key.set("n", "<leader>B", "zR")
 -- Jump with hop word
 key.set("n", "<leader>g", "<cmd>HopWord<cr>")
 -- Turn block into list
-key.set("n", "<leader>I", "vip<C-v><S-i>- <Esc>")
+key.set("n", "<leader>i", "vip<C-v><S-i>- <Esc>")
 -- Make list of links
-key.set("n", "<leader>L", ":%s/^\\[/- \\[/<CR><leader>/")
+key.set("n", "<leader>I", ":%s/^\\[/- \\[/<CR><leader>/")
 
 -- Navigate between buffers 
-key.set("n", "<leader>j", ":bn<CR>")
 key.set("n", "<leader>k", ":b#<CR>")
 key.set("n", "<leader>d", ":bd<CR>")
 key.set("n", "<leader>q", ":Sayonara<CR>")
@@ -106,30 +104,39 @@ key.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 -- Git search
 key.set("n", "<leader>ä", "<cmd>Git blame<cr>")
 
+--- New Zettel Note
+key.set("n", "<leader>n", ":e <C-R>=strftime('%Y-%m-%d-%H%M')<CR>..md")
 
 -- Plugins
 
 -- Telescope settings
 key.set("n", "<leader>a", "<cmd>Telescope live_grep<cr>")
 key.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
-key.set("n", "<leader>f", "<cmd>Telescope find_files<cr>")
+key.set("n", "<leader>f", "<cmd>Telescope buffers<cr>")
 
-key.set("n", "<leader>h", "<cmd>Telescope buffers<cr>")
-key.set("n", "<leader>l", "<cmd>Telescope oldfiles<cr>")
+key.set("n", "<leader>j", "<cmd>Telescope oldfiles<cr>")
 
 key.set("n", "<leader><leader>", "<cmd>Telescope smart_open<cr>")
 
-key.set("n", "<leader>t", "<cmd>Telescope builtin<cr>")
 key.set("n", "<leader>T", "<cmd>Telescope resume<cr>")
 key.set("n", "<leader>r", "<cmd>Telescope command_history<cr>")
 
 key.set("n", "<leader>u", "<cmd>Telescope bibtex<cr>")
 key.set("i", "<C-u>", "<cmd>Telescope bibtex<cr>")
-key.set("n", "<leader>F", "<cmd>YankFile<cr>")
+
+key.set("n", "<leader>p", "<cmd>Easypick todo<cr>")
+
+-- Telekasten settings
+
+key.set("n", "<leader>t", "<cmd>Telekasten panel<cr>")
+key.set("n", "<leader>l", "<cmd>Telekasten find_notes<cr>")
+key.set("i", "<C-l>", "<cmd>Telekasten insert_link<cr>")
+key.set("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
+
 
 -- Vim room
-key.set("n", "<leader>n", "<cmd>Goyo<cr><cmd>Limelight!!<cr>")
-key.set("n", "<leader>N", "<cmd>Limelight!!<cr>")
+key.set("n", "<leader>m", "<cmd>Goyo<cr><cmd>Limelight!!<cr>")
+key.set("n", "<leader>M", "<cmd>Limelight!!<cr>")
 
 -- Voom
 key.set("n", "<leader>o", "<cmd>Voom pandoc<cr>")

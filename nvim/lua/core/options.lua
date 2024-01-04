@@ -72,3 +72,4 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+

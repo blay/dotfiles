@@ -46,6 +46,18 @@ return packer.startup(function(use)
   use("crispgm/telescope-heading.nvim")
   use("nvim-telescope/telescope-bibtex.nvim")
 
+  use("axkirillov/easypick.nvim")
+     local easypick = require("easypick")
+      easypick.setup({
+	     pickers = {
+    	  {
+			   name = "todo",
+			   command = "ls *.p.*",
+			   previewer = easypick.previewers.default()
+		    },
+	     }
+      })
+
   use {
   "danielfalk/smart-open.nvim",
   config = function()
@@ -53,6 +65,15 @@ return packer.startup(function(use)
   end,
   requires = {"tami5/sqlite.lua"}
   }
+
+-- Telekasten
+  use {
+    'renerocksai/telekasten.nvim',
+    requires = {'nvim-telescope/telescope.nvim'}
+  }
+  require('telekasten').setup({
+    home = vim.fn.expand("~/zettel"), -- Put the name of your notes directory here
+  })
 
 -- Zettel
   use("vim-voom/VOoM")
@@ -77,7 +98,6 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-path") -- source for file system paths
 
 -- Utilities
-  use("phaazon/hop.nvim")
   use("tpope/vim-sensible")
   use("tpope/vim-eunuch")
   use("tpope/vim-speeddating")
@@ -109,7 +129,14 @@ use {
     'nvim-tree/nvim-web-devicons', -- optional, for file icons
   },
 }
-
+use {
+  'phaazon/hop.nvim',
+  branch = 'v2', -- optional but strongly recommended
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
   
 -- packer stuff 
   if packer_bootstrap then
