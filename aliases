@@ -183,8 +183,14 @@ alias cdu='cd ~/Music'
 alias cdw='cd ~/wallpapers'
 alias cdb='cd ~/builds'
 alias cdp='~/papers'
+alias cdot='~/dotfiles'
+alias cnvim='~/.config/nvim/lua'
 alias lib='nvim ~/notes/lib.bib'
 alias rn='ranger'
+
+# goto nvim zettel
+
+alias zz='cdm; nv'
 
 # Emacs
 

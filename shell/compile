@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+import re
+import os
+import argparse
+
+def replace_wikilinks_with_content(input_file, output_file, allow_both_syntaxes, keep_wikilinks):
+    # Read the original markdown file
+    with open(input_file, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # Regular expression to find wikilinks
+    wikilink_pattern = r'\!\[\[([^\]]+)\]\]'
+    if allow_both_syntaxes:
+        wikilink_pattern = r'\!?(\[\[[^\]]+\]\])'
+
+    # Function to replace a wikilink with the content of the linked file
+    def replace_link(match):
+        link_file_name = match.group(1).strip('![]') + '.md'
+        if os.path.exists(link_file_name):
+            with open(link_file_name, 'r', encoding='utf-8') as linked_file:
+                return linked_file.read()
+        else:
+            return match.group(1)  # return the original wikilink if file not found
+
+    # Replace all wikilinks with file contents
+    updated_content = re.sub(wikilink_pattern, replace_link, content)
+
+    # Strip all remaining wikilinks if not keeping them
+    if not keep_wikilinks:
+        updated_content = re.sub(r'\!?(\[\[[^\]]+\]\])', '', updated_content)
+
+    # Write the updated content to the specified output markdown file
+    with open(output_file, 'w', encoding='utf-8') as output_file:
+        output_file.write(updated_content)
+
+# Setting up argument parsing
+parser = argparse.ArgumentParser(description='Process Markdown files to replace wikilinks with actual content.')
+parser.add_argument('-i', '--input', required=True, help='Input Markdown file')
+parser.add_argument('-o', '--output', required=True, help='Output Markdown file')
+parser.add_argument('-a', '--all', action='store_true', help='Allow both ![[filename]] and [[filename]] syntaxes')
+parser.add_argument('-w', '--wikilinks', action='store_true', help='Keep remaining wikilinks in the output file')
+
+# Parse arguments
+args = parser.parse_args()
+
+# Run the function with provided arguments
+replace_wikilinks_with_content(args.input, args.output, args.all, args.wikilinks)
+print(f"Updated file created: {args.output}")
+

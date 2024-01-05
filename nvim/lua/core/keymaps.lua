@@ -113,11 +113,13 @@ key.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 key.set("n", "<leader>f", "<cmd>Telescope buffers<cr>")
 
 key.set("n", "<leader>j", "<cmd>Telescope oldfiles<cr>")
+key.set("n", "<leader>J", "<cmd>Telescope git_status<cr>")
 
 key.set("n", "<leader><leader>", "<cmd>Telescope smart_open<cr>")
+key.set("n", "<leader>T", "<cmd>Telescope builtin<cr>")
 
-key.set("n", "<leader>T", "<cmd>Telescope resume<cr>")
-key.set("n", "<leader>r", "<cmd>Telescope command_history<cr>")
+key.set("n", "<leader>r", "<cmd>Telescope resume<cr>")
+key.set("n", "<leader>R", "<cmd>Telescope command_history<cr>")
 
 key.set("n", "<leader>u", "<cmd>Telescope bibtex<cr>")
 key.set("i", "<C-u>", "<cmd>Telescope bibtex<cr>")
@@ -128,6 +130,9 @@ key.set("n", "<leader>p", "<cmd>Easypick todo<cr>")
 
 key.set("n", "<leader>t", "<cmd>Telekasten panel<cr>")
 key.set("n", "<leader>l", "<cmd>Telekasten find_notes<cr>")
+key.set("n", "<leader>F", "<cmd>Telekasten show_backlinks<cr>")
+
+
 key.set("i", "<C-l>", "<cmd>Telekasten insert_link<cr>")
 key.set("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
 key.set("n", "<leader>i", "<cmd>Telekasten toggle_todo<cr>")
@@ -142,6 +147,10 @@ function TodoYaml()
 end
 
 key.set("n", "<leader>N", ":lua TodoYaml()<CR>")
+
+--- Go to Monthly file
+
+key.set("n", "<leader>K", ":execute 'e ' .. strftime('%Y-%m-01-0000.j.%B.md')<CR>")
 
 -- Monthly headings
 
