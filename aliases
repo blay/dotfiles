@@ -184,7 +184,7 @@ alias cdw='cd ~/wallpapers'
 alias cdb='cd ~/builds'
 alias cdp='~/papers'
 alias cdot='~/dotfiles'
-alias cnvim='~/.config/nvim/lua'
+alias cdvim='~/.config/nvim/lua'
 alias lib='nvim ~/notes/lib.bib'
 alias rn='ranger'
 

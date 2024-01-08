@@ -72,10 +72,11 @@ return packer.startup(function(use)
     requires = {'nvim-telescope/telescope.nvim'}
   }
   require('telekasten').setup({
-    home = vim.fn.expand("~/zettel"), -- Put the name of your notes directory here
+    home = vim.fn.expand("~/notes/md"), -- Put the name of your notes directory here
     take_over_my_home = false,
     auto_set_filetype = false,
     auto_set_syntax = false,
+    subdirs_in_links = false,
   })
 
 -- Zettel
@@ -89,16 +90,16 @@ return packer.startup(function(use)
 
 -- LSP Config
   -- managing & installing lsp servers, linters & formatters
-  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+--  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+--  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
   -- configuring lsp servers
-  use("neovim/nvim-lspconfig") -- easily configure language servers
-  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+ -- use("neovim/nvim-lspconfig") -- easily configure language servers
+ -- use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 
   -- autocompletion
-  use("hrsh7th/nvim-cmp") -- completion plugin
-  use("hrsh7th/cmp-buffer") -- source for text in buffer
-  use("hrsh7th/cmp-path") -- source for file system paths
+ -- use("hrsh7th/nvim-cmp") -- completion plugin
+ -- use("hrsh7th/cmp-buffer") -- source for text in buffer
+ -- use("hrsh7th/cmp-path") -- source for file system paths
 
 -- Utilities
   use("tpope/vim-sensible")

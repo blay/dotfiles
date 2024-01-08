@@ -35,10 +35,32 @@ key.set("n", "q", "<Nop>")
 -- so that you can undo CTRL-U after inserting a line break. 
 key.set("i", "<C-U>", "<C-G>u<C-U>")
 
--- yanking
--- yank filename and uid
-key.set("n", "<leader>y", ":let @+ = expand(\"%:t\")<CR>")
-key.set("n", "<leader>Y", ":let @+ = expand(\"%:t\")<CR>:silent ! uidpaste<CR>")
+-- yanking uid and search backlinks
+function CopyUID()
+    -- Get the current buffer's filename
+    local filename = vim.fn.expand("%:t")
+
+    -- Extract the date-time portion using Lua's string matching
+    local datetime = string.match(filename, "^(%d%d%d%d%-%d%d%-%d%d%-%d%d%d%d)")
+
+    if datetime then
+        -- Copy the extracted portion to the '+' register (system clipboard)
+        vim.fn.setreg('+', datetime)
+
+        -- Alternatively, to copy to the unnamed register, use:
+        -- vim.fn.setreg('"', datetime)
+
+        print("Copied to clipboard: " .. datetime)
+    else
+        print("Date-time pattern not found in filename.")
+    end
+end
+vim.api.nvim_create_user_command('CopyUID', CopyUID, {})
+
+key.set("n", "<leader>y", "<cmd>CopyUID<CR>")
+key.set("n", "<leader>Y", "<cmd>CopyUID<CR><cmd>Telescope live_grep<cr>")
+
+
 -- make Y consistent with C and D.
 key.set("n", "Y", "y$")
 -- Paste brackets
@@ -132,10 +154,10 @@ key.set("n", "<leader>t", "<cmd>Telekasten panel<cr>")
 key.set("n", "<leader>l", "<cmd>Telekasten find_notes<cr>")
 key.set("n", "<leader>F", "<cmd>Telekasten show_backlinks<cr>")
 
-
 key.set("i", "<C-l>", "<cmd>Telekasten insert_link<cr>")
 key.set("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
 key.set("n", "<leader>i", "<cmd>Telekasten toggle_todo<cr>")
+key.set("i", "<C-i>", "<cmd>Telekasten toggle_todo<cr>")
 key.set("n", "<leader>n", "<cmd>Telekasten new_note<cr>")
 
 -- todo note yaml

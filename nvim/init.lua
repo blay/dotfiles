@@ -11,5 +11,5 @@ require("plugins.lualine")
 require("plugins.telescope")
 require("plugins.nvim-tree")
 
-require("plugins.lsp.mason")
-require("plugins.lsp.lspconfig")
+-- require("plugins.lsp.mason")
+-- require("plugins.lsp.lspconfig")
