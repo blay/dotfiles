@@ -6,7 +6,10 @@ sudo apt update && sudo apt upgrade -y
 # Install common utilities
 sudo apt install -y git zsh ripgrep silversearcher-ag fzf curl wget tmux htop vim neovim tree ncdu
 
+sudo snap install obsidian --classic
+
 # Install ZSH
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 
 # Clone dotfiles repository
 git clone https://github.com/blay/dotfiles.git ~/dotfiles
