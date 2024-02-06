@@ -1,139 +1,114 @@
--- auto install packer if not installed
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd([[packadd packer.nvim]])
-    return true
-  end
-  return false
+-- Install lazy.nvim if not already installed
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
-local packer_bootstrap = ensure_packer() -- true if packer was just installed
-
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
-vim.cmd([[ 
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- import packer safely
-local status, packer = pcall(require, "packer")
-if not status then
-  return
-end
+vim.opt.rtp:prepend(lazypath)
 
 -- add list of plugins to install
-return packer.startup(function(use)
-  -- packer can manage itself
-  use("wbthomason/packer.nvim")
-
+local plugins = {
 
 -- Theme
-  use("mhinz/vim-startify")
-  use("Shatur/neovim-ayu")
-  use("nvim-lualine/lualine.nvim")
-  use('junegunn/goyo.vim')
-  use('junegunn/limelight.vim')
+  "mhinz/vim-startify",
+  "Shatur/neovim-ayu",
+  "nvim-lualine/lualine.nvim",
+  'junegunn/goyo.vim',
+  'junegunn/limelight.vim',
 
   -- fuzzy finding w/ telescope
-  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for sorting
-  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
-  use("crispgm/telescope-heading.nvim")
-  use("nvim-telescope/telescope-bibtex.nvim")
-
-  use("axkirillov/easypick.nvim")
-     local easypick = require("easypick")
-      easypick.setup({
+  "nvim-lua/plenary.nvim",
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  { 
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  "crispgm/telescope-heading.nvim",
+  "nvim-telescope/telescope-bibtex.nvim",
+  {  "axkirillov/easypick.nvim",
+    config = function()
+      require("easypick").setup({
 	     pickers = {
     	  {
 			   name = "todo",
 			   command = "ls *.p.*",
-			   previewer = easypick.previewers.default()
+			 --  previewer = easypick.previewers.default()
 		    },
 	     }
       })
-
-  use {
-  "danielfalk/smart-open.nvim",
-  config = function()
-    require"telescope".load_extension("smart_open")
-  end,
-  requires = {"tami5/sqlite.lua"}
-  }
+     end
+   },
+  {
+    "danielfalk/smart-open.nvim",
+    dependencies = {"tami5/sqlite.lua"},
+    config = function()
+      require"telescope".load_extension("smart_open")
+    end
+  },
 
 -- Telekasten
-  use {
+  {
     'renerocksai/telekasten.nvim',
-    requires = {'nvim-telescope/telescope.nvim'}
-  }
-  require('telekasten').setup({
-    home = vim.fn.expand("~/notes/md"), -- Put the name of your notes directory here
-    take_over_my_home = false,
-    auto_set_filetype = false,
-    auto_set_syntax = false,
-    subdirs_in_links = false,
-  })
+    dependencies = {'nvim-telescope/telescope.nvim'},
+   config = function()
+    require('telekasten').setup({
+      home = vim.fn.expand("~/notes/md"), -- your notes directory
+      take_over_my_home = false,
+      auto_set_filetype = false,
+      auto_set_syntax = false,
+      subdirs_in_links = false,
+    })
+    end
+},
 
 -- Zettel
-  use("vim-voom/VOoM")
-  use("blay/vim-pandoc-syntax")
-  use("vim-pandoc/vim-pandoc")
-  use{
+  "vim-voom/VOoM",
+  "blay/vim-pandoc-syntax",
+  "vim-pandoc/vim-pandoc",
+  {
 	  'inkarkat/vim-SpellCheck', 
-	  requires = { {'inkarkat/vim-ingo-library'} }
-  } 
-
--- LSP Config
-  -- managing & installing lsp servers, linters & formatters
---  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
---  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
-  -- configuring lsp servers
- -- use("neovim/nvim-lspconfig") -- easily configure language servers
- -- use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-
-  -- autocompletion
- -- use("hrsh7th/nvim-cmp") -- completion plugin
- -- use("hrsh7th/cmp-buffer") -- source for text in buffer
- -- use("hrsh7th/cmp-path") -- source for file system paths
+	  dependencies = { {'inkarkat/vim-ingo-library'} }
+  },
 
 -- Utilities
-  use("tpope/vim-sensible")
-  use("tpope/vim-eunuch")
-  use("tpope/vim-speeddating")
-  use("tpope/vim-commentary")
-  use("tpope/vim-fugitive")
-  use("junegunn/gv.vim")
-  use('dkarter/bullets.vim')
-  use('dhruvasagar/vim-table-mode')
-  use('mg979/vim-visual-multi')
-  use{
-    'mhinz/vim-sayonara', 
+  "tpope/vim-sensible",
+  "tpope/vim-eunuch",
+  "tpope/vim-speeddating",
+  "tpope/vim-commentary",
+  "tpope/vim-fugitive",
+  "junegunn/gv.vim",
+  'dkarter/bullets.vim',
+  'dhruvasagar/vim-table-mode',
+  'mg979/vim-visual-multi',
+  {
+    "mhinz/vim-sayonara", 
     on = 'Sayonara'
-  }
-  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
-  use("inkarkat/vim-ReplaceWithRegister") -- replace with register (gr + motion)
-  use {
+  },
+  "tpope/vim-surround",
+  "inkarkat/vim-ReplaceWithRegister",
+  {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
-}
-use {
+},
+{
   'lewis6991/gitsigns.nvim',
   config = function()
     require('gitsigns').setup()
   end
-}
-use {
+},
+{
   'nvim-tree/nvim-tree.lua',
-  requires = {
+  dependencies = {
     'nvim-tree/nvim-web-devicons', -- optional, for file icons
   },
-}
-use {
+},
+{
   'phaazon/hop.nvim',
   branch = 'v2', -- optional but strongly recommended
   config = function()
@@ -142,8 +117,6 @@ use {
   end
 }
   
--- packer stuff 
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
+}
+
+require("lazy").setup(plugins)
