@@ -201,6 +201,7 @@ end
 key.set("n", "<leader>M", ":lua InsertDateTime('date')<CR>")
 key.set("n", "<leader>m", ":lua InsertDateTime('time')<CR>")
 
+key.set('i', '<C-m>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true })
 
 -- Vim room
 key.set("n", "<leader>h", "<cmd>Goyo<cr><cmd>Limelight!!<cr><cmd>edit<cr>")
@@ -215,3 +216,18 @@ key.set("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 key.set("i", "<c-s>", "<c-g>u<Esc>[szg`]a<c-g>u")
 key.set("n", "zf", "[s1z=<c-o>")
 key.set("n", "zs", "[szg<c-o>")
+
+--- Custom commands
+
+-- Content
+local function content()
+    vim.cmd("%s/CHAPTER TITLE//")
+    vim.cmd("%s/START TIME//")
+    vim.cmd("%s/\\(Volume\\)/\\r# \\1/")
+    vim.cmd("%s/^\\([A-Z0-9]\\)\\@=/- ")
+    vim.cmd("%s/\\n\\n\\n/\\r\\r")
+    vim.cmd([[1delete]])
+end
+
+vim.api.nvim_create_user_command('Content', content, {})
+
