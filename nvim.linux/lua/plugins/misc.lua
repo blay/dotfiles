@@ -20,6 +20,7 @@ return {
 		},
 	},
 -- Utilities
+  "mhinz/vim-startify",
   "tpope/vim-sensible",
   "tpope/vim-eunuch",
   "tpope/vim-speeddating",
