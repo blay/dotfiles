@@ -202,8 +202,8 @@ end
 --map('i', '<C-m>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true })
 
 -- Vim room
-map("n", "<leader>h", "<cmd>Goyo<cr><cmd>Limelight!!<cr><cmd>edit<cr>")
-map("n", "<leader>H", "<cmd>Limelight!!<cr>")
+map("n", "<leader>h", "<cmd>ZenMode<cr>")
+map("n", "<leader>H", "<cmd>Twilight<cr>")
 
 -- Voom
 map("n", "<leader>o", "<cmd>Voom pandoc<cr>")
