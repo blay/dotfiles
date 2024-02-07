@@ -32,4 +32,3 @@ extensions = {
 telescope.load_extension("fzf")
 telescope.load_extension("bibtex")
 telescope.load_extension("heading")
-
