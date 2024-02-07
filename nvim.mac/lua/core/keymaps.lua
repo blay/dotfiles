@@ -114,6 +114,7 @@ key.set("n", "<leader>W", ":w !diff % -<CR>")
 
 -- Tab between buffers
 key.set("n", "<tab>", "<cmd>BulletDemote<CR>")
+key.set("i", "<tab>", "<cmd>BulletDemote<CR>", { noremap = true })
 key.set("n", "<S-tab>", "<cmd>BulletPromote<CR>")
 
 -- Access config files
