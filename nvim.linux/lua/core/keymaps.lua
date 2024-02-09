@@ -15,7 +15,7 @@ map("n", ";", ".")
 map("n", "U", "<C-R>")
 
 -- delete single character without copying into register
-map("n", "x", '"_x')
+--map("n", "x", '"_x')
 
 -- These will make it so that going to the next one in a 
 -- search will center on the line it's found in. 
@@ -113,6 +113,8 @@ map("n", "<leader>W", ":w !diff % -<CR>")
 -- Tab between buffers
 map("n", "<tab>", "<cmd>BulletDemote<CR>")
 map("n", "<S-tab>", "<cmd>BulletPromote<CR>")
+map("i", "<tab>", "<cmd>BulletDemote<CR>")
+map("i", "<S-tab>", "<cmd>BulletPromote<CR>")
 
 -- Access config files
 map("n", "<leader>cp", ":e ~/.config/nvim/lua/plugins<cr>")
@@ -196,10 +198,10 @@ function InsertDateTime(mode)
 end
 
 
---map("n", "<leader>M", ":lua InsertDateTime('date')<CR>")
---map("n", "<leader>m", ":lua InsertDateTime('time')<CR>")
+map("n", "<leader>M", ":lua InsertDateTime('date')<CR>")
+map("n", "<leader>m", ":lua InsertDateTime('time')<CR>")
 
---map('i', '<C-m>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true })
+map('i', '<C-m>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true })
 
 -- Vim room
 map("n", "<leader>h", "<cmd>ZenMode<cr>")
