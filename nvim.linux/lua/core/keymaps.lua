@@ -137,7 +137,7 @@ map("n", "<leader>f", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>j", "<cmd>Telescope oldfiles<cr>")
 map("n", "<leader>J", "<cmd>Telescope git_status<cr>")
 
-map("n", "<leader><leader>", "<cmd>Telescope smart_open<cr>")
+map("n", "<leader><leader>", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>T", "<cmd>Telescope builtin<cr>")
 
 map("n", "<leader>r", "<cmd>Telescope resume<cr>")
