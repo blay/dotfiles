@@ -126,18 +126,21 @@ map("n", "<leader>cr", ":w<cr>:luafile %<cr>")
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 -- Git search
 map("n", "<leader>ä", "<cmd>Git blame<cr>")
+-- Navigate to next link
+map("n", "<leader>ö", "/[[<cr>:nohl<CR>")
+
 
 -- Plugins
 
 -- Telescope settings
 map("n", "<leader>a", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
-map("n", "<leader>f", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>f", "<cmd>Telescope oldfiles<cr>")
 
-map("n", "<leader>j", "<cmd>Telescope oldfiles<cr>")
+map("n", "<leader>j", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>J", "<cmd>Telescope git_status<cr>")
 
-map("n", "<leader><leader>", "<cmd>Telescope smart_open<cr>")
+map("n", "<leader><leader>", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>T", "<cmd>Telescope builtin<cr>")
 
 map("n", "<leader>r", "<cmd>Telescope resume<cr>")
@@ -155,7 +158,7 @@ map("n", "<leader>l", "<cmd>Telekasten find_notes<cr>")
 map("n", "<leader>F", "<cmd>Telekasten show_backlinks<cr>")
 
 map("i", "<C-l>", "<cmd>Telekasten insert_link<cr>")
-map("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
+map("n", "<leader>Ö", "<cmd>Telekasten follow_link<cr>")
 map("n", "<leader>i", "<cmd>Telekasten toggle_todo<cr>")
 map("i", "<C-i>", "<cmd>Telekasten toggle_todo<cr>")
 map("n", "<leader>n", "<cmd>Telekasten new_note<cr>")
@@ -211,11 +214,11 @@ map("n", "<leader>H", "<cmd>Twilight<cr>")
 map("n", "<leader>o", "<cmd>Voom pandoc<cr>")
 
 -- Spell
-map("n", "<leader>z", ":set spell!<CR>")
+map("n", "<leader>zz", ":set spell!<CR>")
 map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 map("i", "<c-s>", "<c-g>u<Esc>[szg`]a<c-g>u")
-map("n", "zf", "[s1z=<c-o>")
-map("n", "zs", "[szg<c-o>")
+map("n", "<leader>zf", "[s1z=1<CR>")
+map("n", "<leader>zs", "[szg<c-o>")
 
 --- Custom commands
 

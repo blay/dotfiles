@@ -7,6 +7,7 @@ local config = wezterm.config_builder()
 config.color_scheme = 'Ayu Mirage'
 --color_scheme = "Catppuccin Mocha", -- or Macchiato, Frappe, Latte
 config.font = wezterm.font 'JetBrains Mono'
+config.font_size = 12.0
 
 config.scrollback_lines = 3500
 config.hide_tab_bar_if_only_one_tab = true
