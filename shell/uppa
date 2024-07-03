@@ -1,5 +1,5 @@
 #!/bin/bash
 chmod 775 $1
 rsync -havzP --progress "$1" monki@stat.blay.se:www/files.magnu.se/
-echo 'http://files.magnu.se/'$1 | xclip -selection c
+echo 'http://files.magnu.se/'$1 | pbcopy
 echo 'http://files.magnu.se/'$1 
