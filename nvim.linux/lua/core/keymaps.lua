@@ -201,10 +201,11 @@ function InsertDateTime(mode)
 end
 
 
-map("n", "<leader>M", ":lua InsertDateTime('date')<CR>")
-map("n", "<leader>m", ":lua InsertDateTime('time')<CR>")
+map("n", "<leader>M", ":lua InsertDateTime('date')<CR>", { noremap = true, silent = true})
 
-map('i', '<C-m>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true })
+ map("n", "<leader>m", ":lua InsertDateTime('time')<CR>")
+
+map('i', '<C-m>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true})
 
 -- Vim room
 map("n", "<leader>h", "<cmd>ZenMode<cr>")
