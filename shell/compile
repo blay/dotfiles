@@ -3,15 +3,13 @@ import re
 import os
 import argparse
 
-def replace_wikilinks_with_content(input_file, output_file, allow_both_syntaxes, keep_wikilinks):
+def replace_wikilinks_with_content(input_file, output_file, keep_wikilinks, keep_citations):
     # Read the original markdown file
     with open(input_file, 'r', encoding='utf-8') as file:
         content = file.read()
 
-    # Regular expression to find wikilinks
-    wikilink_pattern = r'\!\[\[([^\]]+)\]\]'
-    if allow_both_syntaxes:
-        wikilink_pattern = r'\!?(\[\[[^\]]+\]\])'
+    # Regular expression to find wikilinks, excluding those containing @
+    wikilink_pattern = r'(?<!@)\[\[([^@\]]+)\]\]'
 
     # Function to replace a wikilink with the content of the linked file
     def replace_link(match):
@@ -20,30 +18,31 @@ def replace_wikilinks_with_content(input_file, output_file, allow_both_syntaxes,
             with open(link_file_name, 'r', encoding='utf-8') as linked_file:
                 return linked_file.read()
         else:
-            return match.group(1)  # return the original wikilink if file not found
+            # Keep the original wikilink if --keep-wikilinks is set, otherwise return an empty string
+            return match.group(0) if keep_wikilinks else ''
 
-    # Replace all wikilinks with file contents
+    # First pass: Replace all valid wikilinks with the contents of their linked files
     updated_content = re.sub(wikilink_pattern, replace_link, content)
 
-    # Strip all remaining wikilinks if not keeping them
+    # Second pass: Remove any remaining unresolved wikilinks (i.e., any wikilinks still present)
     if not keep_wikilinks:
-        updated_content = re.sub(r'\!?(\[\[[^\]]+\]\])', '', updated_content)
+        updated_content = re.sub(wikilink_pattern, '', updated_content)
 
-    # Write the updated content to the specified output markdown file
-    with open(output_file, 'w', encoding='utf-8') as output_file:
-        output_file.write(updated_content)
+    # By default, convert [[@citation]] to [@citation], unless --keep-citations is passed
+    if not keep_citations:
+        citation_pattern = r'\[\[(@[^@\]]+)\]\]'
+        updated_content = re.sub(citation_pattern, r'[\1]', updated_content)
 
-# Setting up argument parsing
-parser = argparse.ArgumentParser(description='Process Markdown files to replace wikilinks with actual content.')
-parser.add_argument('-i', '--input', required=True, help='Input Markdown file')
-parser.add_argument('-o', '--output', required=True, help='Output Markdown file')
-parser.add_argument('-a', '--all', action='store_true', help='Allow both ![[filename]] and [[filename]] syntaxes')
-parser.add_argument('-w', '--wikilinks', action='store_true', help='Keep remaining wikilinks in the output file')
+    # Write the updated content to the output file
+    with open(output_file, 'w', encoding='utf-8') as output:
+        output.write(updated_content)
 
-# Parse arguments
-args = parser.parse_args()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Replace wikilinks with the content of the linked files, and optionally keep citations.")
+    parser.add_argument('input_file', help="The input file containing wikilinks")
+    parser.add_argument('output_file', help="The output file to write the updated content")
+    parser.add_argument('--keep-wikilinks', action='store_true', help="Keep original wikilinks if files are not found")
+    parser.add_argument('--keep-citations', action='store_true', help="Keep [[@citation]] format, default is to convert to [@citation]")
+    args = parser.parse_args()
 
-# Run the function with provided arguments
-replace_wikilinks_with_content(args.input, args.output, args.all, args.wikilinks)
-print(f"Updated file created: {args.output}")
-
+    replace_wikilinks_with_content(args.input_file, args.output_file, args.keep_wikilinks, args.keep_citations)

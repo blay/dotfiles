@@ -75,3 +75,26 @@ end
 -- Set other 	ons
 local colorscheme = require("helpers.colorscheme")
 vim.cmd.colorscheme(colorscheme)
+
+
+-- Create an autocmd group to avoid duplication
+vim.api.nvim_create_augroup('PandocHighlight', { clear = true })
+
+-- Set highlights for pandoc file type
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'PandocHighlight',
+  pattern = 'pandoc',
+  callback = function()
+    vim.cmd([[
+      highlight PandocH1 guifg=#5CCFE6 gui=bold
+      highlight PandocH2 guifg=#F2AE49 gui=bold
+      highlight PandocH3 guifg=#DFBFFF gui=bold
+      highlight PandocH4 guifg=#D5FF80 gui=bold
+
+      syntax match PandocH1 /^# .*/
+      syntax match PandocH2 /^## .*/
+      syntax match PandocH3 /^### .*/
+      syntax match PandocH4 /^#### .*/
+    ]])
+  end
+})
