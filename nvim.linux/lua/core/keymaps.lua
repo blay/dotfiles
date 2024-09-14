@@ -149,7 +149,7 @@ map("n", "<leader>R", "<cmd>Telescope command_history<cr>")
 map("n", "<leader>u", "<cmd>Telescope bibtex<cr>")
 map("i", "<C-u>", "<cmd>Telescope bibtex<cr>")
 
-map("n", "<leader>p", "<cmd>Easypick todo<cr>")
+map('n', '<leader>p', ":lua require('helpers.due_telescope').list_due_dates()<CR>", { noremap = true, silent = true })
 
 -- Telekasten settings
 

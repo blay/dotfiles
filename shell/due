@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for file in *.p.*; do
+  due_date=$(sed -n '2s/^due: //p' "$file")
+  if [ -n "$due_date" ]; then
+    echo "$due_date $file"
+  fi
+done | sort -r
