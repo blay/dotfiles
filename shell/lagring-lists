@@ -1,0 +1,11 @@
+#!/bin/bash
+
+printf "\n\n# Listing Fiction\n\n"
+ls /Volumes/Lagring/fiction |sort -f | sed 's/^/- /' > ~/Videos/fiction/filmer.md
+
+printf "\n\n# Listing Documentaries\n\n"
+ls /Volumes/Lagring/documentaries|sort -f | sed 's/^/- /' > ~/Videos/documentary/documentaries.md
+
+printf "\n\n# Listing BJJ\n\n"
+find /Volumes/lagring/bjj/bjj -type d | sed -e "s|/Volumes/lagring/bjj/bjj||" -e 's|[^/]*/|  |g' -e 's|^\(  *\)|\1- |' | sed 's/^  //' | sed '/^$/d' > ~/Videos/bjj/bjj-lagring.md
+

@@ -1,8 +1,62 @@
 #!/bin/bash
 
+# Function to convert YYYY-MM-DD to short month-day format (e.g., Sep 18)
+format_date() {
+    local date_str="$1"
+    # Extract year, month, and day from the date
+    year=$(echo "$date_str" | cut -d'-' -f1)
+    month=$(echo "$date_str" | cut -d'-' -f2)
+    day=$(echo "$date_str" | cut -d'-' -f3)
+
+    # Convert month number to short name
+    case "$month" in
+        01) month="Jan" ;;
+        02) month="Feb" ;;
+        03) month="Mar" ;;
+        04) month="Apr" ;;
+        05) month="May" ;;
+        06) month="Jun" ;;
+        07) month="Jul" ;;
+        08) month="Aug" ;;
+        09) month="Sep" ;;
+        10) month="Oct" ;;
+        11) month="Nov" ;;
+        12) month="Dec" ;;
+    esac
+
+    # Return formatted date
+    echo "$month $day"
+}
+
+# Array to store file and due date info
+declare -a results
+
+# Iterate over all files with '.p.' in the name in the current directory
 for file in *.p.*; do
-  due_date=$(sed -n '2s/^due: //p' "$file")
-  if [ -n "$due_date" ]; then
-    echo "$due_date $file"
-  fi
-done | sort -r
+    if [[ -f "$file" ]]; then
+        # Extract the second line containing 'due: YYYY-MM-DD'
+        due_line=$(sed -n '2p' "$file")
+        # Use grep and cut to extract the date from the due line
+        due_date=$(echo "$due_line" | grep 'due:' | cut -d' ' -f2)
+
+        # If due_date is found, add it to the array
+        if [[ -n "$due_date" ]]; then
+            formatted_due=$(format_date "$due_date")
+            results+=("$due_date|$formatted_due|$file")
+        fi
+    fi
+done
+
+# Sort the results by the original YYYY-MM-DD date in reverse order
+IFS=$'\n' sorted_results=($(sort -r <<<"${results[*]}"))
+unset IFS
+
+# Display sorted results
+echo "Files Sorted by Due Date (Reverse Order):"
+for result in "${sorted_results[@]}"; do
+    # Split the string into original date, formatted date, and file
+    IFS='|' read -r original_due formatted_due file <<< "$result"
+    # Output formatted date and file
+    echo "$formatted_due -> $file"
+done
+

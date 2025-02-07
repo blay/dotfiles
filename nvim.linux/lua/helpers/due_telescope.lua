@@ -4,6 +4,18 @@ local sorters = require('telescope.sorters')
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 local previewers = require('telescope.previewers')
+local api = vim.api
+
+-- Function to format date from YYYY-MM-DD to Month Day (e.g., Sep 18)
+local function format_date(date_str)
+  local months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+  local year, month, day = date_str:match("(%d+)-(%d+)-(%d+)")
+  if year and month and day then
+    return string.format("%s %d", months[tonumber(month)], tonumber(day))
+  else
+    return date_str  -- Fallback in case of format mismatch
+  end
+end
 
 local M = {}
 
@@ -18,13 +30,16 @@ M.scan_files_for_due = function()
     if #second_line > 0 then  -- Ensure the second line exists
       local due_date = second_line[1]:match("^due: (.*)")  -- Extract the due date from the second line
       if due_date then
-        table.insert(results, { due_date, file })  -- Add to results if due date is found
+        local formatted_due = format_date(due_date)  -- Format the date to "Sep 18"
+        table.insert(results, { due_date, formatted_due, file })  -- Keep both original and formatted date
       end
     end
   end
 
-  -- Sort results by date
-  table.sort(results, function(a, b) return a[1] < b[1] end)
+  -- Sort results by the original YYYY-MM-DD date (first element in the result table)
+  table.sort(results, function(a, b)
+    return a[1] < b[1]  -- Sort by the original due date (a[1] contains YYYY-MM-DD)
+  end)
 
   return results
 end
@@ -40,9 +55,9 @@ M.list_due_dates = function()
       entry_maker = function(entry)
         return {
           value = entry,
-          -- Display entry without additional highlighting
-          display = entry[1] .. " -> " .. entry[2],
-          ordinal = entry[1] .. " " .. entry[2]  -- Include both due_date and filename for filtering
+          -- Display the formatted date (e.g., "Sep 18") and the filename
+          display = entry[2] .. " -> " .. entry[3],
+          ordinal = entry[1] .. " " .. entry[3]  -- Use the original due date (YYYY-MM-DD) for filtering and sorting
         }
       end
     },
@@ -51,7 +66,7 @@ M.list_due_dates = function()
       define_preview = function(self, entry, status)
         local buf = self.state.bufnr
         vim.api.nvim_buf_set_option(buf, 'filetype', 'markdown')  -- Set filetype to markdown for Pandoc syntax highlighting
-        local lines = vim.fn.readfile(entry.value[2])
+        local lines = vim.fn.readfile(entry.value[3])
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
       end
     },
@@ -59,7 +74,7 @@ M.list_due_dates = function()
       map('i', '<CR>', function()
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
-        vim.cmd('edit ' .. selection.value[2])
+        vim.cmd('edit ' .. selection.value[3])
       end)
       return true
     end

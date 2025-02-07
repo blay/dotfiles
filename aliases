@@ -38,6 +38,10 @@ alias mv="mv -i"
 
 alias c="clear"
 
+alias transfer="rsync -avh --progress" 
+
+alias update="rsync -avh --ignore-existing --partial --update --progress --exclude '.*'"
+
 alias uppa='sh ~/.shell/uppa'
 
 alias cpu='top -o cpu -n 5'
@@ -117,6 +121,7 @@ alias logedit='vim ~/notes/workout/logbook.md'
 alias bs="bundle exec jekyll serve"
 alias bb="bundle exec jekyll build"
 alias bp="rsync -havz --delete _site monki@blay.se:www/blay.se/"
+
 # Todo
 
 alias tt='rg @todo:a ~/zettel'
@@ -179,6 +184,9 @@ alias cdcv='cd ~/notes/cv.blay.se'
 alias cdha='cd ~/notes/hack'
 alias cdd='cd ~/Downloads'
 alias cdv='cd ~/Videos'
+alias cdvb='cd ~/Videos/bjj'
+alias cdvd='cd ~/Videos/documentary'
+alias cdvf='cd ~/Videos/fiction'
 alias cdu='cd ~/Music'
 alias cdw='cd ~/wallpapers'
 alias cdb='cd ~/builds'
