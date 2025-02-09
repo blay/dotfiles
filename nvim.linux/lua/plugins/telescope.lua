@@ -13,10 +13,12 @@ return {
 		require("telescope").setup({
 			defaults = {
 			  layout_strategy = "vertical",
+			  sorting_strategy = 'ascending',
 			  layout_config = { 
 			    height = 0.8,
 			    prompt_position = 'top',
 			    mirror = 'true',
+			    preview_cutoff = 0,
 			  },
 			mappings = {
 			i = {
@@ -69,7 +71,15 @@ return {
                })
             end
        },
-  
+{
+  "nvim-telescope/telescope-frecency.nvim",
+  -- install the latest stable version
+  version = "*",
+  config = function()
+    require("telescope").load_extension "frecency"
+  end,
+},
+
   "crispgm/telescope-heading.nvim",
   "nvim-telescope/telescope-bibtex.nvim",
 

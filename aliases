@@ -87,6 +87,7 @@ alias az="ag -l | fzf"
 alias av="ag --nobreak --nonumbers --noheading . | fzf" 
 alias auid="xargs -i ag -g {}"
 alias aorphan="af (N-|T-|W-|O-)|ax -L [0-9]{12}|ax -L '(?<=\@)[a-z]*[0-9]{4}'"
+alias duplicates="ls|cut -c1-15|uniq -cd"
 
 alias f="find . -type f -not -path '*/\.*'"
 alias lt='ls -lhtr | tr -s " " | cut -d " " -f6-'

@@ -40,7 +40,9 @@ return {
   },
   {
 	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
+    config = function() require("nvim-autopairs").setup {
+	    map_cr = false,  -- Disables <CR> mapping
+    } end
   },
   {
   'lewis6991/gitsigns.nvim',

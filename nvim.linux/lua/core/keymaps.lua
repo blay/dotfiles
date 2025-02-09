@@ -123,12 +123,11 @@ map("n", "<leader>ck", ":e ~/.config/nvim/lua/core/keymaps.lua<cr>")
 map("n", "<leader>cr", ":w<cr>:luafile %<cr>")
 
 --- Open nvim-tree
-map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+--map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 -- Git search
 map("n", "<leader>ä", "<cmd>Git blame<cr>")
 -- Navigate to next link
 map("n", "<leader>ö", "/[[<cr>:nohl<CR>")
-
 
 -- Plugins
 
@@ -140,7 +139,7 @@ map("n", "<leader>f", "<cmd>Telescope oldfiles<cr>")
 map("n", "<leader>j", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>J", "<cmd>Telescope git_status<cr>")
 
-map("n", "<leader><leader>", "<cmd>Telescope find_files<cr>")
+--map("n", "<leader><leader>", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>T", "<cmd>Telescope builtin<cr>")
 
 map("n", "<leader>r", "<cmd>Telescope resume<cr>")
