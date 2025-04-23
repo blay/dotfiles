@@ -8,7 +8,7 @@ config.color_scheme = 'Ayu Mirage'
 --color_scheme = "Catppuccin Mocha", -- or Macchiato, Frappe, Latte
 config.font = wezterm.font 'JetBrains Mono'
 --config.font = wezterm.font 'Roboto Mono'
-config.font_size = 13.0
+config.font_size = 11.0
 
 config.scrollback_lines = 3500
 config.hide_tab_bar_if_only_one_tab = true

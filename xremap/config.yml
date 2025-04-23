@@ -1,0 +1,7 @@
+modmap:
+  - name: basics
+    remap:
+       CapsLock:
+        held:  leftctrl
+        alone: esc
+        alone_timeout_millis: 150

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+HOME=/home/svartfax
+plasma-apply-wallpaperimage $HOME/wallpapers
+plasma-apply-lookandfeel -a com.gitlab.pwyde.monochome-kde
+plasma-apply-colorscheme
+plasma-apply-cursortheme
