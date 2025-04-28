@@ -1,0 +1,10 @@
+[Unit]
+Description=Run system backup bi-weekly
+
+[Timer]
+OnCalendar=Mon *-*-* 00:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
