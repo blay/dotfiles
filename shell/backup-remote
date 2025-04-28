@@ -1,0 +1,49 @@
+#!/bin/bash
+set -e
+
+# ==== CONFIGURATION ====
+BACKUP_DIR="$HOME/backups/system"
+REMOTE_USER="pi"                    # Your Raspberry Pi user
+REMOTE_HOST="mypi-storage"      # Or IP address like 192.168.1.x
+REMOTE_DIR="/media/pi/backup/fedora" # Remote backup destination
+KEEP=4                               # How many local backups to keep
+DATE=$(date +%F)
+
+# ==== CREATE BACKUP ====
+echo "📦 Creating backup at $BACKUP_DIR/$DATE..."
+
+mkdir -p "$BACKUP_DIR/$DATE"
+
+# Backup home configuration
+rsync -a --delete ~/.config "$BACKUP_DIR/$DATE/"
+rsync -a --delete --exclude="Trash/***" --exclude="icons/***" ~/.local/share "$BACKUP_DIR/$DATE/"
+cp ~/.bashrc ~/.zshrc ~/.profile "$BACKUP_DIR/$DATE/" 2>/dev/null || true
+
+# Backup important /etc configs
+sudo rsync -a --delete -x /etc "$BACKUP_DIR/$DATE/etc"
+
+# Backup installed package lists
+rpm -qa > "$BACKUP_DIR/$DATE/installed-packages.txt"
+flatpak list --app --columns=application,ref > "$BACKUP_DIR/$DATE/installed-flatpaks.txt"
+
+echo "✅ Local backup created: $BACKUP_DIR/$DATE"
+
+# ==== DELETE OLD LOCAL BACKUPS ====
+echo "🧹 Cleaning old local backups, keeping latest $KEEP..."
+cd "$BACKUP_DIR"
+ls -1tr | head -n -"$KEEP" | xargs -d '\n' rm -rf --
+
+# ==== SYNC TO REMOTE ====
+echo "🚀 Syncing backups to Raspberry Pi at $REMOTE_HOST..."
+
+# Create remote folder if it doesn't exist
+ssh "$REMOTE_USER@$REMOTE_HOST" "mkdir -p '$REMOTE_DIR'"
+
+# Rsync the entire local backup folder to the remote backup folder
+rsync -azL --delete "$BACKUP_DIR/" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR/"
+
+echo "✅ Remote sync complete."
+
+# ==== DONE ====
+echo "🎉 Backup and sync finished successfully!"
+

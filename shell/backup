@@ -1,0 +1,29 @@
+#!/bin/bash
+set -e
+
+# Settings
+BACKUP_DIR="$HOME/backups/system"
+DATE=$(date +%F)
+KEEP=5
+
+# Create backup folder
+mkdir -p "$BACKUP_DIR/$DATE"
+
+# Backup home configuration
+rsync -a --delete ~/.config "$BACKUP_DIR/$DATE/"
+rsync -a --delete --exclude="Trash/***" --exclude="icons/***" ~/.local/share "$BACKUP_DIR/$DATE/"
+cp ~/.bashrc ~/.zshrc ~/.profile "$BACKUP_DIR/$DATE/" 2>/dev/null || true
+
+# Backup important /etc configs
+sudo rsync -a --delete /etc "$BACKUP_DIR/$DATE/etc"
+
+# Backup installed package list
+rpm -qa > "$BACKUP_DIR/$DATE/installed-packages.txt"
+flatpak list --app --columns=application,ref > "$BACKUP_DIR/$DATE/installed-flatpaks.txt"
+
+# Clean old backups, keeping only latest $KEEP
+cd "$BACKUP_DIR"
+ls -1tr | head -n -"$KEEP" | xargs -d '\n' rm -rf --
+
+echo "Backup complete: $BACKUP_DIR/$DATE"
+

@@ -14,7 +14,7 @@ station_names="
 [-] Pause
 "
 
-pi="mypi"
+pi="mypi-music"
 
 while :
 do

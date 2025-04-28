@@ -1,0 +1,7 @@
+[Unit]
+Description=System Settings Backup
+
+[Service]
+Type=oneshot
+ExecStart=/home/svartfax/.shell/system_backup.sh
+
