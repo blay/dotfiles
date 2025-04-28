@@ -1,41 +1,93 @@
 #!/bin/bash
 
-# Define the dotfiles directory (replace with your actual dotfiles directory)
-dotfiles_dir="$HOME/dotfiles"
+set -e
 
-# An associative array mapping files in your dotfiles directory to their desired locations
-declare -A symlink_targets=(
-    ["caps2esc.yaml"]="/etc/caps2esc.yaml"
-    ["caps2esc.service"]="/etc/systemd/system/caps2esc.service"
-    ["zshrc"]="$HOME/.zshrc"
-    ["os.zsh"]="$HOME/.os.zsh"
-    ["p10k.zsh"]="$HOME/.p10k.zsh"
-    ["wezterm"]="$HOME/.wezterm"
-    ["nvim.linux"]="$HOME/.config/nvim"
-    ["file3"]="/etc/file3" # Example for a file to be linked in /etc
+DOTFILES_DIR="$HOME/dotfiles"
+BACKUP_DIR="$HOME/.dotfiles_backup"
+FORCE=false
+
+# Parse flags
+if [[ "$1" == "--force" ]]; then
+    FORCE=true
+    echo "⚡ Force mode enabled: existing files will be overwritten without backup."
+fi
+
+mkdir -p "$BACKUP_DIR"
+mkdir -p "$HOME/.config"
+
+# === Files to symlink into $HOME ===
+FILES=(
+    "zshrc:.zshrc"
+    "gitconfig:.gitconfig"
+    "os.zsh:.os.zsh"
+    "p10k.zsh:.p10k.zsh"
+    "aliases:.aliases"
+    "wezterm.lua:.wezterm.lua"
+    "shell:.shell"
 )
 
-# Loop through the associative array
-for file in "${!symlink_targets[@]}"; do
-    src="$dotfiles_dir/$file"
-    dst="${symlink_targets[$file]}"
+# === Config directories to symlink into ~/.config ===
+CONFIGS=(
+    "nvim.mac:nvim"
+    "karabiner:karabiner"
+)
 
-    # Check if the source file exists
-    if [ -f "$src" ]; then
-        # Create a backup of the destination file if it already exists
-        if [ -f "$dst" ]; then
-            echo "Backing up $dst to ${dst}.bak"
-            mv "$dst" "${dst}.bak"
-        fi
+echo ""
+echo "=== Symlinking dotfiles into ~ ==="
+for mapping in "${FILES[@]}"; do
+    src_name="${mapping%%:*}"
+    dest_name="${mapping##*:}"
 
-        # Create the symlink
-        ln -s "$src" "$dst"
-        echo "Created symlink for $file"
-    else
-        echo "Source file $src not found. Skipping."
+    src="$DOTFILES_DIR/$src_name"
+    dest="$HOME/$dest_name"
+
+    if [ ! -e "$src" ]; then
+        echo "⚠️ Source $src not found. Skipping."
+        continue
     fi
+
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        if [ "$FORCE" = true ]; then
+            echo "Overwriting $dest"
+            rm -rf "$dest"
+        else
+            echo "Backing up existing $dest to $BACKUP_DIR/"
+            mv "$dest" "$BACKUP_DIR/"
+        fi
+    fi
+
+    echo "Linking $src -> $dest"
+    ln -s "$src" "$dest"
 done
 
-echo "Symlinking complete."
+echo ""
+echo "=== Symlinking configs into ~/.config/ ==="
+for mapping in "${CONFIGS[@]}"; do
+    src_name="${mapping%%:*}"
+    dest_name="${mapping##*:}"
 
+    src="$DOTFILES_DIR/config/$src_name"
+    dest="$HOME/.config/$dest_name"
+
+    if [ ! -e "$src" ]; then
+        echo "⚠️ Source $src not found. Skipping."
+        continue
+    fi
+
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        if [ "$FORCE" = true ]; then
+            echo "Overwriting $dest"
+            rm -rf "$dest"
+        else
+            echo "Backing up existing $dest to $BACKUP_DIR/"
+            mv "$dest" "$BACKUP_DIR/"
+        fi
+    fi
+
+    echo "Linking $src -> $dest"
+    ln -s "$src" "$dest"
+done
+
+echo ""
+echo "✅ All symlinks created successfully!"
 
