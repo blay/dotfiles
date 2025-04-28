@@ -22,7 +22,7 @@ FILES=(
     "os.zsh:.os.zsh"
     "p10k.zsh:.p10k.zsh"
     "aliases:.aliases"
-    "wezterm.lua:.wezterm.lua"
+    "wezterm.lua.mac:.wezterm.lua"
     "shell:.shell"
 )
 
