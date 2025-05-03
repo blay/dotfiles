@@ -42,3 +42,7 @@ fi
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/svartfax/.lmstudio/bin"
+
+# Testing to get colours in tmux
+export TERM=tmux-256color
+export COLORTERM=truecolor
