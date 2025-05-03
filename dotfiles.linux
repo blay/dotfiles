@@ -24,6 +24,7 @@ FILES=(
     "aliases:.aliases"
     "wezterm.lua.linux:.wezterm.lua"
     "shell:.shell"
+    "tmux.conf:.tmux.conf"
 )
 
 # === Config directories to symlink into ~/.config ===
