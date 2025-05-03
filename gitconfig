@@ -7,6 +7,7 @@
 	default = simple
 [core]
 	excludesfile = ~/.gitignore_global
+	precomposeUnicode = true
 [alias]
 	co = checkout
 	cob = checkout -b
