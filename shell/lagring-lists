@@ -1,11 +1,27 @@
 #!/bin/bash
 
 printf "\n\n# Listing Fiction\n\n"
-ls /Volumes/Lagring/fiction |sort -f | sed 's/^/- /' > ~/Videos/fiction/filmer.md
+#ls /Volumes/Lagring/fiction |sort -f | sed 's/^/- /' > ~/Videos/fiction/filmer.md
+ssh mypi-storage ls /media/pi/seagate/Movies/fiction |sort -f | sed 's/^/- /' > ~/Videos/fiction/filmer.md
 
 printf "\n\n# Listing Documentaries\n\n"
-ls /Volumes/Lagring/documentaries|sort -f | sed 's/^/- /' > ~/Videos/documentary/documentaries.md
+#ls /Volumes/Lagring/documentaries|sort -f | sed 's/^/- /' > ~/Videos/documentary/documentaries.md
+ssh mypi-storage ls /media/pi/seagate/Movies/documentaries|sort -f | sed 's/^/- /' > ~/Videos/documentary/documentaries.md
 
 printf "\n\n# Listing BJJ\n\n"
-find /Volumes/lagring/bjj/bjj -type d | sed -e "s|/Volumes/lagring/bjj/bjj||" -e 's|[^/]*/|  |g' -e 's|^\(  *\)|\1- |' | sed 's/^  //' | sed '/^$/d' > ~/Videos/bjj/bjj-lagring.md
 
+# Run the find command remotely and filter only directories
+REMOTE_PATH="/media/pi/seagate/bjj/bjj"
+DIR_LIST=$(ssh mypi-storage "find \"$REMOTE_PATH\" -type d | sed 's|^$REMOTE_PATH/||'")
+
+# Convert to indented Markdown
+echo "$DIR_LIST" | awk -F/ '
+{
+    depth = NF - 1
+    indent = ""
+    for (i = 0; i < depth; i++) {
+        indent = indent "  "
+    }
+    print indent "- " $NF
+}
+' > ~/Videos/bjj/bjj-lagring.md

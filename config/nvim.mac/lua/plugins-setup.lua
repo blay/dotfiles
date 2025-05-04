@@ -82,13 +82,22 @@ local plugins = {
 },
 
 -- Zettel
-  "vim-voom/VOoM",
   "blay/vim-pandoc-syntax",
+--  { "vim-pandoc/vim-pandoc-syntax" },
   "vim-pandoc/vim-pandoc",
   {
 	  'inkarkat/vim-SpellCheck', 
 	  dependencies = { {'inkarkat/vim-ingo-library'} }
   },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+{
+  "stevearc/aerial.nvim",
+  opts = {},
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons"
+  }
+},
 
 -- Utilities
   "tpope/vim-sensible",

@@ -209,7 +209,8 @@ key.set("n", "<leader>h", "<cmd>Goyo<cr><cmd>Limelight!!<cr><cmd>edit<cr>")
 key.set("n", "<leader>H", "<cmd>Limelight!!<cr>")
 
 -- Voom
-key.set("n", "<leader>o", "<cmd>Voom pandoc<cr>")
+--key.set("n", "<leader>o", "<cmd>Voom pandoc<cr>")
+vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", { desc = "Toggle outline" })
 
 -- Spell
 key.set("n", "<leader>z", ":set spell!<CR>")
