@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+SOCKET="/tmp/mpvsocket"
+
+send_command() {
+  echo "$1" | socat - "$SOCKET"
+}
+
+ensure_running() {
+  if ! pgrep -x mpv >/dev/null; then
+    echo "Starting MPV..."
+    nohup mpv --no-terminal --idle --input-ipc-server="$SOCKET" >/dev/null 2>&1 &
+    sleep 1
+  fi
+}
+
+seek() {
+  local arg="$1"
+  
+  if [[ "$arg" =~ %$ ]]; then
+    # Percentage seek
+    local percent="${arg%%%}"
+    local duration=$(echo '{"command": ["get_property", "duration"]}' | socat - "$SOCKET" | jq -r '.data')
+    if [[ "$duration" == "null" || -z "$duration" ]]; then
+      echo "❌ Could not get duration"
+      return 1
+    fi
+    local target=$(awk "BEGIN { printf \"%.0f\", $duration * $percent / 100 }")
+    echo "{\"command\": [\"seek\", $target, \"absolute\"]}" | socat - "$SOCKET"
+  else
+    # Direct second seek
+    echo "{\"command\": [\"seek\", $arg, \"absolute\"]}" | socat - "$SOCKET"
+  fi
+}
+
+case "$1" in
+  add)
+    ensure_running
+    shift
+    for file in "$@"; do
+      send_command "{\"command\": [\"loadfile\", \"$file\", \"append-play\"]}"
+    done
+    ;;
+  play)
+    ensure_running
+    send_command '{"command": ["set_property", "pause", false]}'
+    ;;
+  pause)
+    ensure_running
+    send_command '{"command": ["set_property", "pause", true]}'
+    ;;
+  toggle)
+    ensure_running
+    send_command '{"command": ["cycle", "pause"]}'
+    ;;
+  seek)
+    ensure_running
+    seek "$2"
+    ;;
+  quit)
+    send_command '{"command": ["quit"]}'
+    ;;
+  *)
+    echo "Usage: $0 {add <file>..., play, pause, toggle, seek <seconds|percent%>, quit}"
+    ;;
+esac
+

@@ -29,7 +29,7 @@ FILES=(
 
 # === Config directories to symlink into ~/.config ===
 CONFIGS=(
-    "nvim.linux:nvim"
+    "nvim.mac:nvim"
     "xremap:xremap"
 )
 
