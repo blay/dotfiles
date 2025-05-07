@@ -35,7 +35,10 @@ fi
 # Load custom aliases
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Source FZF
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh
+[ -f /usr/share/fzf/shell/completion.zsh ] && source /usr/share/fzf/shell/completion.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

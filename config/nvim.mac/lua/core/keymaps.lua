@@ -92,9 +92,6 @@ key.set("n", "<C-a>", "<ESC>^")
 key.set("i", "<C-a>", "<ESC>I")
 key.set("n", "<C-e>", "<ESC>$")
 key.set("i", "<C-e>", "<ESC>A")
--- Fold and Unfold
-key.set("n", "<leader>b", "zM9zo")
-key.set("n", "<leader>B", "zR")
 -- Jump with hop word
 key.set("n", "<leader>g", "<cmd>HopWord<cr>")
 -- Turn block into list
@@ -116,6 +113,7 @@ key.set("n", "<leader>W", ":w !diff % -<CR>")
 key.set("n", "<tab>", "<cmd>BulletDemote<CR>")
 key.set("i", "<tab>", "<cmd>BulletDemote<CR>", { noremap = true })
 key.set("n", "<S-tab>", "<cmd>BulletPromote<CR>")
+key.set("i", "<S-tab>", "<cmd>BulletPromote<CR>", { noremap = true })
 
 -- Access config files
 key.set("n", "<leader>cp", ":e ~/.config/nvim/lua/plugins-setup.lua<cr>")
@@ -199,10 +197,10 @@ function InsertDateTime(mode)
 end
 
 
-key.set("n", "<leader>M", ":lua InsertDateTime('date')<CR>")
-key.set("n", "<leader>m", ":lua InsertDateTime('time')<CR>")
+key.set("n", "<leader>B", ":lua InsertDateTime('date')<CR>")
+key.set("n", "<leader>b", ":lua InsertDateTime('time')<CR>")
 
-key.set('i', '<C-m>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true })
+key.set('i', '<C-b>', '<C-o>:lua InsertDateTime("time")<CR>', { noremap = true, silent = true })
 
 -- Vim room
 key.set("n", "<leader>h", "<cmd>Goyo<cr><cmd>Limelight!!<cr><cmd>edit<cr>")

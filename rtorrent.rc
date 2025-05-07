@@ -1,0 +1,49 @@
+# === Directories ===
+
+# Where the data will be downloaded
+directory = /home/pi/torrents/incomplete
+
+# Where to move completed downloads
+method.set_key = event.download.finished,move_complete,"execute=mv,-u,$d.get_base_path=,/home/pi/torrents/completed/"
+
+# Where the .torrent files are automatically picked up
+schedule = watch_directory,5,5,load.start=/home/pi/torrents/watch/*.torrent
+
+# Directory where .torrent session data is stored
+session = /home/pi/.rtorrent/session
+
+# === Auto stop and cleanup ===
+
+# Stop torrent, delete .torrent file, remove from session
+event.download.finished = clean_up,"d.stop=; d.erase=; execute=rm,-f,--,$d.get_tied_to_file="
+
+# === Connection & Limits ===
+
+# Global limits
+max_downloads_global = 5
+max_uploads_global = 20
+
+# Per-torrent limits
+max_uploads = 5
+download_rate = 0    # 0 = unlimited
+upload_rate = 0      # 0 = unlimited (set to a number if you want to throttle)
+
+# === Networking Features ===
+
+dht = auto
+dht_port = 6881
+peer_exchange = yes
+encryption = allow_incoming,try_outgoing,enable_retry
+
+# === Logging ===
+
+log.open_file = "rtorrent.log", /home/pi/.rtorrent/rtorrent.log
+log.add_output = "info", "rtorrent.log"
+
+# === Encoding ===
+
+encoding_list = UTF-8
+
+# === Optional for web UI (ruTorrent, Flood, etc) ===
+# scgi_port = 127.0.0.1:5000
+

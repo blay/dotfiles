@@ -1,0 +1,26 @@
+#!/bin/bash
+
+SOCKET="/tmp/mpvsocket"
+
+# Auto-start MPV if not running
+if [[ ! -S "$SOCKET" ]]; then
+  echo "🟡 MPV not running. Starting in background..."
+  nohup mpv --no-terminal --idle --input-ipc-server="$SOCKET" >/dev/null 2>&1 &
+  sleep 1
+fi
+
+# Preview command: show file info
+preview_cmd='stat --format="📄 %n\n📏 %s bytes\n🕒 %y" {}'
+
+# Use fzf to select one or more video files
+files=$(find . -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" \) \
+  | fzf -m --preview "$preview_cmd")
+
+[[ -z "$files" ]] && exit 0
+
+while IFS= read -r file; do
+  realpath "$file" | xargs -I{} echo '{ "command": ["loadfile", "{}", "append-play"] }' | socat - "$SOCKET"
+done <<< "$files"
+
+echo "✅ Files enqueued to MPV."
+
