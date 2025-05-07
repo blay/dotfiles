@@ -40,9 +40,11 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/svartfax/.lmstudio/bin"
-
 # Testing to get colours in tmux
 export TERM=tmux-256color
 export COLORTERM=truecolor
+
+# Load TMUX
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach-session -t main || tmux new-session -s main
+fi
