@@ -45,6 +45,8 @@ local plugins = {
 
   "crispgm/telescope-heading.nvim",
   "nvim-telescope/telescope-bibtex.nvim",
+
+
   {  "axkirillov/easypick.nvim",
     config = function()
       require("easypick").setup({
@@ -52,19 +54,24 @@ local plugins = {
     	  {
 			   name = "todo",
 			   command = "ls *.p.*",
-			 --  previewer = easypick.previewers.default()
+			  -- previewer = easypick.previewers.default()
+		    },
+    	  {
+			   name = "due",
+			   command = "due",
+			   --previewer = easypick.previewers.default()
 		    },
 	     }
       })
      end
    },
---  {
- --   "danielfalk/smart-open.nvim",
- --   dependencies = {"tami5/sqlite.lua"},
- --   config = function()
-  --    require"telescope".load_extension("smart_open")
-   -- end
- -- },
+  {
+    "danielfalk/smart-open.nvim",
+    dependencies = {"tami5/sqlite.lua"},
+    config = function()
+      require"telescope".load_extension("smart_open")
+    end
+  },
 
 -- Telekasten
   {

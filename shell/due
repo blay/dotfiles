@@ -48,11 +48,12 @@ for file in *.p.*; do
 done
 
 # Sort the results by the original YYYY-MM-DD date in reverse order
-IFS=$'\n' sorted_results=($(sort -r <<<"${results[*]}"))
+#IFS=$'\n' sorted_results=($(sort -r <<<"${results[*]}"))
+IFS=$'\n' sorted_results=($(sort <<<"${results[*]}"))
 unset IFS
 
 # Display sorted results
-echo "Files Sorted by Due Date (Reverse Order):"
+#echo "Files Sorted by Due Date (Reverse Order):"
 for result in "${sorted_results[@]}"; do
     # Split the string into original date, formatted date, and file
     IFS='|' read -r original_due formatted_due file <<< "$result"

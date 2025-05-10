@@ -109,7 +109,7 @@ key.set("n", "<leader>w", ":w<cr>")
 -- Diff current buffer and saved file
 key.set("n", "<leader>W", ":w !diff % -<CR>")
 
--- Tab between buffers
+-- Tab Bullets
 key.set("n", "<tab>", "<cmd>BulletDemote<CR>")
 key.set("i", "<tab>", "<cmd>BulletDemote<CR>", { noremap = true })
 key.set("n", "<S-tab>", "<cmd>BulletPromote<CR>")
@@ -145,8 +145,7 @@ key.set("n", "<leader>R", "<cmd>Telescope command_history<cr>")
 key.set("n", "<leader>u", "<cmd>Telescope bibtex<cr>")
 key.set("i", "<C-u>", "<cmd>Telescope bibtex<cr>")
 
-key.set("n", "<leader>p", "<cmd>Easypick todo<cr>")
-
+key.set("n", "<leader>p", "<cmd>Easypick due<cr>")
 -- Telekasten settings
 
 key.set("n", "<leader>t", "<cmd>Telekasten panel<cr>")
