@@ -114,7 +114,7 @@ function onMidi(status, data1, data2) {
     else if (cc >= 77 && cc <= 84) {
         const trackIndex = cc - 77;
         if (volumeControls[trackIndex]) {
-            const scaledValue = value * 0.795;
+            const scaledValue = value * 0.764;
             volumeControls[trackIndex].set(scaledValue);
         }
     }
