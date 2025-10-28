@@ -60,7 +60,7 @@ alias 1024='sips -Z 1024 *.jpg'
 
 alias jab="wmname LG3D"
 
-alias mp3='youtube-dl -x --audio-format "mp3"'
+alias mp3='yt-dlp -x --audio-format mp3'
 
 alias cal="ncal -w"
 
