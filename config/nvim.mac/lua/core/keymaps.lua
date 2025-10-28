@@ -17,7 +17,7 @@ key.set("n", ";", ".")
 key.set("n", "U", "<C-R>")
 
 -- delete single character without copying into register
-key.set("n", "x", '"_x')
+--key.set("n", "x", '"_x')
 
 -- These will make it so that going to the next one in a 
 -- search will center on the line it's found in. 
@@ -207,7 +207,9 @@ key.set("n", "<leader>H", "<cmd>Limelight!!<cr>")
 
 -- Voom
 --key.set("n", "<leader>o", "<cmd>Voom pandoc<cr>")
-vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", { desc = "Toggle outline" })
+--vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", { desc = "Toggle outline" })
+key.set("n", "<leader>o", "<cmd>Telescope heading<cr>")
+
 
 -- Spell
 key.set("n", "<leader>z", ":set spell!<CR>")

@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Usage: content_format <file>
+# Reformats a Markdown file of BJJ course contents:
+# - Converts "Volume X" → "# Volume X"
+# - Adds a blank line before each volume (except the first)
+# - Removes "CHAPTER TITLE" and "START TIME"
+# - Prefixes all other lines with "- "
+# - Overwrites the original file
+
+file="$1"
+
+if [[ -z "$file" || ! -f "$file" ]]; then
+  echo "Usage: content_format <file>"
+  exit 1
+fi
+
+tmpfile=$(mktemp)
+
+awk '
+BEGIN { first_volume = 1 }
+/^Volume [0-9]+/ {
+  if (first_volume) {
+    first_volume = 0
+  } else {
+    print ""   # blank line before next volume
+  }
+  print "# " $0 "\n"
+  next
+}
+/^CHAPTER TITLE|^START TIME$/ { next }
+NF {
+  print "- " $0
+}
+' "$file" > "$tmpfile"
+
+mv "$tmpfile" "$file"
+echo "Reformatted: $file"
+
