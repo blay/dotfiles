@@ -3,6 +3,7 @@
 printf "\n\n# Listing Fiction\n\n"
 #ls /Volumes/Lagring/fiction |sort -f | sed 's/^/- /' > ~/Videos/fiction/filmer.md
 ssh mypi-storage ls /media/pi/seagate/Movies/fiction |sort -f | sed 's/^/- /' > ~/Videos/fiction/filmer.md
+cp ~/Videos/fiction/filmer.md ~/notes/md/2020-07-17-2132.r.filmer.md
 
 printf "\n\n# Listing Documentaries\n\n"
 #ls /Volumes/Lagring/documentaries|sort -f | sed 's/^/- /' > ~/Videos/documentary/documentaries.md
@@ -24,4 +25,4 @@ echo "$DIR_LIST" | awk -F/ '
     }
     print indent "- " $NF
 }
-' > ~/Videos/bjj/bjj-lagring.md
+' > ~/Videos/bjj/bjj.md
