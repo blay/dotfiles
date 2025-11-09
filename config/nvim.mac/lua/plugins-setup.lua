@@ -74,24 +74,22 @@ local plugins = {
   },
 
 -- Telekasten
-  {
-    'renerocksai/telekasten.nvim',
-    dependencies = {'nvim-telescope/telescope.nvim'},
-   config = function()
-    require('telekasten').setup({
-      home = vim.fn.expand("~/notes/md"), -- your notes directory
-      take_over_my_home = false,
-      auto_set_filetype = false,
-      auto_set_syntax = false,
-      subdirs_in_links = false,
-    })
-    end
-},
+--  {
+--    'renerocksai/telekasten.nvim',
+--    dependencies = {'nvim-telescope/telescope.nvim'},
+--  config = function()
+--    require('telekasten').setup({
+--      home = vim.fn.expand("~/notes/md"), -- your notes directory
+--      take_over_my_home = false,
+--      auto_set_filetype = false,
+--      auto_set_syntax = false,
+--      subdirs_in_links = false,
+ --   })
+--    end
+--},
 
 -- Zettel
-  "blay/vim-pandoc-syntax",
---  { "vim-pandoc/vim-pandoc-syntax" },
-  "vim-pandoc/vim-pandoc",
+--  "blay/vim-pandoc-syntax",
   {
 	  'inkarkat/vim-SpellCheck', 
 	  dependencies = { {'inkarkat/vim-ingo-library'} }
@@ -145,8 +143,16 @@ local plugins = {
     -- you can configure Hop the way you like here; see :h hop-config
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
   end
-}
-  
+},
+
+
+    require("plugins.telescope"),
+    require("plugins.telekasten"),
+    require("plugins.lualine"),
+    require("plugins.nvim-tree"),
+    require("plugins.treesitter"),
+    require("plugins.aerial"), 
+    require("plugins.snacks"),
 }
 
 require("lazy").setup(plugins)

@@ -3,16 +3,6 @@ local opt = vim.opt -- for conciseness
 -- Commands
 vim.api.nvim_create_user_command('YankFilename', 'call setreg("", expand("<cfile>"))', {})
 
--- Pandoc
-vim.g["pandoc#modules#disabled"] = { "formatting", "keyboard" }
-vim.g["pandoc#folding#mode"] = "relative"
-vim.g["pandoc#spell#enabled"] = false
-
-vim.g["pandoc#syntax#conceal#use"] = true
-vim.g["pandoc#syntax#conceal#urls"] = true
-vim.g["pandoc#syntax#style#underline_special"] = false
-vim.g["pandoc#syntax#style#emphases"] = false
-
 -- Bullets.vim
 vim.g.bullets_outline_levels = {'num', 'std-', 'std-'}
 --vim.g.bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-']
@@ -47,7 +37,9 @@ opt.undolevels = 1000    -- use many muchos levels of undo
 opt.mouse = "a"          -- mouse support
 opt.hidden = true        -- hide buffers
 opt.confirm = true       -- confirm unsaved
-opt.conceallevel = 2      -- confirm unsaved
+vim.g.vim_markdown_conceal = 0
+vim.g.markdown_syntax_conceal = 0
+opt.conceallevel = 0
 
 -- Spellcheck
 opt.spelllang = "en,sv" 

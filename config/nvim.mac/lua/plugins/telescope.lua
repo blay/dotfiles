@@ -1,34 +1,32 @@
--- import telescope plugin safely
-local telescope_setup, telescope = pcall(require, "telescope")
-if not telescope_setup then
-  return
-end
+-- lua/plugins/telescope.lua
+return {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+        local telescope = require("telescope")
+        local themes = require("telescope.themes")
 
--- import telescope actions safely
-local actions_setup, actions = pcall(require, "telescope.actions")
-if not actions_setup then
-  return
-end
+        telescope.setup({
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<C-j>"] = "move_selection_next",
+                        ["<C-k>"] = "move_selection_previous",
+                    },
+                },
+                layout_config = {
+                    prompt_position = "bottom",
+                },
+            },
+            pickers = {
+                find_files = {
+                    theme = "dropdown",
+                },
+            },
+        })
 
--- configure telescope
-telescope.setup({
-  -- configure custom mappings
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-        ["<C-j>"] = actions.move_selection_next, -- move to next result
-        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
-      },
-    },
-  },
-extensions = {
-      bibtex = {
-              global_files = {"~/notes/lib.bib"},
-   },
-  },
-})
-
-telescope.load_extension("fzf")
-telescope.load_extension("bibtex")
-telescope.load_extension("heading")
+        -- Optional: load extensions here
+        -- telescope.load_extension("fzf")
+    end,
+    lazy = false, -- load at startup
+}

@@ -1,0 +1,79 @@
+-- Snacks.nvim plugin spec for lazy.nvim
+return {
+    "folke/snacks.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+        local Snacks = require("snacks")
+
+        Snacks.setup({
+            picker = { enabled = true },
+        })
+
+        local function get_preview_height()
+            return math.min(20, math.floor(vim.o.lines * 0.5))
+        end
+
+        -- Insert Obsidian-style link at cursor
+        local function insert_obsidian_link(entry)
+            local filename = vim.fn.fnamemodify(entry.value, ":t:r") -- filename without extension
+            local link = "[[" .. filename .. "]]"
+            local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+            local line = vim.api.nvim_get_current_line()
+            local new_line = line:sub(1, col) .. link .. line:sub(col + 1)
+            vim.api.nvim_set_current_line(new_line)
+            vim.api.nvim_win_set_cursor(0, {row, col + #link})
+        end
+
+        -- File picker
+        local function file_picker()
+            Snacks.picker.pick({
+                source = "files",
+                cwd = "~/notes/md",
+                layout = {
+                    strategy = "vertical",
+                    width = 0.9,
+                    height = 0.8,
+                    preview_height = get_preview_height(),
+                    prompt_position = "bottom",
+                },
+                previewer = true,
+                actions = {
+                    ["<CR>"] = function(entry)
+                        vim.cmd("edit " .. entry.value)
+                    end,
+                    ["l"] = insert_obsidian_link,  -- safe letter key in picker normal mode
+                },
+            })
+        end
+
+        -- Grep picker
+        local function grep_picker()
+            Snacks.picker.pick({
+                source = "grep",
+                cwd = "~/notes/md",
+                layout = {
+                    strategy = "vertical",
+                    width = 0.9,
+                    height = 0.8,
+                    preview_height = get_preview_height(),
+                    prompt_position = "bottom",
+                },
+                previewer = true,
+                actions = {
+                    ["<CR>"] = function(entry)
+                        vim.cmd("edit " .. entry.value)
+                    end,
+                    ["l"] = insert_obsidian_link,
+                },
+            })
+        end
+
+        -- Keymaps
+        vim.keymap.set("n", "<leader>f", file_picker, { desc = "File Finder (Snacks, preview on top)" })
+        vim.keymap.set("n", "<leader>g", grep_picker, { desc = "Live Grep (Snacks, preview on top)" })
+
+        -- Commands
+        vim.api.nvim_create_user_command("Files", file_picker, {})
+        vim.api.nvim_create_user_command("Grep", grep_picker, {})
+    end,
+}

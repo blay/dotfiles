@@ -129,12 +129,13 @@ key.set("n", "<leader>ä", "<cmd>Git blame<cr>")
 -- Plugins
 
 -- Telescope settings
-key.set("n", "<leader>a", "<cmd>Telescope live_grep<cr>")
-key.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+--key.set("n", "<leader>a", "<cmd>Telescope live_grep theme=dropdown<cr>")
+--key.set("n", "<leader>a", "<cmd>Telescope live_grep<cr>")
+--key.set("n", "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<cr>")
 key.set("n", "<leader>f", "<cmd>Telescope buffers<cr>")
 
-key.set("n", "<leader>j", "<cmd>Telescope oldfiles<cr>")
-key.set("n", "<leader>J", "<cmd>Telescope git_status<cr>")
+--key.set("n", "<leader>j", "<cmd>Telescope oldfiles<cr>")
+--key.set("n", "<leader>J", "<cmd>Telescope git_status<cr>")
 
 key.set("n", "<leader><leader>", "<cmd>Telescope smart_open<cr>")
 key.set("n", "<leader>T", "<cmd>Telescope builtin<cr>")
@@ -146,17 +147,27 @@ key.set("n", "<leader>u", "<cmd>Telescope bibtex<cr>")
 key.set("i", "<C-u>", "<cmd>Telescope bibtex<cr>")
 
 key.set("n", "<leader>p", "<cmd>Easypick due<cr>")
+
 -- Telekasten settings
 
 key.set("n", "<leader>t", "<cmd>Telekasten panel<cr>")
-key.set("n", "<leader>l", "<cmd>Telekasten find_notes<cr>")
+--key.set("n", "<leader>l", "<cmd>Telekasten find_notes<cr>")
 key.set("n", "<leader>F", "<cmd>Telekasten show_backlinks<cr>")
 
 key.set("i", "<C-l>", "<cmd>Telekasten insert_link<cr>")
-key.set("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
+--key.set("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
 key.set("n", "<leader>i", "<cmd>Telekasten toggle_todo<cr>")
 key.set("i", "<C-i>", "<cmd>Telekasten toggle_todo<cr>")
 key.set("n", "<leader>n", "<cmd>Telekasten new_note<cr>")
+
+-- Snacks settings
+
+key.set("n", "<leader>l", "<cmd>Files<cr>", { desc = "File Finder (Snacks)" })
+key.set("n", "<leader>a", "<cmd>Grep<cr>", { desc = "Live Grep (Snacks)" })
+key.set("n", "<leader>s", "<cmd>BufferLines<cr>", { desc = "Lines in buffer" })
+key.set("n", "<leader>j", "<cmd>RecentFiles<cr>", { desc = "Recently opened files" })
+key.set("n", "<leader>J", "<cmd>GitStatus<cr>", { desc = "Git status" })
+key.set("n", "<leader>ö", "<cmd>SnacksWikiPreview<cr>", { desc = "Snacks Wiki Preview" })
 
 -- todo note yaml
 function TodoYaml()
@@ -170,7 +181,7 @@ key.set("n", "<leader>N", ":lua TodoYaml()<CR>")
 
 --- Go to Monthly file
 
-key.set("n", "<leader>K", ":execute 'e ' .. strftime('%Y-%m-01-0000.j.%B.md')<CR>")
+key.set("n", "<leader>K", ":execute 'e ~/notes/md/' .. strftime('%Y-%m-01-0000.j.%B.md')<CR>")
 
 -- Monthly headings
 
