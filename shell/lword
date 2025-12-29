@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Reads file paths from STDIN and prints: filename<TAB>wordcount
+# Usage example:
+#   ls *phd*.md | lword
+
+while IFS= read -r f; do
+    [ -f "$f" ] && printf "%s\t%s\n" "$f" "$(wc -w < "$f")"
+done | sort -k2 -n
+
+

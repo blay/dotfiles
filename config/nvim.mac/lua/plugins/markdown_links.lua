@@ -18,7 +18,7 @@ end
 
 function M.setup()
     -- Highlight [[links]] in purple (Ayu Mirage)
-    vim.api.nvim_set_hl(0, "MarkdownLink", { fg = "#695380", bold = true }) 
+    vim.api.nvim_set_hl(0, "MarkdownLink", { fg = "#73D0FF", bold = true }) 
 
 
     vim.api.nvim_create_autocmd("FileType", {

@@ -2,7 +2,7 @@
 station_names="
 [1] NTS1
 [2] NTS2
-[3] Resonance.fm
+[3] Dublab
 [4] Rinse FM France
 [5] Sub FM
 [6] Radio Flouka

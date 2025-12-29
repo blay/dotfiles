@@ -6,6 +6,7 @@ return {
 
         telekasten.setup({
             home = vim.fn.expand("~/notes/md"),  -- adjust your notes directory
+            picker = 'snacks',
             take_over_my_home = false,
             auto_set_filetype = false,
             auto_set_syntax = false,

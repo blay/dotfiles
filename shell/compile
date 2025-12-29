@@ -9,7 +9,8 @@ def replace_wikilinks_with_content(input_file, output_file, keep_wikilinks, keep
         content = file.read()
 
     # Regular expression to find wikilinks, excluding those containing @
-    wikilink_pattern = r'(?<!@)\[\[([^@\]]+)\]\]'
+    # wikilink_pattern = r'(?<!@)\[\[([^@\]]+)\]\]'
+    wikilink_pattern = r'(?m)^(?<!@)\[\[([^@\]]+)\]\]'
 
     # Function to replace a wikilink with the content of the linked file
     def replace_link(match):

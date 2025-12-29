@@ -51,3 +51,5 @@ export COLORTERM=truecolor
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   tmux attach-session -t main || tmux new-session -s main
 fi
+export PATH="$(brew --prefix ruby)/bin:$PATH"
+
