@@ -8,28 +8,29 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
+# load zgenom
+source "${HOME}/.zgenom/zgenom.zsh"
 # if the init script doesn't exist
-if ! zgen saved; then
+if ! zgenom saved; then
 
 # Load oh-my-zsh base and plugins
-zgen oh-my-zsh
-zgen oh-my-zsh plugins/git
-zgen oh-my-zsh plugins/command-not-found
-zgen oh-my-zsh plugins/history-substring-search
+zgenom oh-my-zsh
+zgenom oh-my-zsh plugins/git
+zgenom oh-my-zsh plugins/command-not-found
+zgenom oh-my-zsh plugins/history-substring-search
 # Load Github Plugins
-zgen load zsh-users/zsh-autosuggestions
-zgen load zsh-users/zsh-syntax-highlighting
-zgen load zsh-users/zsh-completions
-zgen load zsh-users/zsh-interactive-cd
+zgenom load zsh-users/zsh-autosuggestions
+zgenom load zsh-users/zsh-syntax-highlighting
+zgenom load zsh-users/zsh-completions
+zgenom load zsh-users/zsh-interactive-cd
+zgenom load joshskidmore/zsh-fzf-history-search
 # Load theme
-zgen load romkatv/powerlevel10k powerlevel10k
-#zgen oh-my-zsh themes/steeef
+zgenom load romkatv/powerlevel10k powerlevel10k
+#zgenom oh-my-zsh themes/steeef
 
 
   # generate the init script from plugins above
-  zgen save
+  zgenom save
 fi
 
 # Load custom aliases

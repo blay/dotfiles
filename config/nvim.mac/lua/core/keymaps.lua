@@ -95,7 +95,7 @@ key.set("i", "<C-e>", "<ESC>A")
 -- Jump with hop word
 key.set("n", "<leader>g", "<cmd>HopWord<cr>")
 -- Turn block into list
-key.set("n", "<leader>i", "vip<C-v><S-i>- <Esc>")
+key.set("n", "<leader>I", "vip<C-v><S-i>- <Esc>")
 -- Make list of links
 -- key.set("n", "<leader>I", ":%s/^\\[/- \\[/<CR><leader>/")
 
@@ -156,7 +156,7 @@ key.set("n", "<leader>F", "<cmd>Telekasten show_backlinks<cr>")
 
 key.set("i", "<C-l>", "<cmd>Telekasten insert_link<cr>")
 --key.set("n", "<leader>ö", "<cmd>Telekasten follow_link<cr>")
-key.set("n", "<leader>I", "<cmd>Telekasten toggle_todo<cr>")
+key.set("n", "<leader>i", "<cmd>Telekasten toggle_todo<cr>")
 key.set("i", "<C-i>", "<cmd>Telekasten toggle_todo<cr>")
 key.set("n", "<leader>n", "<cmd>Telekasten new_note<cr>")
 
