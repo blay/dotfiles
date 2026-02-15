@@ -8,6 +8,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Autostart Tmux
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_DEFAULT_SESSION_NAME="main"
+
 # load zgenom
 source "${HOME}/.zgenom/zgenom.zsh"
 # if the init script doesn't exist
@@ -16,6 +20,7 @@ if ! zgenom saved; then
 # Load oh-my-zsh base and plugins
 zgenom oh-my-zsh
 zgenom oh-my-zsh plugins/git
+zgenom oh-my-zsh plugins/tmux
 zgenom oh-my-zsh plugins/command-not-found
 zgenom oh-my-zsh plugins/history-substring-search
 # Load Github Plugins
@@ -28,10 +33,10 @@ zgenom load joshskidmore/zsh-fzf-history-search
 zgenom load romkatv/powerlevel10k powerlevel10k
 #zgenom oh-my-zsh themes/steeef
 
-
   # generate the init script from plugins above
   zgenom save
 fi
+
 
 # Load custom aliases
 [[ -s "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -45,12 +50,8 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Testing to get colours in tmux
-export TERM=tmux-256color
+[[ -n $TMUX ]] && export TERM=tmux-256color
 export COLORTERM=truecolor
 
-# Load TMUX
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach-session -t main || tmux new-session -s main
-fi
 export PATH="$(brew --prefix ruby)/bin:$PATH"
 
