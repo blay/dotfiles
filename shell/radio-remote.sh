@@ -6,7 +6,7 @@ station_names="
 [4] Rinse FM France
 [5] Sub FM
 [6] Radio Flouka
-[7] BBC 6
+[7] Refuge Worldwide
 [8] Radio Fume
 [9] World Wide Radio
 [0] Next Station

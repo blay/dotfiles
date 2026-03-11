@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+input="$1"
+shift
+
+if [[ -z "$input" ]]; then
+  echo "Usage: pd <file.md> [extra pandoc args]" >&2
+  exit 1
+fi
+
+output="${input%.md}.pdf"
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+
+pandoc "$input" --defaults "$script_dir/academic.yaml" -o "$output" "$@"
+echo "→ $output"

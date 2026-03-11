@@ -1,0 +1,18 @@
+# academic-defaults.yaml
+pdf-engine: xelatex
+bibliography: "/home/svartfax/notes/lib.bib"
+citeproc: true
+cite-method: biblatex
+biblatexoptions:
+  - "style=verbose-ibid"   # or: authortitle, verbose, chicago-authordate
+variables:
+  mainfont: "TeX Gyre Pagella"   # Palatino-style — much nicer than CM Roman
+  sansfont: "TeX Gyre Heros"
+  monofont: "Inconsolata"
+  fontsize: 11pt
+  geometry: "a4paper, top=30mm, bottom=30mm, left=32mm, right=32mm"
+  linestretch: 1.15
+  colorlinks: true
+  linkcolor: "blue!60!black"
+  citecolor: "blue!60!black"
+  urlcolor: "blue!60!black"

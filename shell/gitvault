@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+show_commits() {
+  git log "$@" --numstat \
+    --pretty=format:"COMMIT %ad %h %s" --date=short \
+  | awk '
+    /^COMMIT / {
+      if (header != "") flush()
+      header = $0
+      sub(/^COMMIT /, "", header)
+      nfiles = 0
+      next
+    }
+    NF == 3 && /\.md/ {
+      added[nfiles] = $1 + 0
+      deleted[nfiles] = $2 + 0
+      fname[nfiles] = $3
+      nfiles++
+    }
+    END { if (header != "") flush() }
+
+    function flush() {
+      # sort files by added desc (insertion sort)
+      for (i = 1; i < nfiles; i++) {
+        for (j = i; j > 0 && added[j] > added[j-1]; j--) {
+          swap(j, j-1)
+        }
+      }
+      limit = (nfiles < 5) ? nfiles : 5
+      printf "--- %s\n", header
+      for (i = 0; i < limit; i++)
+        printf "  +%-4d -%d\t%s\n", added[i], deleted[i], fname[i]
+      if (nfiles > 5)
+        printf "  ... and %d more\n", nfiles - 5
+      print ""
+    }
+
+    function swap(a, b,   t) {
+      t = added[a];  added[a]  = added[b];  added[b]  = t
+      t = deleted[a]; deleted[a] = deleted[b]; deleted[b] = t
+      t = fname[a];  fname[a]  = fname[b];  fname[b]  = t
+    }
+  '
+}
+
+if [ "$1" = "last" ]; then
+  echo "=== LAST COMMIT ==="
+  show_commits -1
+elif [ -n "$1" ]; then
+  echo "=== COMMITTED (since $1) ==="
+  show_commits --after="$1"
+fi
+
+echo "=== UNSTAGED ==="
+git diff --numstat HEAD | awk '
+  /\.md/ { printf "  +%-4d -%d\t%s\n", $1+0, $2+0, $3 }
+'

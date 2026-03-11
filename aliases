@@ -97,8 +97,8 @@ alias rnd='ls|sort -R'
 alias pre='fzf --preview="head -$LINES {}" --preview-window wrap'
 alias am='ag --passthru  "^\#.*"'
 
-alias pan='pandoc --citeproc --bibliography ~/notes/lib.bib -V papersize:a4 --pdf-engine xelatex '
-
+# alias pan='pandoc --citeproc --bibliography ~/notes/lib.bib -V papersize:a4 --pdf-engine xelatex '
+alias pan='pandoc --defaults academic-defaults.yaml '
 
 alias zkviz='~/envs/zkviz/bin/zkviz'
 
@@ -132,8 +132,9 @@ alias tb='rg @todo:b ~/zettel'
 alias tc='rg @todo:c ~/zettel'
 
 # Git
-alias gitdone='git log -p -1|ag @todo:|ap "^-"'
+alias gitname='git log --name-only' 
 alias gitlogs='git log --pretty=format:"%ar : %s"'
+alias gv='gitvault'
 
 ## Commands
 alias plus='sh ~/.shell/plus.sh'
